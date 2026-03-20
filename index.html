@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html lang="sv">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
     <title>Laga Handkontroll Malmö | Stick Drift Fix & TMR Upgrade | mkFix</title>
-    <meta name="description" content="Fixa stick drift permanent i Malmö! Vi erbjuder TMR & Hall Effect uppgraderingar för PS5, Xbox och Switch. Snabbt, prisvärt och med 12 månaders garanti.">
-    <meta name="keywords" content="stick drift repair malmö, laga handkontroll malmö, TMR sensor upgrade, laga PS5 kontroll malmö, nintendo switch lagning">
-    
+    <meta name="description"
+        content="Fixa stick drift permanent i Malmö! Vi erbjuder TMR & Hall Effect uppgraderingar för PS5, Xbox och Switch. Snabbt, prisvärt och med 6 månaders garanti.">
+    <meta name="keywords"
+        content="stick drift repair malmö, laga handkontroll malmö, TMR sensor upgrade, laga PS5 kontroll malmö, nintendo switch lagning">
+
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -34,116 +37,310 @@
             --border: #334155;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', -apple-system, sans-serif; }
-        body { background-color: var(--bg); color: var(--text-main); line-height: 1.6; }
-        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', -apple-system, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
 
         /* Navigation */
-        header { background: rgba(15, 23, 42, 0.9); backdrop-filter: blur(10px); padding: 1.2rem 0; position: sticky; top: 0; z-index: 100; border-bottom: 1px solid var(--border); }
-        nav { display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-size: 1.4rem; font-weight: 800; color: var(--accent); letter-spacing: -1px; }
-        .nav-city { font-size: 0.9rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 1px; }
+        header {
+            background: rgba(15, 23, 42, 0.9);
+            backdrop-filter: blur(10px);
+            padding: 1.2rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid var(--border);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--accent);
+            letter-spacing: -1px;
+        }
+
+        .nav-city {
+            font-size: 0.9rem;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
 
         /* Hero Section */
-        .hero { padding: 6rem 0 4rem; text-align: center; }
-        .hero h1 { font-size: clamp(2.5rem, 8vw, 4rem); font-weight: 900; line-height: 1.1; margin-bottom: 1.5rem; letter-spacing: -2px; }
-        .hero h1 span { color: var(--accent); }
-        .hero p { color: var(--text-dim); font-size: 1.25rem; max-width: 700px; margin: 0 auto 2.5rem; }
+        .hero {
+            padding: 6rem 0 4rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 8vw, 4rem);
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            letter-spacing: -2px;
+        }
+
+        .hero h1 span {
+            color: var(--accent);
+        }
+
+        .hero p {
+            color: var(--text-dim);
+            font-size: 1.25rem;
+            max-width: 700px;
+            margin: 0 auto 2.5rem;
+        }
 
         /* Trust Box */
-        .trust-box { background: linear-gradient(90deg, rgba(56, 189, 248, 0.1), rgba(34, 197, 94, 0.1)); border: 1px solid var(--border); padding: 1.5rem; border-radius: 12px; display: inline-flex; align-items: center; gap: 15px; margin-bottom: 3rem; }
-        .trust-badge { background: var(--success); color: var(--bg); font-weight: bold; padding: 4px 12px; border-radius: 6px; font-size: 0.9rem; }
+        .trust-box {
+            background: linear-gradient(90deg, rgba(56, 189, 248, 0.1), rgba(34, 197, 94, 0.1));
+            border: 1px solid var(--border);
+            padding: 1.5rem;
+            border-radius: 12px;
+            display: inline-flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 3rem;
+        }
+
+        .trust-badge {
+            background: var(--success);
+            color: var(--bg);
+            font-weight: bold;
+            padding: 4px 12px;
+            border-radius: 6px;
+            font-size: 0.9rem;
+        }
 
         /* Grid & Cards */
-        .section-title { font-size: 2rem; margin-bottom: 2rem; text-align: center; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-bottom: 5rem; }
-        
-        .card { background: var(--card-bg); padding: 3.1rem 2.5rem; border-radius: 20px; border: 1px solid var(--border); position: relative; transition: transform 0.3s ease; }
-        .card:hover { transform: translateY(-5px); border-color: var(--accent); }
-        .popular-tag { position: absolute; top: 1.5rem; right: 1.5rem; background: var(--accent); color: var(--bg); font-size: 0.7rem; font-weight: 800; padding: 4px 10px; border-radius: 50px; }
-        
-        .card h3 { font-size: 1.5rem; margin-bottom: 0.5rem; }
-        .card .price { font-size: 2rem; font-weight: 800; color: var(--accent); display: block; margin-bottom: 1rem; }
-        .card p, li { color: var(--text-dim); font-size: 0.95rem; }
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 5rem;
+        }
+
+        .card {
+            background: var(--card-bg);
+            padding: 3.1rem 2.5rem;
+            border-radius: 20px;
+            border: 1px solid var(--border);
+            position: relative;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+        }
+
+        .popular-tag {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            background: var(--accent);
+            color: var(--bg);
+            font-size: 0.7rem;
+            font-weight: 800;
+            padding: 4px 10px;
+            border-radius: 50px;
+        }
+
+        .card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .card .price {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--accent);
+            display: block;
+            margin-bottom: 1rem;
+        }
+
+        .card p,
+        li {
+            color: var(--text-dim);
+            font-size: 0.95rem;
+        }
 
         /* Gallery Section */
-        .gallery-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 5rem; }
-        .gallery-item { background: var(--card-bg); border-radius: 15px; overflow: hidden; border: 1px solid var(--border); }
-        .placeholder-img { height: 250px; background: #2d3a4f; display: flex; align-items: center; justify-content: center; color: var(--text-dim); font-style: italic; }
-        .gallery-label { padding: 1rem; text-align: center; font-weight: bold; }
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-bottom: 5rem;
+        }
+
+        .gallery-item {
+            background: var(--card-bg);
+            border-radius: 15px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+        }
+
+        .placeholder-img {
+            height: 250px;
+            background: #2d3a4f;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-dim);
+            font-style: italic;
+        }
+
+        .gallery-label {
+            padding: 1rem;
+            text-align: center;
+            font-weight: bold;
+        }
 
         /* Contact Section */
-        .contact-card { background: linear-gradient(145deg, #1e293b, #0f172a); padding: 4rem 2rem; border-radius: 30px; text-align: center; border: 1px solid var(--accent); margin-bottom: 5rem; }
-        .contact-card h2 { font-size: 2.5rem; margin-bottom: 1rem; }
-        .contact-method { display: block; font-size: 1.8rem; word-break: break-all; color: var(--accent); text-decoration: none; font-weight: 700; margin: 10px 0; transition: 0.2s; }
-        .contact-method:hover { opacity: 0.8; }
-        ul {margin-left: 12px;}
-        footer { text-align: center; padding: 4rem 0; color: var(--text-dim); font-size: 0.9rem; border-top: 1px solid var(--border); }
+        .contact-card {
+            background: linear-gradient(145deg, #1e293b, #0f172a);
+            padding: 4rem 2rem;
+            border-radius: 30px;
+            text-align: center;
+            border: 1px solid var(--accent);
+            margin-bottom: 5rem;
+        }
+
+        .contact-card h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-method {
+            display: block;
+            font-size: 1.8rem;
+            word-break: break-all;
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 700;
+            margin: 10px 0;
+            transition: 0.2s;
+        }
+
+        .contact-method:hover {
+            opacity: 0.8;
+        }
+
+        ul {
+            margin-left: 12px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 4rem 0;
+            color: var(--text-dim);
+            font-size: 0.9rem;
+            border-top: 1px solid var(--border);
+        }
 
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2.5rem; }
-            .gallery-grid { grid-template-columns: 1fr; }
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
+
 <body>
 
-<header>
-    <div class="container">
-        <nav>
-            <div class="logo">mkFix</div>
-            <div class="nav-city">Malmö | Sverige</div>
-        </nav>
-    </div>
-</header>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">mkFix</div>
+                <div class="nav-city">Malmö | Sverige</div>
+            </nav>
+        </div>
+    </header>
 
-<main class="container">
-    <section class="hero">
-        <div class="trust-box">
-            <span class="trust-badge">12 MÅN GARANTI</span>
-            <span>Specialist-service i Malmö</span>
-        </div>
-        <h1>Laga din handkontroll i <span>Malmö</span></h1>
-        <p>Specialist på <strong>Stick Drift Repair</strong> och TMR-uppgraderingar. Vi servar Playstation, Xbox och Switch snabbt, smidigt och lokalt.</p>
-        <a href="#boka" class="contact-method" style="font-size: 1.2rem; background: var(--accent); color: var(--bg); display: inline-block; padding: 15px 30px; border-radius: 10px;">BOKA DIN REPARATION</a>
-    </section>
+    <main class="container">
+        <section class="hero">
+            <div class="trust-box">
+                <span class="trust-badge">6 MÅN GARANTI</span>
+                <span>Specialist-service i Malmö</span>
+            </div>
+            <h1>Laga din handkontroll i <span>Malmö</span></h1>
+            <p>Specialist på <strong>Stick Drift Repair</strong> och TMR-uppgraderingar. Vi servar Playstation, Xbox och
+                Switch snabbt, smidigt och lokalt.</p>
+            <a href="#boka" class="contact-method"
+                style="font-size: 1.2rem; background: var(--accent); color: var(--bg); display: inline-block; padding: 15px 30px; border-radius: 10px;">BOKA
+                DIN REPARATION</a>
+        </section>
 
-    <h2 class="section-title">Våra Tjänster</h2>
-    <div class="grid">
-        <div class="card">
-            <span class="popular-tag">Playstation 5 / Xbox Series</span>
-            <h3>TMR Sensor Upgrade</h3>
-            <span class="price">449 kr</span>
-            <p>Vi ersätter dina analoga spakar med magnetiska TMR-sensorer. En permanent lösning som aldrig får stick drift.</p>
+        <h2 class="section-title">Våra Tjänster</h2>
+        <div class="grid">
+            <div class="card">
+                <span class="popular-tag">Playstation 5 / Xbox Series</span>
+                <h3>TMR Sensor Upgrade</h3>
+                <span class="price">449 kr</span>
+                <p>Vi ersätter dina analoga spakar med magnetiska TMR-sensorer. En permanent lösning som aldrig får
+                    stick drift.</p>
+            </div>
+            <div class="card">
+                <span class="popular-tag">Playstation 4 / Xbox One</span>
+                <h3>TMR Sensor Upgrade</h3>
+                <span class="price">399 kr</span>
+                <p>Vi ersätter dina analoga spakar med magnetiska TMR-sensorer. Äldre kontroller förtjänar också kärlek.
+                </p>
+            </div>
+            <div class="card">
+                <span class="popular-tag">Nintendo switch 1</span>
+                <h3>TMR joycon upgrade</h3>
+                <span class="price">299 kr för en, 399 för båda</span>
+                <p>Joycons för Nintendo Switch är ökända för att drifta, vi löser det åt dig med TMR sensorer!</p>
+            </div>
+            <div class="card">
+                <h3>Konsolrengöring</h3>
+                <span class="price">fr. 499 kr</span>
+                <p>Rengöring av fläktar och byte av kylpasta. Få en tystare konsol och längre livslängd.</p>
+                <p>499 för Playstation 4 och Xbox One</p>
+                <p>699 för Playstation 5 och Xbox Series</p>
+            </div>
+            <div class="card">
+                <h3>Mer snart</h3>
+                <span class="price"></span>
+                <p>Vi håller på att utöka våra tjänster.</p>
+                <p>Fråga oss gärna om det är något du undrar över</p>
+            </div>
         </div>
-        <div class="card">
-            <span class="popular-tag">Playstation 4 / Xbox One</span>
-            <h3>TMR Sensor Upgrade</h3>
-            <span class="price">399 kr</span>
-            <p>Vi ersätter dina analoga spakar med magnetiska TMR-sensorer. Äldre kontroller förtjänar också kärlek.</p>
-        </div>
-        <div class="card">
-            <span class="popular-tag">Nintendo switch 1</span>
-            <h3>TMR joycon upgrade</h3>
-            <span class="price">299 kr för en, 399 för båda</span>
-            <p>Joycons för Nintendo Switch är ökända för att drifta, vi löser det åt dig med TMR sensorer!</p>
-        </div>
-        <div class="card">
-            <h3>Konsolrengöring</h3>
-            <span class="price">fr. 499 kr</span>
-            <p>Rengöring av fläktar och byte av kylpasta. Få en tystare konsol och längre livslängd.</p>
-            <p>499 för Playstation 4 och Xbox One</p>
-            <p>699 för Playstation 5 och Xbox Series</p>
-        </div>
-        <div class="card">
-            <h3>Mer snart</h3>
-            <span class="price"></span>
-            <p>Vi håller på att utöka våra tjänster.</p>
-            <p>Fråga oss gärna om det är något du undrar över</p>
-        </div>
-    </div>
 
-    <!-- <h2 class="section-title">Före & Efter</h2>
+
+        <!-- <h2 class="section-title">Före & Efter</h2>
     <div class="gallery-grid">
         <div class="gallery-item">
             <div class="placeholder-img">[Här lägger du in bild på smutsig fläkt/trasig spak]</div>
@@ -155,63 +352,131 @@
         </div>
     </div> -->
 
-    <section id="boka" class="contact-card">
-        <h2>Redo att spela igen?</h2>
-        <p>Lämna in lokalt i Malmö eller skicka via PostNord. Fraktinformation ges vid bokad reparation.</p>
-        <div style="margin: 2rem 0;">
-            <a href="tel:0790320605" class="contact-method">079-032 06 05</a>
-            <a href="mailto:support.mkfix@gmail.com" class="contact-method">support.mkfix@gmail.com</a>
-        </div>
-        <p style="color: var(--text-dim)">Riseberga Bulltofta / Östra Malmö / Postmottagning</p>
-    </section>
+        <section id="boka" class="contact-card">
+            <h2>Redo att spela igen?</h2>
+            <p>Lämna in lokalt i Malmö eller skicka via PostNord. Fraktinformation ges vid bokad reparation.</p>
+            <div style="margin: 2rem 0;">
+                <a href="tel:0790320605" class="contact-method">079-032 06 05</a>
+                <a href="mailto:support.mkfix@gmail.com" class="contact-method">support.mkfix@gmail.com</a>
+            </div>
+            <p style="color: var(--text-dim)">Riseberga Bulltofta / Östra Malmö / Postmottagning</p>
+        </section>
 
-    <section class="container" style="margin-bottom: 5rem;">
-    <h2 class="section-title">Vanliga frågor & Garanti</h2>
-    <div class="card" style="background: rgba(56, 189, 248, 0.05);">
-        <p><strong>Vad ingår i garantin?</strong><br>
-        Jag lämnar 12 månaders garanti på alla reservdelar och utfört arbete. Det täcker tekniska fel som uppstår vid normal användning.</p>
-        <br>
-        <p><strong>Gäller garantin om jag kastar kontrollen i väggen?</strong><br>
-        Tyvärr inte! 😉 Garantin täcker inte "gamer rage", tappskador, vätskeskador eller om kontrollen öppnats av någon annan efter min service.</p>
-        <br>
-        <p><strong>Hur kan jag vara säker på att jobbet blivit utfört korrekt?</strong><br>
-        jag spelar in alla mina reparationer eller så livestreamar jag dem. Kunden får alltid en länk på reparationen om dem vill se den. Att dokumentera 
-        vad man gör är bra för allas trygghet!</p>
-        <br>
-        <p><strong>Varför används TMR sticks och vad är det?</strong><br>
-        TMR sticks har magnetiska TMR-sensorer. De slits aldrig ut mekaniskt och eliminerar stick drift för gott. Kontroller kommer vanligtvis med potentiometerbaserade joysticks.
-     Dessa har metal"washers" som trycker på ett kolspår. Detta sliter ut kolspåret med tiden och skapar stickdrift. </p>
-        <br>
+        <section class="container" style="margin-bottom: 5rem;">
+            <h2 class="section-title">Vanliga frågor & Garanti</h2>
+            <div class="card" style="background: rgba(56, 189, 248, 0.05);">
+                <p><strong>Hur kan jag vara säker på att jobbet blivit utfört korrekt?</strong><br>
+                    jag spelar in alla mina reparationer eller så livestreamar jag dem. Kunden får alltid en länk på
+                    reparationen om dem vill se den. Att dokumentera
+                    vad man gör är bra för allas trygghet!</p>
+                <br>
+                <p><strong>Varför används TMR sticks och vad är det?</strong><br>
+                    TMR sticks har magnetiska TMR-sensorer. De slits aldrig ut mekaniskt och eliminerar stick drift för
+                    gott. Kontroller kommer vanligtvis med potentiometerbaserade joysticks.
+                    Dessa har metal"washers" som trycker på ett kolspår. Detta sliter ut kolspåret med tiden och skapar
+                    stickdrift. </p>
+                <br>
 
-        <p><strong>Mer om garanti</strong></p>
-  
-        <p>När du lagar din kontroll hos mkFix Malmö vill jag att du ska känna dig trygg. Därför lämnar jag alltid 12 månaders funktionsgaranti på det utförda arbetet och de delar som bytts ut (t.ex. TMR-sensorer eller batteri).</p>
-        <br>
-        <p><strong>Vad garantin täcker:</strong></p>
-        <ul>
-            <li>Tekniska fel: Om stick drift kommer tillbaka på den utbytta sensorn eller om en lödning släpper.</li>
+                <p><strong>Mer om garanti</strong></p>
+                <p><strong>Vad ingår i garantin?</strong><br>
+                    Jag lämnar 6 månaders garanti på alla reservdelar och utfört arbete. Det täcker tekniska fel som
+                    uppstår vid normal användning.</p>
+                <br>
+                <p><strong>Gäller garantin om jag kastar kontrollen i väggen?</strong><br>
+                    Tyvärr inte! 😉 Garantin täcker inte "gamer rage", tappskador, vätskeskador eller om kontrollen
+                    öppnats av någon annan efter min service.</p>
+                <br>
 
-            <li>Komponentfel: Om det nya batteriet slutar ta laddning eller om den utbytta laddporten slutar fungera under normal användning.</li>
-        </ul>
-        <br>
-        <p><strong>Vad garantin INTE täcker (Undantag):</strong></p>
-            <ul>
+                <p>När du lagar din kontroll hos mkFix Malmö vill jag att du ska känna dig trygg. Därför lämnar jag
+                    alltid 6 månaders funktionsgaranti på det utförda arbetet och de delar som bytts ut (t.ex.
+                    TMR-sensorer eller batteri).</p>
+                <br>
+                <p><strong>Vad garantin täcker:</strong></p>
+                <ul>
+                    <li>Tekniska fel: Om stick drift kommer tillbaka på den utbytta sensorn eller om en lödning släpper.
+                    </li>
 
-                <li>Yttre åverkan: Om kontrollen har kastats, tappats i golvet eller utsatts för annat fysiskt våld.</li>
-                
-                <li>Vätskeskador: Om du råkat spilla läsk eller kaffe i kontrollen efter reparationen.</h4>
-                
-                <li>Eget ingrepp: Om du (eller någon annan) har öppnat kontrollen efter att jag förseglat den.</li>
-                
-                <li>Normalt slitage: Garantin täcker inte att knapparna blir "blanka" eller gummit på spakarna slits ner av vanligt spelande.</li>
-            </ul>
-    </div>
-</section>
-</main>
+                    <li>Komponentfel: Om det nya batteriet slutar ta laddning eller om den utbytta laddporten slutar
+                        fungera under normal användning.</li>
+                </ul>
+                <br>
+                <p><strong>Vad garantin INTE täcker (Undantag):</strong></p>
+                <ul>
 
-<footer>
-    <p>&copy; 2026 mkFix Sverige. Expert på Stick Drift Repair Malmö.</p>
-</footer>
+                    <li>Yttre åverkan: Om kontrollen har kastats, tappats i golvet eller utsatts för annat fysiskt våld.
+                    </li>
+
+                    <li>Vätskeskador: Om du råkat spilla läsk eller kaffe i kontrollen efter reparationen.</h4>
+
+                    <li>Eget ingrepp: Om du (eller någon annan) har öppnat kontrollen efter att jag förseglat den.</li>
+
+                    <li>Normalt slitage: Garantin täcker inte att knapparna blir "blanka" eller gummit på spakarna slits
+                        ner av vanligt spelande.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="terms-container" style="max-width: 800px; margin: 4rem auto; padding: 0 1rem;">
+            <details
+                style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 12px; padding: 1.5rem; cursor: pointer; transition: all 0.3s ease;">
+                <summary
+                    style="font-weight: 600; font-size: 1.1rem; color: var(--accent); list-style: none; display: flex; justify-content: space-between; align-items: center;">
+                    Villkor för reparation & GDPR (MKFix)
+                    <span style="font-size: 0.8rem; opacity: 0.6;">Klicka för att läsa</span>
+                </summary>
+
+                <div
+                    style="margin-top: 1.5rem; text-align: left; font-size: 0.95rem; line-height: 1.7; color: #e0e0e0; cursor: default;">
+
+                    <div style="margin-bottom: 1.5rem;">
+                        <h4 style="color: #fff; margin-bottom: 0.5rem;">1. Garanti</h4>
+                        <p>Vi lämnar <strong>6 månaders funktionsgaranti</strong> på det specifika arbete vi utfört
+                            (t.ex. byte till TMR-sensorer). Garantin täcker materialfel och monteringsfel. Den täcker
+                            inte fel som uppstått genom yttre påverkan (tappskador, vätska, våld eller om kontrollen
+                            öppnats av annan part).</p>
+                    </div>
+
+                    <div style="margin-bottom: 1.5rem;">
+                        <h4 style="color: #fff; margin-bottom: 0.5rem;">2. Ansvar & Befintliga fel</h4>
+                        <p>MKFix ansvarar endast för den reparation som beställts. Vi ansvarar inte för dolda fel som
+                            upptäcks under reparationen eller förlust av data på konsoler. Om vi upptäcker andra fel
+                            under arbetets gång kontaktar vi dig innan vi går vidare.</p>
+                    </div>
+
+                    <div style="margin-bottom: 1.5rem;">
+                        <h4 style="color: #fff; margin-bottom: 0.5rem;">3. Inlämning & Frakt</h4>
+                        <p>Vid postfrakt ansvarar kunden för att varan paketeras väl. Vi rekommenderar alltid
+                            <strong>spårbar frakt</strong>. MKFix ansvarar för varan från att den tagits emot till att
+                            den lämnats in hos ombud för returfrakt.</p>
+                    </div>
+
+                    <div style="margin-bottom: 1.5rem;">
+                        <h4 style="color: #fff; margin-bottom: 0.5rem;">4. Ej uthämtade varor</h4>
+                        <p>Reparerade varor som ej hämtats ut eller betalats inom <strong>6 månader</strong> efter
+                            färdigställd reparation tillfaller MKFix som kompensation för arbetskostnad och delar
+                            (enligt konsumenttjänstlagen).</p>
+                    </div>
+
+                    <div style="margin-bottom: 1.5rem;">
+                        <h4 style="color: #fff; margin-bottom: 0.5rem;">5. Integritetspolicy (GDPR)</h4>
+                        <p>Vi sparar endast ditt namn, telefonnummer och adress för att kunna hantera din beställning.
+                            Vi säljer aldrig dina uppgifter vidare och raderar dem om du så önskar efter avslutad
+                            garantiperiod. Vi håller även din information konfidentiell under streams.</p>
+                    </div>
+                    
+                    <div style="margin-bottom: 0.5rem;">
+                        <h4 style="color: #fff; margin-bottom: 0.5rem;">6. Extra kostnader</h4>
+                        <p>Om en enhet ankommer i ett rent ut sagt äckligt skick så jobbar vi inte på den utan att rengöra den. Det tillför en kostnad på 99kr som kunden blir meddelad om innan arbetet påbörjas. Om detta inte accepteras av kunden skickas enheten tillbaka. MkFix står inte för pengar förlorade på att frakta enheten om så är fallet.</p>
+                    </div>
+                </div>
+            </details>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 mkFix Sverige. Expert på Stick Drift Repair Malmö.</p>
+    </footer>
 
 </body>
+
 </html>
