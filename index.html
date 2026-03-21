@@ -339,42 +339,51 @@
             </div>
         </div>
 
-
-        <section id="youtube" style="text-align: center; padding: 4rem 1rem; background: rgba(255, 0, 0, 0.05); border-radius: 20px; margin: 2rem auto; max-width: 1000px;">
+<section id="youtube" style="text-align: center; padding: 4rem 1rem; background: rgba(255, 0, 0, 0.05); border-radius: 20px; margin: 2rem auto; max-width: 1000px; border: 1px solid rgba(255, 0, 0, 0.1);">
     <h2 style="color: #ff0000; margin-bottom: 1rem;">📺 MKFix på YouTube</h2>
-    <p>Se hur jag byter dina sensorer med kirurgisk precision eller lär dig kalibrera din kontroll själv.</p>
+    <p style="margin-bottom: 2rem;">Följ mina reparationer live eller se mina guider för kalibrering och uppgradering.</p>
 
-    <div class="live-status" style="margin-bottom: 1rem; display: inline-flex; align-items: center; gap: 8px; background: rgba(255,0,0,0.1); padding: 5px 15px; border-radius: 50px; border: 1px solid #ff0000;">
-        <span style="width: 10px; height: 10px; background: #ff0000; border-radius: 50%; animation: pulse 1.5s infinite;"></span>
-        <span style="color: #ff0000; font-weight: bold; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px;">Senaste Stream / LIVE</span>
+    <div style="margin-bottom: 3rem;">
+        <a href="https://www.youtube.com/@mkfixpl/live" target="_blank" style="text-decoration: none; display: inline-block;">
+            <div style="background: #ff0000; color: white; padding: 1.2rem 2.5rem; border-radius: 12px; font-weight: bold; display: flex; align-items: center; gap: 15px; box-shadow: 0 10px 20px rgba(255,0,0,0.2); transition: transform 0.2s;">
+                <span class="live-dot"></span>
+                SE LIVE-STREAM HÄR
+            </div>
+        </a>
+        <p style="font-size: 0.8rem; margin-top: 0.8rem; opacity: 0.7;">Klicka för att se om jag är live just nu (öppnas på YouTube)</p>
     </div>
 
-    <div style="margin: 1rem 0 3rem 0; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.5); aspect-ratio: 16/9;">
-        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/live?channel=UCjHHCOHPsiNdZK0zbJbTYJQ" frameborder="0" allowfullscreen></iframe>
-    </div>
-
-    <h3 style="margin-bottom: 1.5rem; font-size: 1.2rem;">Populära Guider & Tutorials</h3>
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-bottom: 2rem;">
-        <div style="border-radius: 10px; overflow: hidden; background: #000;">
-            <iframe width="100%" height="200" src="https://www.youtube.com/embed/VIDEO_ID_1" frameborder="0" allowfullscreen></iframe>
-            <p style="padding: 10px; font-size: 0.9rem;">Hur man kalibrerar TMR-sensorer</p>
+    <h3 style="margin-bottom: 1.5rem; font-size: 1.2rem; color: #fff;">Mina mest populära guider</h3>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
+        
+        <div style="border-radius: 15px; overflow: hidden; background: #000; border: 1px solid rgba(255,255,255,0.1);">
+            <div style="aspect-ratio: 16/9;">
+                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/vZfi6NYj5n8" frameborder="0" allowfullscreen></iframe>
+            </div>
+            <p style="padding: 15px; font-size: 0.95rem;">PS5 Controller TMR & Hall Effect Upgrade</p>
         </div>
-        <div style="border-radius: 10px; overflow: hidden; background: #000;">
-            <iframe width="100%" height="200" src="https://www.youtube.com/embed/VIDEO_ID_2" frameborder="0" allowfullscreen></iframe>
-            <p style="padding: 10px; font-size: 0.9rem;">Guide: Byte av spakar på PS5</p>
+
+        <div style="border-radius: 15px; overflow: hidden; background: #000; border: 1px solid rgba(255,255,255,0.1);">
+            <div style="aspect-ratio: 16/9;">
+               <iframe width="560" height="315" src="https://www.youtube.com/embed/kEqIDXbsg30?si=WXlcnCNiTxChgJOO" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            <p style="padding: 15px; font-size: 0.95rem;">Kalibrera din Xbox One kontroll!</p>
         </div>
     </div>
-
-    <a href="https://youtube.com/@mkfix" target="_blank" style="background: #ff0000; color: white; padding: 1rem 2rem; border-radius: 50px; text-decoration: none; font-weight: bold; display: inline-block; transition: transform 0.2s;">
-        Prenumerera på YouTube
-    </a>
 </section>
 
 <style>
+.live-dot {
+    width: 12px;
+    height: 12px;
+    background: white;
+    border-radius: 50%;
+    animation: pulse 1.5s infinite;
+}
 @keyframes pulse {
-    0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.7); }
-    70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(255, 0, 0, 0); }
-    100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 0, 0, 0); }
+    0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7); }
+    70% { transform: scale(1.5); box-shadow: 0 0 0 10px rgba(255, 255, 255, 0); }
+    100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
 }
 </style>
 
