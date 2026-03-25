@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Sökväg till din sitemap (om du skapar en senare)
+# Sitemap: https://mkfix.se/sitemap.xml
