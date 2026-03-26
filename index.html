@@ -4,26 +4,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
     <title>Laga Handkontroll Malmö | Stick Drift & TMR Fix | mkFix</title>
-    
+
     <link rel="canonical" href="https://mkfix.se/">
     <link rel="icon" type="image/png" href="https://mkfix.se/assets/favicon.png">
 
-    <meta name="description" content="Fixa stick drift permanent i Malmö! TMR & Hall Effect uppgraderingar för PS5, Xbox och Switch. Snabbt med 6 månaders garanti.">
-    <meta name="keywords" content="stick drift repair malmö, laga handkontroll malmö, TMR sensor upgrade, laga PS5 kontroll malmö, nintendo switch lagning">
+    <meta name="description"
+        content="Fixa stick drift permanent i Malmö! TMR & Hall Effect uppgraderingar för PS5, Xbox och Switch. Snabbt med 6 månaders garanti.">
+    <meta name="keywords"
+        content="stick drift repair malmö, laga handkontroll malmö, TMR sensor upgrade, laga PS5 kontroll malmö, nintendo switch lagning">
     <meta name="author" content="MKFix">
 
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://mkfix.se/">
     <meta property="og:title" content="MKFix - Säg hejdå till Stick Drift">
-    <meta property="og:description" content="Vi uppgraderar din kontroll till nästa nivå med TMR-stickor och custom mods i Malmö.">
+    <meta property="og:description"
+        content="Vi uppgraderar din kontroll till nästa nivå med TMR-stickor och custom mods i Malmö.">
     <meta property="og:image" content="https://mkfix.se/assets/og-image.jpg">
 
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://mkfix.se/">
     <meta property="twitter:title" content="MKFix - Handkontrollsservice">
-    <meta property="twitter:description" content="Professionell lagning av DualSense och DualShock i Malmö. TMR-uppgraderingar och mer!">
+    <meta property="twitter:description"
+        content="Professionell lagning av DualSense och DualShock i Malmö. TMR-uppgraderingar och mer!">
     <meta property="twitter:image" content="https://mkfix.se/assets/og-image.jpg">
 
     <script type="application/ld+json">
@@ -41,234 +45,45 @@
     }
     </script>
 
-    <style>
-        :root {
-            --bg: #0f172a;
-            --card-bg: #1e293b;
-            --accent: #38bdf8;
-            --text-main: #f8fafc;
-            --text-dim: #94a3b8;
-            --success: #22c55e;
-            --border: #334155;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Inter', -apple-system, sans-serif;
-        }
-
-        body {
-            background-color: var(--bg);
-            color: var(--text-main);
-            line-height: 1.6;
-        }
-
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        header {
-            background: rgba(15, 23, 42, 0.9);
-            backdrop-filter: blur(10px);
-            padding: 1.2rem 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            border-bottom: 1px solid var(--border);
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.4rem;
-            font-weight: 800;
-            color: var(--accent);
-            letter-spacing: -1px;
-        }
-
-        .nav-city {
-            font-size: 0.9rem;
-            color: var(--text-dim);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .hero {
-            padding: 6rem 0 4rem;
-            text-align: center;
-        }
-
-        .hero h1 {
-            font-size: clamp(2.5rem, 8vw, 4rem);
-            font-weight: 900;
-            line-height: 1.1;
-            margin-bottom: 1.5rem;
-            letter-spacing: -2px;
-        }
-
-        .hero h1 span {
-            color: var(--accent);
-        }
-
-        .hero p {
-            color: var(--text-dim);
-            font-size: 1.25rem;
-            max-width: 700px;
-            margin: 0 auto 2.5rem;
-        }
-
-        .trust-box {
-            background: linear-gradient(90deg, rgba(56, 189, 248, 0.1), rgba(34, 197, 94, 0.1));
-            border: 1px solid var(--border);
-            padding: 1.5rem;
-            border-radius: 12px;
-            display: inline-flex;
-            align-items: center;
-            gap: 15px;
-            margin-bottom: 3rem;
-        }
-
-        .trust-badge {
-            background: var(--success);
-            color: var(--bg);
-            font-weight: bold;
-            padding: 4px 12px;
-            border-radius: 6px;
-            font-size: 0.9rem;
-        }
-
-        .section-title {
-            font-size: 2rem;
-            margin-bottom: 2rem;
-            text-align: center;
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-            margin-bottom: 5rem;
-        }
-
-        .card {
-            background: var(--card-bg);
-            padding: 3.1rem 2.5rem;
-            border-radius: 20px;
-            border: 1px solid var(--border);
-            position: relative;
-            transition: transform 0.3s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-            border-color: var(--accent);
-        }
-
-        .popular-tag {
-            position: absolute;
-            top: 1.5rem;
-            right: 1.5rem;
-            background: var(--accent);
-            color: var(--bg);
-            font-size: 0.7rem;
-            font-weight: 800;
-            padding: 4px 10px;
-            border-radius: 50px;
-        }
-
-        .card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .card .price {
-            font-size: 2rem;
-            font-weight: 800;
-            color: var(--accent);
-            display: block;
-            margin-bottom: 1rem;
-        }
-
-        .card p,
-        li {
-            color: var(--text-dim);
-            font-size: 0.95rem;
-        }
-
-        .contact-card {
-            background: linear-gradient(145deg, #1e293b, #0f172a);
-            padding: 4rem 2rem;
-            border-radius: 30px;
-            text-align: center;
-            border: 1px solid var(--accent);
-            margin-bottom: 5rem;
-        }
-
-        .contact-card h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .contact-method {
-            display: block;
-            font-size: 1.8rem;
-            word-break: break-all;
-            color: var(--accent);
-            text-decoration: none;
-            font-weight: 700;
-            margin: 10px 0;
-            transition: 0.2s;
-        }
-
-        .contact-method:hover {
-            opacity: 0.8;
-        }
-
-        footer {
-            text-align: center;
-            padding: 4rem 0;
-            color: var(--text-dim);
-            font-size: 0.9rem;
-            border-top: 1px solid var(--border);
-        }
-
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-        }
-
-        .live-dot {
-            width: 12px;
-            height: 12px;
-            background: white;
-            border-radius: 50%;
-            animation: pulse 1.5s infinite;
-        }
-
-        @keyframes pulse {
-            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7); }
-            70% { transform: scale(1.5); box-shadow: 0 0 0 10px rgba(255, 255, 255, 0); }
-            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
-        }
-    </style>
+    <link rel="stylesheet" href="global.css">
 </head>
 
 <body>
-
     <header>
         <div class="container">
             <nav>
-                <div class="logo">mkFix</div>
-                <div class="nav-city">Malmö | Sverige</div>
+                <a href="/" class="logo">mkFix</a>
+
+                <!-- <input type="checkbox" id="menu-toggle" class="menu-toggle">
+                <label for="menu-toggle" class="menu-icon">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </label> -->
+
+                <ul class="nav-links">
+                    <!-- <li class="dropdown">
+    <a href="/#tjanster" class="dropbtn">Tjänster ▼</a>
+    <ul class="dropdown-content">
+        <li><a href="tmr-sticks.html">Vad är TMR Sticks?</a></li>
+        <li><a href="skicka-in.html">Skicka via PostNord</a></li>
+        
+        <li style="border-top: 1px solid var(--border); margin: 5px 0;"></li>
+        
+        <li><a href="/#ps-reparation">Playstation 4 & 5</a></li>
+        <li><a href="/#xbox-reparation">Xbox One, Series & Elite</a></li>
+        <li><a href="/#switch-reparation">Nintendo Switch Joycons</a></li>
+        
+        <li style="border-top: 1px solid var(--border); margin: 5px 0;"></li>
+        
+        <li><a href="/#tjanster">Visa alla priser</a></li>
+    </ul>
+</li> -->
+                    <li><a href="#youtube">YouTube</a></li>
+                    <li><a href="#boka" class="nav-cta">Boka Nu</a></li>
+                </ul>
+
+                <div class="nav-city-desktop">Malmö | Sverige</div>
             </nav>
         </div>
     </header>
@@ -280,8 +95,11 @@
                 <span>Specialist-service i Malmö</span>
             </div>
             <h1>Laga din handkontroll i <span>Malmö</span></h1>
-            <p>Specialist på <strong>Stick Drift Repair</strong> och TMR-uppgraderingar. Vi servar Playstation, Xbox och Switch snabbt, smidigt och lokalt.</p>
-            <a href="#boka" class="contact-method" style="font-size: 1.2rem; background: var(--accent); color: var(--bg); display: inline-block; padding: 15px 30px; border-radius: 10px;">BOKA DIN REPARATION</a>
+            <p>Specialist på <strong>Stick Drift Repair</strong> och TMR-uppgraderingar. Vi servar Playstation, Xbox och
+                Switch snabbt, smidigt och lokalt.</p>
+            <a href="#boka" class="contact-method"
+                style="font-size: 1.2rem; background: var(--accent); color: var(--bg); display: inline-block; padding: 15px 30px; border-radius: 10px;">BOKA
+                DIN REPARATION</a>
         </section>
 
         <h2 class="section-title">Våra Tjänster</h2>
@@ -290,13 +108,15 @@
                 <span class="popular-tag">Playstation 5 / Xbox Series</span>
                 <h3>TMR Sensor Upgrade</h3>
                 <span class="price">449 kr</span>
-                <p>Vi ersätter dina analoga spakar med magnetiska TMR-sensorer. En permanent lösning som aldrig får stick drift.</p>
+                <p>Vi ersätter dina analoga spakar med magnetiska TMR-sensorer. En permanent lösning som aldrig får
+                    stick drift.</p>
             </div>
             <div class="card">
                 <span class="popular-tag">Playstation 4 / Xbox One</span>
                 <h3>TMR Sensor Upgrade</h3>
                 <span class="price">399 kr</span>
-                <p>Vi ersätter dina analoga spakar med magnetiska TMR-sensorer. Äldre kontroller förtjänar också kärlek.</p>
+                <p>Vi ersätter dina analoga spakar med magnetiska TMR-sensorer. Äldre kontroller förtjänar också kärlek.
+                </p>
             </div>
             <div class="card">
                 <span class="popular-tag">Nintendo Switch</span>
@@ -321,31 +141,40 @@
             </div>
         </div>
 
-        <section id="youtube" style="text-align: center; padding: 4rem 1rem; background: rgba(255, 0, 0, 0.05); border-radius: 20px; margin: 2rem auto; max-width: 1000px; border: 1px solid rgba(255, 0, 0, 0.1);">
+        <section id="youtube"
+            style="text-align: center; padding: 4rem 1rem; background: rgba(255, 0, 0, 0.05); border-radius: 20px; margin: 2rem auto; max-width: 1000px; border: 1px solid rgba(255, 0, 0, 0.1);">
             <h2 style="color: #ff0000; margin-bottom: 1rem;">📺 MKFix på YouTube</h2>
-            <p style="margin-bottom: 2rem;">Följ mina reparationer live eller se mina guider för kalibrering och uppgradering.</p>
+            <p style="margin-bottom: 2rem;">Följ mina reparationer live eller se mina guider för kalibrering och
+                uppgradering.</p>
 
             <div style="margin-bottom: 3rem;">
-                <a href="https://www.youtube.com/@mkfixyt/live" target="_blank" style="text-decoration: none; display: inline-block;">
-                    <div style="background: #ff0000; color: white; padding: 1.2rem 2.5rem; border-radius: 12px; font-weight: bold; display: flex; align-items: center; gap: 15px; box-shadow: 0 10px 20px rgba(255,0,0,0.2);">
+                <a href="https://www.youtube.com/@mkfixyt/live" target="_blank"
+                    style="text-decoration: none; display: inline-block;">
+                    <div
+                        style="background: #ff0000; color: white; padding: 1.2rem 2.5rem; border-radius: 12px; font-weight: bold; display: flex; align-items: center; gap: 15px; box-shadow: 0 10px 20px rgba(255,0,0,0.2);">
                         <span class="live-dot"></span>
                         SE LIVE-STREAM HÄR
                     </div>
                 </a>
-                <p style="font-size: 0.8rem; margin-top: 0.8rem; opacity: 0.7;">Klicka för att se om jag är live just nu på YouTube</p>
+                <p style="font-size: 0.8rem; margin-top: 0.8rem; opacity: 0.7;">Klicka för att se om jag är live just nu
+                    på YouTube</p>
             </div>
 
             <h3 style="margin-bottom: 1.5rem; font-size: 1.2rem; color: #fff;">Mina mest populära guider</h3>
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
-                <div style="border-radius: 15px; overflow: hidden; background: #000; border: 1px solid rgba(255,255,255,0.1);">
+                <div
+                    style="border-radius: 15px; overflow: hidden; background: #000; border: 1px solid rgba(255,255,255,0.1);">
                     <div style="aspect-ratio: 16/9;">
-                        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/vZfi6NYj5n8" frameborder="0" allowfullscreen loading="lazy"></iframe>
+                        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/vZfi6NYj5n8"
+                            frameborder="0" allowfullscreen loading="lazy"></iframe>
                     </div>
                     <p style="padding: 15px; font-size: 0.95rem;">PS5 Controller TMR Upgrade</p>
                 </div>
-                <div style="border-radius: 15px; overflow: hidden; background: #000; border: 1px solid rgba(255,255,255,0.1);">
+                <div
+                    style="border-radius: 15px; overflow: hidden; background: #000; border: 1px solid rgba(255,255,255,0.1);">
                     <div style="aspect-ratio: 16/9;">
-                        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/kEqIDXbsg30" frameborder="0" allowfullscreen loading="lazy"></iframe>
+                        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/kEqIDXbsg30"
+                            frameborder="0" allowfullscreen loading="lazy"></iframe>
                     </div>
                     <p style="padding: 15px; font-size: 0.95rem;">Kalibrera din Xbox-kontroll</p>
                 </div>
@@ -353,16 +182,71 @@
         </section>
 
         <section id="boka" class="contact-card">
-            <h2>Redo att spela igen?</h2>
-            <p>Lämna in lokalt i Malmö eller skicka via PostNord. Fraktinformation ges vid bokad reparation.</p>
-            <div style="margin: 2rem 0;">
-                <a href="tel:0790320605" class="contact-method">079-032 06 05</a>
-                <a href="mailto:support.mkfix@gmail.com" class="contact-method">support.mkfix@gmail.com</a>
+            <h2>Boka din reparation</h2>
+            <p>Beskriv felet så återkommer jag med pris och tidsförslag. Bifoga gärna en bild!</p>
+            <form id="contact-form" class="contact-form">
+                <div class="form-group">
+                    <input type="text" name="fi-sender-firstName" placeholder="Ditt namn" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" name="fi-sender-email" placeholder="Din e-post" required>
+                </div>
+                <div class="form-group">
+                    <select name="fi-text-enhet" required>
+                        <option value="" disabled selected>Välj enhet</option>
+                        <option value="ps5">Playstation 5</option>
+                        <option value="ps4">Playstation 4</option>
+                        <option value="xbox">Xbox Series/One</option>
+                        <option value="switch">Nintendo Switch</option>
+                        <option value="annat">Annat / Konsol</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <textarea name="fi-text-message" placeholder="Beskriv problemet (t.ex. vänster spak drifter uppåt)"
+                        rows="4" required></textarea>
+                </div>
+
+                <div class="form-group file-upload">
+                    <label for="photo">Bifoga bild på kontrollen (valfritt):</label>
+                    <input type="file" id="photo" name="fi-file-photo" accept="image/*">
+                </div>
+
+                <button type="submit" class="submit-btn">SKICKA FÖRFRÅGAN</button>
+            </form>
+
+            <div id="result" style="margin-top: 1rem; color: var(--accent); font-weight: bold;"></div>
+
+            <script src="https://forminit.com/sdk/v1/forminit.js"></script>
+
+            <script>
+                const forminit = new Forminit();
+                const FORM_ID = "7b7ffs280f3";
+
+                document.getElementById("contact-form").addEventListener("submit", async (e) => {
+                    e.preventDefault();
+                    const result = document.getElementById("result");
+                    result.textContent = "Skickar...";
+
+                    const formData = new FormData(e.target);
+                    const { data, error } = await forminit.submit(FORM_ID, formData);
+
+                    if (error) {
+                        result.textContent = "Något gick fel: " + error.message;
+                        result.style.color = "red";
+                        return;
+                    }
+
+                    window.location.href = "https://mkfix.se/tack.html";
+                });
+            </script>
+            <div style="margin-top: 2rem; border-top: 1px solid var(--border); padding-top: 2rem;">
+                <p>Föredrar du direktkontakt?</p>
+                <a href="tel:0790320605" style="color: var(--accent); text-decoration: none; font-weight: bold;">079-032
+                    06 05</a>
             </div>
-            <p style="color: var(--text-dim)">Riseberga Bulltofta / Östra Malmö / Postmottagning</p>
         </section>
 
-         <section class="container" style="margin-bottom: 5rem;">
+        <section class="container" style="margin-bottom: 5rem;">
             <h2 class="section-title">Vanliga frågor & Garanti</h2>
             <div class="card" style="background: rgba(56, 189, 248, 0.05);">
                 <p><strong>Hur kan jag vara säker på att jobbet blivit utfört korrekt?</strong><br>
@@ -474,7 +358,8 @@
                     </div>
                     <div style="margin-bottom: 0.5rem;">
                         <h4 style="color: #fff; margin-bottom: 0.5rem;">7. Kakor</h4>
-                        <p>Vi använder Google Analytics för att se hur besökare använder sidan. Detta sker anonymt via cookies.</p>
+                        <p>Vi använder Google Analytics för att se hur besökare använder sidan. Detta sker anonymt via
+                            cookies.</p>
                     </div>
                 </div>
             </details>
@@ -490,11 +375,11 @@
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-DRKX0X33V3"></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
 
-  gtag('config', 'G-DRKX0X33V3');
+    gtag('config', 'G-DRKX0X33V3');
 </script>
 
 </html>

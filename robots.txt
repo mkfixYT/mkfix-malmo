@@ -1,5 +1,6 @@
 User-agent: *
 Allow: /
+Disallow: /tack.html
 
 # Sökväg till din sitemap (om du skapar en senare)
 # Sitemap: https://mkfix.se/sitemap.xml
