@@ -488,3 +488,79 @@ nav {
     padding-left: 25px; /* En liten "slide"-effekt inåt */
     transition: all 0.2s ease;
 }
+
+/* Pris-box Container */
+.price-container {
+    display: flex;
+    justify-content: center;
+    margin: 3rem 0;
+    padding: 0 1rem;
+}
+
+.price-card {
+    background: linear-gradient(145deg, #1e293b, #111827);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 2.5rem;
+    text-align: center;
+    max-width: 400px;
+    width: 100%;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.price-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent);
+    box-shadow: 0 15px 40px rgba(56, 189, 248, 0.15);
+}
+
+.price-tag {
+    font-size: 3rem;
+    font-weight: 900;
+    color: var(--text);
+    margin: 1rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+.price-tag span {
+    font-size: 1rem;
+    color: var(--text-dim);
+    text-transform: uppercase;
+}
+
+.price-features {
+    list-style: none;
+    padding: 0;
+    margin: 1.5rem 0 2rem;
+    text-align: left;
+}
+
+.price-features li {
+    margin-bottom: 0.8rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--text-dim);
+}
+
+.price-features li::before {
+    content: "✓";
+    color: var(--accent);
+    font-weight: bold;
+}
+
+.price-badge {
+    display: inline-block;
+    background: rgba(56, 189, 248, 0.1);
+    color: var(--accent);
+    padding: 5px 15px;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
