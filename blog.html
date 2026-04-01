@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TMR Sticks vs Vanliga | Sluta med Stick Drift | mkFix</title>
+    <link rel="stylesheet" href="global.css">
+    <meta name="description"
+        content="Uppgradera din handkontroll till TMR Sticks (Tunnel Magnetoresistance). Den permanenta lösningen mot stick drift med magnetisk precision. Läs mer här!">
+    <meta name="keywords"
+        content="TMR sticks, Hall Effect, stick drift, laga handkontroll, magnetisk joystick, DualSense reparation, Xbox Elite fix">
+
+    <meta property="og:title" content="TMR Sticks: Framtidens Joystick-teknik | mkFix">
+    <meta property="og:description"
+        content="Säg hejdå till stick drift med TMR-teknik. Bättre precision och längre hållbarhet.">
+    <meta property="og:url" content="https://mkfix.se/tmr-sticks.html">
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="/" class="logo">mkFix</a>
+
+                <input type="checkbox" id="menu-toggle" class="menu-toggle">
+                <label for="menu-toggle" class="menu-icon">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </label>
+
+                <ul class="nav-links">
+                    <li class="dropdown">
+                        <a href="/#tjanster" class="dropbtn">Tjänster ▼</a>
+                        <ul class="dropdown-content">
+                            <li><a href="./tjanster/tmr-sticks.html" style="color: var(--accent); font-weight: bold;">Vad är TMR
+                                    Sticks?</a></li>
+                            <li><a href="./tjanster/skicka-in.html">Skicka via PostNord</a></li>
+
+                            <!-- <li style="border-top: 1px solid var(--border); margin: 5px 0;"></li>
+
+                            <li><a href="/#ps-reparation">Playstation 4 & 5</a></li>
+                            <li><a href="/#xbox-reparation">Xbox One, Series & Elite</a></li>
+                            <li><a href="/#switch-reparation">Nintendo Switch Joycons</a></li>
+
+                            <li style="border-top: 1px solid var(--border); margin: 5px 0;"></li> -->
+
+                            <li><a href="https://www.mkfix.se/#tjanster">Visa alla priser</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="https://www.mkfix.se/blog.html" style="font-weight: bold;">Blog, Nyheter & Case studies</a></li>
+                    <li><a href="https://www.mkfix.se/#boka" class="nav-cta">Boka Nu</a></li>
+                </ul>
+
+                <div class="nav-city-desktop">Malmö | Sverige</div>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+    <section class="hero">
+        <h1>mkFix <span>Case Studies</span> & Nyheter</h1>
+        <p>Häng med bakom kulisserna i verkstaden. Här delar vi med oss av lagningar, uppgraderingar och guider.</p>
+    </section>
+
+    <div class="filter-container" style="text-align: center; margin-bottom: 3rem;">
+        <button class="filter-btn active" data-filter="all">Visa alla</button>
+        <button class="filter-btn" data-filter="tmr">TMR Uppgradering</button>
+        <button class="filter-btn" data-filter="retro">Retro-fix</button>
+        <button class="filter-btn" data-filter="guide">Guider</button>
+    </div>
+
+    <div class="grid" id="blog-grid">
+        
+        <article class="card post-card" data-category="tmr retro">
+            <div class="popular-tag">Senaste</div>
+            <span class="price-badge" style="margin-bottom: 1rem; display: inline-block; width: fit-content">Case Study</span>
+            <h3>TMR-uppgradering & Nintendo DS Shell Swap</h3>
+            <p>Igår bytte vi ut driftande joysticks till K-Silver TMR och gav en klassisk DS nytt liv...</p>
+            <br>
+            <a href="blog/tmr-och-shellswap.html" class="nav-cta" style="display: inline-block; text-align: center; width: fit-content;">Läs hela inlägget</a>
+        </article>
+
+        <article class="card post-card" data-category="guide">
+            <span class="price-badge" style="margin-bottom: 1rem; display: inline-block; width: fit-content">Guide</span>
+            <h3>3 tips för att undvika Stick Drift</h3>
+            <p>Små enkla knep som gör att din handkontroll håller betydligt längre...</p>
+            <br>
+            <a href="#" class="nav-cta" style="display: inline-block; opacity: 0.5; width: fit-content">Kommer snart</a>
+        </article>
+
+    </div>
+</main>
+
+<script>
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const posts = document.querySelectorAll('.post-card');
+
+    filterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            // Ta bort active-klass från alla knappar
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+
+            const filter = button.getAttribute('data-filter');
+
+            posts.forEach(post => {
+                const categories = post.getAttribute('data-category').split(' ');
+                if (filter === 'all' || categories.includes(filter)) {
+                    post.style.display = 'block';
+                } else {
+                    post.style.display = 'none';
+                }
+            });
+        });
+    });
+</script>
+</body>
+
+</html>

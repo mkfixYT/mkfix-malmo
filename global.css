@@ -573,3 +573,33 @@ nav {
     text-transform: uppercase;
     letter-spacing: 1px;
 }
+
+/* Blogg-specifik CSS */
+.filter-btn {
+    background: var(--card-bg);
+    color: var(--text-main);
+    border: 1px solid var(--border);
+    padding: 8px 20px;
+    border-radius: 50px;
+    cursor: pointer;
+    margin: 5px;
+    transition: 0.3s;
+    font-weight: 600;
+}
+
+.filter-btn:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+.filter-btn.active {
+    background: var(--accent);
+    color: var(--bg);
+    border-color: var(--accent);
+}
+
+.post-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
