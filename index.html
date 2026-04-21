@@ -220,7 +220,14 @@
                     <textarea name="fi-text-message" placeholder="Beskriv problemet (t.ex. vänster spak drifter uppåt)"
                         rows="4" required></textarea>
                 </div>
-
+                <div class="form-group">
+                    <select name="fi-text-contact-me" required>
+                        <option value="whatever" disabled selected>Kontakta mig helst genom</option>
+                        <option value="email">E-post</option>
+                        <option value="sms">Sms</option>
+                        <option value="call">Samtal</option>
+                    </select>
+                </div>
                 <div class="form-group file-upload">
                     <label for="photo">Bifoga bild på kontrollen (valfritt):</label>
                     <input type="file" id="photo" name="fi-file-photo" accept="image/*">
