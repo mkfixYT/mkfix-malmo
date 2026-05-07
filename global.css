@@ -673,3 +673,129 @@ nav {
         width: 100%;
     }
 }
+
+/* Footer Base */
+.site-footer {
+    background-color: #0b0f19; /* En djup, snygg mörkblå/svart som matchar gaming-temat */
+    color: #9ca3af;
+    padding: 4rem 0 2rem 0;
+    font-size: 0.95rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 3rem;
+}
+
+.footer-section h4 {
+    color: #ffffff;
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+    position: relative;
+}
+
+/* Kolumn 1: Brand */
+.footer-logo {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: #ff0055; /* Byt till din accentfärg om du har en annan */
+    text-decoration: none;
+    display: inline-block;
+    margin-bottom: 1rem;
+}
+
+.brand-info p {
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.footer-city {
+    font-weight: 600;
+    color: #ffffff;
+}
+
+/* Kolumn 2: Länkar */
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links li {
+    margin-bottom: 0.8rem;
+}
+
+.footer-links a {
+    color: #9ca3af;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.footer-links a:hover {
+    color: #38bdf8; /* Ljusblå hovring */
+}
+
+/* Kolumn 3: Socials & Kontakt */
+.footer-socials p {
+    margin-bottom: 1.2rem;
+    line-height: 1.5;
+}
+
+.social-icons {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 1.5rem;
+}
+
+.social-icon {
+    color: #9ca3af;
+    background: rgba(255, 255, 255, 0.03);
+    padding: 10px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.social-icon svg {
+    transition: transform 0.2s ease;
+}
+
+.social-icon:hover svg {
+    transform: scale(1.15);
+}
+
+/* Snygga hovringsfärger anpassade för varje plattform */
+.social-icon.yt:hover { background: rgba(255, 0, 0, 0.1); color: #ff0000; border-color: rgba(255, 0, 0, 0.2); }
+.social-icon.dc:hover { background: rgba(88, 101, 242, 0.1); color: #5865f2; border-color: rgba(88, 101, 242, 0.2); }
+.social-icon.ig:hover { background: rgba(225, 48, 108, 0.1); color: #e1306c; border-color: rgba(225, 48, 108, 0.2); }
+.social-icon.fb:hover { background: rgba(24, 119, 242, 0.1); color: #1877f2; border-color: rgba(24, 119, 242, 0.2); }
+.social-icon.x:hover { background: rgba(255, 255, 255, 0.1); color: #ffffff; border-color: rgba(255, 255, 255, 0.2); }
+.social-icon.th:hover { 
+    background: rgba(255, 255, 255, 0.1); 
+    color: #ffffff; 
+    border-color: rgba(255, 255, 255, 0.2); 
+}
+.footer-contact a {
+    color: #38bdf8;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+/* Footer Bottom */
+.footer-bottom {
+    max-width: 1200px;
+    margin: 3rem auto 0 auto;
+    padding: 2rem 1.5rem 0 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    text-align: center;
+    font-size: 0.85rem;
+}
