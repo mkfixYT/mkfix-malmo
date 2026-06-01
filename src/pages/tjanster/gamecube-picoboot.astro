@@ -1,0 +1,73 @@
+---
+// src/pages/index.astro
+import MainLayout from "../../layouts/MainLayout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+---
+
+<MainLayout
+	title="GameCube PicoBoot Mod - Spela från SD-kort | mkFix"
+	description="Uppgradera din GameCube med PicoBoot. Spela dina spel direkt från SD-kort, lås upp regionsfrihet och få bättre bildkvalitet. Professionell installation i Malmö."
+	keywords="GameCube, PicoBoot, Swiss, SD2SP2, GameCube mod, reparation, retrospel, Malmö, mkFix"
+	ogTitle="GameCube PicoBoot Mod - Den ultimata retro-uppgraderingen | mkFix"
+	ogDescription="Slipp repiga skivor och trötta lasrar. Med PicoBoot startar din GameCube direkt från SD-kort med Swiss."
+    canonicalUrl="https://mkfix.se/tjanster/gamecube-picoboot"
+>
+	<Header />
+	<main class="container">
+        <section class="hero">
+            <h1>GameCube <span>PicoBoot</span>: Framtidens sätt att spela retro</h1>
+            <p> Har din GameCube svårt att läsa skivor, eller vill du bara slippa hantera fysisk media?<br/>
+                <strong>PicoBoot</strong> är en modern "hardmod" som använder en Raspberry Pi Pico för att låta din konsol starta direkt in i <strong>Swiss</strong>, det ultimata gränssnittet för GameCube.<br/>
+                Detta möjliggör att du kan köra hela ditt spelbibliotek digitalt från ett SD-kort, samtidigt som du bevarar konsolens originalutseende.</p>
+            <h2>Varför välja PicoBoot?</h2>
+            <p>Till skillnad från gamla tiders chippningar är PicoBoot snabbt, pålitligt och extremt kraftfullt. Det ersätter inte din skivläsare, men gör den i princip överflödig. Det är den mest prisvärda och stabila lösningen för att framtidssäkra din GameCube.</p>
+        </section>
+
+        <section style="background: rgba(56, 189, 248, 0.05); padding: 2rem; border-radius: 15px; margin: 0 0;">
+            <h2 style="color: var(--accent); margin-top: 0;">Fördelar med PicoBoot & Swiss:</h2>
+            <ul style="list-style: none; padding: 0;">
+                <li style="margin-bottom: 1rem;">✅ <strong>Spela backup</strong> av dina egna spel direkt från SD-kort</li>
+                <li style="margin-bottom: 1rem;">✅ <strong>Regionsfritt:</strong> Spela spel från USA, Japan och Europa på samma konsol</li>
+                <li style="margin-bottom: 1rem;">✅ <strong>Forcerad upplösning:</strong> Få 480p i spel som ursprungligen bara stödde 480i</li>
+                <li style="margin-bottom: 1rem;">✅ <strong>Ingen slitning</strong> på den känsliga lasern eller motorn</li>
+                <li style="margin-bottom: 1rem;">✅ <strong>Bevarar</strong> originalutseendet – ingen synlig modd på utsidan</li>
+            </ul>
+        </section>
+
+        <section class="hero">
+            <h2>Mikrolödning med precision</h2>
+            <p> 
+                Installationen av PicoBoot kräver att man löder extremt tunna kablar direkt på benen till konsolens IPL-chip. Det är ett jobb där marginalerna är små och ett darrigt finger kan leda till kortslutning.<br/>
+                Vi utför alla installationer under <strong>mikroskop</strong> för att garantera perfekta lödpunkter och använder högkvalitativa, korta kablar för att minimera störningar och säkerställa snabbast möjliga boot-tid.
+            </p>
+        </section>
+
+        <section style="background: rgba(56, 189, 248, 0.05); padding: 2rem; border-radius: 15px; margin: 0 0;">
+            <h2 style="color: var(--accent); margin-top: 0;">Vad ingår i moddningen?</h2>
+            <p style="margin-bottom: 4px">Vi erbjuder ett komplett paket för att du ska komma igång direkt:</p>
+            <ul style="list-style: none; padding: 0;">
+                <li style="margin-bottom: 1rem;">✅ Montering av Raspberry Pi Pico med senaste PicoBoot-mjukvaran</li>
+                <li style="margin-bottom: 1rem;">✅ SD2SP2-adapter (för smidig lagring under konsolen)</li>
+                <li style="margin-bottom: 1rem;">✅ Installation av Swiss på ditt minneskort</li>
+                <li style="margin-bottom: 1rem;">✅ Grundlig invändig rengöring och byte av kylpasta vid behov</li>
+            </ul>
+        </section>
+
+         <a href="https://mkfix.se/#boka" class="submit-btn" style="text-decoration: none; display: inline-block;">BOKA DIN PICOBOOT-INSTALLATION HÄR</a>
+         </main>
+	<Footer />
+	<!-- Google tag (gtag.js) -->
+     <!-- TODO: Greate GTM component -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-DRKX0X33V3"
+	></script>
+	<script is:inline>
+		window.dataLayer = window.dataLayer || [];
+		function gtag() {
+			dataLayer.push(arguments);
+		}
+		gtag("js", new Date());
+
+		gtag("config", "G-DRKX0X33V3");
+	</script>
+</MainLayout>

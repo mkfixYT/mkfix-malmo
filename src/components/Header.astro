@@ -1,0 +1,50 @@
+---
+// src/components/Header.astro
+const pathname = Astro.url.pathname;
+
+// Helper function to check if a link is active
+// This regex handles trailing slashes perfectly (e.g., /blog vs /blog/)
+const isActive = (path: string) => {
+  if (path === '/' && pathname === '/') return true;
+  if (path !== '/' && pathname.startsWith(path)) return true;
+  return false;
+};
+---
+<header>
+    <div class="container">
+        <nav>
+            <a href="/" class="logo">mkFix</a>
+
+            <input type="checkbox" id="menu-toggle" class="menu-toggle">
+            <label for="menu-toggle" class="menu-icon">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+
+            <ul class="nav-links">
+                <li class="dropdown">
+                    <a href="/#tjanster" class="dropbtn">Tjänster ▼</a>
+                    <ul class="dropdown-content">
+                        <li><a href="/tjanster/tmr-sticks">Vad är TMR Sticks?</a></li>
+                        <li><a href="/tjanster/elektronikreparation">Elektronikreparation</a></li>
+                        <li><a href="/tjanster/ps1-ps2-reparation">PS1/2 Joysticks</a></li>
+                        <li><a href="/tjanster/xbox-360-hall-effect">Xbox 360 Hall effect</a></li>
+                        <li><a href="/tjanster/game-gear">Game Gear recap</a></li>
+                        <li><a href="/tjanster/gamecube-picoboot">GameCube PicoBoot</a></li>
+                        <li style="border-top: 1px solid var(--border); margin: 5px 0;"></li>
+                        <li><a href="/tjanster/skicka-in">Skicka via PostNord</a></li>
+                        <li><a href="/#tjanster">Visa alla priser</a></li>
+                        <li><a href="/tjanster/gratis-reparation">Gratis reparation</a></li>
+                    </ul>
+                </li>
+                <li><a href="/#youtube">YouTube</a></li>
+                <li><a href="/blog">Blog, Nyheter &amp; Case studies</a></li>
+                <li><a href="/#boka" class="nav-cta">Boka Nu</a></li>
+                <li><a href="/produkter/" class="nav-cta">Butik</a></li>
+            </ul>
+
+            <div class="nav-city-desktop">Malmö | Sverige</div>
+        </nav>
+    </div>
+</header>

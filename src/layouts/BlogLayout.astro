@@ -1,0 +1,81 @@
+---
+// src/layouts/BlogLayout.astro
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import MainLayout from './MainLayout.astro';
+
+interface Props {
+  frontmatter: any,
+  // title?: string;
+  // description?: string;
+  // canonicalUrl?: string;
+  // keywords?: string;
+  // ogTitle?: string;
+  // ogDescription?: string;
+}
+
+const {
+  frontmatter,
+  // title = "Laga Handkontroll Malmö | Stick Drift & TMR Fix | mkFix",
+  // description = "Fixa stick drift permanent i Malmö! TMR & Hall Effect uppgraderingar för PS5, Xbox och Switch. Snabbt med 6 månaders garanti.",
+  // canonicalUrl = Astro.url.href, // Dynamically gets current URL
+  // keywords = "stick drift repair malmö, laga handkontroll malmö, TMR sensor upgrade, laga PS5 kontroll malmö, nintendo switch lagning",
+  // ogTitle = "MKFix - Säg hejdå till Stick Drift",
+  // ogDescription = "Vi uppgraderar din kontroll till nästa nivå med TMR-stickor och custom mods i Malmö."
+} = Astro.props;
+
+---
+
+<MainLayout
+  title={`${frontmatter.title} | mkFix Blogg`}
+  canonicalUrl={frontmatter.canonicalUrl}
+  keywords={frontmatter.keywords}
+  ogTitle={frontmatter.ogKeywords}
+  ogDescription={frontmatter.ogDescription}
+  description={frontmatter.description}
+>
+<Header />
+  <main class="container">
+    <article style="padding: 4rem 0;">
+      <header style="text-align: center; margin-bottom: 3rem; background: transparent; border: none; position: static;">
+        <span class="price-badge">{frontmatter.badge || 'Case Study'}</span>
+        <h1 style="font-size: 3rem; margin: 1rem 0;">{frontmatter.title}</h1>
+        <p style="color: var(--text-dim);">
+          Publicerat: {frontmatter.pubDate ? frontmatter.pubDate.slice(0, 10) : 'Nyligen'} | Plats: Malmö
+        </p>
+      </header>
+
+      <div style="max-width: 800px; margin: 0 auto;">
+        
+        {/* THE MAGIC SLOT: Your compiled markdown text & images are injected here */}
+        <div class="blog-content">
+          <slot />
+        </div>
+
+        <div class="contact-card" style="margin-top: 4rem;">
+          <h2>Behöver du hjälp med din enhet?</h2>
+          <p>Vi lagar kontroller, konsoler och annan elektronik i Malmö eller via post.</p>
+          <a href="/#boka" class="submit-btn" style="text-decoration: none; display: inline-block; margin-top: 1rem;">
+            BOKA REPARATION HÄR
+          </a>
+          <p style="margin-top: 1rem; font-size: 0.8rem;">Eller SMS:a 079-032 06 05</p>
+        </div>
+      </div>
+    </article>
+  </main>
+  <Footer />
+</MainLayout>
+
+<style is:global>
+  /* Optional: Tweak Markdown Elements globally inside your blog posts */
+  .blog-content p {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+  }
+  .blog-content h2 {
+    color: var(--accent);
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+  }
+</style>

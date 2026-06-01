@@ -1,0 +1,194 @@
+---
+// src/pages/produkter/index.astro
+import MainLayout from "../../layouts/MainLayout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+
+// Hämta miljövariabler
+const token = import.meta.env.PUBLIC_SHOPIFY_STOREFRONT_TOKEN;
+const domain = import.meta.env.PUBLIC_SHOPIFY_STORE_DOMAIN;
+
+// GraphQL-fråga för att hämta alla produkter (max 25 i detta exempel) med detaljer för listningen
+const query = `
+  {
+    products(first: 25) {
+      edges {
+        node {
+          title
+          handle
+          variants(first: 1) {
+            edges {
+              node {
+                price {
+                  amount
+                  currencyCode
+                }
+              }
+            }
+          }
+          images(first: 1) {
+            edges {
+              node {
+                url
+                altText
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`;
+
+const response = await fetch(`https://${domain}/api/2024-01/graphql.json`, {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+    "X-Shopify-Storefront-Access-Token": token,
+  },
+  body: JSON.stringify({ query }),
+});
+
+const { data } = await response.json();
+const products = data?.products?.edges || [];
+---
+
+<MainLayout
+    title="Våra Produkter & Tjänster | mkFix"
+    description="Se alla våra tjänster och produkter för reparation och service i Malmö."
+    keywords="laga, reparera, produkter, service, Malmö"
+    ogTitle="Våra Produkter & Tjänster | mkFix"
+    ogDescription="Se alla våra tjänster och produkter för reparation och service i Malmö."
+    canonicalUrl="https://mkfix.se/produkter"
+>
+    <Header />
+    
+    <main class="container">
+        <section class="hero" style="text-align: center; margin-bottom: 3rem;">
+            <h1><span>Våra Produkter</span></h1>
+            <p>Hitta rätt produkt för dina behov.</p>
+        </section>
+
+        <div class="product-grid">
+            {products.map(({ node }: any) => {
+                const price = node.variants.edges[0]?.node.price;
+                const mainImage = node.images.edges[0]?.node;
+
+                return (
+                    <a href={`/produkter/${node.handle}`} class="product-card">
+                        <div class="image-wrapper">
+                            {mainImage ? (
+                                <img 
+                                    src={mainImage.url} 
+                                    alt={mainImage.altText || node.title} 
+                                />
+                            ) : (
+                                <div class="placeholder-image">Ingen bild tillgänglig</div>
+                            )}
+                        </div>
+                        <div class="product-info">
+                            <h3>{node.title}</h3>
+                            {price && (
+                                <p class="price">
+                                    {parseFloat(price.amount).toFixed(0)} {price.currencyCode === 'SEK' ? 'kr' : price.currencyCode}
+                                </p>
+                            )}
+                            <span class="read-more">Läs mer & boka →</span>
+                        </div>
+                    </a>
+                );
+            })}
+        </div>
+        
+    </main>
+
+    <Footer />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-DRKX0X33V3"></script>
+    <script is:inline>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag("js", new Date());
+        gtag("config", "G-DRKX0X33V3");
+    </script>
+</MainLayout>
+
+<style>
+    /* Styling för produktgriden */
+    .product-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 2rem;
+        margin-bottom: 4rem;
+    }
+
+    .product-card {
+        background: rgba(255, 255, 255, 0.03); /* Anpassa efter ditt mörka/ljusa tema */
+        border: 1px solid rgba(56, 189, 248, 0.1);
+        border-radius: 15px;
+        overflow: hidden;
+        text-decoration: none;
+        color: inherit;
+        transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .product-card:hover {
+        transform: translateY(-5px);
+        border-color: var(--accent, #38bdf8);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .image-wrapper {
+        aspect-ratio: 4 / 3;
+        overflow: hidden;
+        background: rgba(0, 0, 0, 0.05);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .image-wrapper img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+    }
+
+    .product-card:hover .image-wrapper img {
+        transform: scale(1.05);
+    }
+
+    .placeholder-image {
+        color: #666;
+        font-size: 0.9rem;
+    }
+
+    .product-info {
+        padding: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+    }
+
+    .product-info h3 {
+        margin: 0 0 0.5rem 0;
+        font-size: 1.2rem;
+        color: #fff; /* Justera efter ditt färgtema */
+    }
+
+    .price {
+        font-size: 1.2rem;
+        font-weight: bold;
+        color: var(--accent, #38bdf8);
+        margin: 0 0 1rem 0;
+    }
+
+    .read-more {
+        margin-top: auto;
+        font-size: 0.9rem;
+        font-weight: 500;
+        color: var(--accent, #38bdf8);
+    }
+</style>

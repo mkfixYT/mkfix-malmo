@@ -1,0 +1,72 @@
+---
+// src/pages/index.astro
+import MainLayout from "../../layouts/MainLayout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+---
+
+<MainLayout
+	title="Xbox 360 Hall Effect Uppgradering & Kalibrering | mkFix"
+	description="Gör din Xbox 360-kontroll permanent driftfri! Vi uppgraderar till magnetiska Hall Effect-joysticks och kalibrerar spakarna för perfekt centrering."
+	keywords="Xbox 360 kontroll, Hall Effect Xbox 360, stick drift, laga Xbox 360 spak, kalibrering handkontroll, magnetisk joystick Malmö"
+	ogTitle="Xbox 360 Hall Effect & Kalibrering | mkFix"
+	ogDescription="Permanent lösning mot stick drift för din Xbox 360. Magnetisk precision kombinerat med exakt mjukvarukalibrering."
+    canonicalUrl="https://mkfix.se/tjanster/xbox-360-hall-effect"
+>
+	<Header />
+       <main class="container">
+        <section class="hero">
+            <h1>Permanent lösning mot stick drift: <span>Xbox 360</span> Hall Effect & Kalibrering</h1>
+            <p> Spara dina bästa Xbox 360-kontroller inför framtiden!<br/>
+            Med vår <strong>Hall Effect-uppgradering</strong> byter vi ut de gamla analoga mekanismerna mot avancerade magnetiska sensorer. Men vi stannar inte där – varje kontroll genomgår en noggrann, professionell <strong>mjukvaru- och hårdvarukalibrering</strong> för att garantera en perfekt balanserad mittpunkt utan döda zoner.</p>
+            <h2>Varför är kalibrering helt avgörande för Hall Effect?</h2>
+            <p>När man monterar magnetiska Hall Effect-spakar på äldre kretskort som Xbox 360, reagerar de väldigt känsligt på mikroskopiska spänningsskillnader. Utan professionell kalibrering kan spaken hamna snett i viloläget. Vi kalibrerar kontrollen på chip-nivå så att den presterar bättre än när den lämnade fabriken.</p>
+        </section>
+
+        <section style="background: rgba(56, 189, 248, 0.05); padding: 2rem; border-radius: 15px; margin: 0 0;">
+            <h2 style="color: var(--accent); margin-top: 0;">Fördelar med Xbox 360 Hall Effect:</h2>
+            <ul style="list-style: none; padding: 0;">
+                <li style="margin-bottom: 1rem;">✅ <strong>Aldrig mer stick drift</strong> – helt kontaktlös magnetisk avläsning</li>
+                <li style="margin-bottom: 1rem;">✅ <strong>Exakt kalibrerad</strong> mittpunkt (0% felmarginal i viloläge)</li>
+                <li style="margin-bottom: 1rem;">✅ <strong>Perfekt runda cirkel-tester</strong> med minimal felmarginal (Error rate)</li>
+                <li style="margin-bottom: 1rem;">✅ <strong>Ultimat hållbarhet</strong> för intensiva spelsessioner och långvarigt ägande</li>
+            </ul>
+        </section>
+
+        <section class="hero">
+            <h2>Hall Effect-tekniken förklarad</h2>
+            <p> 
+                Istället för de traditionella kolspåren som slits mekaniskt varje gång du rör spaken, använder Hall Effect starka små magneter och sensorer. Det finns ingen fysisk kontakt som kan slitas ner, vilket innebär att spakens precision förblir linjär och exakt år efter år. Det är den perfekta uppgraderingen för dina favoritkontroller (t.ex. till Xbox 360 sällsynta specialutgåvor).
+            </p>
+        </section>
+
+        <section style="background: rgba(56, 189, 248, 0.05); padding: 2rem; border-radius: 15px; margin: 0 0;">
+            <h2 style="color: var(--accent); margin-top: 0;">När passar denna uppgradering?</h2>
+            <p style="margin-bottom: 4px">Välj Hall Effect till din Xbox 360-kontroll om du:</p>
+            <ul style="list-style: none; padding: 0;">
+                <li style="margin-bottom: 1rem;">✅ Vill framtidssäkra en handkontroll du håller kärt</li>
+                <li style="margin-bottom: 1rem;">✅ Redan upplever att siktet eller karaktären "lever sitt eget liv"</li>
+                <li style="margin-bottom: 1rem;">✅ Vill spela bakåtkompatibla spel på Xbox One / Series X med maximal precision</li>
+                <li style="margin-bottom: 1rem;">✅ Vill ha en kontroll kalibrerad helt utan kompromisser</li>
+            </ul>
+        </section>
+        
+        
+        <a href="https://mkfix.se/#boka" class="submit-btn" style="text-decoration: none; display: inline-block;">STARTA DIN BOKNING HÄR</a>
+    </main>
+
+	<Footer />
+	<!-- Google tag (gtag.js) -->
+     <!-- TODO: Greate GTM component -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-DRKX0X33V3"
+	></script>
+	<script is:inline>
+		window.dataLayer = window.dataLayer || [];
+		function gtag() {
+			dataLayer.push(arguments);
+		}
+		gtag("js", new Date());
+
+		gtag("config", "G-DRKX0X33V3");
+	</script>
+</MainLayout>

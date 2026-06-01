@@ -1,0 +1,148 @@
+---
+// src/pages/index.astro
+import MainLayout from "../../layouts/MainLayout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+---
+
+<MainLayout
+	title="Gratis Reparation för YouTube | mkFix"
+	description="Har du en unik, retro eller ovanlig pryl som behöver lagas? mkFix erbjuder gratis reparationer för intressanta objekt som visas på vår YouTube-kanal."
+	keywords=""
+	ogTitle="Laga din pryl gratis på YouTube | mkFix"
+	ogDescription="Vi söker unika projekt! Vi bjuder på arbetskostnaden om vi får streama reparationen."
+    canonicalUrl="https://mkfix.se/tjanster/gratis-reparation"
+>
+	<Header />
+	 <main class="container">
+        <section class="hero">
+            <h1>Gratis reparation – om den är <span>intressant</span> nog!</h1>
+            <p>
+                Har du en pryl som samlar damm för att den är trasig, men som är för cool för att slängas?
+                Jag letar ständigt efter spännande utmaningar till min <strong>YouTube-kanal</strong>.
+                Om ditt objekt är unikt, nostalgiskt eller mekaniskt intressant bjuder jag på arbetskostnaden!
+            </p>
+        </section>
+
+        <section
+            style="background: rgba(56, 189, 248, 0.1); padding: 2rem; border-radius: 15px; border: 1px solid var(--accent); margin-bottom: 3rem;">
+            <h2 style="color: var(--accent); margin-top: 0;">Hur fungerar det?</h2>
+            <ul style="list-style: none; padding: 0;">
+                <li style="margin-bottom: 1rem;">📺 <strong>Du får:</strong> Gratis arbetskostnad (du betalar endast
+                    eventuella reservdelar och frakt).</li>
+                <li style="margin-bottom: 1rem;">🎥 <strong>Jag får:</strong> Tillåtelse att filma/streama hela
+                    processen till min YouTube-kanal.</li>
+                <li style="margin-bottom: 1rem;">🛠️ <strong>Kravet:</strong> Det ska vara något utöver det vanliga.
+                    Inga vanliga handkontroller med stick drift (se våra ordinarie priser för det).</li>
+            </ul>
+        </section>
+
+        <h2>Vad letar jag efter?</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>Retroleksaker & Spel</h3>
+                <p>Klassiska mekaniska/elektroniska spel som <strong>Tomy Tricky Traps</strong>, Kongman eller Atomic
+                    Pinball. Ju mer kugghjul och fjädrar, desto bättre!</p>
+            </div>
+            <div class="card">
+                <h3>Udda Handkontroller</h3>
+                <p>Har du en Resident Evil Chainsaw-kontroller, en Steel Battalion-panel eller något annat märkligt
+                    tillbehör som slutat fungera?</p>
+            </div>
+            <div class="card">
+                <h3>Sällsynta Konsoler</h3>
+                <p>Limited Edition-enheter, gamla handhållna LCD-spel (Game & Watch) eller prototyper.</p>
+            </div>
+            <div class="card">
+                <h3>"Hopplösa" fall</h3>
+                <p>Enheter med svåra vattenskador eller trasiga kretskort som andra verkstäder har sagt nej till.</p>
+            </div>
+            <div class="card">
+                <h3>Sentimentala saker</h3>
+                <p>Har enheten en bra historia bakom sig? Berätta gärna. En bra historia är minst lika intressant.</p>
+            </div>
+            <div class="card">
+                <h3>Något unikt</h3>
+                <p>Är din enhet något gammalt eller sällsynt? Sånt är alltid superintressant att öppna upp och få att fungera igen.</p>
+            </div>
+        </div>
+
+        <section id="gratis-form" style="margin-top: 4rem;">
+            <h2>Skicka din projektförfrågan</h2>
+            <p>Beskriv vad du har för pryl. Om jag nappar på utmaningen hör jag av mig!</p>
+
+            <form id="contact-form" class="contact-form">
+                <div class="form-group">
+                    <input type="text" name="fi-sender-firstName" placeholder="Ditt namn*" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" name="fi-sender-email" placeholder="Din e-post*" required>
+                </div>
+                <div class="form-group">
+                    <select name="fi-text-kategori" required>
+                        <option value="" disabled selected>Typ av objekt</option>
+                        <option value="retro-leksak">Mekanisk Retroleksak (t.ex. Tomy)</option>
+                        <option value="udda-kontroll">Udda/Sällsynt Handkontroll</option>
+                        <option value="retro-konsol">Gammal Konsol/Handhållen</option>
+                        <option value="annat-unikt">Annat unikt (beskriv nedan)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <textarea name="fi-text-message"
+                        placeholder="Berätta om prylen! Vad är det för något, vad är felet och varför tror du den skulle bli bra på YouTube?"
+                        rows="6" required></textarea>
+                </div>
+                <div class="form-group"
+                    style="display: flex; align-items: center; gap: 10px; background: rgba(255,255,255,0.05); padding: 10px; border-radius: 8px;">
+                    <input type="checkbox" id="stream-ok" name="fi-check-streaming" required style="width: auto;">
+                    <label for="stream-ok" style="font-size: 0.9rem;">Jag godkänner att reparationen filmas och
+                        publiceras på sociala medier.*</label>
+                </div>
+                <div class="form-group file-upload">
+                    <label for="photo">Bifoga bild (viktigt för att jag ska kunna bedöma objektet):</label>
+                    <input type="file" id="photo" name="fi-file-photo" accept="image/*">
+                </div>
+
+                <button type="submit" class="submit-btn">SKICKA PROJEKTFÖRSLAG</button>
+            </form>
+            <div id="result" style="margin-top: 1rem; color: var(--accent); font-weight: bold;"></div>
+        </section>
+    </main>
+
+	<Footer />
+	<!-- Google tag (gtag.js) -->
+     <!-- TODO: Greate GTM component -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-DRKX0X33V3"
+	></script>
+	<script is:inline>
+		window.dataLayer = window.dataLayer || [];
+		function gtag() {
+			dataLayer.push(arguments);
+		}
+		gtag("js", new Date());
+
+		gtag("config", "G-DRKX0X33V3");
+	</script>
+     <script src="https://forminit.com/sdk/v1/forminit.js"></script>
+    <script is:inline>
+        const forminit = new Forminit();
+        const FORM_ID = "7b7ffs280f3"; // Samma ID som förut
+
+        document.getElementById("contact-form").addEventListener("submit", async (e) => {
+            e.preventDefault();
+            const result = document.getElementById("result");
+            result.textContent = "Skickar ditt förslag...";
+
+            const formData = new FormData(e.target);
+            const { data, error } = await forminit.submit(FORM_ID, formData);
+
+            if (error) {
+                result.textContent = "Något gick fel: " + error.message;
+                result.style.color = "red";
+                return;
+            }
+            window.location.href = "https://mkfix.se/tack.html";
+        });
+    </script>
+
+</MainLayout>

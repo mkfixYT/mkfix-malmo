@@ -1,0 +1,76 @@
+---
+// src/pages/index.astro
+import MainLayout from "../../layouts/MainLayout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+---
+
+<MainLayout
+	title="Laga PlayStation 1 & 2 Kontroll | Fixa Stick Drift | mkFix"
+	description="Ge din PS1- eller PS2-kontroll nytt liv. Vi åtgärdar stick drift genom att byta till nya potentiometer-joysticks med perfekt originalkänsla. Läs mer här!"
+	keywords="PlayStation 2 reparation, PS1 handkontroll, DualShock fix, stick drift PS2, laga analogspak, potentiometer joystick, retrospel Malmö"
+	ogTitle="Laga PlayStation 1 & 2 Kontroll | mkFix"
+	ogDescription="Säg hejdå till sega och drifttande spakar på din DualShock. Vi återställer retrokänslan med precision."
+    canonicalUrl="https://mkfix.se/tjanster/ps1-ps2-reparation"
+>
+	<Header />
+    <main class="container">
+        <section class="hero">
+            <h1>Originalkänsla med nya analoga spakar för <span>PlayStation 1 & 2</span></h1>
+            <p> Varför kasta bort en klassisk DualShock-kontroll när den går att göra som ny igen?<br/>
+            Med vår <strong>PS1/PS2-reparation</strong> löder vi loss dina gamla, slitna analoga spakar och ersätter dem med helt nya potentiometerbaserade joysticks av högsta kvalitet.<br/>
+            Vi bevarar originalets exakta motstånd och känsla så att dina favoritspel känns precis som de gjorde förr – fast utan irriterande stick drift.</p>
+            <h2>Varför använda potentiometer-spakar till retrokontroller?</h2>
+            <p>PlayStation 1 och 2 (DualShock 1 & 2) är designade kring traditionell potentiometerteknik. Genom att installera nya, fräscha originalkomponenter behåller du kontrollens autentiska egenskaper samtidigt som du helt eliminerar glapp och felaktiga rörelser.</p>
+        </section>
+
+        <section style="background: rgba(56, 189, 248, 0.05); padding: 2rem; border-radius: 15px; margin: 0 0;">
+            <h2 style="color: var(--accent); margin-top: 0;">Fördelar med nya analoga spakar:</h2>
+            <ul style="list-style: none; padding: 0;">
+                <li style="margin-bottom: 1rem;">✅ <strong>100% originalkänsla</strong> och rätt mekaniskt motstånd</li>
+                <li style="margin-bottom: 1rem;">✅ <strong>Ingen stick drift</strong> eller irriterande dörrzoner</li>
+                <li style="margin-bottom: 1rem;">✅ <strong>Perfekt precision</strong> för känsliga retrospel</li>
+                <li style="margin-bottom: 1rem;">✅ <strong>Längre livslängd</strong> på dina sällsynta originalkontroller</li>
+                <li style="margin-bottom: 1rem;">✅ <strong>Miljövänligt</strong> – reparera istället för att köpa billiga kopior</li>
+            </ul>
+        </section>
+
+        <section class="hero">
+            <h2>Hur uppstår stick drift på PS1 och PS2?</h2>
+            <p> 
+                Traditionella spakar använder interna kolspår (potentiometrar) som mäter spakens position. När du spelar gnids en liten metallarm mot detta spår.<br/>
+                Efter 20 år av intensivt spelande slits kolet ner, eller så samlas smuts och damm på banorna. Resultatet blir att kontrollen tror att du rör på spaken fast du inte gör det – så kallad stick drift.
+            </p>
+        </section>
+
+        <section style="background: rgba(56, 189, 248, 0.05); padding: 2rem; border-radius: 15px; margin: 0 0;">
+            <h2 style="color: var(--accent); margin-top: 0;">När är det dags för ett byte?</h2>
+            <p style="margin-bottom: 4px">Denna service passar perfekt för dig vars kontroll:</p>
+            <ul style="list-style: none; padding: 0;">
+                <li style="margin-bottom: 1rem;">✅ Har spakar som drar åt sidan av sig självt</li>
+                <li style="margin-bottom: 1rem;">✅ Känns "slappa", lösa eller inte centrerar ordentligt</li>
+                <li style="margin-bottom: 1rem;">✅ Missar eller hackar vid maximalt utslag i spel</li>
+                <li style="margin-bottom: 1rem;">✅ Ska användas för speedruns eller highscore-försök</li>
+            </ul>
+        </section>
+        
+        <a href="https://mkfix.se/#boka" class="submit-btn" style="text-decoration: none; display: inline-block;">STARTA DIN BOKNING HÄR</a>
+        
+        
+    </main>
+
+	<Footer />
+	<!-- Google tag (gtag.js) -->
+     <!-- TODO: Greate GTM component -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-DRKX0X33V3"
+	></script>
+	<script is:inline>
+		window.dataLayer = window.dataLayer || [];
+		function gtag() {
+			dataLayer.push(arguments);
+		}
+		gtag("js", new Date());
+
+		gtag("config", "G-DRKX0X33V3");
+	</script>
+</MainLayout>

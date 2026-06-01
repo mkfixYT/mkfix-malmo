@@ -1,0 +1,62 @@
+---
+// src/pages/index.astro
+import MainLayout from "../../layouts/MainLayout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+---
+
+<MainLayout
+	title="Skicka in din handkontroll för lagning | mkFix"
+	description="Bor du inte i Malmö? Inga problem! Skicka in din handkontroll till mkFix via PostNord. Snabb service, fasta priser och 6 månaders garanti."
+	keywords="skicka handkontroll på lagning, laga ps5 kontroll post, PostNord lagning, mkFix frakt, laga Xbox kontroll Sverige"
+	ogTitle="Skicka in din kontroll för lagning | mkFix Sverige"
+	ogDescription="Enkel guide för hur du skickar din trasiga kontroll till oss. Vi lagar och skickar tillbaka snabbt!"
+    canonicalUrl="https://mkfix.se/tjanster/skicka-in"
+>
+	<Header />
+    <main class="container">
+        <h1 class="section-title">Bor du inte i Malmö? <span>Inga problem!</span></h1>
+        <p style="text-align: center;">Vi tar emot kontroller via post från hela Sverige varje vecka.</p>
+
+        <div class="grid" style="margin-top: 3rem;">
+            <div class="card">
+                <span class="price">1</span>
+                <h3>Boka & Få adress</h3>
+                <p>Fyll i formuläret på startsidan. Jag återkommer med pris och exakt adress för inlämning/frakt.</p>
+            </div>
+            <div class="card">
+                <span class="price">2</span>
+                <h3>Packa & Skicka</h3>
+                <p>Använd bubbelplast eller originalkartong. Skicka helst med PostNord "Skicka Lätt" (spårbart) för din
+                    trygghet.</p>
+            </div>
+            <div class="card">
+                <span class="price">3</span>
+                <h3>Lagning & Retur</h3>
+                <p>Jag lagar din kontroll (ofta live på YT!), testar den och skickar tillbaka den välpaketerad. Frakt
+                    tillbaka tillkommer.</p>
+            </div>
+        </div>
+
+        <div class="contact-card" style="margin-top: 4rem;">
+            <p><strong>Betalning?</strong> Sker genom faktura när lagningen är klar och testad.</p>
+            <a href="https://mkfix.se/#boka" class="submit-btn"
+                style="text-decoration: none; display: inline-block;">STARTA DIN BOKNING HÄR</a>
+        </div>
+    </main>
+
+	<Footer />
+	<!-- Google tag (gtag.js) -->
+     <!-- TODO: Greate GTM component -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-DRKX0X33V3"
+	></script>
+	<script is:inline>
+		window.dataLayer = window.dataLayer || [];
+		function gtag() {
+			dataLayer.push(arguments);
+		}
+		gtag("js", new Date());
+
+		gtag("config", "G-DRKX0X33V3");
+	</script>
+</MainLayout>

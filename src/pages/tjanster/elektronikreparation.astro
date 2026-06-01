@@ -1,0 +1,82 @@
+---
+// src/pages/index.astro
+import MainLayout from "../../layouts/MainLayout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+---
+
+<MainLayout
+	title="Elektronikreparation & Precisionslödning Malmö | mkFix"
+	description="Laga din elektronik i Malmö hos mkFix. Vi utför avancerad precisionslödning, lagar kretskort, byter kontakter och ger dina prylar nytt liv istället för att slänga dem."
+	keywords="elektronikreparation malmö, laga kretskort, lödning malmö, laga hörlurar, reparation hushållsmaskiner, mikrolödning, mkfix"
+	ogTitle="MKFix - Säg hejdå till Stick Drift"
+	ogDescription="Elektronikreparation & Lödning i Malmö | mkFix"
+    canonicalUrl="https://mkfix.se/tjanster/elektronikreparation"
+>
+	<Header />
+	<main class="container">
+        <section class="hero">
+            <div class="trust-box">
+                <span class="trust-badge">PRECISIONSLÖDNING</span>
+                <span>Vi lagar det andra slänger</span>
+            </div>
+            <h1>Tekniken har stannat – <span>mkFix</span> får den att rulla igen</h1>
+            <p>Har din favoritmaskin slutat fungera? Ofta handlar det om en liten komponent, en lös lödning eller en trasig kontakt. Istället för att köpa nytt och belasta miljön (och plånboken), kan vi på <strong>mkFix i Malmö</strong> ofta laga enheten på komponentnivå.</p>
+            <p>Vi specialiserar oss på <strong>mikrolödning</strong> och avancerad felsökning som vanliga verkstäder ofta säger nej till.</p>
+        </section>
+
+        <div class="grid">
+            <div class="card">
+                <div style="font-size: 2rem; margin-bottom: 1rem;">🎸</div>
+                <h3>Ljud & Hi-Fi</h3>
+                <p>Sprakande reglage, döda kanaler eller trasiga hörlursuttag? Vi lagar förstärkare, hörlurar och annan ljudutrustning.</p>
+            </div>
+            <div class="card">
+                <div style="font-size: 2rem; margin-bottom: 1rem;">☕</div>
+                <h3>Småmaskiner</h3>
+                <p>Kaffemaskiner, köksutrustning eller robotdammsugare. Om det finns ett kretskort i den, finns det en chans att den går att rädda.</p>
+            </div>
+            <div class="card">
+                <div style="font-size: 2rem; margin-bottom: 1rem;">🔌</div>
+                <h3>Kontakter & Portar</h3>
+                <p>Trasiga USB-portar, strömkontakter (DC-jacks) eller HDMI-anslutningar på allt från bärbara datorer till skärmar.</p>
+            </div>
+            <div class="card">
+                <div style="font-size: 2rem; margin-bottom: 1rem;">🔋</div>
+                <h3>Batteribyten</h3>
+                <p>Gäller mer än bara handkontroller! Vi byter batterier i allt från rakapparater till eltandborstar och bärbar elektronik.</p>
+            </div>
+        </div>
+
+        <section style="background: rgba(56, 189, 248, 0.05); padding: 2rem; border-radius: 15px; margin: 3rem 0; border: 1px solid rgba(56, 189, 248, 0.1);">
+            <h2 style="color: var(--accent); margin-top: 0;">Varför mkFix?</h2>
+            <p>Många väljer oss för att vi faktiskt jobbar <em>i mikroskop</em>. Det betyder att vi kan se sprickor i lödningar som inte syns med blotta ögat.</p>
+            <ul style="list-style: none; padding: 0;">
+                <li style="margin-bottom: 1rem;">🔍 <strong>Felsökning på komponentnivå:</strong> Vi byter hellre ut ett motstånd för 5 kr än ett helt kretskort för 2000 kr.</li>
+                <li style="margin-bottom: 1rem;">🎥 <strong>Transparens:</strong> Precis som med våra kontroller kan vi dokumentera reparationen så du ser exakt vad som gjorts.</li>
+                <li style="margin-bottom: 1rem;">♻️ <strong>Hållbarhet:</strong> Vi brinner för "Right to Repair". Att laga är alltid bättre än att slänga.</li>
+            </ul>
+        </section>
+
+        <section style="text-align: center; padding: 2rem 0;">
+            <h2>Har du ett projekt åt oss?</h2>
+            <p>Ingen uppgift är för märklig. Vi har lagat allt från fjärrkontroller till bilnycklar och smarta hem-hubbar.</p>
+            <br>
+            <a href="https://mkfix.se/#boka" class="submit-btn" style="text-decoration: none; display: inline-block;">FÅ ETT PRISFÖRSLAG</a>
+        </section>
+    </main>
+	<Footer />
+	<!-- Google tag (gtag.js) -->
+     <!-- TODO: Greate GTM component -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-DRKX0X33V3"
+	></script>
+	<script is:inline>
+		window.dataLayer = window.dataLayer || [];
+		function gtag() {
+			dataLayer.push(arguments);
+		}
+		gtag("js", new Date());
+
+		gtag("config", "G-DRKX0X33V3");
+	</script>
+</MainLayout>

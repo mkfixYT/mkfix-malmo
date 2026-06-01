@@ -1,0 +1,105 @@
+---
+// src/pages/index.astro
+import MainLayout from "../../layouts/MainLayout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+---
+
+<MainLayout
+	title="Sega Game Gear Recap - Rädda din konsol | mkFix"
+	description="Laga din Sega Game Gear. Vi utför fullständigt byte av kondensatorer (recap) för att fixa bild- och ljudproblem. Professionell service i Malmö."
+	keywords="Sega Game Gear, Recap, Kondensatorbyte, Reparation, Retrospel, Game Gear fix, Laga Game Gear"
+	ogTitle="Sega Game Gear Recap - Ge din klassiker nytt liv | mkFix"
+	ogDescription="Upplever du svag bild eller inget ljud på din Game Gear? Vi byter ut läckande kondensatorer mot nya av hög kvalitet."
+    canonicalUrl="https://mkfix.se/tjanster/game-gear"
+>
+	<Header />
+	<main class="container">
+        <section class="hero">
+            <h1>Sega Game Gear <span>Recap</span>: Rädda din konsol från syra-läckage</h1>
+            <p> Har din Game Gear börjat få svag bild, inget ljud eller vägrar den starta?<br />
+                Nästan alla Game Gear-konsoler lider idag av <strong>läckande elektrolytkondensatorer</strong>. Syran
+                från dessa fräter långsamt sönder moderkortet och förstör komponenterna inifrån.<br />
+                Genom en professionell "recap" byter vi ut samtliga kondensatorer på huvudkortet, ljudkortet och
+                strömkortet mot moderna komponenter som inte läcker.</p>
+            <h2>Varför är en recap nödvändig?</h2>
+            <p>De kondensatorer Sega använde vid tillverkningen på 90-talet har en begränsad livslängd. Idag har de
+                flesta börjat läcka eller torka ut, vilket leder till att konsolen långsamt dör. En recap är inte bara
+                en lagning, det är en livförsäkring för din konsol.</p>
+        </section>
+
+        <section style="background: rgba(56, 189, 248, 0.05); padding: 2rem; border-radius: 15px; margin: 0 0;">
+            <h2 style="color: var(--accent); margin-top: 0;">Symptom på att din Game Gear behöver nya kondensatorer:
+            </h2>
+            <ul style="list-style: none; padding: 0;">
+                <li style="margin-bottom: 1rem;">❌ <strong>Bilden</strong> syns bara om man vinklar konsolen extremt
+                </li>
+                <li style="margin-bottom: 1rem;">❌ <strong>Ljudet</strong> är mycket lågt eller helt borta</li>
+                <li style="margin-bottom: 1rem;">❌ <strong>Skärmen</strong> är suddig eller har ränder</li>
+                <li style="margin-bottom: 1rem;">❌ <strong>Konsolen</strong> stängs av direkt efter start</li>
+                <li style="margin-bottom: 1rem;">❌ <strong>Dålig</strong> kontrast som inte går att justera</li>
+            </ul>
+        </section>
+
+        <section class="hero">
+            <h2>Vår arbetsprocess under mikroskop</h2>
+            <p>
+                Vi går noggrant tillväga för att säkerställa att din konsol håller i många år till. Vi använder
+                mikroskop för att upptäcka även de minsta frätskadorna.<br />
+                Processen inkluderar: <strong>Avlägsning</strong> av gamla komponenter, <strong>djuprengöring</strong>
+                av kretskortet för att neutralisera syra, samt <strong>precisionslödning</strong> av nya, högkvalitativa
+                kondensatorer.
+            </p>
+        </section>
+
+        <section style="background: rgba(56, 189, 248, 0.05); padding: 2rem; border-radius: 15px; margin: 0 0;">
+            <h2 style="color: var(--accent); margin-top: 0;">Vad ingår i servicen?</h2>
+            <p style="margin-bottom: 4px">Vi utför en komplett genomgång av maskinen:</p>
+            <ul style="list-style: none; padding: 0;">
+                <li style="margin-bottom: 1rem;">✅ Byte av samtliga kondensatorer (Main, Sound & Power board)</li>
+                <li style="margin-bottom: 1rem;">✅ Rengöring av kretskort från läckt elektrolyt</li>
+                <li style="margin-bottom: 1rem;">✅ Kontroll av banor och lagning vid lättare korrosion</li>
+                <li style="margin-bottom: 1rem;">✅ Rengöring av knappar och interna kontakter</li>
+            </ul>
+        </section>
+
+        <a href="https://mkfix.se/#boka" class="submit-btn" style="text-decoration: none; display: inline-block;">BOKA
+            DIN GAME GEAR REPARATION HÄR</a>
+
+        <div class="grid">
+            <div class="card">
+                <h3>Original-kondensatorer</h3>
+                <p>Gamla elektrolytkondensatorer som läcker ut frätande vätska. Detta förstör kopparbanorna på
+                    moderkortet och ger sämre prestanda.</p>
+                <div
+                    style="background: var(--border); aspect-ratio: 1; border-radius: 10px; display: flex; align-items: center; justify-content: center;">
+                    <img style="width: 100%; aspect-ratio: 1; border-radius: 10px;"
+                        src="../img/2026/0423/game-gear-läckt-kondensator-1.png" alt="Game gearreparation Malmö">
+                </div>
+            </div>
+            <div class="card" style="border: 2px solid var(--accent);">
+                <h3>Original-kondensatorer</h3>
+                <p>Bild på en annan läckt kondensator.</p>
+                    <div
+                    style="background: var(--border); aspect-ratio: 1; border-radius: 10px; display: flex; align-items: center; justify-content: center;">
+                    <img style="width: 100%; aspect-ratio: 1; border-radius: 10px;"
+                        src="../img/2026/0423/game-gear-läckt-kondensator-2.png" alt="Laga läckta kondensatorer Malmö">
+                </div>
+            </div>
+        </div>
+    </main>
+	<Footer />
+	<!-- Google tag (gtag.js) -->
+     <!-- TODO: Greate GTM component -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-DRKX0X33V3"
+	></script>
+	<script is:inline>
+		window.dataLayer = window.dataLayer || [];
+		function gtag() {
+			dataLayer.push(arguments);
+		}
+		gtag("js", new Date());
+
+		gtag("config", "G-DRKX0X33V3");
+	</script>
+</MainLayout>

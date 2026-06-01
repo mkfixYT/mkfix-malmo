@@ -1,0 +1,121 @@
+---
+// src/pages/blog.astro
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import MainLayout from "../layouts/MainLayout.astro";
+
+// 1. Fetch all markdown files using Vite's native glob fetcher
+// 'eager: true' forces it to load the frontmatter data immediately
+const postFiles = import.meta.glob("./blog/*.astro", { eager: true });
+
+// 2. Convert the object values into a clean array for your template loop
+const posts = Object.values(postFiles) as any[];
+
+// 3. Sort posts by publication date (if you use a 'pubDate' field in frontmatter)
+const sortedPosts = posts.sort(
+  (a, b) =>
+    Date.parse(b.frontmatter.pubDate || "") -
+    Date.parse(a.frontmatter.pubDate || ""),
+);
+---
+
+<MainLayout
+  title="mkFix Case Studies & Nyheter | Verkstadsblogg"
+  description="Häng med bakom kulisserna i mkFix-verkstaden i Malmö. Här delar vi med oss av kontroller-lagningar, TMR-uppgraderingar och guider."
+>
+  <Header />
+  <main class="container">
+    <section class="hero">
+      <h1>mkFix <span>Case Studies</span> &amp; Nyheter</h1>
+      <p>
+        Häng med bakom kulisserna i verkstaden. Här delar vi med oss av
+        lagningar, uppgraderingar och guider.
+      </p>
+    </section>
+
+    <div
+      class="filter-container"
+      style="text-align: center; margin-bottom: 3rem;"
+    >
+      <button class="filter-btn active" data-filter="all">Visa alla</button>
+      <button class="filter-btn" data-filter="tmr">TMR Uppgradering</button>
+      <button class="filter-btn" data-filter="retro">Retro-fix</button>
+      <button class="filter-btn" data-filter="guide">Guider</button>
+      <button class="filter-btn" data-filter="tips">Tips</button>
+    </div>
+
+    <div class="grid" id="blog-grid">
+      {
+        sortedPosts.map((post) => {
+          // 1. Skapa ett säkert frontmatter-objekt så det aldrig är undefined
+          const fm = post.frontmatter || {};
+
+          // 2. Generera en säker länk baserat på filnamnet (fungerar för både .md och .astro)
+          const slug = post.file
+            .split("/")
+            .pop()
+            .replace(".astro", "")
+            .replace(".md", "");
+          const postUrl = `/blog/${slug}`;
+
+          return (
+            <article class="card post-card" data-category={fm.categories || ""}>
+              {/* Visar "Senaste" om isLatest är true */}
+              {fm.isLatest && <div class="popular-tag">Senaste</div>}
+
+              <span
+                class="price-badge"
+                style="margin-bottom: 1rem; display: inline-block; width: fit-content"
+              >
+                {fm.badge || "Case Study"}
+              </span>
+
+              <h3>{fm.title || "Titel saknas"}</h3>
+              <p>{fm.description || "Beskrivning saknas..."}</p>
+              <br />
+
+              <a
+                href={postUrl}
+                class="nav-cta"
+                style="display: inline-block; text-align: center; width: fit-content;"
+              >
+                Läs hela inlägget
+              </a>
+            </article>
+          );
+        })
+      }
+    </div>
+  </main>
+  <Footer />
+</MainLayout>
+
+{
+  /* By adding 'is:inline', Astro leaves your vanilla filtering JS completely alone 
+  so it functions perfectly on the client browser exactly as before!
+*/
+}
+<script is:inline>
+  const filterButtons = document.querySelectorAll(".filter-btn");
+  const posts = document.querySelectorAll(".post-card");
+
+  filterButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      filterButtons.forEach((btn) => btn.classList.remove("active"));
+      button.classList.add("active");
+
+      const filter = button.getAttribute("data-filter");
+
+      posts.forEach((post) => {
+        const categoryAttr = post.getAttribute("data-category");
+        const categories = categoryAttr ? categoryAttr.split(" ") : [];
+
+        if (filter === "all" || categories.includes(filter)) {
+          post.style.display = "block";
+        } else {
+          post.style.display = "none";
+        }
+      });
+    });
+  });
+</script>
