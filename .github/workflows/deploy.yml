@@ -16,6 +16,11 @@ jobs:
     steps:
       - name: Checkout your repository
         uses: actions/checkout@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: 'npm' # change to 'pnpm' or 'yarn' if you use those instead
       - name: Install, build, and upload your site
         uses: withastro/action@v3 # Astro's official deployment action
 
