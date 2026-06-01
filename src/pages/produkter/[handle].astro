@@ -31,7 +31,7 @@ export async function getStaticPaths() {
   });
 
   const { data } = await response.json();
-  
+
   return data.products.edges.map(({ node }: any) => ({
     params: { handle: node.handle },
   }));
@@ -89,7 +89,7 @@ const product = data.product;
 
 // Om produkten inte hittas
 if (!product) {
-  return Astro.redirect('/404');
+  return Astro.redirect("/404");
 }
 
 const price = product.variants.edges[0]?.node.price;
@@ -97,78 +97,96 @@ const mainImage = product.images.edges[0]?.node;
 ---
 
 <MainLayout
-    title={`${product.title} | mkFix`}
-    description={product.description.slice(0, 160)}
-    keywords={`laga, reparera, ${product.title.toLowerCase()}, Malmö`}
-    ogTitle={`${product.title} | mkFix`}
-    ogDescription={product.description.slice(0, 160)}
-    canonicalUrl={`https://mkfix.se/produkter/${handle}`}
+  title={`${product.title} | mkFix`}
+  description={product.description.slice(0, 160)}
+  keywords={`laga, reparera, ${product.title.toLowerCase()}, Malmö`}
+  ogTitle={`${product.title} | mkFix`}
+  ogDescription={product.description.slice(0, 160)}
+  canonicalUrl={`https://mkfix.se/produkter/${handle}`}
 >
-    <Header />
-    
-    <main class="container">
-        <section class="hero" style="display: flex; gap: 2rem; flex-wrap: wrap; align-items: center;">
-            <div style="flex: 1; min-width: 300px;">
-                <h1><span>{product.title}</span></h1>
-                
-                {price && (
-                    <p style="font-size: 1.5rem; font-weight: bold; color: var(--accent); margin-top: -1rem;">
-                        {parseFloat(price.amount).toFixed(0)} {price.currencyCode === 'SEK' ? 'kr' : price.currencyCode}
-                    </p>
-                )}
-                
-                <a href={`https://${domain}/cart/${product.variants.edges[0]?.node.id.split('/').pop()}:1`} class="submit-btn" style="text-decoration: none; display: inline-block; margin-top: 1rem;">
-                    KÖP NU
-                </a>
-            </div>
+  <Header />
 
-            {mainImage && (
-                <div style="flex: 1; min-width: 300px; text-align: center;">
-                    <img 
-                        src={mainImage.url} 
-                        alt={mainImage.altText || product.title} 
-                        style="max-width: 100%; height: auto; border-radius: 15px; box-shadow: 0 4px 20px rgba(0,0,0,0.15);"
-                    />
-                </div>
-            )}
-        </section>
+  <main class="container">
+    <section
+      class="hero"
+      style="display: flex; gap: 2rem; flex-wrap: wrap; align-items: center;"
+    >
+      <div style="flex: 1; min-width: 300px;">
+        <h1><span>{product.title}</span></h1>
 
-        <section style="background: rgba(56, 189, 248, 0.05); padding: 2rem; border-radius: 15px; margin: 2rem 0;">
-            <h2 style="color: var(--accent); margin-top: 0;">Om tjänsten / produkten</h2>
-            <div class="product-description" set:html={product.descriptionHtml} />
-        </section>
-        
-    </main>
+        {
+          price && (
+            <p style="font-size: 1.5rem; font-weight: bold; color: var(--accent); margin-top: -1rem;">
+              {parseFloat(price.amount).toFixed(0)}{" "}
+              {price.currencyCode === "SEK" ? "kr" : price.currencyCode}
+            </p>
+          )
+        }
 
-    <Footer />
+        <a
+          href={`https://${domain}/cart/add?id=${product.variants.edges[0]?.node.id.split("/").pop()}&quantity=1&return_to=/cart`}
+          class="submit-btn"
+          style="text-decoration: none; display: inline-block; margin-top: 1rem;"
+        >
+          KÖP NU
+        </a>
+      </div>
 
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-DRKX0X33V3"></script>
-    <script is:inline>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag("js", new Date());
-        gtag("config", "G-DRKX0X33V3");
-    </script>
+      {
+        mainImage && (
+          <div style="flex: 1; min-width: 300px; text-align: center;">
+            <img
+              src={mainImage.url}
+              alt={mainImage.altText || product.title}
+              style="max-width: 100%; height: auto; border-radius: 15px; box-shadow: 0 4px 20px rgba(0,0,0,0.15);"
+            />
+          </div>
+        )
+      }
+    </section>
+
+    <section
+      style="background: rgba(56, 189, 248, 0.05); padding: 2rem; border-radius: 15px; margin: 2rem 0;"
+    >
+      <h2 style="color: var(--accent); margin-top: 0;">
+        Om tjänsten / produkten
+      </h2>
+      <div class="product-description" set:html={product.descriptionHtml} />
+    </section>
+  </main>
+
+  <Footer />
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-DRKX0X33V3"
+  ></script>
+  <script is:inline>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
+    gtag("config", "G-DRKX0X33V3");
+  </script>
 </MainLayout>
 
 <style>
-    /* Lite extra styling för att se till att texten från Shopify matchar din sajt */
-    .product-description :global(p) {
-        margin-bottom: 1rem;
-        line-height: 1.6;
-    }
-    .product-description :global(ul) {
-        list-style: none;
-        padding: 0;
-    }
-    .product-description :global(li) {
-        margin-bottom: 0.5rem;
-        position: relative;
-        padding-left: 1.5rem;
-    }
-    .product-description :global(li::before) {
-        content: "✅";
-        position: absolute;
-        left: 0;
-    }
+  /* Lite extra styling för att se till att texten från Shopify matchar din sajt */
+  .product-description :global(p) {
+    margin-bottom: 1rem;
+    line-height: 1.6;
+  }
+  .product-description :global(ul) {
+    list-style: none;
+    padding: 0;
+  }
+  .product-description :global(li) {
+    margin-bottom: 0.5rem;
+    position: relative;
+    padding-left: 1.5rem;
+  }
+  .product-description :global(li::before) {
+    content: "✅";
+    position: absolute;
+    left: 0;
+  }
 </style>
