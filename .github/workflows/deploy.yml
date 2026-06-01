@@ -19,6 +19,9 @@ jobs:
 
       - name: Install, build, and upload your site
         uses: withastro/action@v3 # Astro's official deployment action
+        env:
+          PUBLIC_SHOPIFY_STOREFRONT_TOKEN: ${{ vars.PUBLIC_SHOPIFY_STOREFRONT_TOKEN }}
+          PUBLIC_SHOPIFY_STORE_DOMAIN: ${{ vars.PUBLIC_SHOPIFY_STORE_DOMAIN }}
         with:
           node-version: 22 # <-- This forces the Astro action to use Node 22 internally!
 
