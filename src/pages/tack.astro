@@ -1,0 +1,41 @@
+---
+// src/pages/index.astro
+import MainLayout from "../layouts/MainLayout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+interface Props {
+	title?: string;
+	description?: string;
+}
+const { title, description } = Astro.props;
+---
+
+<MainLayout
+	title="Laga Handkontroll Malmö | Stick Drift & TMR Fix | mkFix"
+	description="Fixa stick drift permanent i Malmö! TMR & Hall Effect uppgraderingar för PS5, Xbox och Switch. Snabbt med 6 månaders garanti."
+	keywords="stick drift repair malmö, laga handkontroll malmö, TMR sensor upgrade, laga PS5 kontroll malmö, nintendo switch lagning"
+	ogTitle="MKFix - Säg hejdå till Stick Drift"
+	ogDescription="Vi uppgraderar din kontroll till nästa nivå med TMR-stickor och custom mods i Malmö."
+>
+	<Header />
+	<main class="thanks-container">
+        <div class="check-icon">✓</div>
+        <h1>Tack för din förfrågan!</h1>
+        <p>Jag har tagit emot ditt meddelande och återkommer till dig så snart jag kan (oftast inom 24 timmar).</p>
+        <br>
+        <a href="/" class="submit-btn" style="text-decoration: none;">TILLBAKA TILL STARTSIDAN</a>
+    </main>
+	<Footer />
+	<!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-DRKX0X33V3"
+	></script>
+	<script is:inline>
+		window.dataLayer = window.dataLayer || [];
+		function gtag() {
+			dataLayer.push(arguments);
+		}
+		gtag("js", new Date());
+
+		gtag("config", "G-DRKX0X33V3");
+	</script>
+</MainLayout>
