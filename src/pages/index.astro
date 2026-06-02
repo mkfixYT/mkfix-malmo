@@ -214,84 +214,86 @@ const { title, description } = Astro.props;
             </div>
         </section>
 
-        <section id="boka" class="contact-card">
-            <h2>Boka din reparation</h2>
-            <p>Beskriv felet så återkommer jag med pris och tidsförslag. Bifoga gärna en bild!</p>
-            <form id="contact-form" class="contact-form">
-                <div class="form-group">
-                    <input type="text" name="fi-sender-firstName" placeholder="Ditt namn*" required>
-                </div>
-                <div class="form-group">
-                    <input type="email" name="fi-sender-email" placeholder="Din e-post*" required>
-                </div>
-                <div class="form-group">
-                    <input type="tel" name="fi-sender-phone" placeholder="070123456">
-                </div>
-                <div class="form-group">
-                    <select name="fi-text-enhet" required>
-                        <option value="" disabled selected>Välj enhet</option>
-                        <option value="ps5">Playstation 5</option>
-                        <option value="ps4">Playstation 4</option>
-                        <option value="xbox">Xbox Series/One</option>
-                        <option value="scuf-aim">Scuf/Aim</option>
-                        <option value="switch">Nintendo Switch</option>
-                        <option value="xbox 360">Xbox 360</option>
-                        <option value="ps1-2">Playstation 1-2</option>
-                        <option value="annat">Annat / Konsol</option>
-                        <option value="ovrig-elektronik">Övrig elektronik (Kretskort, lödning, etc)</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <textarea name="fi-text-message" placeholder="Beskriv problemet (t.ex. vänster spak drifter uppåt)"
-                        rows="4" required></textarea>
-                </div>
-                <div class="form-group">
-                    <select name="fi-text-contact-me" required>
-                        <option value="whatever" disabled selected>Kontakta mig helst genom</option>
-                        <option value="email">E-post</option>
-                        <option value="sms">Sms</option>
-                        <option value="call">Samtal</option>
-                    </select>
-                </div>
-                <div class="form-group file-upload">
-                    <label for="photo">Bifoga bild på kontrollen (valfritt):</label>
-                    <input type="file" id="photo" name="fi-file-photo" accept="image/*">
-                </div>
+       <section id="boka" class="contact-card">
+    <h2>Boka din reparation</h2>
+    <p>Beskriv felet så återkommer jag med pris och tidsförslag. Bifoga gärna en bild!</p>
+    
+    <!-- 1. FIXED: Added enctype="multipart/form-data" for your file upload -->
+    <form id="contact-form" class="contact-form" enctype="multipart/form-data">
+        <div class="form-group">
+            <input type="text" name="fi-sender-firstName" placeholder="Ditt namn*" required>
+        </div>
+        <div class="form-group">
+            <input type="email" name="fi-sender-email" placeholder="Din e-post*" required>
+        </div>
+        <div class="form-group">
+            <input type="tel" name="fi-sender-phone" placeholder="070123456">
+        </div>
+        <div class="form-group">
+            <select name="fi-text-enhet" required>
+                <option value="" disabled selected>Välj enhet</option>
+                <option value="ps5">Playstation 5</option>
+                <option value="ps4">Playstation 4</option>
+                <option value="xbox">Xbox Series/One</option>
+                <option value="scuf-aim">Scuf/Aim</option>
+                <option value="switch">Nintendo Switch</option>
+                <option value="xbox 360">Xbox 360</option>
+                <option value="ps1-2">Playstation 1-2</option>
+                <option value="annat">Annat / Konsol</option>
+                <option value="ovrig-elektronik">Övrig elektronik (Kretskort, lödning, etc)</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <textarea name="fi-text-message" placeholder="Beskriv problemet (t.ex. vänster spak drifter uppåt)" rows="4" required></textarea>
+        </div>
+        <div class="form-group">
+            <select name="fi-text-contact-me" required>
+                <option value="whatever" disabled selected>Kontakta mig helst genom</option>
+                <option value="email">E-post</option>
+                <option value="sms">Sms</option>
+                <option value="call">Samtal</option>
+            </select>
+        </div>
+        <div class="form-group file-upload">
+            <label for="photo">Bifoga bild på kontrollen (valfritt):</label>
+            <input type="file" id="photo" name="fi-file-photo" accept="image/*">
+        </div>
 
-                <button type="submit" class="submit-btn">SKICKA FÖRFRÅGAN</button>
-            </form>
+        <button type="submit" class="submit-btn">SKICKA FÖRFRÅGAN</button>
+    </form>
 
-            <div id="result" style="margin-top: 1rem; color: var(--accent); font-weight: bold;"></div>
+    <div id="result" style="margin-top: 1rem; color: var(--accent); font-weight: bold;"></div>
 
-            <script src="https://forminit.com/sdk/v1/forminit.js"></script>
+    <script src="https://forminit.com/sdk/v1/forminit.js"></script>
 
-            <script is:inline>
-                const forminit = new Forminit();
-                const FORM_ID = "7b7ffs280f3";
+    <script is:inline>
+        const forminit = new Forminit();
+        const FORM_ID = "7b7ffs280f3";
 
-                document.getElementById("contact-form").addEventListener("submit", async (e) => {
-                    e.preventDefault();
-                    const result = document.getElementById("result");
-                    result.textContent = "Skickar...";
+        document.getElementById("contact-form").addEventListener("submit", async (e) => {
+            e.preventDefault();
+            const result = document.getElementById("result");
+            result.textContent = "Skickar...";
 
-                    const formData = new FormData(e.target);
-                    const { data, error } = await forminit.submit(FORM_ID, formData);
+            const formData = new FormData(e.target);
+            const { data, error } = await forminit.submit(FORM_ID, formData);
 
-                    if (error) {
-                        result.textContent = "Något gick fel: " + error.message;
-                        result.style.color = "red";
-                        return;
-                    }
+            if (error) {
+                result.textContent = "Något gick fel: " + error.message;
+                result.style.color = "red";
+                return;
+            }
 
-                    window.location.href = "/tack.html";
-                });
-            </script>
-            <div style="margin-top: 2rem; border-top: 1px solid var(--border); padding-top: 2rem;">
-                <p>Föredrar du direktkontakt?</p>
-                <a href="tel:0790320605" style="color: var(--accent); text-decoration: none; font-weight: bold;">079-032
-                    06 05</a>
-            </div>
-        </section>
+            // 2. FIXED: Changed redirect from /tack.html to Astro's clean /tack route
+            window.location.href = "/tack";
+        });
+    </script>
+    
+    <div style="margin-top: 2rem; border-top: 1px solid var(--border); padding-top: 2rem;">
+        <p>Föredrar du direktkontakt?</p>
+        <a href="tel:0790320605" style="color: var(--accent); text-decoration: none; font-weight: bold;">079-032 06 05</a>
+    </div>
+</section>
 
         <a href="https://discord.gg/s75Kww368a" target="_blank" style="text-decoration: none;">
             <div
