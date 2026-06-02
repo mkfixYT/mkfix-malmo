@@ -266,28 +266,36 @@ const { title, description } = Astro.props;
 
     <script src="https://forminit.com/sdk/v1/forminit.js"></script>
 
-    <script is:inline>
+    <script src="https://forminit.com/sdk/v1/forminit.js"></script>
+
+<script is:inline>
+    // WE WRAP EVERYTHING INSIDE THIS WINDOW.ONLOAD FUNCTION:
+    window.onload = function() {
         const forminit = new Forminit();
         const FORM_ID = "7b7ffs280f3";
 
-        document.getElementById("contact-form").addEventListener("submit", async (e) => {
-            e.preventDefault();
-            const result = document.getElementById("result");
-            result.textContent = "Skickar...";
+        const formElement = document.getElementById("contact-form");
+        
+        if (formElement) {
+            formElement.addEventListener("submit", async (e) => {
+                e.preventDefault();
+                const result = document.getElementById("result");
+                result.textContent = "Skickar...";
 
-            const formData = new FormData(e.target);
-            const { data, error } = await forminit.submit(FORM_ID, formData);
+                const formData = new FormData(e.target);
+                const { data, error } = await forminit.submit(FORM_ID, formData);
 
-            if (error) {
-                result.textContent = "Något gick fel: " + error.message;
-                result.style.color = "red";
-                return;
-            }
+                if (error) {
+                    result.textContent = "Något gick fel: " + error.message;
+                    result.style.color = "red";
+                    return;
+                }
 
-            // 2. FIXED: Changed redirect from /tack.html to Astro's clean /tack route
-            window.location.href = "/tack";
-        });
-    </script>
+                window.location.href = "/tack";
+            });
+        }
+    };
+</script>
     
     <div style="margin-top: 2rem; border-top: 1px solid var(--border); padding-top: 2rem;">
         <p>Föredrar du direktkontakt?</p>
