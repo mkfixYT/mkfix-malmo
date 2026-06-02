@@ -219,7 +219,7 @@ const { title, description } = Astro.props;
     <p>Beskriv felet så återkommer jag med pris och tidsförslag. Bifoga gärna en bild!</p>
     
     <!-- 1. FIXED: Added enctype="multipart/form-data" for your file upload -->
-    <form id="contact-form" class="contact-form" enctype="multipart/form-data">
+    <form id="contact-form" class="contact-form" method="POST" enctype="multipart/form-data">
         <div class="form-group">
             <input type="text" name="fi-sender-firstName" placeholder="Ditt namn*" required>
         </div>
