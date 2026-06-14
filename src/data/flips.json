@@ -1,0 +1,16 @@
+[
+  {
+    "name": "Ep 1: Broken PS4 Slim",
+    "buyPrice": 40.00,
+    "partsPrice": 15.00,
+    "sellPrice": 120.00,
+    "salesFee": 11.50
+  },
+  {
+    "name": "Ep 2: Nintendo Switch Lite",
+    "buyPrice": 35.00,
+    "partsPrice": 5.00,
+    "sellPrice": 95.00,
+    "salesFee": 0.00
+  }
+]
