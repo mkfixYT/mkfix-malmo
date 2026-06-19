@@ -328,7 +328,8 @@ const parsedLedger = initialFlips.map(flip => {
                 responsive: true,
                 maintainAspectRatio: false,
                 scales: {
-                    y: { title: { display: true, text: 'Funds (€)' } }
+                    y: { title: { display: true, text: 'Funds (€)' },
+                    min: 0 }
                 }
             }
         });
