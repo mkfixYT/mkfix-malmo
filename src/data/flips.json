@@ -14,9 +14,16 @@
     "salesFee": 2.17
   },
    {
-    "name": "Ep 3: dead Playstation 1",
+    "name": "Ep 3-5: dead Playstation 1 and videopac",
     "buyPrice": 0.00,
     "partsPrice": 0.04,
+    "sellPrice": 131.28,
+    "salesFee": 0.00
+  },
+  {
+    "name": "Ep 6: Sony walkman",
+    "buyPrice": 14.66,
+    "partsPrice": 8.56,
     "sellPrice": 0.00,
     "salesFee": 0.00
   }
