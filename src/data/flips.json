@@ -1,30 +1,31 @@
 [
   {
-    "name": "Ep 1: PS5 controller",
+    "name": "Ep 1",
     "buyPrice": 25.00,
     "partsPrice": 3.20,
     "sellPrice": 45.56,
     "salesFee": 0.00
   },
   {
-    "name": "Ep 2: Lot PS4 controller",
+    "name": "Ep 2",
     "buyPrice": 45.00,
     "partsPrice": 0.00,
     "sellPrice": 35.46,
     "salesFee": 2.17
   },
    {
-    "name": "Ep 3-5: dead Playstation 1 and videopac",
+    "name": "Ep 3-5",
     "buyPrice": 0.00,
     "partsPrice": 0.04,
     "sellPrice": 131.28,
     "salesFee": 0.00
   },
   {
-    "name": "Ep 6: Sony walkman",
+    "name": "Ep 6",
     "buyPrice": 14.66,
     "partsPrice": 8.56,
     "sellPrice": 0.00,
     "salesFee": 0.00
   }
 ]
+// Reverse episode list. 
