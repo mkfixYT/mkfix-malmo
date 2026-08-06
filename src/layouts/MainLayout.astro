@@ -7,6 +7,10 @@ interface Props {
   keywords?: string;
   ogTitle?: string;
   ogDescription?: string;
+  ogType?: string;
+  ogImage?: string;
+  noindex?: boolean;
+  jsonLd?: object | object[];
 }
 
 // Set default fallback values in case a page forgets to pass them
@@ -15,9 +19,53 @@ const {
   description = "Fixa stick drift permanent i Malmö! TMR & Hall Effect uppgraderingar för PS5, Xbox och Switch. Snabbt med 6 månaders garanti.",
   canonicalUrl = Astro.url.href, // Dynamically gets current URL
   keywords = "stick drift repair malmö, laga handkontroll malmö, TMR sensor upgrade, laga PS5 kontroll malmö, nintendo switch lagning",
-  ogTitle = "MKFix - Säg hejdå till Stick Drift",
+  ogTitle = "mkFix - Säg hejdå till Stick Drift",
   ogDescription = "Vi uppgraderar din kontroll till nästa nivå med TMR-stickor och custom mods i Malmö.",
+  ogType = "website",
+  ogImage = "https://mkfix.se/assets/og-image.jpg",
+  noindex = false,
+  jsonLd,
 } = Astro.props;
+
+const defaultSchema = {
+  "@context": "https://schema.org",
+  "@type": "ElectronicsRepairShop",
+  "name": "mkFix Malmö",
+  "image": ogImage,
+  "url": "https://mkfix.se",
+  "telephone": "+46790320605",
+  "priceRange": "SEK",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Malmö",
+    "addressCountry": "SE"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "addressCountry": "SE"
+  },
+  "areaServed": [
+    {
+      "@type": "City",
+      "name": "Malmö"
+    },
+    {
+      "@type": "Country",
+      "name": "Sverige"
+    }
+  ],
+  "sameAs": [
+    "https://www.youtube.com/@mkFix-pl",
+    "https://www.instagram.com/mkfix.yt",
+    "https://www.facebook.com/profile.php?id=61584151330442",
+    "https://x.com/mkfix_yt",
+    "https://discord.gg/s75Kww368a"
+  ]
+};
+
+const schemas = jsonLd
+  ? (Array.isArray(jsonLd) ? [defaultSchema, ...jsonLd] : [defaultSchema, jsonLd])
+  : [defaultSchema];
 ---
 
 <!DOCTYPE html>
@@ -28,39 +76,35 @@ const {
 
     <title>{title}</title>
     <meta name="description" content={description}>
+    {noindex ? (
+      <meta name="robots" content="noindex, nofollow" />
+    ) : (
+      <meta name="robots" content="index, follow" />
+    )}
     <link rel="canonical" href={canonicalUrl}>
 
     <link rel="icon" type="image/png" href="https://mkfix.se/assets/favicon.png">
     <meta name="trustpilot-one-time-domain-verification-id" content="a30096a5-8452-441b-b35b-20d2dc50bdbe" />
-    <meta name="keywords" content={keywords}>
-    <meta name="author" content="MKFix">
+    {keywords && <meta name="keywords" content={keywords}>}
+    <meta name="author" content="mkFix">
 
-    <meta property="og:type" content="website">
+    <meta property="og:type" content={ogType}>
     <meta property="og:url" content={canonicalUrl}>
     <meta property="og:title" content={ogTitle}>
     <meta property="og:description" content={ogDescription}>
-    <meta property="og:image" content="https://mkfix.se/assets/og-image.jpg">
+    <meta property="og:image" content={ogImage}>
+    <meta property="og:site_name" content="mkFix">
+    <meta property="og:locale" content="sv_SE">
 
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content={canonicalUrl}>
-    <meta property="twitter:title" content="MKFix - Handkontrollsservice">
-    <meta property="twitter:description" content="Professionell lagning av DualSense och DualShock i Malmö. TMR-uppgraderingar och mer!">
-    <meta property="twitter:image" content="https://mkfix.se/assets/og-image.jpg">
+    <meta property="twitter:title" content={ogTitle}>
+    <meta property="twitter:description" content={ogDescription}>
+    <meta property="twitter:image" content={ogImage}>
 
-    <script type="application/ld+json" is:inline>
-    {
-      "@context": "https://schema.org",
-      "@type": "LocalBusiness",
-      "name": "mkFix Malmö",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Malmö",
-        "addressCountry": "SE"
-      },
-      "url": "https://mkfix.se",
-      "priceRange": "SEK"
-    }
-    </script>
+    {schemas.map(schema => (
+      <script type="application/ld+json" is:inline set:html={JSON.stringify(schema)}></script>
+    ))}
 
     <link rel="stylesheet" href="/global.css">
 </head>

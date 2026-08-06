@@ -94,15 +94,32 @@ if (!product) {
 
 const price = product.variants.edges[0]?.node.price;
 const mainImage = product.images.edges[0]?.node;
+
+const productSchema = {
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": product.title,
+  "description": product.description,
+  "image": mainImage ? mainImage.url : undefined,
+  "offers": price ? {
+    "@type": "Offer",
+    "price": price.amount,
+    "priceCurrency": price.currencyCode || "SEK",
+    "availability": "https://schema.org/InStock",
+    "url": `https://mkfix.se/produkter/${handle}`
+  } : undefined
+};
 ---
 
 <MainLayout
-  title={`${product.title} | mkFix`}
+  title={`${product.title} | mkFix Malmö`}
   description={product.description.slice(0, 160)}
-  keywords={`laga, reparera, ${product.title.toLowerCase()}, Malmö`}
-  ogTitle={`${product.title} | mkFix`}
+  keywords={`laga, reparera, ${product.title.toLowerCase()}, Malmö, mkFix`}
+  ogTitle={`${product.title} | mkFix Malmö`}
   ogDescription={product.description.slice(0, 160)}
+  ogImage={mainImage?.url}
   canonicalUrl={`https://mkfix.se/produkter/${handle}`}
+  jsonLd={productSchema}
 >
   <Header />
 
