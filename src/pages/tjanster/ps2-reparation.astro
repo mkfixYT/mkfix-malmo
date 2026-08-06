@@ -1,0 +1,97 @@
+---
+// src/pages/tjanster/ps2-reparation.astro
+import MainLayout from "../../layouts/MainLayout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "PlayStation 2 DualShock 2 Flex-PCB & Alps Joystick Reparation Malmö",
+  "provider": {
+    "@type": "ElectronicsRepairShop",
+    "name": "mkFix",
+    "url": "https://mkfix.se"
+  },
+  "areaServed": "Malmö",
+  "description": "Laga din PS2 DualShock 2-kontroll i Malmö. Vi byter ut trasiga Flex-PCB mönsterkort för knappar samt löder in nya original Alps joysticks.",
+  "offers": {
+    "@type": "Offer",
+    "price": "199",
+    "priceCurrency": "SEK"
+  }
+};
+---
+
+<MainLayout
+  title="PlayStation 2 Flex-PCB & Alps Joystick Swap Malmö | mkFix"
+  description="Fungerar inte knapparna på din PS2-kontroll eller driftar spakarna? Vi utför Flex-PCB-byte för knappar och löder in nya original Alps joysticks i Malmö."
+  keywords="ps2 kontroll reparation malmö, flex pcb byte playstation 2, dualshock 2 knappar fungerar inte, alps joystick byte ps2, laga ps2 kontroll malmö, mkfix"
+  ogTitle="Laga PS2 DualShock 2 Kontroll | Flex-PCB & Alps Swap | mkFix"
+  ogDescription="Ge din klassiska PS2-kontroll nytt liv! Byte av knappfilm (Flex-PCB) och original Alps joysticks i Malmö."
+  canonicalUrl="https://mkfix.se/tjanster/ps2-reparation"
+  jsonLd={serviceSchema}
+>
+  <Header />
+  <main class="container">
+    <section class="hero">
+      <div class="trust-box">
+        <span class="trust-badge">DUALSHOCK 2 EXPERT</span>
+        <span>Specialist-service i Malmö</span>
+      </div>
+      <h1>PlayStation 2 <span>Flex-PCB</span> &amp; Alps Joystick Swap</h1>
+      <p>
+        Slutat knappar att svara när du trycker på din PS2 DualShock 2-kontroll, eller har analoga spakarna blivit slappa och driftiga? 
+        DualShock 2 är en av historiens mest ikoniska handkontroller, men med åren oxiderar de interna ledningsfilmerna (Flex-PCB) och spakarna slits ner. 
+        Hos <strong>mkFix i Malmö</strong> renoverar vi din PS2-kontroll till nyskick med fräscha <strong>Flex-PCB kretskort</strong> och äkta <strong>Alps analoga joysticks</strong>!
+      </p>
+    </section>
+
+    <section style="background: rgba(56, 189, 248, 0.05); padding: 2rem; border-radius: 15px; margin: 2rem 0;">
+      <h2 style="color: var(--accent); margin-top: 0;">Fördelar med Flex-PCB Byte &amp; Alps Joystick Swap:</h2>
+      <ul style="list-style: none; padding: 0;">
+        <li style="margin-bottom: 1rem;">✅ <strong>Laga trasiga knappar:</strong> Återställer D-pad, kryss/cirkel/fyrkant/triangel och L1/R1/L2/R2 som slutat svara pga oxiderad ledningsfilm.</li>
+        <li style="margin-bottom: 1rem;">✅ <strong>100% Original känsla:</strong> Vi använder genuina Alps-potentiometrar med exakt rätt mekaniska motstånd för Gran Turismo, Tekken och Metal Gear Solid.</li>
+        <li style="margin-bottom: 1rem;">✅ <strong>Slipp billiga kopior:</strong> Tredjepartskontroller har ofta usel precision. Genom att reparera din original DualShock 2 behåller du den äkta Sony-kvaliteten.</li>
+        <li style="margin-bottom: 1rem;">✅ <strong>Prisvärt paketerbjudande:</strong> Byt både Flex-PCB och båda joysticks samtidigt till paketpris och spara pengar.</li>
+        <li style="margin-bottom: 1rem;">✅ <strong>Miljövänlig renovering:</strong> Rädda dina klassiska originalkontroller från att bli elavfall.</li>
+      </ul>
+    </section>
+
+    <div class="grid" style="margin: 2rem 0;">
+      <div class="card">
+        <h3>Flex-PCB Byte (Knappfilm)</h3>
+        <p>Vi öppnar kontrollen och byter ut det interna flexibla mönsterkortet. Gör att knappar som inte reagerar börjar fungera direkt igen.</p>
+        <span class="service-price" style="color: var(--accent); font-size: 1.3rem; font-weight: bold; display: block; margin-top: 1rem;">199 kr</span>
+      </div>
+
+      <div class="card">
+        <h3>Alps Joystick Swap</h3>
+        <p>Lödning och byte av båda analoga joysticks till helt nya Alps-spakar. Eliminera stick drift och återfå fast centrering.</p>
+        <span class="service-price" style="color: var(--accent); font-size: 1.3rem; font-weight: bold; display: block; margin-top: 1rem;">199 kr</span>
+      </div>
+
+      <div class="card featured" style="border: 2px solid var(--accent);">
+        <div class="tags-row">
+          <span class="service-tag save-tag">✓ Paketpris (Spara 49 kr)</span>
+        </div>
+        <h3>Flex-PCB + Alps Joystick Swap</h3>
+        <p>Komplett renovering! Vi byter både knappfilmen (Flex-PCB) och båda analoga Alps-joysticks så kontrollen blir som ny.</p>
+        <span class="service-price" style="color: var(--accent); font-size: 1.3rem; font-weight: bold; display: block; margin-top: 1rem;">349 kr</span>
+      </div>
+    </div>
+
+    <div style="text-align: center; margin: 3rem 0;">
+      <a href="/#boka" class="submit-btn" style="text-decoration: none; display: inline-block;">BOKA PS2-REPARATION HÄR</a>
+    </div>
+  </main>
+  <Footer />
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-DRKX0X33V3"></script>
+  <script is:inline>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag("js", new Date());
+    gtag("config", "G-DRKX0X33V3");
+  </script>
+</MainLayout>

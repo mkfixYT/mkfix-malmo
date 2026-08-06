@@ -1,0 +1,99 @@
+---
+// src/pages/tjanster/joycon-reparation.astro
+import MainLayout from "../../layouts/MainLayout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Nintendo Switch Joy-Con Reparation & TMR Uppgradering Malmö",
+  "provider": {
+    "@type": "ElectronicsRepairShop",
+    "name": "mkFix",
+    "url": "https://mkfix.se"
+  },
+  "areaServed": "Malmö",
+  "description": "Fixa Nintendo Switch Joy-Con drift permanent med magnetiska TMR-sticks i Malmö. Vi byter även spännen (metal latches) och laddskenor.",
+  "offers": {
+    "@type": "Offer",
+    "price": "299",
+    "priceCurrency": "SEK"
+  }
+};
+---
+
+<MainLayout
+  title="Laga Joy-Con Drift Malmö | TMR Uppgradering & Lås | mkFix"
+  description="Laga dina Nintendo Switch Joy-Cons permanent i Malmö! Vi byter ut drifftande joysticks mot magnetiska TMR-sensorer som aldrig slits ut. Snabb service med garanti."
+  keywords="laga joycon malmö, joycon drift reparation, nintendo switch joystick byte, TMR joycon upgrade, laga switch kontroll, metallås joycon, mkfix"
+  ogTitle="Laga Nintendo Switch Joy-Con Drift i Malmö | mkFix"
+  ogDescription="Permanent fix för Joy-Con drift med magnetisk TMR-teknik. Byte utförs snabbt i Malmö."
+  canonicalUrl="https://mkfix.se/tjanster/joycon-reparation"
+  jsonLd={serviceSchema}
+>
+  <Header />
+  <main class="container">
+    <section class="hero">
+      <div class="trust-box">
+        <span class="trust-badge">PERMANENT TMR-FIX</span>
+        <span>Specialist-service i Malmö</span>
+      </div>
+      <h1>Laga <span>Joy-Con Drift</span> med TMR-teknik i Malmö</h1>
+      <p>
+        Åker din karaktär iväg av sig själv i Zelda eller Mario Kart? <strong>Joy-Con drift</strong> är det absolut vanligaste problemet på Nintendo Switch. 
+        Istället för att köpa dyra nya Joy-Cons som drabbas av samma fel igen, kan du hos <strong>mkFix i Malmö</strong> uppgradera dina Joy-Cons med magnetiska <strong>TMR-sensorer</strong>!
+      </p>
+    </section>
+
+    <section style="background: rgba(56, 189, 248, 0.05); padding: 2rem; border-radius: 15px; margin: 2rem 0;">
+      <h2 style="color: var(--accent); margin-top: 0;">Fördelar med TMR Joy-Con Uppgradering &amp; Reparation:</h2>
+      <ul style="list-style: none; padding: 0;">
+        <li style="margin-bottom: 1rem;">✅ <strong>Aldrig mer stick drift:</strong> TMR (Tunnel Magnetoresistance) använder magnetisk avläsning utan mekanisk friktion.</li>
+        <li style="margin-bottom: 1rem;">✅ <strong>Spara pengar:</strong> Att reparera kostar en bråkdel av vad ett nytt Joy-Con-par kostar i butik.</li>
+        <li style="margin-bottom: 1rem;">✅ <strong>Högre precision:</strong> Ger exakt respons och jämnare centrering i alla spel.</li>
+        <li style="margin-bottom: 1rem;">✅ <strong>Låg strömförbrukning:</strong> TMR drar extremt lite batteri jämfört med äldre tekniker.</li>
+        <li style="margin-bottom: 1rem;">✅ <strong>Metallås (Metal Latch):</strong> Vi kan samtidigt byta ut plastspännet som gör att Joy-Cons glider av konsolen till ett hållbart spänne i metall.</li>
+      </ul>
+    </section>
+
+    <div class="grid" style="margin: 2rem 0;">
+      <div class="card featured">
+        <div class="tags-row">
+          <span class="service-tag time">⚡ Ca 30-45 min</span>
+        </div>
+        <h3>TMR Joy-Con Upgrade (Enskild)</h3>
+        <p>Byte till magnetisk TMR-joystick på en vänster- eller höger-Joy-Con. Inklusive kalibrering.</p>
+        <span class="service-price" style="color: var(--accent); font-size: 1.3rem; font-weight: bold; display: block; margin-top: 1rem;">299 kr / st</span>
+      </div>
+
+      <div class="card featured" style="border: 2px solid var(--accent);">
+        <div class="tags-row">
+          <span class="service-tag save-tag">✓ Paketpris</span>
+        </div>
+        <h3>TMR Joy-Con Upgrade (Par - V+H)</h3>
+        <p>Uppgradera båda dina Joy-Cons samtidigt till magnetiska TMR-sensorer och få paketrabatt.</p>
+        <span class="service-price" style="color: var(--accent); font-size: 1.3rem; font-weight: bold; display: block; margin-top: 1rem;">399 kr för båda</span>
+      </div>
+
+      <div class="card">
+        <h3>Metal Latch &amp; Skene-reparation</h3>
+        <p>Glider dina Joy-Cons loss från konsolen utan att du trycker på knappen? Vi byter ut de utslitna plastlåsen mot hållbara metallås.</p>
+        <span class="service-price" style="color: var(--accent); font-size: 1.3rem; font-weight: bold; display: block; margin-top: 1rem;">199 kr / par</span>
+      </div>
+    </div>
+
+    <div style="text-align: center; margin: 3rem 0;">
+      <a href="/#boka" class="submit-btn" style="text-decoration: none; display: inline-block;">BOKA JOY-CON REPARATION HÄR</a>
+    </div>
+  </main>
+  <Footer />
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-DRKX0X33V3"></script>
+  <script is:inline>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag("js", new Date());
+    gtag("config", "G-DRKX0X33V3");
+  </script>
+</MainLayout>

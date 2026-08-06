@@ -1,0 +1,94 @@
+---
+// src/pages/tjanster/cartridge-batteribyte.astro
+import MainLayout from "../../layouts/MainLayout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Cartridge Batteribyte Retrospel (Game Boy, SNES, N64) Malmö",
+  "provider": {
+    "@type": "ElectronicsRepairShop",
+    "name": "mkFix",
+    "url": "https://mkfix.se"
+  },
+  "areaServed": "Malmö",
+  "description": "Professionellt batteribyte med mikrolödning i retrospel-kassetter (Pokémon, Zelda, Mario) för Game Boy, Game Boy Color, GBA, SNES och N64 i Malmö.",
+  "offers": {
+    "@type": "Offer",
+    "price": "199",
+    "priceCurrency": "SEK"
+  }
+};
+---
+
+<MainLayout
+  title="Batteribyte Retro Cartridges Game Boy & SNES Malmö | mkFix"
+  description="Kan du inte spara dina retrospel? Vi utför precisionslödning och batteribyte i Game Boy, GBA, SNES och N64 spelkassetter (Pokémon, Zelda, Metroid) i Malmö."
+  keywords="batteribyte gameboy spel malmö, cartridge batteri pokémon crystal, laga spara retrospel, snes batteribyte, n64 sparminne, gba rtc batteri, mkfix"
+  ogTitle="Batteribyte för Game Boy & Retrospelkassetter i Malmö | mkFix"
+  ogDescription="Rädda dina sparfiler! Professionellt byte av batterier i retrospelkassetter med mikrolödning."
+  canonicalUrl="https://mkfix.se/tjanster/cartridge-batteribyte"
+  jsonLd={serviceSchema}
+>
+  <Header />
+  <main class="container">
+    <section class="hero">
+      <div class="trust-box">
+        <span class="trust-badge">SPARA DINA RETROSPEL</span>
+        <span>Precisionslödning i Malmö</span>
+      </div>
+      <h1>Batteribyte i <span>Spelkassetter</span> (Game Boy, SNES, N64)</h1>
+      <p>
+        Möts du av meddelandet <em>"The internal battery has run dry"</em> i Pokémon Ruby, eller försvinner dina sparfiler varje gång du stänger av Game Boy- eller SNES-konsolen? 
+        Klassiska spelkassetter använder ett internt litiumbatteri för att hålla sparminnet och realtidsklockan (RTC) levande. 
+        Hos <strong>mkFix i Malmö</strong> ersätter vi ditt urladdade batteri med ett nytt, professionellt <strong>lödbatteri med fasta stift</strong>.
+      </p>
+    </section>
+
+    <section style="background: rgba(56, 189, 248, 0.05); padding: 2rem; border-radius: 15px; margin: 2rem 0;">
+      <h2 style="color: var(--accent); margin-top: 0;">Fördelar med professionellt cartridge-batteribyte:</h2>
+      <ul style="list-style: none; padding: 0;">
+        <li style="margin-bottom: 1rem;">✅ <strong>Återställ sparningen:</strong> Spara dina framsteg i klassiker som Pokémon Gold/Silver/Crystal, Zelda Link's Awakening och Chrono Trigger.</li>
+        <li style="margin-bottom: 1rem;">✅ <strong>Realtidsklocka (RTC):</strong> Aktivera tidsbaserade händelser, bärväxt och dag/natt-cykler i Pokémon-spelen igen.</li>
+        <li style="margin-bottom: 1rem;">✅ <strong>Korrekt mikrolödning:</strong> Vi löder fast nya batterier med korrekta fabriksmonterade stift istället för farliga eltejp- eller limlösningar.</li>
+        <li style="margin-bottom: 1rem;">✅ <strong>Lång hållbarhet:</strong> Nya färska kvalitetsbatterier (Maxell / Panasonic) håller i ytterligare 15-20+ år.</li>
+        <li style="margin-bottom: 1rem;">✅ <strong>Rengöring av kontaktstiftet:</strong> Vi rengör samtidigt kassettskenan med isopropanol så spelet startar direkt på första försöket.</li>
+      </ul>
+    </section>
+
+    <div class="grid" style="margin: 2rem 0;">
+      <div class="card">
+        <h3>Game Boy &amp; Game Boy Color</h3>
+        <p>Byte av CR2025/CR1616 lödbatteri i spel som Pokémon Red, Blue, Yellow, Gold, Silver, Crystal och Zelda.</p>
+        <span class="service-price" style="color: var(--accent); font-size: 1.3rem; font-weight: bold; display: block; margin-top: 1rem;">199 kr</span>
+      </div>
+
+      <div class="card">
+        <h3>Game Boy Advance (GBA)</h3>
+        <p>Byte av RTC-klockbatteri i Pokémon Ruby, Sapphire och Emerald för att få tidshändelser att rulla igen.</p>
+        <span class="service-price" style="color: var(--accent); font-size: 1.3rem; font-weight: bold; display: block; margin-top: 1rem;">199 kr</span>
+      </div>
+
+      <div class="card">
+        <h3>SNES &amp; Nintendo 64</h3>
+        <p>Byte av CR2032 minnesbatteri i Super Nintendo- och N64-spelkassetter (Zelda A Link to the Past, Super Mario World).</p>
+        <span class="service-price" style="color: var(--accent); font-size: 1.3rem; font-weight: bold; display: block; margin-top: 1rem;">199 kr</span>
+      </div>
+    </div>
+
+    <div style="text-align: center; margin: 3rem 0;">
+      <a href="/#boka" class="submit-btn" style="text-decoration: none; display: inline-block;">BOKA BATTERIBYTE HÄR</a>
+    </div>
+  </main>
+  <Footer />
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-DRKX0X33V3"></script>
+  <script is:inline>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag("js", new Date());
+    gtag("config", "G-DRKX0X33V3");
+  </script>
+</MainLayout>

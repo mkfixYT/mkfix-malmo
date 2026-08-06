@@ -1,0 +1,100 @@
+---
+// src/pages/tjanster/konsolrengoring.astro
+import MainLayout from "../../layouts/MainLayout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Konsolrengöring & Byte av Kylpasta Malmö",
+  "provider": {
+    "@type": "ElectronicsRepairShop",
+    "name": "mkFix",
+    "url": "https://mkfix.se"
+  },
+  "areaServed": "Malmö",
+  "description": "Professionell djuprengöring av spelkonsoler (PS5, PS4, Xbox Series X/S, Switch) och byte av kylpasta/flytande metall för tystare konsol och längre livslängd.",
+  "offers": {
+    "@type": "Offer",
+    "price": "499",
+    "priceCurrency": "SEK"
+  }
+};
+---
+
+<MainLayout
+  title="Konsolrengöring & Byte av Kylpasta Malmö | Tystare Konsol | mkFix"
+  description="Låter din PS5 eller PS4 som ett jetplan? Vi utför professionell konsolrengöring och byter kylpasta i Malmö för lägre temperaturer, tystare fläkt och längre livslängd."
+  keywords="konsolrengöring malmö, byta kylpasta ps5, ps4 låter som jetplan, rengöra xbox fläkt, överhettning konsol fix, tystare playstation, mkfix"
+  ogTitle="Konsolrengöring & Kylpastabyte i Malmö | mkFix"
+  ogDescription="Få en tyst och sval konsol igen. Vi rensar damm från fläktar och kylflänsar samt applicerar ny premium kylpasta."
+  canonicalUrl="https://mkfix.se/tjanster/konsolrengoring"
+  jsonLd={serviceSchema}
+>
+  <Header />
+  <main class="container">
+    <section class="hero">
+      <div class="trust-box">
+        <span class="trust-badge">TYST & SVAL KONSOL</span>
+        <span>Professionell service i Malmö</span>
+      </div>
+      <h1>Konsolrengöring &amp; Byte av <span>Kylpasta</span> i Malmö</h1>
+      <p>
+        Börjar din spelkonsol låta allt högre under intensiva spelsessioner, eller varnar den för <strong>överhettning</strong>? 
+        Med tiden samlar fläktar och kylflänsar på sig damm och den fabriksmonterade kylpastan torkar ut. 
+        Hos <strong>mkFix i Malmö</strong> utför vi en noggrann <strong>djuprengöring av konsoler</strong> (PlayStation 5, PS4, Xbox Series X/S, Xbox One, Nintendo Switch) och applicerar ny <strong>kylpasta eller flytande metall</strong> för maximal kylförmåga.
+      </p>
+    </section>
+
+    <section style="background: rgba(56, 189, 248, 0.05); padding: 2rem; border-radius: 15px; margin: 2rem 0;">
+      <h2 style="color: var(--accent); margin-top: 0;">Fördelar med konsolrengöring &amp; kylpastabyte:</h2>
+      <ul style="list-style: none; padding: 0;">
+        <li style="margin-bottom: 1rem;">✅ <strong>Tystare fläktljud:</strong> Slipp det störande "jetplansljudet" från fläkten när du spelar tunga spel.</li>
+        <li style="margin-bottom: 1rem;">✅ <strong>Bättre kylning:</strong> Sänker arbetstemperaturen på processorn (APU/GPU) markant.</li>
+        <li style="margin-bottom: 1rem;">✅ <strong>Förhindrar överhettning:</strong> Eliminerar risken för att konsolen stänger av sig mitt i ett spel.</li>
+        <li style="margin-bottom: 1rem;">✅ <strong>Maximerar livslängden:</strong> Hög värme är den största orsaken till att konsolkretsar drabbas av permanent hårdvarufel.</li>
+        <li style="margin-bottom: 1rem;">✅ <strong>Stabilare prestanda:</strong> Förhindrar "thermal throttling" där konsolen sänker hastigheten för att inte bli överhettad.</li>
+      </ul>
+    </section>
+
+    <section class="hero">
+      <h2>Vad ingår i vår konsolservice?</h2>
+      <p>
+        När du lämnar in din konsol hos mkFix i Malmö plockas hela enheten isär säkert. Vi blåser rent fläktar, luftkanaler och kylflänsar med tryckluft och rengör med isopropanol. 
+        Därefter avlägsnar vi den torkade gamla kylpastan och lägger på ny premium-kylpasta (eller återställer/ersätter flytande metall på PS5) för optimal värmeöverföring.
+      </p>
+    </section>
+
+    <div class="grid" style="margin: 2rem 0;">
+      <div class="card">
+        <h3>PlayStation 4 &amp; PS4 Pro</h3>
+        <p>PS4 är ökänd för att bli extremt högljudd. Ett byte av kylpasta och rengöring gör att konsolen blir lika tyst som när den var ny.</p>
+        <span class="service-price" style="color: var(--accent); font-size: 1.3rem; font-weight: bold; display: block; margin-top: 1rem;">499 kr</span>
+      </div>
+      <div class="card" style="border: 2px solid var(--accent);">
+        <h3>PlayStation 5 (PS5)</h3>
+        <p>Rengöring av dammfällor, fläkt samt översyn och korrigering av APU:ns flytande metall (Liquid Metal) mot oxidering och torra fläckar.</p>
+        <span class="service-price" style="color: var(--accent); font-size: 1.3rem; font-weight: bold; display: block; margin-top: 1rem;">599 kr</span>
+      </div>
+      <div class="card">
+        <h3>Xbox Series X/S &amp; Xbox One</h3>
+        <p>Djuprengöring av den massiva kylflänsen och fläkten samt byte av torkad kylpasta för stabil och tyst drift.</p>
+        <span class="service-price" style="color: var(--accent); font-size: 1.3rem; font-weight: bold; display: block; margin-top: 1rem;">499 kr</span>
+      </div>
+    </div>
+
+    <div style="text-align: center; margin: 3rem 0;">
+      <a href="/#boka" class="submit-btn" style="text-decoration: none; display: inline-block;">BOKA KONSOLRENGÖRING HÄR</a>
+    </div>
+  </main>
+  <Footer />
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-DRKX0X33V3"></script>
+  <script is:inline>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag("js", new Date());
+    gtag("config", "G-DRKX0X33V3");
+  </script>
+</MainLayout>

@@ -64,6 +64,34 @@
    </url>
 
    <url>
+      <loc>https://mkfix.se/tjanster/konsolrengoring</loc>
+      <lastmod>2026-08-06</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.8</priority>
+   </url>
+
+   <url>
+      <loc>https://mkfix.se/tjanster/joycon-reparation</loc>
+      <lastmod>2026-08-06</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.8</priority>
+   </url>
+
+   <url>
+      <loc>https://mkfix.se/tjanster/cartridge-batteribyte</loc>
+      <lastmod>2026-08-06</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.8</priority>
+   </url>
+
+   <url>
+      <loc>https://mkfix.se/tjanster/custom-mods</loc>
+      <lastmod>2026-08-06</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.8</priority>
+   </url>
+
+   <url>
       <loc>https://mkfix.se/produkter</loc>
       <lastmod>2026-08-06</lastmod>
       <changefreq>weekly</changefreq>

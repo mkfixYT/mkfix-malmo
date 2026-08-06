@@ -1,0 +1,94 @@
+---
+// src/pages/tjanster/custom-mods.astro
+import MainLayout from "../../layouts/MainLayout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Custom Mods, Back Buttons & Smart Triggers Handkontroller Malmö",
+  "provider": {
+    "@type": "ElectronicsRepairShop",
+    "name": "mkFix",
+    "url": "https://mkfix.se"
+  },
+  "areaServed": "Malmö",
+  "description": "Bygg din drömkontroll i Malmö! Vi installerar remappbara back buttons/paddles, mouse-click smart triggers, custom skal och USB-C moddar på DualSense, Xbox och pro-kontroller.",
+  "offers": {
+    "@type": "Offer",
+    "price": "499",
+    "priceCurrency": "SEK"
+  }
+};
+---
+
+<MainLayout
+  title="Custom Mods, Back Buttons & Smart Triggers Malmö | mkFix"
+  description="Uppgradera din PS5 eller Xbox-kontroll i Malmö! Vi installerar bakåtknappar (back buttons/paddles), mouse-click smart triggers, custom shells och USB-C moddar för esport-övertag."
+  keywords="custom ps5 kontroll malmö, back buttons dualsense, smart triggers clicky bumpers, gaming kontroll moddar, usb-c modd handkontroll, scuf modd malmö, mkfix"
+  ogTitle="Custom Mods & Esport Upgrades för Handkontroller i Malmö | mkFix"
+  ogDescription="Få övertaget i FPS-spel med bakknappar och klickiga smart triggers på din DualSense eller Xbox-kontroll."
+  canonicalUrl="https://mkfix.se/tjanster/custom-mods"
+  jsonLd={serviceSchema}
+>
+  <Header />
+  <main class="container">
+    <section class="hero">
+      <div class="trust-box">
+        <span class="trust-badge">ESPORT & PRO-MODDAR</span>
+        <span>Skräddarsydd service i Malmö</span>
+      </div>
+      <h1>Custom Mods, <span>Back Buttons</span> &amp; Smart Triggers</h1>
+      <p>
+        Vill du ha funktionerna från en dyr pro-kontroll (som DualSense Edge eller Scuf) på din vanliga handkontroll? 
+        Hos <strong>mkFix i Malmö</strong> bygger och moddar vi din handkontroll efter dina önskemål! 
+        Vi installerar remappbara <strong>bakknappar (back buttons/paddles)</strong>, blixtsnabba <strong>mouse-click smart triggers</strong>, byter skal (shell swap) och utför <strong>USB-C moddar</strong> på retrokontroller.
+      </p>
+    </section>
+
+    <section style="background: rgba(56, 189, 248, 0.05); padding: 2rem; border-radius: 15px; margin: 2rem 0;">
+      <h2 style="color: var(--accent); margin-top: 0;">Fördelar med Custom Mods &amp; Pro-uppgraderingar:</h2>
+      <ul style="list-style: none; padding: 0;">
+        <li style="margin-bottom: 1rem;">✅ <strong>Taktiskt övertag i FPS:</strong> Med bakknappar kan du hoppa, ducka och ladda om utan att någonsin släppa tummarna från spakarna i Call of Duty, Fortnite och Apex.</li>
+        <li style="margin-bottom: 1rem;">✅ <strong>Blixtsnabb avtryckar-respons:</strong> Smart triggers ersätter den långa analoga avtryckarvägen med ett instant musknappsklick (0.5 mm väg).</li>
+        <li style="margin-bottom: 1rem;">✅ <strong>Spara pengar:</strong> Bygg om din befintliga DualSense för under halva priset av vad en ny pro-kontroll kostar.</li>
+        <li style="margin-bottom: 1rem;">✅ <strong>Unik design:</strong> Välj mellan genomsynliga retro-skal, matta färger eller greppvänliga baksidor.</li>
+        <li style="margin-bottom: 1rem;">✅ <strong>Kombinera med TMR:</strong> Slå ihop back buttons och TMR-stickor för den ultimata oförstörbara esport-kontrollen!</li>
+      </ul>
+    </section>
+
+    <div class="grid" style="margin: 2rem 0;">
+      <div class="card featured">
+        <h3>Remappbara Back Buttons (Paddles)</h3>
+        <p>Installation av 2 eller 4 programmerbara bakknappar på PS5 DualSense eller Xbox Series-kontroll. Tilldela valfria knappar när som helst.</p>
+        <span class="service-price" style="color: var(--accent); font-size: 1.3rem; font-weight: bold; display: block; margin-top: 1rem;">fr. 699 kr</span>
+      </div>
+
+      <div class="card">
+        <h3>Smart Triggers &amp; Bumpers (Clicky)</h3>
+        <p>Gör om L2/R2 och L1/R1 till blixtsnabba mikrobrytare med musknappskänsla för direkt skottrespons.</p>
+        <span class="service-price" style="color: var(--accent); font-size: 1.3rem; font-weight: bold; display: block; margin-top: 1rem;">fr. 499 kr</span>
+      </div>
+
+      <div class="card">
+        <h3>Custom Shell Swap &amp; USB-C Mod</h3>
+        <p>Byt ut skalet på din kontroll eller modda äldre kontroller (som GameCube eller PS2) med modern USB-C laddning eller lödfria mods.</p>
+        <span class="service-price" style="color: var(--accent); font-size: 1.3rem; font-weight: bold; display: block; margin-top: 1rem;">Pris på förfrågan</span>
+      </div>
+    </div>
+
+    <div style="text-align: center; margin: 3rem 0;">
+      <a href="/#boka" class="submit-btn" style="text-decoration: none; display: inline-block;">DISKUTERA DIN CUSTOM MODD HÄR</a>
+    </div>
+  </main>
+  <Footer />
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-DRKX0X33V3"></script>
+  <script is:inline>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag("js", new Date());
+    gtag("config", "G-DRKX0X33V3");
+  </script>
+</MainLayout>
