@@ -26,6 +26,8 @@ const isActive = (path: string) => {
                 <li class="dropdown">
                     <a href="/#tjanster" class="dropbtn">Tjänster ▼</a>
                     <ul class="dropdown-content">
+                        <li><a href="/foretag" style="color: var(--accent); font-weight: 700;">🏢 Företag &amp; Spelbutiker (Bulk)</a></li>
+                        <li style="border-top: 1px solid var(--border); margin: 5px 0;"></li>
                         <li><a href="/tjanster/tmr-sticks">Vad är TMR Sticks?</a></li>
                         <li><a href="/tjanster/joycon-reparation">Joy-Con Drift &amp; TMR</a></li>
                         <li><a href="/tjanster/konsolrengoring">Konsolrengöring &amp; Kylpasta</a></li>
@@ -43,6 +45,7 @@ const isActive = (path: string) => {
                         <li><a href="/tjanster/gratis-reparation">Gratis reparation</a></li>
                     </ul>
                 </li>
+                <li><a href="/foretag" style={isActive('/foretag') ? 'color: var(--accent); font-weight: 700;' : ''}>Företag / B2B</a></li>
                 <li><a href="/#youtube">YouTube</a></li>
                 <li><a href="/blog">Blog, Nyheter &amp; Case studies</a></li>
                 <li><a href="/#boka" class="nav-cta">Boka Nu</a></li>

@@ -857,6 +857,128 @@ nav {
     }
 }
 
+/* ===== B2B PROMO BANNER (Startsida) ===== */
+.b2b-promo-banner {
+    background: linear-gradient(135deg, rgba(56, 189, 248, 0.08) 0%, rgba(30, 41, 59, 0.95) 50%, rgba(15, 23, 42, 0.95) 100%);
+    border: 1px solid rgba(56, 189, 248, 0.35);
+    border-radius: 20px;
+    padding: 2.25rem 2.5rem;
+    margin: 2.5rem 0 4rem;
+    position: relative;
+    box-shadow: 0 12px 35px rgba(56, 189, 248, 0.08);
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.b2b-promo-banner:hover {
+    border-color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 16px 40px rgba(56, 189, 248, 0.15);
+}
+
+.b2b-promo-badge {
+    display: inline-block;
+    background: rgba(56, 189, 248, 0.15);
+    color: var(--accent);
+    border: 1px solid rgba(56, 189, 248, 0.3);
+    padding: 4px 14px;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    margin-bottom: 1rem;
+}
+
+.b2b-promo-body {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2.5rem;
+}
+
+.b2b-promo-text h3 {
+    font-size: 1.55rem;
+    margin-bottom: 0.75rem;
+    color: #fff;
+    line-height: 1.3;
+}
+
+.b2b-promo-text p {
+    color: var(--text-dim);
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 1.25rem;
+    max-width: 680px;
+}
+
+.b2b-perks-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.b2b-perks-row span {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-main);
+    background: rgba(255, 255, 255, 0.04);
+    padding: 4px 10px;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+}
+
+.b2b-promo-action {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+}
+
+.b2b-promo-btn {
+    background: var(--accent);
+    color: var(--bg);
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 1rem;
+    padding: 15px 26px;
+    border-radius: 10px;
+    white-space: nowrap;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 15px rgba(56, 189, 248, 0.3);
+    text-align: center;
+}
+
+.b2b-promo-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(56, 189, 248, 0.45);
+}
+
+.b2b-sub-cta {
+    font-size: 0.82rem;
+    color: var(--text-dim);
+}
+
+@media (max-width: 850px) {
+    .b2b-promo-banner {
+        padding: 1.75rem 1.25rem;
+    }
+
+    .b2b-promo-body {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1.5rem;
+    }
+
+    .b2b-promo-action {
+        width: 100%;
+    }
+
+    .b2b-promo-btn {
+        width: 100%;
+    }
+}
+
+
 /* Footer Base */
 .site-footer {
     background-color: #0b0f19; /* En djup, snygg mörkblå/svart som matchar gaming-temat */
