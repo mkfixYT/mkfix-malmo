@@ -83,14 +83,19 @@ const { title, description } = Astro.props;
                         <span class="service-price">449 <small>kr</small></span>
                         <p class="service-desc">Vi ersätter dina analoga spakar med magnetiska TMR-sensorer. En permanent lösning som aldrig får stick drift.</p>
                     </div>
-                    <div class="service-card">
+                    <div class="service-card bundle">
                         <div class="tags-row">
-                            <span class="service-tag time">⚡ Ca 1 timme</span>
-                            <span class="service-tag warning-tag">⚠ Ingen garanti</span>
+                            <span class="service-tag bundle-tag">📦 Paket</span>
+                            <span class="service-tag save-tag">✓ Spara 99 kr</span>
                         </div>
-                        <p class="service-name">Joystick swap (original Sony)</p>
-                        <span class="service-price">349 <small>kr</small></span>
-                        <p class="service-desc">Originella Sony joysticks. TMR rekommenderas — dessa kan utveckla drift igen med tiden.</p>
+                        <p class="service-name">TMR-uppgradering + Full service</p>
+                        <span class="service-price">599 <small>kr</small></span>
+                        <p class="service-desc">Kombinera permanenta magnetiska TMR-sensorer med en komplett demontering och djuprengöring av kontrollen för nyskick. (Ord. 698 kr)</p>
+                    </div>
+                    <div class="service-card">
+                        <p class="service-name">Fullständig service &amp; rengöring</p>
+                        <span class="service-price">249 <small>kr</small></span>
+                        <p class="service-desc">Komplett demontering, invändig och utvändig djuprengöring av knappar, skal och membran samt smörjning och full funktionskontroll.</p>
                     </div>
                     <div class="service-card">
                         <p class="service-name">USB-C laddport</p>
@@ -126,6 +131,28 @@ const { title, description } = Astro.props;
                         <span class="service-price">399 <small>kr</small></span>
                         <p class="service-desc">Vi ersätter dina analoga spakar med magnetiska TMR-sensorer — permanet fix utan drift.</p>
                     </div>
+                    <div class="service-card bundle">
+                        <div class="tags-row">
+                            <span class="service-tag bundle-tag">📦 Paket</span>
+                            <span class="service-tag save-tag">✓ Spara 99 kr</span>
+                        </div>
+                        <p class="service-name">TMR-uppgradering + Full service</p>
+                        <span class="service-price">549 <small>kr</small></span>
+                        <p class="service-desc">Bli av med stick drift med magnetiska TMR-sensorer och få kontrollen grundligt servad och rengjord i samma paket. (Ord. 648 kr)</p>
+                    </div>
+                    <div class="service-card">
+                        <p class="service-name">Fullständig service &amp; rengöring</p>
+                        <span class="service-price">249 <small>kr</small></span>
+                        <p class="service-desc">Komplett demontering och djuprengöring av skal, knappar, styrkors och kretskort för DualShock 4 eller Xbox One-kontroll.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="tags-row">
+                            <span class="service-tag new-tag">⚡ Modernisering</span>
+                        </div>
+                        <p class="service-name">USB-C Laddportsmodd (PS4)</p>
+                        <span class="service-price">299 <small>kr</small></span>
+                        <p class="service-desc">Uppgradera din DualShock 4 från sliten Micro-USB till modern, vändbar och tålig USB-C laddport.</p>
+                    </div>
                     <div class="service-card">
                         <p class="service-name">Högkapacitetsbatteri (PS4)</p>
                         <span class="service-price">199 <small>kr</small></span>
@@ -150,6 +177,11 @@ const { title, description } = Astro.props;
                         <p class="service-desc">Joycons är ökända för att drifta. Vi löser det permanent med TMR-sensorer! Båda för 399 kr. <br><br>
                             <a href="/tjanster/joycon-reparation" style="color: var(--accent); font-weight: bold;">Läs mer här →</a>
                         </p>
+                    </div>
+                    <div class="service-card">
+                        <p class="service-name">Fullständig service &amp; rengöring</p>
+                        <span class="service-price">149 <small>kr</small></span>
+                        <p class="service-desc">Djuprengöring och service av Switch Pro Controller, Joy-Cons eller GameCube-kontroller.</p>
                     </div>
                     <div class="service-card">
                         <p class="service-name">GameCube — Joystick byte</p>
@@ -190,6 +222,11 @@ const { title, description } = Astro.props;
                             <a href="/tjanster/ps2-reparation" style="color: var(--accent); font-weight: bold;">Läs mer här →</a>
                         </p>
                     </div>
+                    <div class="service-card">
+                        <p class="service-name">Fullständig service &amp; rengöring</p>
+                        <span class="service-price">149 <small>kr</small></span>
+                        <p class="service-desc">Demontering, rengöring av kontaktytor, knappar och invändig smuts för DualShock 2.</p>
+                    </div>
                     <div class="service-card bundle">
                         <div class="tags-row">
                             <span class="service-tag bundle-tag">📦 Paket</span>
@@ -221,6 +258,11 @@ const { title, description } = Astro.props;
                             <a href="/tjanster/xbox-360-hall-effect" style="color: var(--accent); font-weight: bold;">Läs mer här →</a>
                         </p>
                     </div>
+                    <div class="service-card">
+                        <p class="service-name">Fullständig service &amp; rengöring</p>
+                        <span class="service-price">149 <small>kr</small></span>
+                        <p class="service-desc">Djuprengöring av skal, D-pad, knappar och invändigt damm för din Xbox 360-kontroll.</p>
+                    </div>
                 </div>
             </div>
 
@@ -247,6 +289,11 @@ const { title, description } = Astro.props;
                         <p class="service-desc">Driftar din PlayStation 1-kontroll? Vi byter ut dina joysticks mot nya. <br><br>
                             <a href="/tjanster/ps1-ps2-reparation" style="color: var(--accent); font-weight: bold;">Läs mer här →</a>
                         </p>
+                    </div>
+                    <div class="service-card">
+                        <p class="service-name">Fullständig service &amp; rengöring</p>
+                        <span class="service-price">149 <small>kr</small></span>
+                        <p class="service-desc">Skonsam demontering och rengöring av klassiska PS1- och DualShock 1-kontroller.</p>
                     </div>
                 </div>
             </div>
