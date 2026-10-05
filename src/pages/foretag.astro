@@ -428,7 +428,7 @@ const faqSchema = {
           </div>
           <div class="form-group">
             <label for="contact-phone">Telefonnummer (för SMS/samtal) *</label>
-            <input type="tel" id="contact-phone" name="fi-sender-phone" placeholder="070-123 45 67" required>
+            <input type="tel" id="contact-phone" name="fi-sender-phone" placeholder="070-123 45 67 eller +46..." required>
           </div>
         </div>
 
@@ -526,7 +526,54 @@ const faqSchema = {
   <!-- Forminit Script for B2B Submissions -->
   <script src="https://forminit.com/sdk/v1/forminit.js"></script>
   <script is:inline>
-    window.addEventListener("DOMContentLoaded", () => {
+    function normalizePhone(raw) {
+      if (!raw) return { e164: "", raw: "" };
+      const trimmed = String(raw).trim();
+      if (!trimmed) return { e164: "", raw: "" };
+
+      let cleaned = trimmed;
+      if (cleaned.startsWith("00")) {
+        cleaned = "+" + cleaned.slice(2);
+      }
+      cleaned = cleaned.replace(/^\+46[\s\-\.]*\(?0\)?[\s\-\.]*/, "+46");
+
+      let e164 = "";
+      if (cleaned.startsWith("+")) {
+        const digits = cleaned.slice(1).replace(/\D/g, "");
+        if (digits.length >= 6 && digits.length <= 15) {
+          e164 = "+" + digits;
+        }
+      } else {
+        const digits = cleaned.replace(/\D/g, "");
+        if (digits.startsWith("0")) {
+          if (digits.length >= 7 && digits.length <= 11) {
+            e164 = "+46" + digits.slice(1);
+          }
+        } else if (digits.startsWith("46") && digits.length >= 9 && digits.length <= 13) {
+          if (digits.startsWith("460")) {
+            e164 = "+46" + digits.slice(3);
+          } else {
+            e164 = "+" + digits;
+          }
+        } else if (digits.length === 9 && digits.startsWith("7")) {
+          e164 = "+46" + digits;
+        } else if (digits.length >= 7 && digits.length <= 15) {
+          if (digits.length <= 9) {
+            e164 = "+46" + digits;
+          } else {
+            e164 = "+" + digits;
+          }
+        }
+      }
+
+      const isValidE164 = /^\+[1-9]\d{6,14}$/.test(e164);
+      return {
+        e164: isValidE164 ? e164 : "",
+        raw: trimmed
+      };
+    }
+
+    function initB2BForm() {
       const forminit = new Forminit();
       const FORM_ID = "7b7ffs280f3";
       const formElement = document.getElementById("b2b-contact-form");
@@ -541,11 +588,30 @@ const faqSchema = {
           }
 
           const formData = new FormData(e.target);
-          const { data, error } = await forminit.submit(FORM_ID, formData);
 
-          if (error) {
+          const rawPhone = formData.get("fi-sender-phone");
+          if (rawPhone !== null && rawPhone !== undefined) {
+            const { e164, raw } = normalizePhone(rawPhone);
+            if (raw) {
+              formData.set("fi-text-telefon", raw);
+            }
+            if (e164) {
+              formData.set("fi-sender-phone", e164);
+            } else {
+              formData.delete("fi-sender-phone");
+            }
+          }
+
+          let res = await forminit.submit(FORM_ID, formData);
+
+          if (res.error && (res.error.code === "FI_RULES_PHONE_INVALID" || (res.error.message && /phone/i.test(res.error.message)))) {
+            formData.delete("fi-sender-phone");
+            res = await forminit.submit(FORM_ID, formData);
+          }
+
+          if (res.error) {
             if (result) {
-              result.textContent = "Något gick fel vid inskickning: " + error.message + ". Vänligen kontakta oss direkt via SMS eller telefon på 079-032 06 05.";
+              result.textContent = "Något gick fel vid inskickning: " + res.error.message + ". Vänligen kontakta oss direkt via SMS eller telefon på 079-032 06 05.";
               result.style.color = "#ef4444";
             }
             return;
@@ -554,7 +620,13 @@ const faqSchema = {
           window.location.href = "/tack";
         });
       }
-    });
+    }
+
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", initB2BForm);
+    } else {
+      initB2BForm();
+    }
   </script>
 
   <!-- Google Tag Manager / Analytics -->
