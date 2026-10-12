@@ -1,0 +1,1473 @@
+---
+// src/pages/produkter/[slug].astro
+import MainLayout from "../../layouts/MainLayout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import { products, type Product } from "../../data/products";
+
+export async function getStaticPaths() {
+  return products.map((product) => ({
+    params: { slug: product.slug },
+    props: { product }
+  }));
+}
+
+interface Props {
+  product: Product;
+}
+
+const { product } = Astro.props;
+
+// Other related products for the bottom section
+const otherProducts = products.filter((p) => p.slug !== product.slug).slice(0, 3);
+
+// Format status
+let statusText = "I lager";
+let statusClass = "status-instock";
+let schemaAvailability = "https://schema.org/InStock";
+
+if (product.status === "few_left") {
+  statusText = "Få i lager";
+  statusClass = "status-fewleft";
+  schemaAvailability = "https://schema.org/InStock";
+} else if (product.status === "made_to_order") {
+  statusText = "Beställningsvara";
+  statusClass = "status-order";
+  schemaAvailability = "https://schema.org/PreOrder";
+} else if (product.status === "sold_out") {
+  statusText = "Slut i lager";
+  statusClass = "status-soldout";
+  schemaAvailability = "https://schema.org/OutOfStock";
+}
+
+// Prefilled messages for easy friction-free ordering
+const smsBody = encodeURIComponent(
+  `Hej mkFix! Jag vill köpa "${product.title}" (${product.price} kr). Finns den tillgänglig för avhämtning/frakt?`
+);
+const mailSubject = encodeURIComponent(`Köp: ${product.title}`);
+const mailBody = encodeURIComponent(
+  `Hej mkFix!\n\nJag vill köpa "${product.title}" för ${product.price} kr.\n\nÖnskat leveranssätt (avhämtning i Malmö eller PostNord spårbart):\nMitt namn:\nTelefon:\nAdress (vid frakt):`
+);
+
+// Schema.org Product markup
+const productSchema = {
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": product.title,
+  "description": product.shortDescription,
+  "image": product.images.map((img) => (img.startsWith("http") ? img : `https://mkfix.se${img}`)),
+  "brand": {
+    "@type": "Brand",
+    "name": "mkFix"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": product.price,
+    "priceCurrency": "SEK",
+    "availability": schemaAvailability,
+    "url": `https://mkfix.se/produkter/${product.slug}`,
+    "seller": {
+      "@type": "Organization",
+      "name": "mkFix",
+      "url": "https://mkfix.se"
+    }
+  }
+};
+---
+
+<MainLayout
+  title={`${product.title} | mkFix Butik`}
+  description={`${product.title} för ${product.price} kr hos mkFix i Malmö. ${product.shortDescription}`}
+  keywords={`${product.title}, köpa ${product.category}, ${product.slug}, handkontroll butik Malmö, mkfix`}
+  ogTitle={`${product.title} | ${product.price} kr | mkFix`}
+  ogDescription={product.shortDescription}
+  ogImage={product.images[0]}
+  canonicalUrl={`https://mkfix.se/produkter/${product.slug}`}
+  jsonLd={productSchema}
+>
+  <Header />
+
+  <main class="container product-page">
+    <!-- Breadcrumb Navigation -->
+    <nav class="breadcrumb" aria-label="Brödsmulor">
+      <a href="/">Hem</a>
+      <span class="sep">/</span>
+      <a href="/produkter">Butik &amp; Galleri</a>
+      <span class="sep">/</span>
+      <span class="current">{product.title}</span>
+    </nav>
+
+    <!-- Main Product Showcase Grid -->
+    <section class="product-hero-grid">
+      <!-- Left Column: Multi-Image Gallery -->
+      <div class="gallery-col">
+        <div class="main-image-wrapper" id="main-image-container" title="Klicka för att förstora bilden">
+          <img
+            id="main-preview-img"
+            src={product.images[0] || "/favicon.svg"}
+            alt={product.title}
+            class="main-preview-img"
+          />
+
+          {product.badge && (
+            <span class="gallery-badge">{product.badge}</span>
+          )}
+
+          <span class={`status-pill ${statusClass}`}>
+            <span class="status-dot"></span>
+            {statusText}
+          </span>
+
+          <button
+            type="button"
+            class="zoom-trigger-btn"
+            id="open-lightbox-btn"
+            aria-label="Förstora bild och öppna bildvisare"
+          >
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              <line x1="11" y1="8" x2="11" y2="14"></line>
+              <line x1="8" y1="11" x2="14" y2="11"></line>
+            </svg>
+            <span>Klicka för att förstora</span>
+          </button>
+        </div>
+
+        {/* Thumbnail Strip (if multiple images) */}
+        {product.images.length > 1 && (
+          <div class="thumbnails-strip" aria-label="Fler produktbilder">
+            {product.images.map((imgUrl, idx) => (
+              <button
+                type="button"
+                class={`thumb-btn ${idx === 0 ? "active" : ""}`}
+                data-src={imgUrl}
+                data-index={idx}
+                aria-label={`Visa bild ${idx + 1}`}
+              >
+                <img src={imgUrl} alt={`${product.title} bild ${idx + 1}`} class="thumb-img" />
+              </button>
+            ))}
+          </div>
+        )}
+
+        <div class="gallery-hint">
+          <span>🔍 Klicka på bilden för att förstora {product.images.length > 1 ? "• Byt bild via miniatyrerna" : ""}</span>
+        </div>
+      </div>
+
+      <!-- Lightbox Modal for Enlarged Product Images -->
+      <div
+        id="image-lightbox"
+        class="lightbox-modal"
+        data-images={JSON.stringify(product.images)}
+        data-title={product.title}
+        role="dialog"
+        aria-modal="true"
+        aria-label="Förstorad bildvisning"
+        aria-hidden="true"
+      >
+        <div class="lightbox-backdrop" id="lightbox-backdrop"></div>
+        
+        <div class="lightbox-container">
+          <!-- Top Bar with Counter and Close Button -->
+          <div class="lightbox-header">
+            <div class="lightbox-info">
+              <span class="lightbox-title">{product.title}</span>
+              <span class="lightbox-counter" id="lightbox-counter">1 / {product.images.length}</span>
+            </div>
+            <button type="button" class="lightbox-close-btn" id="lightbox-close" aria-label="Stäng bildvisning (Esc)">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+              </svg>
+              <span class="close-hint">Esc</span>
+            </button>
+          </div>
+
+          <!-- Main Image Stage with Nav Buttons -->
+          <div class="lightbox-stage">
+            {product.images.length > 1 && (
+              <button type="button" class="lightbox-nav-btn prev" id="lightbox-prev" aria-label="Föregående bild (Vänsterpil)">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="15 18 9 12 15 6"></polyline>
+                </svg>
+              </button>
+            )}
+
+            <div class="lightbox-img-wrapper" id="lightbox-img-stage">
+              <img
+                id="lightbox-current-img"
+                src={product.images[0] || "/favicon.svg"}
+                alt={`${product.title} förstorad bild`}
+                class="lightbox-img"
+              />
+            </div>
+
+            {product.images.length > 1 && (
+              <button type="button" class="lightbox-nav-btn next" id="lightbox-next" aria-label="Nästa bild (Högerpil)">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+              </button>
+            )}
+          </div>
+
+          <!-- Lightbox Bottom Thumbnails (if multiple images) -->
+          {product.images.length > 1 && (
+            <div class="lightbox-thumbs">
+              {product.images.map((imgUrl, idx) => (
+                <button
+                  type="button"
+                  class={`lightbox-thumb-btn ${idx === 0 ? "active" : ""}`}
+                  data-index={idx}
+                  aria-label={`Visa bild ${idx + 1} i helskärm`}
+                >
+                  <img src={imgUrl} alt={`${product.title} miniatyr ${idx + 1}`} />
+                </button>
+              ))}
+            </div>
+          )}
+        </div>
+      </div>
+
+      <!-- Right Column: Product Meta & Purchase CTAs -->
+      <div class="info-col">
+        <div class="info-header">
+          <span class="category-pill">
+            {product.category === "kontroller" && "🎮 Handkontroll"}
+            {product.category === "reservdelar" && "🔧 Reservdel"}
+            {product.category === "konsoler" && "🕹️ Retro & Konsol"}
+            {product.category === "tillbehor" && "🔌 Tillbehör"}
+          </span>
+          <span class="warranty-badge">🛡️ {product.warranty}</span>
+        </div>
+
+        <h1 class="product-title">{product.title}</h1>
+
+        <div class="condition-row">
+          <span class="condition-label">Skick:</span>
+          <span class="condition-value">{product.condition}</span>
+        </div>
+
+        <!-- Price Section -->
+        <div class="price-section">
+          {product.originalPrice && (
+            <div class="original-row">
+              <span class="strike-price">{product.originalPrice} kr</span>
+              <span class="discount-badge">
+                Spara {product.originalPrice - product.price} kr
+              </span>
+            </div>
+          )}
+          <div class="current-price-row">
+            <span class="price-amount">{product.price} <small>kr</small></span>
+            <span class="vat-included">Inkl. moms</span>
+          </div>
+        </div>
+
+        <!-- Short Description Box -->
+        <p class="product-lead">{product.shortDescription}</p>
+
+        <!-- Quick Buy & Contact Action Buttons (No Stripe needed!) -->
+        <div class="order-box">
+          <div class="order-box-header">
+            <h3>Beställ eller boka föremålet</h3>
+            <p>Kontakta verkstan direkt för snabbaste köp och Swish:</p>
+          </div>
+
+          <div class="order-buttons-group">
+            <a href={`sms:+46790320605?body=${smsBody}`} class="cta-btn cta-sms">
+              <span class="btn-icon">💬</span>
+              <span>KÖP VIA SMS (079-032 06 05)</span>
+            </a>
+
+            <div class="secondary-actions-row">
+              <a href="tel:0790320605" class="cta-sub-btn">
+                <span>📞 Ring verkstan</span>
+              </a>
+              <a href={`mailto:kontakt@mkfix.se?subject=${mailSubject}&body=${mailBody}`} class="cta-sub-btn">
+                <span>✉️ E-post</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="delivery-perks">
+            <div class="perk-row">
+              <span class="p-icon">📍</span>
+              <span><strong>Avhämtning:</strong> Gratis upphämtning i Malmö efter överenskommelse.</span>
+            </div>
+            <div class="perk-row">
+              <span class="p-icon">🚚</span>
+              <span><strong>Frakt:</strong> Skickas spårbart och säkert med PostNord (59 kr).</span>
+            </div>
+            <div class="perk-row">
+              <span class="p-icon">💵</span>
+              <span><strong>Betalning:</strong> Swish vid köp eller överlämning.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Detailed Content Tabs & Specs -->
+    <section class="details-section">
+      <div class="details-grid">
+        <!-- Main Description -->
+        <div class="details-card">
+          <h2>Beskrivning &amp; Information</h2>
+          <div class="desc-content">
+            {product.description.map((paragraph) => (
+              <p>{paragraph}</p>
+            ))}
+          </div>
+
+          {product.features && product.features.length > 0 && (
+            <div class="features-wrapper">
+              <h3>Höjdpunkter &amp; Egenskaper:</h3>
+              <ul class="features-list">
+                {product.features.map((feature) => (
+                  <li>
+                    <span class="check">✅</span>
+                    <span>{feature}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+        </div>
+
+        <!-- Specifications & Guarantee Sidecard -->
+        <div class="specs-card">
+          <h2>Tekniska Specifikationer</h2>
+          <table class="specs-table">
+            <tbody>
+              {product.specs.map((spec) => (
+                <tr>
+                  <th>{spec.label}</th>
+                  <td>{spec.value}</td>
+                </tr>
+              ))}
+              <tr>
+                <th>Lagerstatus</th>
+                <td>{statusText}</td>
+              </tr>
+              <tr>
+                <th>Garanti</th>
+                <td>{product.warranty}</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="workshop-guarantee-box">
+            <h4>Varför handla av mkFix?</h4>
+            <p>
+              Alla kontroller och delar inspekteras och löds med professionell verkstadsutrustning. 
+              Vi dokumenterar ofta arbetet på YouTube-kanalen och garanterar högsta möjliga standard.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Other Products / Back to Shop -->
+    {otherProducts.length > 0 && (
+      <section class="related-section">
+        <div class="related-header">
+          <h2>Fler föremål i butiken</h2>
+          <a href="/produkter" class="see-all-link">Visa alla produkter ({products.length}) →</a>
+        </div>
+
+        <div class="related-grid">
+          {otherProducts.map((other) => (
+            <a href={`/produkter/${other.slug}`} class="related-card">
+              <div class="related-img-wrap">
+                <img src={other.images[0] || "/favicon.svg"} alt={other.title} loading="lazy" />
+              </div>
+              <div class="related-info">
+                <h4>{other.title}</h4>
+                <span class="related-price">{other.price} kr</span>
+              </div>
+            </a>
+          ))}
+        </div>
+      </section>
+    )}
+  </main>
+
+  <Footer />
+
+  <!-- Client JavaScript for Gallery & Fullscreen Lightbox Zoom -->
+  <script is:inline>
+    (function () {
+      const mainImg = document.getElementById("main-preview-img");
+      const mainWrapper = document.getElementById("main-image-container");
+      const openBtn = document.getElementById("open-lightbox-btn");
+      const thumbButtons = document.querySelectorAll(".thumb-btn");
+
+      const lightbox = document.getElementById("image-lightbox");
+      if (!lightbox) return;
+
+      const lightboxImg = document.getElementById("lightbox-current-img");
+      const lightboxCounter = document.getElementById("lightbox-counter");
+      const lightboxClose = document.getElementById("lightbox-close");
+      const lightboxBackdrop = document.getElementById("lightbox-backdrop");
+      const lightboxPrev = document.getElementById("lightbox-prev");
+      const lightboxNext = document.getElementById("lightbox-next");
+      const lightboxThumbs = document.querySelectorAll(".lightbox-thumb-btn");
+
+      let images = [];
+      try {
+        images = JSON.parse(lightbox.getAttribute("data-images") || "[]");
+      } catch (e) {
+        images = [];
+      }
+
+      if (images.length === 0 && mainImg) {
+        images = [mainImg.src];
+      }
+
+      let currentIndex = 0;
+      const totalImages = images.length;
+
+      function setMainImage(index) {
+        if (index < 0 || index >= totalImages) return;
+        currentIndex = index;
+
+        if (mainImg) {
+          mainImg.style.opacity = "0.4";
+          setTimeout(() => {
+            mainImg.src = images[currentIndex];
+            mainImg.style.opacity = "1";
+          }, 80);
+        }
+
+        thumbButtons.forEach((btn, idx) => {
+          if (idx === currentIndex) {
+            btn.classList.add("active");
+          } else {
+            btn.classList.remove("active");
+          }
+        });
+      }
+
+      function updateLightbox(index) {
+        if (index < 0 || index >= totalImages) return;
+        currentIndex = index;
+
+        if (lightboxImg) {
+          lightboxImg.style.opacity = "0.2";
+          lightboxImg.style.transform = "scale(0.97)";
+          setTimeout(() => {
+            lightboxImg.src = images[currentIndex];
+            lightboxImg.style.opacity = "1";
+            lightboxImg.style.transform = "scale(1)";
+          }, 80);
+        }
+
+        if (lightboxCounter) {
+          lightboxCounter.textContent = (currentIndex + 1) + " / " + totalImages;
+        }
+
+        lightboxThumbs.forEach((btn, idx) => {
+          if (idx === currentIndex) {
+            btn.classList.add("active");
+            btn.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
+          } else {
+            btn.classList.remove("active");
+          }
+        });
+
+        // Keep main page in sync
+        setMainImage(currentIndex);
+      }
+
+      function openLightbox(initialIndex) {
+        const idx = typeof initialIndex === "number" ? initialIndex : currentIndex;
+        updateLightbox(idx);
+        lightbox.setAttribute("aria-hidden", "false");
+        lightbox.classList.add("is-open");
+        document.body.style.overflow = "hidden";
+      }
+
+      function closeLightbox() {
+        lightbox.classList.remove("is-open");
+        lightbox.setAttribute("aria-hidden", "true");
+        document.body.style.overflow = "";
+      }
+
+      function prevImage() {
+        const newIndex = (currentIndex - 1 + totalImages) % totalImages;
+        updateLightbox(newIndex);
+      }
+
+      function nextImage() {
+        const newIndex = (currentIndex + 1) % totalImages;
+        updateLightbox(newIndex);
+      }
+
+      // Thumbnail clicks on main page
+      thumbButtons.forEach((btn, idx) => {
+        btn.addEventListener("click", () => {
+          setMainImage(idx);
+        });
+      });
+
+      // Click on main image wrapper opens lightbox
+      if (mainWrapper) {
+        mainWrapper.addEventListener("click", () => {
+          openLightbox(currentIndex);
+        });
+      }
+
+      if (openBtn) {
+        openBtn.addEventListener("click", (e) => {
+          e.stopPropagation();
+          openLightbox(currentIndex);
+        });
+      }
+
+      // Lightbox button controls
+      if (lightboxClose) lightboxClose.addEventListener("click", closeLightbox);
+      if (lightboxBackdrop) lightboxBackdrop.addEventListener("click", closeLightbox);
+      if (lightboxPrev) {
+        lightboxPrev.addEventListener("click", (e) => {
+          e.stopPropagation();
+          prevImage();
+        });
+      }
+      if (lightboxNext) {
+        lightboxNext.addEventListener("click", (e) => {
+          e.stopPropagation();
+          nextImage();
+        });
+      }
+
+      // Lightbox thumbnail clicks
+      lightboxThumbs.forEach((btn, idx) => {
+        btn.addEventListener("click", (e) => {
+          e.stopPropagation();
+          updateLightbox(idx);
+        });
+      });
+
+      // Keyboard navigation
+      window.addEventListener("keydown", (e) => {
+        if (!lightbox.classList.contains("is-open")) return;
+        if (e.key === "Escape") {
+          closeLightbox();
+        } else if (e.key === "ArrowLeft") {
+          prevImage();
+        } else if (e.key === "ArrowRight") {
+          nextImage();
+        }
+      });
+
+      // Touch swipe gestures
+      let touchStartX = 0;
+      let touchEndX = 0;
+      lightbox.addEventListener("touchstart", (e) => {
+        if (e.changedTouches && e.changedTouches[0]) {
+          touchStartX = e.changedTouches[0].screenX;
+        }
+      }, { passive: true });
+
+      lightbox.addEventListener("touchend", (e) => {
+        if (e.changedTouches && e.changedTouches[0]) {
+          touchEndX = e.changedTouches[0].screenX;
+          const diff = touchEndX - touchStartX;
+          if (Math.abs(diff) > 45) {
+            if (diff > 0) {
+              prevImage();
+            } else {
+              nextImage();
+            }
+          }
+        }
+      }, { passive: true });
+    })();
+  </script>
+</MainLayout>
+
+<style>
+  .product-page {
+    padding-top: 1rem;
+    padding-bottom: 5rem;
+  }
+
+  /* Breadcrumb */
+  .breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9rem;
+    color: var(--text-dim);
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .breadcrumb a {
+    color: var(--text-dim);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .breadcrumb a:hover {
+    color: var(--accent);
+  }
+
+  .breadcrumb .sep {
+    color: var(--border);
+  }
+
+  .breadcrumb .current {
+    color: var(--accent);
+    font-weight: 600;
+  }
+
+  /* Main Showcase Grid */
+  .product-hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3.5rem;
+    margin-bottom: 4rem;
+    align-items: start;
+  }
+
+  @media (max-width: 880px) {
+    .product-hero-grid {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
+  }
+
+  /* Gallery Column */
+  .gallery-col {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .main-image-wrapper {
+    position: relative;
+    aspect-ratio: 4 / 3;
+    background: #090d16;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    cursor: zoom-in;
+  }
+
+  .main-image-wrapper:hover .main-preview-img {
+    transform: scale(1.025);
+  }
+
+  .main-preview-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.2s ease, transform 0.3s ease;
+  }
+
+  .gallery-badge {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: rgba(15, 23, 42, 0.85);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(56, 189, 248, 0.4);
+    color: var(--accent);
+    font-size: 0.8rem;
+    font-weight: 700;
+    padding: 6px 14px;
+    border-radius: 30px;
+  }
+
+  .status-pill {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    padding: 6px 14px;
+    border-radius: 30px;
+    backdrop-filter: blur(8px);
+  }
+
+  .status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+  }
+
+  .status-instock {
+    background: rgba(34, 197, 94, 0.2);
+    border: 1px solid rgba(34, 197, 94, 0.5);
+    color: #4ade80;
+  }
+  .status-instock .status-dot {
+    background: #22c55e;
+    box-shadow: 0 0 8px #22c55e;
+  }
+
+  .status-fewleft {
+    background: rgba(245, 158, 11, 0.2);
+    border: 1px solid rgba(245, 158, 11, 0.5);
+    color: #fbbf24;
+  }
+  .status-fewleft .status-dot {
+    background: #f59e0b;
+  }
+
+  .status-order {
+    background: rgba(56, 189, 248, 0.2);
+    border: 1px solid rgba(56, 189, 248, 0.5);
+    color: var(--accent);
+  }
+  .status-order .status-dot {
+    background: var(--accent);
+  }
+
+  .status-soldout {
+    background: rgba(148, 163, 184, 0.2);
+    border: 1px solid rgba(148, 163, 184, 0.5);
+    color: #94a3b8;
+  }
+  .status-soldout .status-dot {
+    background: #94a3b8;
+  }
+
+  .thumbnails-strip {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    padding: 4px 2px;
+  }
+
+  .thumb-btn {
+    flex: 0 0 80px;
+    height: 65px;
+    border-radius: 10px;
+    overflow: hidden;
+    background: #090d16;
+    border: 2px solid var(--border);
+    cursor: pointer;
+    padding: 0;
+    transition: all 0.2s ease;
+  }
+
+  .thumb-btn:hover {
+    border-color: var(--accent);
+    transform: translateY(-2px);
+  }
+
+  .thumb-btn.active {
+    border-color: var(--accent);
+    box-shadow: 0 0 12px rgba(56, 189, 248, 0.4);
+  }
+
+  .thumb-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .gallery-hint {
+    font-size: 0.8rem;
+    color: var(--text-dim);
+    text-align: center;
+  }
+
+  /* Zoom Trigger Button on Main Image */
+  .zoom-trigger-btn {
+    position: absolute;
+    bottom: 14px;
+    right: 14px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(15, 23, 42, 0.88);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(56, 189, 248, 0.45);
+    color: var(--accent);
+    font-size: 0.8rem;
+    font-weight: 700;
+    padding: 7px 14px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+    z-index: 2;
+  }
+
+  .zoom-trigger-btn:hover {
+    background: var(--accent);
+    color: #030712;
+    border-color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(56, 189, 248, 0.45);
+  }
+
+  /* Lightbox Modal & Zoom Viewer */
+  .lightbox-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.25s ease, visibility 0.25s ease;
+  }
+
+  .lightbox-modal.is-open {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .lightbox-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(4, 7, 15, 0.94);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+  }
+
+  .lightbox-container {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    max-width: 1300px;
+    height: 100%;
+    max-height: 96vh;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 1.25rem;
+    box-sizing: border-box;
+    pointer-events: auto;
+  }
+
+  .lightbox-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.5rem 0.5rem 0.75rem;
+    color: #fff;
+    flex-shrink: 0;
+  }
+
+  .lightbox-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-width: 0;
+  }
+
+  .lightbox-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--text-main);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .lightbox-counter {
+    background: rgba(15, 23, 42, 0.85);
+    border: 1px solid rgba(56, 189, 248, 0.35);
+    color: var(--accent);
+    font-size: 0.8rem;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 20px;
+    white-space: nowrap;
+  }
+
+  .lightbox-close-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(30, 41, 59, 0.85);
+    border: 1px solid var(--border);
+    color: #e2e8f0;
+    padding: 8px 14px;
+    border-radius: 30px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .lightbox-close-btn:hover {
+    background: #ef4444;
+    border-color: #ef4444;
+    color: #fff;
+    transform: scale(1.03);
+  }
+
+  .close-hint {
+    font-size: 0.75rem;
+    opacity: 0.75;
+    background: rgba(0, 0, 0, 0.25);
+    padding: 2px 6px;
+    border-radius: 4px;
+  }
+
+  .lightbox-stage {
+    flex: 1;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 0;
+    padding: 0.5rem 0;
+  }
+
+  .lightbox-img-wrapper {
+    max-width: 100%;
+    max-height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .lightbox-img {
+    max-width: 92vw;
+    max-height: 74vh;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    border-radius: 14px;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+  }
+
+  .lightbox-nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(15, 23, 42, 0.85);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(56, 189, 248, 0.35);
+    color: #f8fafc;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    z-index: 5;
+  }
+
+  .lightbox-nav-btn.prev {
+    left: 8px;
+  }
+
+  .lightbox-nav-btn.next {
+    right: 8px;
+  }
+
+  .lightbox-nav-btn:hover {
+    background: var(--accent);
+    color: #030712;
+    border-color: var(--accent);
+    transform: translateY(-50%) scale(1.1);
+    box-shadow: 0 0 20px rgba(56, 189, 248, 0.5);
+  }
+
+  .lightbox-thumbs {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    overflow-x: auto;
+    padding: 0.75rem 0.5rem 0.25rem;
+    flex-shrink: 0;
+    max-width: 100%;
+  }
+
+  .lightbox-thumb-btn {
+    width: 70px;
+    height: 52px;
+    flex-shrink: 0;
+    border-radius: 8px;
+    border: 2px solid rgba(255, 255, 255, 0.15);
+    overflow: hidden;
+    background: #090d16;
+    cursor: pointer;
+    padding: 0;
+    opacity: 0.55;
+    transition: all 0.2s ease;
+  }
+
+  .lightbox-thumb-btn img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .lightbox-thumb-btn:hover {
+    opacity: 0.9;
+    border-color: rgba(56, 189, 248, 0.6);
+  }
+
+  .lightbox-thumb-btn.active {
+    opacity: 1;
+    border-color: var(--accent);
+    box-shadow: 0 0 14px rgba(56, 189, 248, 0.5);
+    transform: translateY(-2px);
+  }
+
+  @media (max-width: 640px) {
+    .lightbox-container {
+      padding: 0.75rem 0.5rem;
+    }
+    .lightbox-title {
+      max-width: 160px;
+      font-size: 0.9rem;
+    }
+    .lightbox-nav-btn {
+      width: 40px;
+      height: 40px;
+    }
+    .lightbox-nav-btn.prev {
+      left: 2px;
+    }
+    .lightbox-nav-btn.next {
+      right: 2px;
+    }
+    .close-hint {
+      display: none;
+    }
+    .lightbox-img {
+      max-height: 65vh;
+    }
+  }
+
+  /* Info Column */
+  .info-col {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .info-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 0.75rem;
+    flex-wrap: wrap;
+  }
+
+  .category-pill {
+    background: rgba(56, 189, 248, 0.1);
+    border: 1px solid rgba(56, 189, 248, 0.3);
+    color: var(--accent);
+    font-weight: 700;
+    font-size: 0.8rem;
+    padding: 4px 12px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .warranty-badge {
+    color: #4ade80;
+    font-size: 0.85rem;
+    font-weight: 600;
+  }
+
+  .product-title {
+    font-size: clamp(1.8rem, 4vw, 2.3rem);
+    font-weight: 900;
+    line-height: 1.2;
+    margin-bottom: 0.75rem;
+    color: var(--text-main);
+  }
+
+  .condition-row {
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    gap: 8px;
+  }
+
+  .condition-label {
+    color: var(--text-dim);
+  }
+
+  .condition-value {
+    color: var(--text-main);
+    font-weight: 600;
+  }
+
+  /* Price Area */
+  .price-section {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .original-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 4px;
+  }
+
+  .strike-price {
+    font-size: 1rem;
+    color: var(--text-dim);
+    text-decoration: line-through;
+  }
+
+  .discount-badge {
+    background: rgba(239, 68, 68, 0.15);
+    color: #f87171;
+    font-size: 0.75rem;
+    font-weight: 800;
+    padding: 2px 8px;
+    border-radius: 6px;
+  }
+
+  .current-price-row {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+  }
+
+  .price-amount {
+    font-size: 2.4rem;
+    font-weight: 900;
+    color: var(--accent);
+  }
+
+  .price-amount small {
+    font-size: 1.2rem;
+    color: var(--text-dim);
+    font-weight: 600;
+  }
+
+  .vat-included {
+    font-size: 0.85rem;
+    color: var(--text-dim);
+  }
+
+  .product-lead {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: var(--text-dim);
+    margin-bottom: 2rem;
+  }
+
+  /* Order Box */
+  .order-box {
+    background: linear-gradient(145deg, #1e293b, #131c2e);
+    border: 2px solid rgba(56, 189, 248, 0.3);
+    border-radius: 18px;
+    padding: 1.75rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  }
+
+  .order-box-header h3 {
+    font-size: 1.2rem;
+    margin-bottom: 4px;
+    color: var(--text-main);
+  }
+
+  .order-box-header p {
+    font-size: 0.9rem;
+    color: var(--text-dim);
+    margin-bottom: 1.25rem;
+  }
+
+  .order-buttons-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 1.5rem;
+  }
+
+  .cta-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 14px 20px;
+    border-radius: 10px;
+    font-weight: 800;
+    font-size: 1.05rem;
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .cta-sms {
+    background: var(--accent);
+    color: var(--bg);
+    box-shadow: 0 4px 20px rgba(56, 189, 248, 0.35);
+  }
+
+  .cta-sms:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(56, 189, 248, 0.5);
+  }
+
+  .secondary-actions-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .cta-sub-btn {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border);
+    color: var(--text-main);
+    text-decoration: none;
+    padding: 10px 14px;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+  }
+
+  .cta-sub-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: var(--accent);
+  }
+
+  .delivery-perks {
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    padding-top: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .perk-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 0.85rem;
+    color: var(--text-dim);
+    line-height: 1.4;
+  }
+
+  .p-icon {
+    font-size: 1rem;
+    line-height: 1;
+  }
+
+  /* Details Section */
+  .details-section {
+    margin-top: 4rem;
+  }
+
+  .details-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 2.5rem;
+  }
+
+  @media (max-width: 880px) {
+    .details-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .details-card,
+  .specs-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 2.5rem 2rem;
+  }
+
+  .details-card h2,
+  .specs-card h2 {
+    font-size: 1.4rem;
+    margin-bottom: 1.5rem;
+    color: var(--accent);
+  }
+
+  .desc-content p {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: var(--text-dim);
+    margin-bottom: 1.25rem;
+  }
+
+  .features-wrapper {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .features-wrapper h3 {
+    font-size: 1.15rem;
+    margin-bottom: 1rem;
+    color: var(--text-main);
+  }
+
+  .features-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .features-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 0.95rem;
+    color: var(--text-main);
+    line-height: 1.5;
+  }
+
+  .check {
+    font-size: 1rem;
+    flex-shrink: 0;
+  }
+
+  /* Specs Table */
+  .specs-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 2rem;
+  }
+
+  .specs-table tr {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .specs-table th {
+    text-align: left;
+    padding: 10px 0;
+    font-size: 0.88rem;
+    color: var(--text-dim);
+    font-weight: 500;
+    width: 45%;
+  }
+
+  .specs-table td {
+    padding: 10px 0;
+    font-size: 0.92rem;
+    color: var(--text-main);
+    font-weight: 600;
+  }
+
+  .workshop-guarantee-box {
+    background: rgba(56, 189, 248, 0.05);
+    border: 1px solid rgba(56, 189, 248, 0.2);
+    border-radius: 12px;
+    padding: 1.25rem;
+  }
+
+  .workshop-guarantee-box h4 {
+    font-size: 1rem;
+    color: var(--accent);
+    margin-bottom: 0.5rem;
+  }
+
+  .workshop-guarantee-box p {
+    font-size: 0.85rem;
+    color: var(--text-dim);
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  /* Related Products */
+  .related-section {
+    margin-top: 5rem;
+  }
+
+  .related-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.75rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .related-header h2 {
+    font-size: 1.5rem;
+    color: var(--text-main);
+  }
+
+  .see-all-link {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+  }
+
+  .see-all-link:hover {
+    text-decoration: underline;
+  }
+
+  .related-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .related-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    overflow: hidden;
+    text-decoration: none;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .related-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--accent);
+  }
+
+  .related-img-wrap {
+    aspect-ratio: 16 / 10;
+    background: #090d16;
+    overflow: hidden;
+  }
+
+  .related-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .related-info {
+    padding: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .related-info h4 {
+    font-size: 1rem;
+    color: var(--text-main);
+    line-height: 1.35;
+    margin: 0;
+  }
+
+  .related-price {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: var(--accent);
+  }
+</style>
