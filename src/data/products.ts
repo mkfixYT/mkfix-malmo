@@ -154,48 +154,6 @@ export const products: Product[] = [
     ]
   },
 
-  // --- 162: Xbox 360 Wireless Controller Black #162 ---
-  {
-    slug: 'xbox-360-wireless-black-tmr-162',
-    title: 'Xbox 360 Trådlös Handkontroll – Mattsvart – Hall effect (#162)',
-    price: 399,
-    category: 'kontroller',
-    status: 'in_stock',
-    badge: '⚡ Retro med Hall Effect',
-    condition: 'Professionellt renoverad & Hall Effect-uppgraderad',
-    warranty: '6 månaders full funktionsgaranti från mkFix',
-    shortDescription: 'Mattsvart trådlös Xbox 360-kontroll (#162) med suverän kalibrering (7.9% / 8.8%) och Hall Effect elektromagnetiska joysticks. Oslagbar känsla!',
-    description: [
-      'Denna mattsvarta Xbox 360-kontroll (#162) har fått våra finaste Hall Effect-sensorer installerade med mikrometer-passning och hårdvarutrimning.',
-      'Kalibreringstestet uppvisar exceptionellt låg felmarginal på endast 7.9% på vänster och 8.8% på höger spak – betydligt bättre än vad dessa kontroller presterade från fabrik!',
-      'Funktionstestad på samtliga knappar, analoga triggers och rumble-motorer.'
-    ],
-    features: [
-      'Hall Effect-spakar med noll mekanisk friktion',
-      'Fantastisk precision och centreringsrespons (7.9% / 8.8%)',
-      'Nya spakhattar med optimalt grepp och motstånd',
-      'Kompatibel med alla Xbox 360-modeller samt PC',
-      '6 månaders full funktionsgaranti från mkFix'
-    ],
-    specs: [
-      { label: 'Plattform', value: 'Xbox 360, PC (kräver trådlös mottagare)' },
-      { label: 'Sensor-teknik', value: 'Hall Effect' },
-      { label: 'Modell', value: 'Microsoft Xbox 360 Wireless (#162)' },
-      { label: 'Färg', value: 'Mattsvart (Matte Black)' },
-      { label: 'Kalibrering', value: '7.9% vänster / 8.8% höger felmarginal' },
-      { label: 'Batterifack', value: 'Original AA-batterihållare ingår' },
-      { label: 'Skick', value: 'Toppskick / Hall Effect-uppgraderad' }
-    ],
-    images: [
-      '/img/products/162/PXL_20260920_120538488.MP.jpg',
-      '/img/products/162/PXL_20260920_120543876.MP.jpg',
-      '/img/products/162/PXL_20260920_120547841.MP.jpg',
-      '/img/products/162/PXL_20260920_120552245.MP.jpg',
-      '/img/products/162/PXL_20260920_115721801.MP.jpg',
-      '/img/products/162/Screenshot 2026-09-20 140951.png'
-    ]
-  },
-
   // --- 171: Xbox Series Wireless Controller (Model 1914) Carbon Black #171 ---
   {
     slug: 'xbox-series-controller-carbon-black-tmr-171',
