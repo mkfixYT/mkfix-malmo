@@ -362,45 +362,427 @@ export const products: Product[] = [
     ]
   },
 
-  //TODO : 
-  // Lägg till
-  // - ps5, ps4, xbox one/sieries joysticks. 
-  // - switch joysticks. 
-  // - annar!
+  // --- Reservdel 1: K-Silver PS5 TMR Joysticks (2-pack) ---
+  {
+    slug: 'k-silver-ps5-tmr-joysticks',
+    title: 'K-Silver TMR Joysticks för PlayStation 5 DualSense (2-pack)',
+    price: 120,
+    category: 'reservdelar',
+    status: 'in_stock',
+    badge: '🧲 TMR Elektromagnetisk',
+    condition: 'Fabriksnya komponenter (OEM-kvalitet)',
+    warranty: 'Funktionsgaranti från mkFix',
+    shortDescription: 'Ett par (2 st) original K-Silver TMR elektromagnetiska analoga joysticks för PS5 DualSense. Den bästa och mest permanenta lösningen mot stick drift.',
+    description: [
+      'Splitternya K-Silver TMR-joysticks (Tunneling Magnetoresistive) för PlayStation 5 DualSense-kontroller. TMR-tekniken använder magnetiska fält istället för fysiska kolbanor, vilket gör spakarna helt immuna mot mekaniskt slitage och stick drift.',
+      'TMR är den senaste generationens magnetiska sensorteknik som ger snabbare sampling, lägre strömförbrukning och ännu bättre cirkularitet än konventionella Hall Effect-sensorer.',
+      'Passar samtliga DualSense-moderkortsrevisioner (BDM-010, BDM-020, BDM-030, BDM-040 och BDM-050). Kräver avlödning av gamla spakar, mikrolödning och mjukvarukalibrering. Önskar du hjälp med professionell montering i Malmö-verkstaden? Kontakta oss!'
+    ],
+    features: [
+      '2 st (1 par) äkta K-Silver TMR-joystickmoduler',
+      'Permanent lösning mot mekanisk stick drift och slitage',
+      'Optimerad motståndskurva för DualSense',
+      'Behåller originalets följsamma och taktila spakkänsla',
+      'Kompatibel med alla DualSense BDM-revisioner',
+      'Kan monteras av mkFix i Malmö om du inte vill löda själv'
+    ],
+    specs: [
+      { label: 'Antal', value: '2 st (1 par)' },
+      { label: 'Sensorteknik', value: 'TMR (Tunneling Magnetoresistive)' },
+      { label: 'Varumärke', value: 'K-Silver' },
+      { label: 'Kompatibilitet', value: 'PS5 DualSense (BDM-010, 020, 030, 040, 050)' },
+      { label: 'Installation', value: 'Kräver mikrolödning & kalibrering' }
+    ],
+    images: [
+      '/img/products/parts/K-silver Playstation 5 TMR joysticks/PXL_20261012_161021252.MP.jpg'
+    ]
+  },
 
-  // {
-  //   slug: 'k-silver-tmr-joystick-par',
-  //   title: 'K-Silver TMR Joysticks för PS5 / PS4 / Xbox (2-pack)',
-  //   price: 149,
-  //   category: 'reservdelar',
-  //   status: 'in_stock',
-  //   badge: '🔧 Gör det själv',
-  //   condition: 'Fabriksnya komponenter',
-  //   warranty: 'Funktionsgaranti vid mottagande',
-  //   shortDescription: 'Original K-Silver TMR joysticks för dig som löder själv. Den bästa lösningen mot stick drift på marknaden.',
-  //   description: [
-  //     'Ett par (2 st) K-Silver TMR analoga sensor-joysticks för mikrolödning. Passar DualSense (PS5), DualShock 4 samt Xbox Series & One kontroller.',
-  //     'TMR-tekniken ger ännu högre precision och lägre energiförbrukning än traditionell Hall Effect, med samma mekaniska motstånd och feeling som original.',
-  //     'Observera: Kräver lödkunskap och kalibrering efter installation.'
-  //   ],
-  //   features: [
-  //     '2 st äkta K-Silver TMR sensorer ingår',
-  //     'Perfekt passform för PS5, PS4 och Xbox Series',
-  //     'Garanterat fria från stick drift',
-  //     'Vi bistår gärna med tips och kalibreringslänkar'
-  //   ],
-  //   specs: [
-  //     { label: 'Antal', value: '2 st (1 par)' },
-  //     { label: 'Typ', value: 'TMR Analog Joystick' },
-  //     { label: 'Resistans', value: '2.1k - 2.3k Ohm nominal' },
-  //     { label: 'Kompatibilitet', value: 'PS5 (BDM-010-050), PS4, Xbox Series X/S' }
-  //   ],
-  //   images: [
-  //     '/img/2026/0505/tmr 5.jpg',
-  //     '/img/2026/0405/joystick swap.jpg'
-  //   ]
-  // },
+  // --- Reservdel 2: K-Silver PS4 TMR Joysticks (2-pack) ---
+  {
+    slug: 'k-silver-ps4-tmr-joysticks',
+    title: 'K-Silver TMR Joysticks för PlayStation 4 DualShock 4 (2-pack)',
+    price: 120,
+    category: 'reservdelar',
+    status: 'in_stock',
+    badge: '🧲 TMR Elektromagnetisk',
+    condition: 'Fabriksnya komponenter (OEM-kvalitet)',
+    warranty: 'Funktionsgaranti från mkFix',
+    shortDescription: 'Ett par (2 st) K-Silver TMR elektromagnetiska joysticks för Sony DualShock 4 (PS4). Byt ut slitna analoga spakar och slipp drift för all framtid.',
+    description: [
+      'Uppgradera din DualShock 4 med marknadens modernaste joystickteknik! K-Silver TMR (Tunneling Magnetoresistive) ersätter de sårbara kolbanorna med beröringsfria magnetiska sensorer.',
+      'TMR-tekniken levererar exceptionell precision i mikrorörelser och eliminerar det klassiska problemet där slitna potentiometrar börjar vandra eller rycka.',
+      'Passar alla versioner av DualShock 4 (både tidiga V1 och senare V2). Kräver lödning och kalibrering. Vill du ha hjälp med installationen? mkFix monterar och kalibrerar gärna i verkstaden!'
+    ],
+    features: [
+      '2 st (1 par) K-Silver TMR-joysticks för PS4',
+      'Helt kontaktlös avläsning utan mekanisk friktion',
+      'Fullständigt immun mot stick drift',
+      'Passar DualShock 4 V1 (JDM-001 till JDM-030) och V2 (JDM-040 till JDM-055)',
+      'Perfekt centreringsrespons och distinkt klickknapp (L3/R3)'
+    ],
+    specs: [
+      { label: 'Antal', value: '2 st (1 par)' },
+      { label: 'Sensorteknik', value: 'TMR (Tunneling Magnetoresistive)' },
+      { label: 'Varumärke', value: 'K-Silver' },
+      { label: 'Kompatibilitet', value: 'Sony DualShock 4 (V1 & V2)' },
+      { label: 'Installation', value: 'Kräver mikrolödning & kalibrering' }
+    ],
+    images: [
+      '/img/products/parts/K-silver Playstation 4 TMR joysticks/PXL_20261012_161044263.MP.jpg'
+    ]
+  },
 
+  // --- Reservdel 3: K-Silver Xbox Series & Xbox One TMR Joysticks (2-pack) ---
+  {
+    slug: 'k-silver-xbox-tmr-joysticks',
+    title: 'K-Silver TMR Joysticks för Xbox Series X/S & Xbox One (2-pack)',
+    price: 120,
+    category: 'reservdelar',
+    status: 'in_stock',
+    badge: '🧲 TMR Elektromagnetisk',
+    condition: 'Fabriksnya komponenter (OEM-kvalitet)',
+    warranty: 'Funktionsgaranti från mkFix',
+    shortDescription: 'Ett par (2 st) K-Silver TMR elektromagnetiska analoga joysticks för Xbox Series X/S och Xbox One kontroller. Gör din handkontroll helt fri från spakdrift.',
+    description: [
+      'Original K-Silver TMR elektromagnetiska joysticks anpassade för Microsoft Xbox Series X/S och Xbox One trådlösa handkontroller. Sluta bekymra dig för stick drift en gång för alla.',
+      'TMR-tekniken mäter magnetiska motståndsförändringar istället för att skrapa mekaniska kolbanor. Resultatet är extrem livslängd, hög precision och minimal dödzon.',
+      'Kompatibel med Xbox One (Model 1537, 1697, 1708) samt Xbox Series X/S (Model 1914). Kräver mikrolödning. Finns även som färdig monteringstjänst hos oss på mkFix i Malmö.'
+    ],
+    features: [
+      '2 st (1 par) K-Silver TMR-joystickmoduler',
+      'Speciellt anpassade för Xbox-kretskort och resistansvärden',
+      'Eliminerar stick drift permanent',
+      'Optimal centreringsrespons och hållbar klickbrytare',
+      'Kompatibel med Xbox Series och Xbox One handkontroller'
+    ],
+    specs: [
+      { label: 'Antal', value: '2 st (1 par)' },
+      { label: 'Sensorteknik', value: 'TMR (Tunneling Magnetoresistive)' },
+      { label: 'Varumärke', value: 'K-Silver' },
+      { label: 'Kompatibilitet', value: 'Xbox Series X/S (1914), Xbox One (1537, 1697, 1708)' },
+      { label: 'Installation', value: 'Kräver mikrolödning & kalibrering' }
+    ],
+    images: [
+      '/img/products/parts/K-silver Xbox One or series TMR joystick/PXL_20261012_161108685.MP.jpg'
+    ]
+  },
+
+  // --- Reservdel 4: K-Silver TMR Joystick för Nintendo Switch Joy-Con & Lite ---
+  {
+    slug: 'k-silver-nintendo-switch-joycon-tmr',
+    title: 'K-Silver TMR Joystick Modul för Nintendo Switch Joy-Con & Lite',
+    price: 80,
+    category: 'reservdelar',
+    status: 'in_stock',
+    badge: '🧲 TMR Elektromagnetisk',
+    condition: 'Fabriksny komponent',
+    warranty: 'Funktionsgaranti från mkFix',
+    shortDescription: 'Elektromagnetisk K-Silver TMR joystick-modul för Nintendo Switch Joy-Con och Switch Lite. Helt lödfri installation – den ultimata kuren mot Joy-Con drift!',
+    description: [
+      'Den permanenta lösningen på Nintendos mest ökända problem: Joy-Con stick drift! K-Silver TMR joystickmodul för Nintendo Switch ersätter de ömtåliga originalspakarna med beröringsfri magnetisk TMR-teknik.',
+      'Eftersom avläsningen sker magnetiskt utan fysisk nötning kommer spaken aldrig att börja drifta. Den ger dessutom samma mjuka rörelse, perfekta klick och exakta styrning som originalet.',
+      'Ingen lödning krävs! Modulen ansluts med flatkabel (ribbon cable) och skruvas fast på plats. Kalibreras enkelt via Nintendos inbyggda systeminställningar. Passar både vänster och höger Joy-Con samt Nintendo Switch Lite.'
+    ],
+    features: [
+      '1 st K-Silver TMR joystickmodul med flatkabel och svart gummihatt',
+      'Elektromagnetisk TMR-sensor – 100% fri från Joy-Con drift',
+      'Lödfri installation (plug-and-play via flexkabel)',
+      'Passar vänster och höger Joy-Con samt Switch Lite',
+      'Enkel kalibrering direkt i konsolens inställningsmeny'
+    ],
+    specs: [
+      { label: 'Typ', value: 'Komplett joystickmodul med spakhatt & flatkabel' },
+      { label: 'Sensorteknik', value: 'TMR (Tunneling Magnetoresistive)' },
+      { label: 'Varumärke', value: 'K-Silver' },
+      { label: 'Kompatibilitet', value: 'Nintendo Switch Joy-Con (L/R), Nintendo Switch Lite' },
+      { label: 'Installation', value: 'Lödfri (tri-wing & stjärnmejsel behövs)' }
+    ],
+    images: [
+      '/img/products/parts/Nintendo switch k-silver TMR joycons/PXL_20261012_161639434.MP.jpg',
+      '/img/products/parts/Nintendo switch k-silver TMR joycons/PXL_20261012_161645605.MP.jpg'
+    ]
+  },
+
+  // --- Reservdel 5: Analoga Joysticks för PlayStation 1, PS2 & Xbox Original (2-pack) ---
+  {
+    slug: 'retro-joysticks-ps1-ps2-xbox-original',
+    title: 'Analoga Joysticks för PlayStation 1, PS2 & Xbox Original (2-pack)',
+    price: 99,
+    category: 'reservdelar',
+    status: 'in_stock',
+    badge: '⚡ Retro Reservdel',
+    condition: 'Fabriksnya komponenter',
+    warranty: 'Funktionsgaranti från mkFix',
+    shortDescription: 'Ett par (2 st) högkvalitativa analoga potentiometerspakar för klassiska retrokontroller: Sony PS1 DualShock, PS2 DualShock 2 och Microsoft Xbox Original.',
+    description: [
+      'Rädda dina klassiska retrokontroller! Med tiden blir analoga spakar på PS1, PS2 och första generationens Xbox slappa, glappa eller drabbas av oregelbunden signalrespons.',
+      'Dessa fabriksnya analoga joystickmekanismer har korrekta motståndsvärden och spänstiga returfjädrar som återställer kontrollernas respons till precis som de kändes när de packades upp ur kartongen på 90- och 00-talet.',
+      'Perfekt passform för genomhålslödning på kretskortet. Passar Sony PlayStation 1 DualShock, PlayStation 2 DualShock 2 samt original Microsoft Xbox (både Duke och Controller S).'
+    ],
+    features: [
+      '2 st (1 par) analoga joystickmekanismer för retrokontroller',
+      'Högkvalitativa potentiometrar med korrekt resistans och kurva',
+      'Kraftig centreringsfjäder som eliminerar glapp och dödzoner',
+      'Taktil och distinkt L3/R3-klickfunktion',
+      'Passar PS1 DualShock, PS2 DualShock 2 och Xbox Original'
+    ],
+    specs: [
+      { label: 'Antal', value: '2 st (1 par)' },
+      { label: 'Typ', value: 'Analog potentiometerspak' },
+      { label: 'Kompatibilitet', value: 'Sony PS1 DualShock, PS2 DualShock 2, Xbox Original (Duke / S)' },
+      { label: 'Installation', value: 'Kräver lödning (genomhålslödning)' }
+    ],
+    images: [
+      '/img/products/parts/Playstation 1 playstation 2 and xbox original joysticks/PXL_20261012_161545078.MP.jpg'
+    ]
+  },
+
+  // --- Reservdel 6: Thumbsticks / Spakhattar för PlayStation 1 & PlayStation 2 – Mörkgrå (2-pack) ---
+  {
+    slug: 'thumbcaps-ps1-ps2',
+    title: 'Thumbsticks / Spakhattar för PlayStation 1 & PS2 – Mörkgrå (2-pack)',
+    price: 39,
+    category: 'reservdelar',
+    status: 'in_stock',
+    badge: '🕹️ Spakhattar Retro',
+    condition: 'Fabriksnya komponenter',
+    warranty: 'Passformsgaranti från mkFix',
+    shortDescription: 'Ett par (2 st) klassiska mörkgrå spakhattar för Sony PlayStation 1 och PlayStation 2 DualShock-kontroller. Klassisk konvex rundad kupol med knottrigt grepp.',
+    description: [
+      'Har gummit på dina gamla PS1- eller PS2-spakar blivit klibbigt, sprucket eller nedslitet efter åratal av intensivt spelande? Dessa fabriksnya spakhattar ger kontrollen ett rejält lyft.',
+      'Tillverkade med originalmått och den klassiska konvexa (utåtbuktande) formen med knottrig texturyta som kännetecknar Sonys ikoniska retrokontroller.',
+      'Enkla att byta: öppna kontrollens hölje och tryck fast de nya spakhattarna direkt på joystickaxlarna. Ingen lödning behövs.'
+    ],
+    features: [
+      '2 st (1 par) spakhattar i klassisk mörkgrå retrolansering',
+      'Autentisk konvex formfaktor med halkfri knottrad yta',
+      'Exakt OEM-fattning för standard joystickaxlar',
+      'Passar PlayStation 1 DualShock och PlayStation 2 DualShock 2',
+      'Enkel montering utan lödning'
+    ],
+    specs: [
+      { label: 'Antal', value: '2 st (1 par)' },
+      { label: 'Färg', value: 'Mörkgrå / Koksgrå (Original-look)' },
+      { label: 'Profil', value: 'Konvex kupol med texturerat grepp' },
+      { label: 'Kompatibilitet', value: 'Sony PS1 DualShock, Sony PS2 DualShock 2' },
+      { label: 'Installation', value: 'Tryckmontering på spakaxel' }
+    ],
+    images: [
+      '/img/products/parts/Playstation 1 playstation 2 thumbcaps/PXL_20261012_161605160.MP.jpg'
+    ]
+  },
+
+  // --- Reservdel 7: Thumbsticks / Spakhattar för PlayStation 4 DualShock 4 – Svart (2-pack) ---
+  {
+    slug: 'thumbcaps-ps4-dualshock-4',
+    title: 'Thumbsticks / Spakhattar för PlayStation 4 DualShock 4 – Svart (2-pack)',
+    price: 39,
+    category: 'reservdelar',
+    status: 'in_stock',
+    badge: '🕹️ Spakhattar PS4',
+    condition: 'Fabriksnya komponenter',
+    warranty: 'Passformsgaranti från mkFix',
+    shortDescription: 'Ett par (2 st) svarta spakhattar för Sony PlayStation 4 DualShock 4. Skålad mitt med mönstrad greppkant i slitstark gummiblandning.',
+    description: [
+      'Ett mycket vanligt problem på PS4 DualShock 4 är att originalgummit på spakarna slits sönder, spricker eller fläks av vid tummarna. Här är den perfekta och prisvärda ersättningen.',
+      'Dessa spakhattar har Sonys karakteristiska konkava (skålade) centrum med en förhöjd greppkant runt om, vilket ger suveränt fäste och precision i alla typer av spel.',
+      'Passar alla modeller av DualShock 4 (både tidiga V1 och senare V2). Trycks smidigt på plats på joystickaxeln.'
+    ],
+    features: [
+      '2 st (1 par) svarta spakhattar för PS4 DualShock 4',
+      'Slitstark gummiblandning med högt grepp och lång livslängd',
+      'Klassisk konkav design med markerad greppkant',
+      'OEM-precision på infästningen',
+      'Passar DualShock 4 V1 & V2'
+    ],
+    specs: [
+      { label: 'Antal', value: '2 st (1 par)' },
+      { label: 'Färg', value: 'Matt svart' },
+      { label: 'Profil', value: 'Konkav med texturerad greppkant' },
+      { label: 'Kompatibilitet', value: 'PlayStation 4 DualShock 4 (alla versioner)' },
+      { label: 'Installation', value: 'Push-fit montering på spakaxeln' }
+    ],
+    images: [
+      '/img/products/parts/Playstation 4 thumbcaps/PXL_20261012_161357051.MP.jpg'
+    ]
+  },
+
+  // --- Reservdel 8: Thumbsticks / Spakhattar för PlayStation 5 DualSense – Svart (2-pack) ---
+  {
+    slug: 'thumbcaps-ps5-dualsense',
+    title: 'Thumbsticks / Spakhattar för PlayStation 5 DualSense – Svart (2-pack)',
+    price: 39,
+    category: 'reservdelar',
+    status: 'in_stock',
+    badge: '🕹️ Spakhattar PS5',
+    condition: 'Fabriksnya komponenter',
+    warranty: 'Passformsgaranti från mkFix',
+    shortDescription: 'Ett par (2 st) originaldesignade spakhattar för Sony PlayStation 5 DualSense. Perfekt passform, mikrotexturerat grepp och OEM-kvalitet.',
+    description: [
+      'Fräscha upp din PlayStation 5 DualSense med nya spakhattar! Oavsett om gummit börjat slitas ner, blivit blankt eller om du byter joysticks och vill ha fabriksfräsch känsla är detta det rätta valet.',
+      'Formgjutna med exakt samma profil, höjd och micro-texture som Sonys originalhattar för att ge maximal ergonomi och komfort under långa spelsessioner.',
+      'Passar samtliga DualSense-kontroller på marknaden (alla BDM-modeller).'
+    ],
+    features: [
+      '2 st (1 par) svarta spakhattar för PS5 DualSense',
+      'OEM-profil med mikrotextur för optimalt tumgrepp',
+      'Högkvalitativ gummikant som motstår slitage och handsvett',
+      'Passar perfekt på K-Silver TMR, Hall Effect och originalspakar',
+      'Enkel montering vid renovering eller underhåll'
+    ],
+    specs: [
+      { label: 'Antal', value: '2 st (1 par)' },
+      { label: 'Färg', value: 'Svart' },
+      { label: 'Profil', value: 'DualSense OEM-profil med texturerad ring' },
+      { label: 'Kompatibilitet', value: 'PlayStation 5 DualSense (alla modeller)' },
+      { label: 'Installation', value: 'Tryckmontering på spakaxel' }
+    ],
+    images: [
+      '/img/products/parts/Playstation 5 thumbcaps/PXL_20261012_161200488.MP.jpg'
+    ]
+  },
+
+  // --- Reservdel 9: Hall Effect Magnetiska Joysticks för Xbox 360 (2-pack) ---
+  {
+    slug: 'xbox-360-hall-effect-joysticks',
+    title: 'Hall Effect Magnetiska Joysticks för Xbox 360 (2-pack)',
+    price: 99,
+    category: 'reservdelar',
+    status: 'in_stock',
+    badge: '🧲 Hall Effect Retro',
+    condition: 'Fabriksnya komponenter',
+    warranty: 'Funktionsgaranti från mkFix',
+    shortDescription: 'Ett par (2 st) moderna Hall Effect magnetiska analoga joysticks för Microsoft Xbox 360 kontroller. Förvandla din favoritkontroll till en driftfri precisionsmaskin.',
+    description: [
+      'Ge din trogna Xbox 360-kontroll evigt liv med kontaktlösa Hall Effect-sensorer! Traditionella Xbox 360-kontroller använder mekaniska potentiometrar som med åren utvecklar stick drift, dödzoner eller hackig respons.',
+      'Hall Effect-tekniken läser av spakarnas position med magneter istället för slitande metallborstar mot kolbanor. Det ger överlägsen precision, exceptionell hållbarhet och silkesmjuk rörelse.',
+      'Passar både trådlösa och trådbundna Xbox 360-originalkontroller. Kräver mikrolödning och kalibrering. Vi på mkFix kan självklart också utföra bytet och kalibreringen åt dig i vår Malmö-verkstad!'
+    ],
+    features: [
+      '2 st (1 par) Hall Effect magnetiska joystickmoduler',
+      'Eliminerar stick drift helt och hållet på Xbox 360',
+      'Garanterar lång livslängd för retro- och speedrun-gaming',
+      'Distinkt klick i spakknapparna (LS / RS)',
+      'Passar alla officiella Microsoft Xbox 360-kontroller'
+    ],
+    specs: [
+      { label: 'Antal', value: '2 st (1 par)' },
+      { label: 'Sensorteknik', value: 'Hall Effect (Magnetisk kontaktlös)' },
+      { label: 'Kompatibilitet', value: 'Xbox 360 Trådlös & Trådbunden kontroller' },
+      { label: 'Installation', value: 'Kräver mikrolödning & kalibrering' }
+    ],
+    images: [
+      '/img/products/parts/Xbox 360 hall effect joysticks/PXL_20261012_161137438.MP.jpg'
+    ]
+  },
+
+  // --- Reservdel 10: Thumbsticks / Spakhattar för Xbox 360 – Svart (2-pack) ---
+  {
+    slug: 'thumbcaps-xbox-360-black',
+    title: 'Thumbsticks / Spakhattar för Xbox 360 – Svart (2-pack)',
+    price: 39,
+    category: 'reservdelar',
+    status: 'in_stock',
+    badge: '🕹️ Spakhattar Xbox',
+    condition: 'Fabriksnya komponenter',
+    warranty: 'Passformsgaranti från mkFix',
+    shortDescription: 'Ett par (2 st) svarta spakhattar för Xbox 360 med de klassiska fyra grepprickarna. Perfekt för att fräscha upp slitna eller klibbiga spakar.',
+    description: [
+      'Klassiska svarta spakhattar för Microsoft Xbox 360 handkontroller. Efter åratal av spelande brukar gummit på 360-spakarna nötas ner tills bara den hårda plasten återstår.',
+      'Dessa nya ersättningshattar har den autentiska konkava toppen med fyra taktila grepprickar som ger det karakteristiska och fasta Xbox 360-greppet.',
+      'Passar alla officiella Microsoft Xbox 360-kontroller (både svarta, färgade och specialutgåvor). Tryckmonteras direkt på joystickaxlarna.'
+    ],
+    features: [
+      '2 st (1 par) svarta spakhattar för Xbox 360',
+      'Klassisk design med de fyra upphöjda grepprickarna',
+      'Fräscht grepp och behaglig gummikänsla',
+      'Exakt passform på Xbox 360 joystickaxlar',
+      'Enkel montering utan lödning'
+    ],
+    specs: [
+      { label: 'Antal', value: '2 st (1 par)' },
+      { label: 'Färg', value: 'Svart' },
+      { label: 'Design', value: 'Konkav topp med 4 taktila grepprickar' },
+      { label: 'Kompatibilitet', value: 'Microsoft Xbox 360 (Trådlös & Trådbunden)' },
+      { label: 'Installation', value: 'Tryckmontering på spakaxel' }
+    ],
+    images: [
+      '/img/products/parts/Xbox 360 thumbcaps black/PXL_20261012_161520716.MP.jpg'
+    ]
+  },
+
+  // --- Reservdel 11: Thumbsticks / Spakhattar för Xbox 360 – Grå (2-pack) ---
+  {
+    slug: 'thumbcaps-xbox-360-gray',
+    title: 'Thumbsticks / Spakhattar för Xbox 360 – Grå (2-pack)',
+    price: 39,
+    category: 'reservdelar',
+    status: 'in_stock',
+    badge: '🕹️ Spakhattar Xbox',
+    condition: 'Fabriksnya komponenter',
+    warranty: 'Passformsgaranti från mkFix',
+    shortDescription: 'Ett par (2 st) originalgrå spakhattar för vita Xbox 360-handkontroller. Autentisk retrolook med de fyra karakteristiska grepprickarna.',
+    description: [
+      'Den klassiska vita Xbox 360-kontrollen kom från början med ljusgrå spakhattar. Om dina originalspakar blivit missfärgade, smutsiga eller nedslitna är dessa spakhattar den perfekta restaureringen.',
+      'Exakt färgton och formfaktor som matchar originalet från Microsoft, komplett med den konkava skålningen och de fyra distinkta grepprickarna.',
+      'Ger din vita eller silverfärgade Xbox 360-kontroll ett helfräscht fabriksnytt utseende och perfekt tumfäste.'
+    ],
+    features: [
+      '2 st (1 par) ljusgrå spakhattar för Xbox 360',
+      'Autentisk retrolook anpassad för vita originalkontroller',
+      'Klassisk konkav skålning med fyra grepprickar',
+      'Slitstark gummibelagd ovansida',
+      'Exakt passform på 360-joystickmekanismer'
+    ],
+    specs: [
+      { label: 'Antal', value: '2 st (1 par)' },
+      { label: 'Färg', value: 'Ljusgrå (Original Xbox 360 White look)' },
+      { label: 'Design', value: 'Konkav topp med 4 taktila grepprickar' },
+      { label: 'Kompatibilitet', value: 'Microsoft Xbox 360 (Trådlös & Trådbunden)' },
+      { label: 'Installation', value: 'Tryckmontering på spakaxel' }
+    ],
+    images: [
+      '/img/products/parts/xbox 360 thumbcaps gray/PXL_20261012_161620315.MP.jpg'
+    ]
+  },
+
+  // --- Reservdel 12: Thumbsticks / Spakhattar för Xbox Series X/S & Xbox One – Svart (2-pack) ---
+  {
+    slug: 'thumbcaps-xbox-series-xbox-one',
+    title: 'Thumbsticks / Spakhattar för Xbox Series X/S & Xbox One – Svart (2-pack)',
+    price: 39,
+    category: 'reservdelar',
+    status: 'in_stock',
+    badge: '🕹️ Spakhattar Xbox',
+    condition: 'Fabriksnya komponenter',
+    warranty: 'Passformsgaranti från mkFix',
+    shortDescription: 'Ett par (2 st) svarta spakhattar med mönstrad ytterkant för Xbox Series X/S och Xbox One kontroller. Maximalt grepp och ergonomisk precision.',
+    description: [
+      'Originaldesignade spakhattar för moderna Xbox-kontroller. Den räfflade greppkanten runt den skålade toppen ger optimalt fäste även under svettiga och intensiva spelmoment.',
+      'Perfekt när originalgummit börjat släppa, slitits ner eller om du vill ge din Xbox One eller Series X/S-kontroll ett nytt liv i samband med joystickbyte.',
+      'Kompatibel med alla Xbox One-kontroller (modell 1537, 1697, 1708) samt de senaste Xbox Series X/S-kontrollerna (modell 1914). Trycks enkelt på spakaxeln.'
+    ],
+    features: [
+      '2 st (1 par) svarta spakhattar för Xbox Series & One',
+      'Ergonomisk skålad mitt med diamantmönstrad greppkant',
+      'OEM-kvalitet och slittålig gummiblandning',
+      'Passar både Xbox One och Xbox Series X/S handkontroller',
+      'Lätt att montera utan lödning'
+    ],
+    specs: [
+      { label: 'Antal', value: '2 st (1 par)' },
+      { label: 'Färg', value: 'Svart' },
+      { label: 'Design', value: 'Skålad mitt med diamantmönstrad ytterkant' },
+      { label: 'Kompatibilitet', value: 'Xbox Series X/S (1914), Xbox One (1537, 1697, 1708)' },
+      { label: 'Installation', value: 'Tryckmontering på spakaxel' }
+    ],
+    images: [
+      '/img/products/parts/Xbox series or xbox one thumbcaps/PXL_20261012_161448704.MP.jpg'
+    ]
+  },
+
+  // // --- Reservdel: Sparbatterier för Game Boy & Pokémon (5-pack) ---
   // {
   //   slug: 'cartridge-sparbatterier-cr2025-cr1616',
   //   title: 'Sparbatterier med Lödöron för Game Boy & Pokémon (5-pack)',
