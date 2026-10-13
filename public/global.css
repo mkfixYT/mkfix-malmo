@@ -978,6 +978,127 @@ nav {
     }
 }
 
+/* ===== BUYBACK PROMO BANNER (Startsida & undersidor) ===== */
+.buyback-promo-banner {
+    background: linear-gradient(135deg, rgba(34, 197, 94, 0.08) 0%, rgba(30, 41, 59, 0.95) 50%, rgba(15, 23, 42, 0.95) 100%);
+    border: 1px solid rgba(34, 197, 94, 0.35);
+    border-radius: 20px;
+    padding: 2.25rem 2.5rem;
+    margin: 3rem 0;
+    position: relative;
+    box-shadow: 0 12px 35px rgba(34, 197, 94, 0.08);
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.buyback-promo-banner:hover {
+    border-color: #22c55e;
+    transform: translateY(-2px);
+    box-shadow: 0 16px 40px rgba(34, 197, 94, 0.15);
+}
+
+.buyback-promo-badge {
+    display: inline-block;
+    background: rgba(34, 197, 94, 0.15);
+    color: #4ade80;
+    border: 1px solid rgba(34, 197, 94, 0.3);
+    padding: 4px 14px;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    margin-bottom: 1rem;
+}
+
+.buyback-promo-body {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2.5rem;
+}
+
+.buyback-promo-text h3 {
+    font-size: 1.55rem;
+    margin-bottom: 0.75rem;
+    color: #fff;
+    line-height: 1.3;
+}
+
+.buyback-promo-text p {
+    color: var(--text-dim);
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 1.25rem;
+    max-width: 680px;
+}
+
+.buyback-perks-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.buyback-perks-row span {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-main);
+    background: rgba(255, 255, 255, 0.04);
+    padding: 4px 10px;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+}
+
+.buyback-promo-action {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+}
+
+.buyback-promo-btn {
+    background: #22c55e;
+    color: #0f172a;
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 1rem;
+    padding: 15px 26px;
+    border-radius: 10px;
+    white-space: nowrap;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 15px rgba(34, 197, 94, 0.3);
+    text-align: center;
+}
+
+.buyback-promo-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(34, 197, 94, 0.45);
+}
+
+.buyback-sub-cta {
+    font-size: 0.82rem;
+    color: var(--text-dim);
+}
+
+@media (max-width: 850px) {
+    .buyback-promo-banner {
+        padding: 1.75rem 1.25rem;
+    }
+
+    .buyback-promo-body {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1.5rem;
+    }
+
+    .buyback-promo-action {
+        width: 100%;
+    }
+
+    .buyback-promo-btn {
+        width: 100%;
+    }
+}
+
 
 /* Footer Base */
 .site-footer {

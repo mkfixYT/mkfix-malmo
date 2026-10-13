@@ -306,6 +306,20 @@ const productSchema = {
               <span><strong>Betalning:</strong> Swish vid köp eller överlämning.</span>
             </div>
           </div>
+
+          <!-- Trade-In Callout for Controllers -->
+          {product.category === 'kontroller' && (
+            <div class="product-tradein-hint">
+              <span class="tradein-hint-icon">🔄</span>
+              <div class="tradein-hint-text">
+                <strong>Byt in din gamla kontroll &amp; spara pengar</strong>
+                <p>
+                  Har du en defekt eller gammal kontroll? Byt in den och få upp till <strong>100–380 kr rabatt</strong> på denna enhet! 
+                  <a href="/vi-koper-kontroller">Se inbytesvärden här →</a>
+                </p>
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </section>
@@ -1265,6 +1279,44 @@ const productSchema = {
   .p-icon {
     font-size: 1rem;
     line-height: 1;
+  }
+
+  .product-tradein-hint {
+    margin-top: 1.25rem;
+    padding: 0.85rem 1rem;
+    background: rgba(34, 197, 94, 0.08);
+    border: 1px dashed rgba(34, 197, 94, 0.4);
+    border-radius: 12px;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .tradein-hint-icon {
+    font-size: 1.25rem;
+    line-height: 1;
+  }
+
+  .tradein-hint-text strong {
+    display: block;
+    color: #4ade80;
+    font-size: 0.85rem;
+    margin-bottom: 2px;
+  }
+
+  .tradein-hint-text p {
+    color: var(--text-dim);
+    font-size: 0.8rem;
+    line-height: 1.4;
+    margin: 0;
+  }
+
+  .tradein-hint-text a {
+    color: var(--accent);
+    font-weight: 700;
+    text-decoration: underline;
+    display: inline-block;
+    margin-left: 4px;
   }
 
   /* Details Section */

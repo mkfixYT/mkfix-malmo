@@ -1,0 +1,1128 @@
+---
+// src/pages/vi-koper-kontroller.astro
+import MainLayout from "../layouts/MainLayout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { buybackItems, buybackCategories, buybackFaq } from "../data/buybackPrices";
+
+const buybackSchema = {
+  "@context": "https://schema.org",
+  "@type": "ElectronicsRepairShop",
+  "name": "mkFix Malmö - Vi köper dina handkontroller (Defekta & Fungerande)",
+  "description": "Sälj dina begagnade, slitna eller defekta handkontroller (PS5, Xbox, Nintendo Switch, PS4) till mkFix i Malmö. Få pengar på Swish eller inbytesrabatt i butiken.",
+  "url": "https://mkfix.se/vi-koper-kontroller",
+  "telephone": "+46790320605",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Malmö",
+    "addressCountry": "SE"
+  },
+  "areaServed": [
+    { "@type": "City", "name": "Malmö" },
+    { "@type": "Country", "name": "Sverige" }
+  ]
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": buybackFaq.map(item => ({
+    "@type": "Question",
+    "name": item.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": item.answer
+    }
+  }))
+};
+---
+
+<MainLayout
+  title="Vi Köper Dina Handkontroller | Defekta & Fungerande | mkFix Malmö"
+  description="Har du kontroller med stick drift eller som bara samlar damm? mkFix köper defekta och fungerande kontroller för PS5, Xbox, Switch och retro. Swish direkt eller inbytesrabatt!"
+  keywords="sälja trasig ps5 kontroll, sälja defekt kontroll, köper trasiga kontroller malmö, inbyte handkontroller, stick drift inbyte, pant handkontroll, sälja xbox kontroll, sälja joy-con"
+  canonicalUrl="https://mkfix.se/vi-koper-kontroller"
+  ogTitle="Vi köper dina handkontroller – Defekta eller fungerande | mkFix"
+  ogDescription="Få pengar via Swish eller extra inbytesrabatt i butiken. Vi köper PS5, Xbox, Switch, PS4 och retrokontroller i Malmö & via post."
+  jsonLd={[buybackSchema, faqSchema]}
+>
+  <Header />
+
+  <main class="container buyback-page">
+    <!-- Hero Section -->
+    <section class="hero buyback-hero">
+      <div class="trust-box">
+        <span class="trust-badge">♻️ CIRKULÄRT ÅTERBRUK</span>
+        <span>Sälj till mkFix-verkstan i Malmö</span>
+      </div>
+
+      <h1>
+        Vi köper dina handkontroller<br />
+        <span>Defekta eller fungerande</span>
+      </h1>
+
+      <p class="buyback-lead">
+        Har du handkontroller som ligger i en låda med <strong>stick drift</strong>, glappande knappar eller som bara samlar damm? 
+        Kasta dem inte! Hos <strong>mkFix</strong> köper vi in dina kontroller och ger dem ett nytt liv med magnetiska TMR-sensorer. 
+        Få <strong>snabba pengar på Swish</strong> eller <strong>extra inbytesrabatt</strong> på en ny TMR-kontroll i vår butik.
+      </p>
+
+      <!-- Trust Badges Bar -->
+      <div class="buyback-perks">
+        <div class="bb-perk">
+          <span class="bb-perk-icon">⚡</span>
+          <div>
+            <strong>Snabb Swish</strong>
+            <p>Pengar samma dag efter snabbt test</p>
+          </div>
+        </div>
+        <div class="bb-perk">
+          <span class="bb-perk-icon">🔄</span>
+          <div>
+            <strong>Extra Inbytesvärde</strong>
+            <p>Få upp till 100 kr mer i rabatt i butiken</p>
+          </div>
+        </div>
+        <div class="bb-perk">
+          <span class="bb-perk-icon">📦</span>
+          <div>
+            <strong>Malmö eller PostNord</strong>
+            <p>Lämna lokalt eller skicka från hela landet</p>
+          </div>
+        </div>
+        <div class="bb-perk">
+          <span class="bb-perk-icon">🌱</span>
+          <div>
+            <strong>Minska E-skrot</strong>
+            <p>Hållbar renovering med precision</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Action Buttons -->
+      <div class="hero-actions">
+        <a href="#prislista" class="btn-primary">SE PRISLISTAN NEDAN ↓</a>
+        <a href="sms:+46790320605?body=Hej%20mkFix!%20Jag%20vill%20s%C3%A4lja%20en%20handkontroll:%20" class="btn-secondary">
+          💬 SMS:A BILD TILL 079-032 06 05
+        </a>
+      </div>
+    </section>
+
+    <!-- Trade-In Promo Callout -->
+    <section class="trade-in-callout">
+      <div class="callout-badge">💡 PRO-TIPS FÖR GAMERS</div>
+      <div class="callout-body">
+        <div class="callout-text">
+          <h3>Vill du uppgradera till en TMR-kontroll som aldrig drifter?</h3>
+          <p>
+            Välj <strong>Inbytesrabatt</strong>! När du byter in din gamla/defekta kontroll mot en handbyggd TMR-moddad enhet i vår <a href="/produkter">butik</a> får du <strong>högre ersättning</strong> än vid ren kontantutbetalning. Ett perfekt sätt att förvandla trasigt skrot till en pro-kontroll för en bråkdel av nypriset!
+          </p>
+        </div>
+        <a href="/produkter" class="callout-btn">TILL BUTIKEN →</a>
+      </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="how-it-works-section">
+      <h2 class="section-title">Så enkelt säljer du <span>på 3 steg</span></h2>
+      <div class="steps-grid">
+        <div class="step-card">
+          <div class="step-num">1</div>
+          <h3>Kolla pris &amp; fota</h3>
+          <p>Kolla i prislistan nedan vad din modell ger. Ta ett snabbt foto på kontrollen och skicka till oss på SMS eller formulär så bekräftar vi priset direkt.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-num">2</div>
+          <h3>Lämna eller skicka</h3>
+          <p>Lämna in kontrollen smidigt hos oss i Malmö eller skicka den med PostNord (spårbart Skicka Lätt). Säljer du 3+ enheter eller byter in mot en ny kontroll subventionerar vi frakten!</p>
+        </div>
+        <div class="step-card">
+          <div class="step-num">3</div>
+          <h3>Pengar på Swish</h3>
+          <p>Vi funktionstestar kontrollen i testbänk och swishar överenskommen summa samma dag – eller ger dig en rabattkod att använda i butiken!</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Price Table & Filter Section -->
+    <section class="pricing-section" id="prislista">
+      <div class="pricing-header">
+        <h2 class="section-title">Prislista – <span>Vad betalar vi?</span></h2>
+        <p class="pricing-subtitle">
+          Priserna nedan är vägledande riktpriser för originalkontroller. Slutligt pris bekräftas när vi sett bild eller testat enheten.
+        </p>
+      </div>
+
+      <!-- Category Filter Tabs -->
+      <div class="category-filter-bar">
+        <button class="filter-btn active" data-filter="all">Alla modeller</button>
+        {buybackCategories.map((cat) => (
+          <button class="filter-btn" data-filter={cat.id}>
+            <span>{cat.icon}</span> {cat.label}
+          </button>
+        ))}
+      </div>
+
+      <!-- Pricing Cards Grid -->
+      <div class="price-cards-grid" id="pricing-grid">
+        {buybackItems.map((item) => (
+          <div class={`buyback-card ${item.id === 'other' ? 'is-other' : ''}`} data-category={item.category}>
+            {item.popular && <span class="card-pop-tag">🔥 Mycket efterfrågad</span>}
+            {item.id === 'other' && <span class="card-other-tag">💬 Diskutera pris</span>}
+            <div class="card-top">
+              <span class="card-icon">{item.icon}</span>
+              <div class="card-title-group">
+                <span class="platform-pill">{item.platform}</span>
+                <h3>{item.model}</h3>
+              </div>
+            </div>
+
+            <div class="prices-comparison">
+              <!-- Defekt Box -->
+              <div class="price-box box-broken">
+                <div class="box-label">
+                  <span>Defekt</span>
+                  <small>(Stick drift / sliten)</small>
+                </div>
+                <div class="box-amount">
+                  {item.brokenPrice === '?' || item.brokenPrice === 0 ? (
+                    <span class="price-question">?</span>
+                  ) : (
+                    <>{item.brokenPrice} <span>kr</span></>
+                  )}
+                </div>
+                <span class="box-payout">{item.id === 'other' ? 'Diskuteras' : 'Kontant / Swish'}</span>
+              </div>
+
+              <!-- Fungerande Box -->
+              <div class="price-box box-working">
+                <div class="box-label">
+                  <span>Fungerande</span>
+                  <small>(Bra bruksskick)</small>
+                </div>
+                <div class="box-amount">
+                  {item.workingPrice === '?' || item.workingPrice === 0 ? (
+                    <span class="price-question">?</span>
+                  ) : (
+                    <>{item.workingPrice} <span>kr</span></>
+                  )}
+                </div>
+                <span class="box-payout">{item.id === 'other' ? 'Diskuteras' : 'Kontant / Swish'}</span>
+              </div>
+
+              <!-- Trade-in Box (Highlighted) -->
+              <div class="price-box box-tradein">
+                <div class="box-label">
+                  <span>Inbytesvärde</span>
+                  <small>(I mkFix butik)</small>
+                </div>
+                <div class="box-amount">
+                  {item.tradeInValue === '?' || item.tradeInValue === 0 ? (
+                    <span class="price-question">?</span>
+                  ) : (
+                    <>{item.tradeInValue} <span>kr</span></>
+                  )}
+                </div>
+                <span class="box-payout">{item.id === 'other' ? 'Diskuteras' : 'Rabatt vid köp!'}</span>
+              </div>
+            </div>
+
+           {item.notes && <p class="card-notes">
+              ℹ️ {item.notes}
+            </p>}
+
+            <div class="card-action">
+              {item.id === 'other' ? (
+                <a 
+                  href="sms:+46790320605?body=Hej%20mkFix!%20Jag%20har%20en%20enhet%20jag%20vill%20s%C3%A4lja/diskutera%20pris%20p%C3%A5:%20"
+                  class="card-sms-btn other-sms-btn"
+                >
+                  💬 KONTAKTA OSS FÖR PRISFÖRSLAG →
+                </a>
+              ) : (
+                <a 
+                  href={`sms:+46790320605?body=Hej%20mkFix!%20Jag%20vill%20s%C3%A4lja%20min%20${encodeURIComponent(item.model)}.%20Skick:%20`}
+                  class="card-sms-btn"
+                >
+                  SÄLJ DENNA MODELL (SMS) →
+                </a>
+              )}
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div class="custom-offer-box">
+        <div class="custom-offer-content">
+          <h4>Hittar du inte din kontroll i listan? Eller har du en hel låda / samling?</h4>
+          <p>Vi köper även andra modeller, retrokonsoler och udda handkontroller. Kontakta oss med vad du har så ger vi ett snabbt prisförslag!</p>
+        </div>
+        <a href="tel:0790320605" class="custom-offer-btn">RING 079-032 06 05</a>
+      </div>
+    </section>
+
+    <!-- Conditions: What We Accept vs What We Don't -->
+    <section class="conditions-section">
+      <h2 class="section-title">Vilka kontroller <span>tar vi emot?</span></h2>
+      <div class="conditions-grid">
+        <div class="condition-box accept">
+          <div class="cond-header">
+            <span class="cond-icon">✅</span>
+            <h3>Det här köper vi gärna:</h3>
+          </div>
+          <ul>
+            <li><strong>Originalkontroller:</strong> Äkta Sony, Microsoft, Nintendo eller officiellt licensierade pro-kontroller.</li>
+            <li><strong>Stick drift:</strong> Kontroller där spakarna vandrar eller inte centrerar (perfekt för TMR-byte!).</li>
+            <li><strong>Utslitna tumgrepp:</strong> Spakgummi som spruckit eller nötts ner.</li>
+            <li><strong>Glappande knappar &amp; triggers:</strong> Defekta bumpers (RB/LB, R1/L1) eller fjädrar.</li>
+            <li><strong>Kosmetiskt slitage:</strong> Mindre repor eller normalt spelarslitage är helt okej.</li>
+            <li><strong>Fungerande enheter:</strong> Kontroller i toppskick ger högsta möjliga utbetalning.</li>
+          </ul>
+        </div>
+
+        <div class="condition-box reject">
+          <div class="cond-header">
+            <span class="cond-icon">❌</span>
+            <h3>Det här kan vi inte köpa (eller ger reservdelspris):</h3>
+          </div>
+          <ul>
+            <li><strong>Piratkopior &amp; billiga kopior:</strong> Vi tar inte emot oäkta kontroller från Wish/Temu eller lågpriskloner.</li>
+            <li><strong>Svåra vätskeskador:</strong> Kontroller dränkta i kaffe, läsk, öl eller fuktskadade moderkort.</li>
+            <li><strong>Misslyckade lödningsförsök:</strong> Om kretskortet är sönderbränt av hemmalödning eller banor slitits loss.</li>
+            <li><strong>Knäckta / krossade skal och kretskort:</strong> Enheter som blivit fysiskt förstörda genom våld.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact & Valuation Form Box -->
+    <section class="contact-valuation-box" id="salj-kontakt">
+      <div class="cv-header">
+        <span class="trust-badge">FÅ PRISFÖRSLAG DIREKT</span>
+        <h2>Redo att sälja? Hör av dig på det sätt som passar dig bäst!</h2>
+        <p>Skicka ett foto på fram- och baksida så bekräftar vi priset inom kort.</p>
+      </div>
+
+      <div class="cv-grid">
+        <a href="sms:+46790320605?body=Hej%20mkFix!%20Jag%20har%20en%20kontroll%20jag%20vill%20s%C3%A4lja.%20Modell:%20" class="cv-card sms">
+          <span class="cv-icon">💬</span>
+          <div class="cv-details">
+            <h3>SMS:a oss direkt (Snabbast)</h3>
+            <p>Skicka bild &amp; beskrivning till <strong>079-032 06 05</strong>. Vi svarar ofta inom någon timme!</p>
+            <span class="cv-action-text">Klicka för att öppna SMS →</span>
+          </div>
+        </a>
+
+        <a href="tel:0790320605" class="cv-card phone">
+          <span class="cv-icon">📞</span>
+          <div class="cv-details">
+            <h3>Ring verkstan</h3>
+            <p>Fråga oss direkt över telefon: <strong>079-032 06 05</strong>. Öppet alla vardagar.</p>
+            <span class="cv-action-text">Ring 079-032 06 05 →</span>
+          </div>
+        </a>
+
+        <a href="https://discord.gg/s75Kww368a" target="_blank" class="cv-card discord">
+          <span class="cv-icon">🎮</span>
+          <div class="cv-details">
+            <h3>Häng i vår Discord</h3>
+            <p>Skicka ett PM eller ställ frågor i vår aktiva gaming-community.</p>
+            <span class="cv-action-text">Öppna mkFix Discord →</span>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="buyback-faq-section">
+      <h2 class="section-title">Vanliga frågor om <span>kontrollinköp</span></h2>
+      <div class="faq-list">
+        {buybackFaq.map((item) => (
+          <details class="faq-item">
+            <summary class="faq-summary">
+              <span>{item.question}</span>
+              <span class="faq-arrow">▼</span>
+            </summary>
+            <div class="faq-content">
+              <p>{item.answer}</p>
+            </div>
+          </details>
+        ))}
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+
+  <script is:inline>
+    // Category Filter Logic
+    document.addEventListener("DOMContentLoaded", () => {
+      const filterBtns = document.querySelectorAll(".category-filter-bar .filter-btn");
+      const cards = document.querySelectorAll(".buyback-card");
+
+      filterBtns.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          filterBtns.forEach((b) => b.classList.remove("active"));
+          btn.classList.add("active");
+
+          const filter = btn.getAttribute("data-filter");
+
+          cards.forEach((card) => {
+            const isOther = card.getAttribute("data-category") === "other";
+            if (filter === "all" || card.getAttribute("data-category") === filter || isOther) {
+              card.style.display = "flex";
+            } else {
+              card.style.display = "none";
+            }
+          });
+        });
+      });
+    });
+  </script>
+
+  <style>
+    /* Styling specifically tuned for buyback page */
+    .buyback-page {
+      padding-top: 1rem;
+      padding-bottom: 5rem;
+    }
+
+    .buyback-hero {
+      padding: 4rem 0 3rem;
+      text-align: center;
+    }
+
+    .buyback-lead {
+      color: var(--text-dim);
+      font-size: 1.2rem;
+      max-width: 800px;
+      margin: 0 auto 2.5rem;
+      line-height: 1.7;
+    }
+
+    .buyback-perks {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.25rem;
+      max-width: 980px;
+      margin: 0 auto 2.5rem;
+    }
+
+    .bb-perk {
+      background: rgba(30, 41, 59, 0.6);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.25rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      text-align: left;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+
+    .bb-perk:hover {
+      border-color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    .bb-perk-icon {
+      font-size: 1.8rem;
+      line-height: 1;
+    }
+
+    .bb-perk strong {
+      display: block;
+      color: #fff;
+      font-size: 0.95rem;
+      margin-bottom: 3px;
+    }
+
+    .bb-perk p {
+      color: var(--text-dim);
+      font-size: 0.85rem;
+      margin: 0;
+      line-height: 1.4;
+    }
+
+    .hero-actions {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-top: 1.5rem;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: var(--bg);
+      font-weight: 800;
+      padding: 14px 28px;
+      border-radius: 10px;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 15px rgba(56, 189, 248, 0.3);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(56, 189, 248, 0.5);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.06);
+      color: #fff;
+      border: 1px solid var(--border);
+      font-weight: 700;
+      padding: 14px 24px;
+      border-radius: 10px;
+      text-decoration: none;
+      transition: background 0.2s, border-color 0.2s;
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.12);
+      border-color: var(--accent);
+    }
+
+    /* Trade-In Callout */
+    .trade-in-callout {
+      background: linear-gradient(135deg, rgba(34, 197, 94, 0.1) 0%, rgba(30, 41, 59, 0.8) 100%);
+      border: 1px solid rgba(34, 197, 94, 0.35);
+      border-radius: 16px;
+      padding: 2rem 2.25rem;
+      margin: 2.5rem 0 4rem;
+      position: relative;
+    }
+
+    .callout-badge {
+      display: inline-block;
+      background: rgba(34, 197, 94, 0.15);
+      color: #4ade80;
+      border: 1px solid rgba(34, 197, 94, 0.3);
+      padding: 4px 12px;
+      border-radius: 50px;
+      font-size: 0.78rem;
+      font-weight: 800;
+      margin-bottom: 0.75rem;
+    }
+
+    .callout-body {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+    }
+
+    .callout-text h3 {
+      font-size: 1.4rem;
+      color: #fff;
+      margin-bottom: 0.5rem;
+    }
+
+    .callout-text p {
+      color: #cbd5e1;
+      font-size: 0.98rem;
+      margin: 0;
+      line-height: 1.6;
+    }
+
+    .callout-text a {
+      color: var(--accent);
+      font-weight: 700;
+      text-decoration: underline;
+    }
+
+    .callout-btn {
+      background: #22c55e;
+      color: #0f172a;
+      font-weight: 800;
+      font-size: 0.95rem;
+      padding: 13px 22px;
+      border-radius: 10px;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .callout-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(34, 197, 94, 0.4);
+    }
+
+    /* Steps Section */
+    .how-it-works-section {
+      margin: 4rem 0;
+      text-align: center;
+    }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+    }
+
+    .step-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 2.2rem 1.75rem;
+      text-align: left;
+      position: relative;
+      transition: transform 0.2s;
+    }
+
+    .step-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--accent);
+    }
+
+    .step-num {
+      width: 44px;
+      height: 44px;
+      background: linear-gradient(135deg, var(--accent), #2563eb);
+      color: #fff;
+      font-weight: 900;
+      font-size: 1.25rem;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.25rem;
+    }
+
+    .step-card h3 {
+      font-size: 1.25rem;
+      color: #fff;
+      margin-bottom: 0.75rem;
+    }
+
+    .step-card p {
+      color: var(--text-dim);
+      font-size: 0.95rem;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    /* Pricing Section */
+    .pricing-section {
+      margin: 5rem 0;
+      scroll-margin-top: 120px;
+    }
+
+    .pricing-header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .pricing-subtitle {
+      color: var(--text-dim);
+      font-size: 1.05rem;
+      max-width: 650px;
+      margin: 0.5rem auto 0;
+    }
+
+    .category-filter-bar {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 2.5rem;
+    }
+
+    .filter-btn {
+      background: rgba(30, 41, 59, 0.8);
+      border: 1px solid var(--border);
+      color: var(--text-dim);
+      padding: 10px 18px;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s;
+    }
+
+    .filter-btn:hover {
+      color: #fff;
+      border-color: var(--accent);
+    }
+
+    .filter-btn.active {
+      background: var(--accent);
+      color: var(--bg);
+      border-color: var(--accent);
+      font-weight: 800;
+    }
+
+    .price-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .buyback-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.75rem;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+
+    .buyback-card:hover {
+      border-color: rgba(56, 189, 248, 0.5);
+      transform: translateY(-2px);
+    }
+
+    .card-pop-tag {
+      position: absolute;
+      top: -10px;
+      right: 18px;
+      background: linear-gradient(90deg, #f59e0b, #ef4444);
+      color: #fff;
+      font-size: 0.72rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      border-radius: 50px;
+      letter-spacing: 0.5px;
+    }
+
+    .card-other-tag {
+      position: absolute;
+      top: -10px;
+      right: 18px;
+      background: linear-gradient(90deg, #38bdf8, #818cf8);
+      color: #0f172a;
+      font-size: 0.72rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      border-radius: 50px;
+      letter-spacing: 0.5px;
+    }
+
+    .buyback-card.is-other {
+      border: 1px dashed rgba(56, 189, 248, 0.4);
+      background: linear-gradient(145deg, rgba(30, 41, 59, 0.7), rgba(15, 23, 42, 0.9));
+    }
+
+    .buyback-card.is-other:hover {
+      border-color: var(--accent);
+      box-shadow: 0 10px 30px rgba(56, 189, 248, 0.15);
+    }
+
+    .price-question {
+      font-size: 1.6rem;
+      font-weight: 900;
+      color: var(--accent);
+      line-height: 1;
+    }
+
+    .card-top {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 1.25rem;
+    }
+
+    .card-icon {
+      font-size: 2rem;
+      line-height: 1;
+    }
+
+    .card-title-group h3 {
+      font-size: 1.15rem;
+      color: #fff;
+      line-height: 1.3;
+      margin-top: 3px;
+    }
+
+    .platform-pill {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--accent);
+      background: rgba(56, 189, 248, 0.1);
+      padding: 2px 8px;
+      border-radius: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .prices-comparison {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 8px;
+      margin-bottom: 1.25rem;
+    }
+
+    .price-box {
+      border-radius: 10px;
+      padding: 10px 8px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .box-label {
+      font-size: 0.78rem;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 4px;
+    }
+
+    .box-label small {
+      display: block;
+      font-size: 0.68rem;
+      font-weight: normal;
+      opacity: 0.8;
+    }
+
+    .box-amount {
+      font-size: 1.35rem;
+      font-weight: 900;
+      line-height: 1;
+      margin: 4px 0;
+    }
+
+    .box-amount span {
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+
+    .box-payout {
+      font-size: 0.65rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+    }
+
+    .box-broken {
+      background: rgba(239, 68, 68, 0.08);
+      border: 1px solid rgba(239, 68, 68, 0.25);
+      color: #fca5a5;
+    }
+
+    .box-broken .box-amount {
+      color: #fff;
+    }
+
+    .box-working {
+      background: rgba(56, 189, 248, 0.08);
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      color: #7dd3fc;
+    }
+
+    .box-working .box-amount {
+      color: #fff;
+    }
+
+    .box-tradein {
+      background: rgba(34, 197, 94, 0.12);
+      border: 1px solid rgba(34, 197, 94, 0.4);
+      color: #86efac;
+    }
+
+    .box-tradein .box-amount {
+      color: #4ade80;
+    }
+
+    .box-tradein .box-payout {
+      color: #22c55e;
+      font-weight: 800;
+    }
+
+    .card-notes {
+      color: var(--text-dim);
+      font-size: 0.82rem;
+      line-height: 1.5;
+      margin-bottom: 1.25rem;
+      flex-grow: 1;
+    }
+
+    .card-action {
+      margin-top: auto;
+    }
+
+    .card-sms-btn {
+      display: block;
+      text-align: center;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border);
+      color: #fff;
+      font-size: 0.85rem;
+      font-weight: 700;
+      padding: 10px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+
+    .card-sms-btn:hover {
+      background: var(--accent);
+      color: var(--bg);
+      border-color: var(--accent);
+    }
+
+    .other-sms-btn {
+      background: rgba(56, 189, 248, 0.15) !important;
+      border-color: var(--accent) !important;
+      color: #fff !important;
+    }
+
+    .other-sms-btn:hover {
+      background: var(--accent) !important;
+      color: var(--bg) !important;
+      box-shadow: 0 4px 15px rgba(56, 189, 248, 0.4);
+    }
+
+    .custom-offer-box {
+      margin-top: 3rem;
+      background: rgba(15, 23, 42, 0.7);
+      border: 1px dashed var(--border);
+      border-radius: 14px;
+      padding: 1.75rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+    }
+
+    .custom-offer-content h4 {
+      font-size: 1.15rem;
+      color: #fff;
+      margin-bottom: 0.35rem;
+    }
+
+    .custom-offer-content p {
+      color: var(--text-dim);
+      font-size: 0.9rem;
+      margin: 0;
+    }
+
+    .custom-offer-btn {
+      background: var(--accent);
+      color: var(--bg);
+      font-weight: 800;
+      padding: 12px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      white-space: nowrap;
+      font-size: 0.9rem;
+    }
+
+    /* Conditions Grid */
+    .conditions-section {
+      margin: 5rem 0;
+    }
+
+    .conditions-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .condition-box {
+      background: var(--card-bg);
+      border-radius: 14px;
+      padding: 2rem;
+    }
+
+    .condition-box.accept {
+      border: 1px solid rgba(34, 197, 94, 0.35);
+    }
+
+    .condition-box.reject {
+      border: 1px solid rgba(239, 68, 68, 0.35);
+    }
+
+    .cond-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 1.25rem;
+    }
+
+    .cond-icon {
+      font-size: 1.5rem;
+    }
+
+    .condition-box h3 {
+      font-size: 1.2rem;
+      color: #fff;
+    }
+
+    .condition-box ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .condition-box li {
+      font-size: 0.92rem;
+      line-height: 1.5;
+      color: var(--text-dim);
+    }
+
+    .condition-box li strong {
+      color: #fff;
+    }
+
+    /* Contact Valuation Box */
+    .contact-valuation-box {
+      background: linear-gradient(135deg, rgba(56, 189, 248, 0.08) 0%, rgba(30, 41, 59, 0.9) 100%);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      border-radius: 18px;
+      padding: 3rem 2.5rem;
+      margin: 5rem 0;
+      text-align: center;
+    }
+
+    .cv-header h2 {
+      font-size: clamp(1.8rem, 4vw, 2.3rem);
+      margin: 1rem 0 0.5rem;
+      color: #fff;
+    }
+
+    .cv-header p {
+      color: var(--text-dim);
+      font-size: 1.05rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .cv-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .cv-card {
+      background: rgba(15, 23, 42, 0.6);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1.75rem;
+      text-align: left;
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      transition: all 0.25s ease;
+    }
+
+    .cv-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(56, 189, 248, 0.15);
+    }
+
+    .cv-icon {
+      font-size: 2.2rem;
+      margin-bottom: 1rem;
+    }
+
+    .cv-details h3 {
+      font-size: 1.15rem;
+      color: #fff;
+      margin-bottom: 0.5rem;
+    }
+
+    .cv-details p {
+      color: var(--text-dim);
+      font-size: 0.9rem;
+      line-height: 1.5;
+      margin-bottom: 1.25rem;
+    }
+
+    .cv-action-text {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--accent);
+      margin-top: auto;
+    }
+
+    /* FAQ Section */
+    .buyback-faq-section {
+      margin: 5rem 0;
+    }
+
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      max-width: 850px;
+      margin: 2.5rem auto 0;
+    }
+
+    .faq-item {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.25rem 1.5rem;
+      transition: border-color 0.2s;
+    }
+
+    .faq-item[open] {
+      border-color: var(--accent);
+    }
+
+    .faq-summary {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #fff;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      list-style: none;
+    }
+
+    .faq-summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .faq-arrow {
+      font-size: 0.8rem;
+      color: var(--accent);
+      transition: transform 0.2s;
+    }
+
+    .faq-item[open] .faq-arrow {
+      transform: rotate(180deg);
+    }
+
+    .faq-content {
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      color: var(--text-dim);
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 768px) {
+      .callout-body {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .callout-btn {
+        text-align: center;
+      }
+      .custom-offer-box {
+        flex-direction: column;
+        align-items: stretch;
+        text-align: center;
+      }
+      .prices-comparison {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</MainLayout>
