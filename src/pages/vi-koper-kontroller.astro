@@ -313,6 +313,15 @@ const faqSchema = {
           </div>
         </a>
 
+        <a href="#mail-formular" class="cv-card email">
+          <span class="cv-icon">✉️</span>
+          <div class="cv-details">
+            <h3>Maila formulär</h3>
+            <p>Använd vårt enkla mailformulär nedan eller skriv till <strong>kontakt@mkfix.se</strong>.</p>
+            <span class="cv-action-text">Gå till mailformuläret ↓</span>
+          </div>
+        </a>
+
         <a href="tel:0790320605" class="cv-card phone">
           <span class="cv-icon">📞</span>
           <div class="cv-details">
@@ -330,6 +339,99 @@ const faqSchema = {
             <span class="cv-action-text">Öppna mkFix Discord →</span>
           </div>
         </a>
+      </div>
+
+      <!-- Inbyggt Mail- & Värderingsformulär -->
+      <div class="mail-form-container" id="mail-formular">
+        <div class="form-title-group">
+          <span class="form-badge">✉️ MAILFORMULÄR</span>
+          <h3>Skicka din inbytes- &amp; säljförfrågan via mail</h3>
+          <p>Fyll i formuläret så återkommer vi snabbt med ett prisförslag och instruktioner för inlämning eller frakt.</p>
+        </div>
+
+        <form id="buyback-mail-form" class="buyback-form" method="POST" enctype="multipart/form-data">
+          <div class="form-row-2">
+            <div class="form-group">
+              <label for="bb-name">Ditt namn *</label>
+              <input type="text" id="bb-name" name="fi-sender-firstName" placeholder="För- och efternamn" required />
+            </div>
+            <div class="form-group">
+              <label for="bb-email">Din e-postadress *</label>
+              <input type="email" id="bb-email" name="fi-sender-email" placeholder="din@epost.se" required />
+            </div>
+          </div>
+
+          <div class="form-row-2">
+            <div class="form-group">
+              <label for="bb-phone">Telefonnummer (valfritt för SMS/Swish)</label>
+              <input type="tel" id="bb-phone" name="fi-sender-phone" placeholder="070-123 45 67 eller +46..." />
+            </div>
+            <div class="form-group">
+              <label for="bb-model">Vilken kontroll / modell gäller det? *</label>
+              <select id="bb-model" name="fi-text-enhet" required>
+                <option value="" disabled selected>Välj modell...</option>
+                <option value="ps5-dualsense">PlayStation 5 DualSense</option>
+                <option value="ps5-edge">PlayStation 5 DualSense Edge</option>
+                <option value="xbox-series">Xbox Series X/S (Modell 1914)</option>
+                <option value="xbox-one">Xbox One (Modell 1708)</option>
+                <option value="xbox-elite-2">Xbox Elite Series 2</option>
+                <option value="xbox-elite-1">Xbox Elite Series 1</option>
+                <option value="switch-joycon">Nintendo Switch Joy-Cons (Par/Enkel)</option>
+                <option value="switch-pro">Nintendo Switch Pro Controller</option>
+                <option value="ps4-dualshock-4">PlayStation 4 DualShock 4</option>
+                <option value="scuf-ps5">Scuf Reflex (PS5)</option>
+                <option value="scuf-xbox">Scuf Instinct (Xbox)</option>
+                <option value="aim-controllers">AimControllers (PS5 / Xbox)</option>
+                <option value="scuf-aim-ps4">Scuf / Aim Pro (PS4)</option>
+                <option value="retro-gamecube">Nintendo GameCube (Original)</option>
+                <option value="retro-n64">Nintendo 64 (Original)</option>
+                <option value="retro-ps2">PlayStation 2 DualShock 2</option>
+                <option value="retro-xbox-360">Xbox 360 Trådlös</option>
+                <option value="annat">Annat / Övriga enheter &amp; Samlingar</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row-2">
+            <div class="form-group">
+              <label for="bb-condition">Skick på enheten *</label>
+              <select id="bb-condition" name="fi-text-skick" required>
+                <option value="defekt-stickdrift" selected>Defekt: Stick drift (spakar vandrar)</option>
+                <option value="defekt-knappar">Defekt: Knappar / bumpers / slitage</option>
+                <option value="fungerande">Fullt fungerande (Bra bruksskick)</option>
+                <option value="vet-ej">Vet ej / Blandat skick / Flera enheter</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="bb-preference">Vad önskar du? *</label>
+              <select id="bb-preference" name="fi-text-onskan" required>
+                <option value="swish" selected>Pengar via Swish</option>
+                <option value="inbyte">Inbytesrabatt i butiken (TMR-kontroll)</option>
+                <option value="diskutera">Vill diskutera prisförslag först</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="bb-message">Meddelande / Ytterligare information:</label>
+            <textarea 
+              id="bb-message" 
+              name="fi-text-message" 
+              rows="4" 
+              placeholder="T.ex: Jag har en vit PS5-kontroll med stick drift och en defekt Xbox One-kontroll. Önskar byta in mot en renoverad TMR-kontroll."
+            ></textarea>
+          </div>
+
+          <div class="form-group file-upload">
+            <label for="bb-photo">Bifoga bild på kontrollen (valfritt, men rekommenderas):</label>
+            <input type="file" id="bb-photo" name="fi-file-photo" accept="image/*" />
+            <small class="file-hint">Bilder på fram- och baksida gör att vi kan ge ett exakt prisförslag direkt.</small>
+          </div>
+
+          <button type="submit" class="submit-btn buyback-submit-btn">SKICKA FÖRFRÅGAN VIA MAIL</button>
+        </form>
+
+        <div id="buyback-result" style="margin-top: 1.5rem; color: var(--accent); font-weight: bold; text-align: center;"></div>
       </div>
     </section>
 
@@ -354,9 +456,12 @@ const faqSchema = {
 
   <Footer />
 
+  <!-- Forminit Script for Buyback / Trade-In Inquiries -->
+  <script src="https://forminit.com/sdk/v1/forminit.js"></script>
+
   <script is:inline>
     // Category Filter Logic
-    document.addEventListener("DOMContentLoaded", () => {
+    function initCategoryFilter() {
       const filterBtns = document.querySelectorAll(".category-filter-bar .filter-btn");
       const cards = document.querySelectorAll(".buyback-card");
 
@@ -377,7 +482,115 @@ const faqSchema = {
           });
         });
       });
-    });
+    }
+
+    function normalizePhone(raw) {
+      if (!raw) return { e164: "", raw: "" };
+      const trimmed = String(raw).trim();
+      if (!trimmed) return { e164: "", raw: "" };
+
+      let cleaned = trimmed;
+      if (cleaned.startsWith("00")) {
+        cleaned = "+" + cleaned.slice(2);
+      }
+      cleaned = cleaned.replace(/^\+46[\s\-\.]*\(?0\)?[\s\-\.]*/, "+46");
+
+      let e164 = "";
+      if (cleaned.startsWith("+")) {
+        const digits = cleaned.slice(1).replace(/\D/g, "");
+        if (digits.length >= 6 && digits.length <= 15) {
+          e164 = "+" + digits;
+        }
+      } else {
+        const digits = cleaned.replace(/\D/g, "");
+        if (digits.startsWith("0")) {
+          if (digits.length >= 7 && digits.length <= 11) {
+            e164 = "+46" + digits.slice(1);
+          }
+        } else if (digits.startsWith("46") && digits.length >= 9 && digits.length <= 13) {
+          if (digits.startsWith("460")) {
+            e164 = "+46" + digits.slice(3);
+          } else {
+            e164 = "+" + digits;
+          }
+        } else if (digits.length === 9 && digits.startsWith("7")) {
+          e164 = "+46" + digits;
+        } else if (digits.length >= 7 && digits.length <= 15) {
+          if (digits.length <= 9) {
+            e164 = "+46" + digits;
+          } else {
+            e164 = "+" + digits;
+          }
+        }
+      }
+
+      const isValidE164 = /^\+[1-9]\d{6,14}$/.test(e164);
+      return {
+        e164: isValidE164 ? e164 : "",
+        raw: trimmed
+      };
+    }
+
+    function initBuybackForm() {
+      const forminit = new Forminit();
+      const FORM_ID = "7b7ffs280f3";
+      const formElement = document.getElementById("buyback-mail-form");
+
+      if (formElement) {
+        formElement.addEventListener("submit", async (e) => {
+          e.preventDefault();
+          const result = document.getElementById("buyback-result");
+          if (result) {
+            result.textContent = "Skickar din förfrågan...";
+            result.style.color = "var(--accent)";
+          }
+
+          const formData = new FormData(e.target);
+
+          const rawPhone = formData.get("fi-sender-phone");
+          if (rawPhone !== null && rawPhone !== undefined && String(rawPhone).trim() !== "") {
+            const { e164, raw } = normalizePhone(rawPhone);
+            if (raw) {
+              formData.set("fi-text-telefon", raw);
+            }
+            if (e164) {
+              formData.set("fi-sender-phone", e164);
+            } else {
+              formData.delete("fi-sender-phone");
+            }
+          } else {
+            formData.delete("fi-sender-phone");
+          }
+
+          let res = await forminit.submit(FORM_ID, formData);
+
+          if (res.error && (res.error.code === "FI_RULES_PHONE_INVALID" || (res.error.message && /phone/i.test(res.error.message)))) {
+            formData.delete("fi-sender-phone");
+            res = await forminit.submit(FORM_ID, formData);
+          }
+
+          if (res.error) {
+            if (result) {
+              result.textContent = "Något gick fel: " + res.error.message;
+              result.style.color = "red";
+            }
+            return;
+          }
+
+          window.location.href = "/tack";
+        });
+      }
+    }
+
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", () => {
+        initCategoryFilter();
+        initBuybackForm();
+      });
+    } else {
+      initCategoryFilter();
+      initBuybackForm();
+    }
   </script>
 
   <style>
@@ -1046,6 +1259,129 @@ const faqSchema = {
       font-weight: 700;
       color: var(--accent);
       margin-top: auto;
+    }
+
+    /* Mail Form Container */
+    .mail-form-container {
+      margin-top: 3.5rem;
+      padding-top: 3rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      text-align: left;
+      scroll-margin-top: 100px;
+    }
+
+    .form-title-group {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .form-badge {
+      display: inline-block;
+      background: rgba(56, 189, 248, 0.15);
+      color: var(--accent);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      padding: 3px 12px;
+      border-radius: 50px;
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      margin-bottom: 0.75rem;
+    }
+
+    .form-title-group h3 {
+      font-size: clamp(1.4rem, 3vw, 1.8rem);
+      color: #fff;
+      margin-bottom: 0.5rem;
+    }
+
+    .form-title-group p {
+      color: var(--text-dim);
+      font-size: 0.95rem;
+      max-width: 620px;
+      margin: 0 auto;
+      line-height: 1.5;
+    }
+
+    .buyback-form {
+      max-width: 760px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .form-row-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.88rem;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: var(--text-main);
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 12px 15px;
+      background: rgba(15, 23, 42, 0.75);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      color: white;
+      font-size: 0.95rem;
+      outline: none;
+      box-sizing: border-box;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 10px rgba(56, 189, 248, 0.2);
+    }
+
+    .form-group select option {
+      background: #1e293b;
+      color: #fff;
+    }
+
+    .file-hint {
+      display: block;
+      font-size: 0.8rem;
+      color: var(--text-dim);
+      margin-top: 6px;
+    }
+
+    .buyback-submit-btn {
+      font-size: 1.05rem;
+      padding: 16px;
+      margin-top: 8px;
+      background: linear-gradient(135deg, var(--accent), #2563eb);
+      color: #fff;
+      font-weight: 800;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(56, 189, 248, 0.3);
+      transition: transform 0.2s, box-shadow 0.2s;
+      letter-spacing: 0.5px;
+    }
+
+    .buyback-submit-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(56, 189, 248, 0.5);
+    }
+
+    @media (max-width: 680px) {
+      .form-row-2 {
+        grid-template-columns: 1fr;
+      }
     }
 
     /* FAQ Section */
