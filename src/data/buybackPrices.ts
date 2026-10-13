@@ -309,6 +309,10 @@ export const buybackFaq = [
     answer: "Nej, vi köper endast originalkontroller från de stora tillverkarna (Sony, Microsoft, Nintendo). Vi köper ej billiga kopior från Wish/Temu eller enkla tredjepartsmärken."
   },
   {
+    question: "Köper ni även Scuf- och AimControllers?",
+    answer: "Ja! Vi köper både Scuf (Reflex, Instinct, Impact m.fl.) och AimControllers. Både defekta enheter med stick drift eller slitna spakar och fullt fungerande enheter köpes."
+  },
+  {
     question: "Jag bor inte i Malmö – hur gör jag med frakten?",
     answer: "Du kan skicka dina kontroller till oss med PostNord (vi rekommenderar 'Skicka Lätt' som är spårbart för ca 59–69 kr). Säljer du 3 eller fler kontroller, eller byter in mot en ny TMR-kontroll, kan vi ofta bjuda på eller subventionera frakten!"
   },

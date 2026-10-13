@@ -8,22 +8,70 @@ interface Props {
 	description?: string;
 }
 const { title, description } = Astro.props;
+
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "mkFix",
+  "url": "https://mkfix.se",
+  "description": "Reparation och uppgradering av handkontroller med magnetiska TMR-sensorer i Malmö och hela Sverige via PostNord."
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Hur kan jag vara säker på att jobbet blivit utfört korrekt?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Jag spelar in alla mina reparationer eller så livestreamar jag dem på YouTube. Kunden får alltid en länk till reparationen om de vill se den för maximal trygghet och transparens."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Varför används TMR sticks och vad är det?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "TMR sticks (Tunneling Magnetoresistance) har kontaktlösa magnetiska sensorer som aldrig slits ut mekaniskt och därmed eliminerar stick drift permanent. Traditionella analoga spakar slits ut med tiden när kolspåret skrapas bort."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Vad ingår i garantin hos mkFix?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "mkFix lämnar alltid 6 månaders funktionsgaranti på alla reservdelar och utfört arbete (t.ex. TMR-sensorer, lödningar och batteribyten) vid normal användning."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kan jag skicka in min handkontroll om jag inte bor i Malmö?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ja! Vi tar emot kontroller via post från hela Sverige varje vecka. Skicka spårbart via PostNord, vi reparerar och returnerar snabbt och tryggt."
+      }
+    }
+  ]
+};
 ---
 
 <MainLayout
-	title="Laga Handkontroll Malmö | Stick Drift & TMR Fix | mkFix"
-	description="Fixa stick drift permanent i Malmö! TMR & Hall Effect uppgraderingar för PS5, Xbox och Switch. Snabbt med 6 månaders garanti."
-	keywords="stick drift repair malmö, laga handkontroll malmö, TMR sensor upgrade, laga PS5 kontroll malmö, nintendo switch lagning, reparation retrospel företag, bulk reparation kontroller"
-	ogTitle="mkFix - Säg hejdå till Stick Drift"
-	ogDescription="Vi uppgraderar din kontroll till nästa nivå med TMR-stickor och custom mods i Malmö."
+	title="Laga Handkontroll Malmö & PostNord | Stick Drift & TMR Fix | mkFix"
+	description="Fixa stick drift permanent med magnetiska TMR-sensorer för PS5, Xbox & Switch. Verkstad i Malmö & snabb PostNord-service i hela Sverige. 6 mån garanti!"
+	keywords="stick drift repair malmö, laga handkontroll malmö, TMR sensor upgrade, laga PS5 kontroll malmö, nintendo switch lagning, reparation retrospel företag, skicka handkontroll lagning, postnord kontroll reparation"
+	ogTitle="mkFix - Säg hejdå till Stick Drift med TMR"
+	ogDescription="Vi uppgraderar din handkontroll till nästa nivå med magnetiska TMR-sticks i Malmö eller via post från hela Sverige."
 	canonicalUrl="https://mkfix.se"
+	jsonLd={[websiteSchema, faqSchema]}
 >
 	<Header />
 	<main class="container">
         <section class="hero">
             <div class="trust-box">
                 <span class="trust-badge">6 MÅN GARANTI</span>
-                <span>Specialist-service i Malmö</span>
+                <span>Verkstad i Malmö &amp; PostNord från hela Sverige</span>
             </div>
             <h1>Laga & uppgradera handkontroller i Malmö</h1>
             <p>Har din handkontroll börjat <strong>drifta, tappa precision eller kännas opålitlig?</strong>
@@ -33,9 +81,18 @@ const { title, description } = Astro.props;
                 Oavsett om det handlar om en <strong>snabb lagning</strong> eller en mer <strong>hållbar
                     TMR-uppgradering</strong> ser vi till att din kontroll fungerar som den ska igen
             </p>
-            <a href="#boka" class="contact-method"
-                style="font-size: 1.2rem; background: var(--accent); color: var(--bg); display: inline-block; padding: 15px 30px; border-radius: 10px;">BOKA
-                DIN REPARATION</a>
+            <div class="hero-actions" style="display: flex; gap: 1rem; justify-content: center; align-items: center; flex-wrap: wrap; margin-top: 1.5rem;">
+                <a href="#boka" class="contact-method"
+                    style="font-size: 1.15rem; background: var(--accent); color: var(--bg); display: inline-block; padding: 14px 28px; border-radius: 10px; font-weight: 800; text-decoration: none;">BOKA
+                    DIN REPARATION</a>
+                <a href="/produkter" class="shop-hero-btn"
+                    style="font-size: 1rem; background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.2); color: #fff; display: inline-flex; align-items: center; gap: 8px; padding: 14px 22px; border-radius: 10px; font-weight: 600; text-decoration: none; transition: all 0.2s ease;">
+                    🛒 Köp färdig TMR-kontroll →
+                </a>
+            </div>
+            <p style="margin-top: 1rem; font-size: 0.95rem; color: var(--text-dim);">
+                Bor du inte i Malmö? <a href="/tjanster/skicka-in" style="color: var(--accent); font-weight: 600;">Skicka in via PostNord från hela Sverige →</a>
+            </p>
         </section>
 
         <!-- ===== B2B / Spelbutiker Showcase Banner ===== -->
@@ -81,7 +138,9 @@ const { title, description } = Astro.props;
                         </div>
                         <p class="service-name">TMR Sensor Upgrade</p>
                         <span class="service-price">449 <small>kr</small></span>
-                        <p class="service-desc">Vi ersätter dina analoga spakar med magnetiska TMR-sensorer. En permanent lösning som aldrig får stick drift.</p>
+                        <p class="service-desc">Vi ersätter dina analoga spakar med magnetiska TMR-sensorer. En permanent lösning som aldrig får stick drift. <br><br>
+                            <a href="/tjanster/tmr-sticks" style="color: var(--accent); font-weight: bold;">Vad är TMR? Läs mer här →</a>
+                        </p>
                     </div>
                     <div class="service-card bundle">
                         <div class="tags-row">
@@ -137,7 +196,9 @@ const { title, description } = Astro.props;
                         </div>
                         <p class="service-name">TMR Sensor Upgrade</p>
                         <span class="service-price">399 <small>kr</small></span>
-                        <p class="service-desc">Vi ersätter dina analoga spakar med magnetiska TMR-sensorer — permanet fix utan drift.</p>
+                        <p class="service-desc">Vi ersätter dina analoga spakar med magnetiska TMR-sensorer — permanent fix utan drift. <br><br>
+                            <a href="/tjanster/tmr-sticks" style="color: var(--accent); font-weight: bold;">Vad är TMR? Läs mer här →</a>
+                        </p>
                     </div>
                     <div class="service-card bundle">
                         <div class="tags-row">
@@ -454,7 +515,7 @@ const { title, description } = Astro.props;
                     style="border-radius: 15px; overflow: hidden; background: #000; border: 1px solid rgba(255,255,255,0.1);">
                     <div style="aspect-ratio: 16/9;">
                         <iframe width="100%" height="100%" src="https://www.youtube.com/embed/vZfi6NYj5n8"
-                            frameborder="0" allowfullscreen loading="lazy"></iframe>
+                            title="PS5 Controller TMR Upgrade guide" frameborder="0" allowfullscreen loading="lazy"></iframe>
                     </div>
                     <p style="padding: 15px; font-size: 0.95rem;">PS5 Controller TMR Upgrade</p>
                 </div>
@@ -462,7 +523,7 @@ const { title, description } = Astro.props;
                     style="border-radius: 15px; overflow: hidden; background: #000; border: 1px solid rgba(255,255,255,0.1);">
                     <div style="aspect-ratio: 16/9;">
                         <iframe width="100%" height="100%" src="https://www.youtube.com/embed/kEqIDXbsg30"
-                            frameborder="0" allowfullscreen loading="lazy"></iframe>
+                            title="Kalibrera din Xbox-kontroll guide" frameborder="0" allowfullscreen loading="lazy"></iframe>
                     </div>
                     <p style="padding: 15px; font-size: 0.95rem;">Kalibrera din Xbox-kontroll</p>
                 </div>
@@ -471,21 +532,21 @@ const { title, description } = Astro.props;
 
        <section id="boka" class="contact-card">
     <h2>Boka din reparation</h2>
-    <p>Beskriv felet så återkommer jag med pris och tidsförslag. Bifoga gärna en bild!</p>
+    <p>Beskriv felet så återkommer jag med pris och tidsförslag. Lämna in i Malmö eller skicka via PostNord från hela Sverige!</p>
     
     <!-- 1. FIXED: Added enctype="multipart/form-data" for your file upload -->
     <form id="contact-form" class="contact-form" method="POST" enctype="multipart/form-data">
         <div class="form-group">
-            <input type="text" name="fi-sender-firstName" placeholder="Ditt namn*" required>
+            <input type="text" name="fi-sender-firstName" placeholder="Ditt namn*" autocomplete="name" aria-label="Ditt namn" required>
         </div>
         <div class="form-group">
-            <input type="email" name="fi-sender-email" placeholder="Din e-post*" required>
+            <input type="email" name="fi-sender-email" placeholder="Din e-post*" autocomplete="email" aria-label="Din e-post" required>
         </div>
         <div class="form-group">
-            <input type="tel" id="contact-phone" name="fi-sender-phone" placeholder="Telefon (t.ex. 070-123 45 67 eller +46...)">
+            <input type="tel" id="contact-phone" name="fi-sender-phone" placeholder="Telefon (t.ex. 070-123 45 67 eller +46...)" autocomplete="tel" aria-label="Telefonnummer">
         </div>
         <div class="form-group">
-            <select name="fi-text-enhet" required>
+            <select name="fi-text-enhet" aria-label="Välj enhet" required>
                 <option value="" disabled selected>Välj enhet</option>
                 <option value="ps5">Playstation 5</option>
                 <option value="ps4">Playstation 4</option>
@@ -502,10 +563,10 @@ const { title, description } = Astro.props;
             </select>
         </div>
         <div class="form-group">
-            <textarea name="fi-text-message" placeholder="Beskriv problemet (t.ex. vänster spak drifter uppåt)" rows="4" required></textarea>
+            <textarea name="fi-text-message" placeholder="Beskriv problemet (t.ex. vänster spak drifter uppåt)" rows="4" aria-label="Beskriv problemet" required></textarea>
         </div>
         <div class="form-group">
-            <select name="fi-text-contact-me" required>
+            <select name="fi-text-contact-me" aria-label="Kontakta mig helst genom" required>
                 <option value="whatever" disabled selected>Kontakta mig helst genom</option>
                 <option value="email">E-post</option>
                 <option value="sms">Sms</option>
@@ -688,7 +749,7 @@ const { title, description } = Astro.props;
                     <li>Yttre åverkan: Om kontrollen har kastats, tappats i golvet eller utsatts för annat fysiskt våld.
                     </li>
 
-                    <li>Vätskeskador: Om du råkat spilla läsk eller kaffe i kontrollen efter reparationen.</h4>
+                    <li>Vätskeskador: Om du råkat spilla läsk eller kaffe i kontrollen efter reparationen.</li>
 
                     <li>Eget ingrepp: Om du (eller någon annan) har öppnat kontrollen efter att jag förseglat den.</li>
 
