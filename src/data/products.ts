@@ -199,46 +199,6 @@ export const products: Product[] = [
     ]
   },
 
-  // --- 201: PS5 DualSense White #201 ---
-  {
-    slug: 'ps5-dualsense-white-tmr-201',
-    title: 'Sony PS5 DualSense – Original Vit – TMR-Joysticks (#201)',
-    price: 599,
-    category: 'kontroller',
-    status: 'in_stock',
-    badge: '🧲 TMR Elektromagnetisk',
-    condition: 'Professionellt renoverad & TMR-uppgraderad',
-    warranty: '6 månaders full funktionsgaranti från mkFix',
-    shortDescription: 'Klassisk vit PS5 DualSense (#201) med splitternya TMR-joysticks och suverän kalibrering (8.7% / 8.5%). Byggd för att hålla i åratal!',
-    description: [
-      'Original PlayStation 5 DualSense i vitt utförande (#201 i inventariet), förädlad i verkstaden med elektromagnetiska TMR-spakar.',
-      'Med 8.7% och 8.5% felmarginal i kalibreringstestet får du en kontroller som reagerar blixtsnabbt med perfekt centreringsrespons och helt utan dödzonsglapp.',
-      'Fullständig service har genomförts på hela enheten. Levereras rengjord, testad och redo för tusentals timmars intensiv gaming.'
-    ],
-    features: [
-      'Avancerade K-Silver TMR-sensorer utan mekanisk friktion',
-      'Finjusterad hårdvara med 8.7% / 8.5% felmarginal',
-      'Alla originalfunktioner intakta: haptik, mikrofon och triggers',
-      'Garanterad immunitet mot spakdrift',
-      '6 månaders full funktionsgaranti från mkFix'
-    ],
-    specs: [
-      { label: 'Plattform', value: 'PlayStation 5, PC, Mac, iOS, Android' },
-      { label: 'Sensor-teknik', value: 'K-Silver TMR (Tunneling Magnetoresistive)' },
-      { label: 'Färg', value: 'Original Vit / Svart (#201)' },
-      { label: 'Anslutning', value: 'USB-C & Bluetooth' },
-      { label: 'Kalibrering', value: '8.7% vänster / 8.5% höger felmarginal' },
-      { label: 'Skick', value: 'Toppskick / TMR-customiserad' }
-    ],
-    images: [
-      '/img/products/201/PXL_20261006_190115455.MP.jpg',
-      '/img/products/201/PXL_20261006_190124086.MP.jpg',
-      '/img/products/201/PXL_20261006_190129185.MP.jpg',
-      '/img/products/201/PXL_20261006_190137220.MP.jpg',
-      '/img/products/201/PXL_20261006_175243372.MP.jpg',
-      '/img/products/201/Screenshot 2026-10-06 205440.png'
-    ]
-  },
 
   {
     slug: 'xbox-360-wireless-black-HE-205',
@@ -280,47 +240,6 @@ export const products: Product[] = [
       '/img/products/205/PXL_20261013_075852365.MP.jpg',
       '/img/products/205/PXL_20261012_192015532.MP.jpg',
       '/img/products/205/Screenshot 2026-10-13 100205.png'
-    ]
-  },
-
-  // --- 189: PS5 DualSense White #189 ---
-  {
-    slug: 'ps5-dualsense-white-tmr-189',
-    title: 'Sony PS5 DualSense – Original Vit – TMR-Joysticks (#189)',
-    price: 599,
-    category: 'kontroller',
-    status: 'in_stock',
-    badge: '🧲 TMR Elektromagnetisk',
-    condition: 'Professionellt renoverad & TMR-uppgraderad',
-    warranty: '6 månaders full funktionsgaranti från mkFix',
-    shortDescription: 'Klassisk vit PS5 DualSense (#189) med splitternya TMR-joysticks och suverän kalibrering (8.7% / 9.4%). Byggd för att hålla i åratal!',
-    description: [
-      'Original PlayStation 5 DualSense i vitt utförande (#189 i inventariet), förädlad i verkstaden med elektromagnetiska TMR-spakar.',
-      'Med 8.7% och 9.4% felmarginal i kalibreringstestet får du en kontroller som reagerar blixtsnabbt med perfekt centreringsrespons och helt utan dödzonsglapp.',
-      'Fullständig service har genomförts på hela enheten. Levereras rengjord, testad och redo för tusentals timmars intensiv gaming.'
-    ],
-    features: [
-      'Avancerade K-Silver TMR-sensorer utan mekanisk friktion',
-      'Finjusterad hårdvara med 8.7% / 9.4% felmarginal',
-      'Alla originalfunktioner intakta: haptik, mikrofon och triggers',
-      'Garanterad immunitet mot spakdrift',
-      '6 månaders full funktionsgaranti från mkFix'
-    ],
-    specs: [
-      { label: 'Plattform', value: 'PlayStation 5, PC, Mac, iOS, Android' },
-      { label: 'Sensor-teknik', value: 'K-Silver TMR (Tunneling Magnetoresistive)' },
-      { label: 'Färg', value: 'Original Vit / Svart (#189)' },
-      { label: 'Anslutning', value: 'USB-C & Bluetooth' },
-      { label: 'Kalibrering', value: '8.7% vänster / 9.4% höger felmarginal' },
-      { label: 'Skick', value: 'Toppskick / TMR-customiserad' }
-    ],
-    images: [
-      '/img/products/189/PXL_20261014_161621778.MP.jpg',
-      '/img/products/189/PXL_20260925_172456805.MP.jpg',
-      '/img/products/189/PXL_20261014_161627894.MP.jpg',
-      '/img/products/189/PXL_20261014_161633996.MP.jpg',
-      '/img/products/189/PXL_20261014_161638851.MP.jpg',
-      '/img/products/189/Screenshot 2026-10-14 181418.png',
     ]
   },
 
