@@ -365,6 +365,49 @@ export const products: Product[] = [
     ]
   },
 
+  // --- 206: PS2 DualShock 2 Satin Silver #206 ---
+  {
+    slug: 'ps2-dualshock-2-satin-silver-206',
+    title: 'Sony PlayStation 2 DualShock 2 – Satin Silver (#206)',
+    price: 399,
+    category: 'kontroller',
+    status: 'in_stock',
+    badge: '⚡ Helrenoverad Klassiker',
+    condition: 'Professionellt helrenoverad med nya komponenter',
+    warranty: '6 månaders full funktionsgaranti från mkFix',
+    shortDescription: 'Äkta PlayStation 2 DualShock 2 i eftertraktat Satin Silver-utförande (#206). Helrenoverad i Malmö med splitternya analoga joysticks, nya spakhattar, nytt flex-kretskort och fullständig invändig samt utvändig rengöring.',
+    description: [
+      'En klassisk Sony DualShock 2 i stilrent Satin Silver-utförande (#206 i vårt inventarium), professionellt genomgången och återställd till toppskick.',
+      'Kontrollen har fått båda analoga joysticks utbytta mot nya precisionsmoduler med perfekt motstånd och centreringsrespons. Samtidigt har slitna spakhattar ersatts av splitternya originalprofilhattar med rent och fräscht grepp.',
+      'För att säkerställa 100% pålitlig kontakt i alla knappsatser och tryckkänsliga knappar har ett helt nytt flex-kretskort (Flex PCB) monterats. Hela kontrollen har dessutom plockats isär, rengjorts grundligt både in- och utvändigt samt hårdvarutestats inför försäljning.'
+    ],
+    features: [
+      'Splitternya analoga joystickmoduler installerade',
+      'Nytt flex-kretskort (Flex PCB) för garanterad knapprespons',
+      'Nya fräscha spakhattar (thumbcaps) med optimalt grepp',
+      'Total invändig och utvändig rengöring av skal och knappar',
+      'Full vibrationsfeedback och tryckkänsliga analoga knappar',
+      'Kompatibel med PlayStation 2 samt PlayStation 1',
+      '6 månaders full funktionsgaranti från mkFix'
+    ],
+    specs: [
+      { label: 'Plattform', value: 'PlayStation 2, PlayStation 1' },
+      { label: 'Modell', value: 'Sony DualShock 2 (SCPH-10010, #206)' },
+      { label: 'Färg', value: 'Satin Silver' },
+      { label: 'Anslutning', value: 'Kabel (original PS2-kontakt)' },
+      { label: 'Åtgärder', value: 'Nya joysticks, nytt flex-PCB, nya spakhattar, helrengjord' },
+      { label: 'Skick', value: 'Mycket fint skick / Nyrenoverad mekanik' }
+    ],
+    images: [
+      '/img/products/206/PXL_20261014_195905995.MP.jpg',
+      '/img/products/206/PXL_20261014_195914967.MP.jpg',
+      '/img/products/206/PXL_20261014_195927599.MP.jpg',
+      '/img/products/206/PXL_20261014_195934810.MP.jpg',
+      '/img/products/206/PXL_20261014_194827173.MP.jpg',
+      '/img/products/206/PXL_20261014_194608228.MP.jpg'
+    ]
+  },
+
   /**RESERVDELAR VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV */
   // --- Reservdel 1: K-Silver PS5 TMR Joysticks (2-pack) ---
   {
