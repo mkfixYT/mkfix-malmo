@@ -16,6 +16,14 @@
       <priority>0.9</priority>
    </url>
 
+   <!-- Vi köper kontroller -->
+   <url>
+      <loc>https://mkfix.se/vi-koper-kontroller</loc>
+      <lastmod>2026-10-14</lastmod>
+      <changefreq>weekly</changefreq>
+      <priority>0.9</priority>
+   </url>
+
    <!-- Tjänster -->
    <url>
       <loc>https://mkfix.se/tjanster/tmr-sticks</loc>
@@ -111,91 +119,56 @@
    <!-- Butik & Produkter -->
    <url>
       <loc>https://mkfix.se/produkter</loc>
-      <lastmod>2026-10-12</lastmod>
+      <lastmod>2026-10-14</lastmod>
       <changefreq>weekly</changefreq>
       <priority>0.8</priority>
    </url>
 
    <url>
       <loc>https://mkfix.se/produkter/xbox-wireless-controller-white-tmr-126</loc>
-      <lastmod>2026-10-12</lastmod>
+      <lastmod>2026-10-14</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.7</priority>
    </url>
 
    <url>
-      <loc>https://mkfix.se/produkter/xbox-360-wireless-white-tmr-159</loc>
-      <lastmod>2026-10-12</lastmod>
-      <changefreq>monthly</changefreq>
-      <priority>0.7</priority>
-   </url>
-
-   <url>
-      <loc>https://mkfix.se/produkter/xbox-360-wireless-white-tmr-160</loc>
-      <lastmod>2026-10-12</lastmod>
-      <changefreq>monthly</changefreq>
-      <priority>0.7</priority>
-   </url>
-
-   <url>
-      <loc>https://mkfix.se/produkter/xbox-360-wireless-black-tmr-161</loc>
-      <lastmod>2026-10-12</lastmod>
-      <changefreq>monthly</changefreq>
-      <priority>0.7</priority>
-   </url>
-
-   <url>
-      <loc>https://mkfix.se/produkter/xbox-360-wireless-black-tmr-162</loc>
-      <lastmod>2026-10-12</lastmod>
+      <loc>https://mkfix.se/produkter/xbox-360-wireless-white-HE-159</loc>
+      <lastmod>2026-10-14</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.7</priority>
    </url>
 
    <url>
       <loc>https://mkfix.se/produkter/xbox-series-controller-carbon-black-tmr-171</loc>
-      <lastmod>2026-10-12</lastmod>
+      <lastmod>2026-10-14</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.7</priority>
    </url>
 
    <url>
-      <loc>https://mkfix.se/produkter/ps4-dualshock-4-v2-silver-tmr-172</loc>
-      <lastmod>2026-10-12</lastmod>
-      <changefreq>monthly</changefreq>
-      <priority>0.7</priority>
-   </url>
-
-   <url>
-      <loc>https://mkfix.se/produkter/ps5-dualsense-midnight-black-tmr-173</loc>
-      <lastmod>2026-10-12</lastmod>
-      <changefreq>monthly</changefreq>
-      <priority>0.7</priority>
-   </url>
-
-   <url>
-      <loc>https://mkfix.se/produkter/ps5-dualsense-white-tmr-174</loc>
-      <lastmod>2026-10-12</lastmod>
-      <changefreq>monthly</changefreq>
-      <priority>0.7</priority>
-   </url>
-
-   <url>
-      <loc>https://mkfix.se/produkter/ps5-dualsense-gray-camouflage-tmr-175</loc>
-      <lastmod>2026-10-12</lastmod>
-      <changefreq>monthly</changefreq>
-      <priority>0.7</priority>
-   </url>
-
-   <url>
-      <loc>https://mkfix.se/produkter/ps5-dualsense-cosmic-red-tmr-187</loc>
-      <lastmod>2026-10-12</lastmod>
+      <loc>https://mkfix.se/produkter/ps5-dualsense-white-tmr-clicky-mod-174</loc>
+      <lastmod>2026-10-14</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.7</priority>
    </url>
 
    <url>
       <loc>https://mkfix.se/produkter/ps5-dualsense-white-tmr-201</loc>
-      <lastmod>2026-10-12</lastmod>
+      <lastmod>2026-10-14</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.7</priority>
+   </url>
+
+   <url>
+      <loc>https://mkfix.se/produkter/xbox-360-wireless-black-HE-205</loc>
+      <lastmod>2026-10-14</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.7</priority>
+   </url>
+
+   <url>
+      <loc>https://mkfix.se/produkter/ps5-dualsense-white-tmr-189</loc>
+      <lastmod>2026-10-14</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.7</priority>
    </url>

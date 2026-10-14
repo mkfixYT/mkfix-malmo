@@ -154,53 +154,11 @@ export const products: Product[] = [
     ]
   },
 
-  // --- 173: PS5 DualSense Midnight Black #173 ---
-  {
-    slug: 'ps5-dualsense-midnight-black-tmr-173',
-    title: 'Sony PS5 DualSense – Midnight Black – TMR-Joysticks (#173)',
-    price: 599,
-    category: 'kontroller',
-    status: 'in_stock',
-    badge: '🧲 TMR Elektromagnetisk',
-    condition: 'Professionellt renoverad & TMR-uppgraderad',
-    warranty: '6 månaders full funktionsgaranti från mkFix',
-    shortDescription: 'Stilren svart PS5 DualSense (#173) utrustad med elektromagnetiska K-Silver TMR-joysticks. Sluta oroa dig för stick drift och dominera i alla spel!',
-    description: [
-      'En helsvart PlayStation 5 DualSense i läcker Midnight Black-design (märkt #173), förädlad i verkstaden med marknadens ledande TMR-sensorer.',
-      'De sårbara originalpotentiometrarna har lötts loss och ersatts av K-Silver TMR-moduler. Genom kvantmekanisk resistansavläsning i magnetfält elimineras mekaniskt slitage helt.',
-      'Alla avancerade PS5-funktioner är 100% intakta: haptisk feedback, adaptiva triggers och inbyggd mikrofon. Hårdvarukalibrerad för minimal dödzon och hög stabilitet.'
-    ],
-    features: [
-      'Splitternya K-Silver TMR elektromagnetiska joysticks',
-      'Hårdvarukalibrerad och testad i gamepad-mjukvara (11.97% / 12.17%)',
-      'Original haptisk feedback och adaptiva triggers fullt bevarade',
-      'Trådlös Bluetooth & USB-C anslutning',
-      'Testad och kvalitetssäkrad i Malmö-verkstaden',
-      '6 månaders full funktionsgaranti från mkFix'
-    ],
-    specs: [
-      { label: 'Plattform', value: 'PlayStation 5, PC, Mac, iOS, Android' },
-      { label: 'Sensor-teknik', value: 'K-Silver TMR (Tunneling Magnetoresistive)' },
-      { label: 'Färg', value: 'Midnight Black (#173)' },
-      { label: 'Anslutning', value: 'USB-C & Bluetooth 5.1' },
-      { label: 'Kalibrering', value: '11.97% vänster / 12.17% höger felmarginal' },
-      { label: 'Skick', value: 'Mycket fint skick / Nyuppgraderad med TMR' }
-    ],
-    images: [
-      '/img/products/173/PXL_20260925_173422314.MP.jpg',
-      '/img/products/173/PXL_20260925_173428011.MP.jpg',
-      '/img/products/173/PXL_20260925_173432273.MP.jpg',
-      '/img/products/173/PXL_20260925_173440095.MP.jpg',
-      '/img/products/173/PXL_20260925_172456805.MP.jpg',
-      '/img/products/173/Screenshot 2026-09-25 193548.png'
-    ]
-  },
-
   // --- 174: PS5 DualSense White #174 ---
   {
-    slug: 'ps5-dualsense-white-tmr-174',
-    title: 'Sony PS5 DualSense – Original Vit – TMR-Joysticks (#174)',
-    price: 599,
+    slug: 'ps5-dualsense-white-tmr-clicky-mod-174',
+    title: 'Sony PS5 DualSense – Original Vit – TMR-Joysticks och clicky button mod från extreme rate (#174)',
+    price: 899,
     category: 'kontroller',
     status: 'in_stock',
     badge: '🧲 TMR Elektromagnetisk',
@@ -210,6 +168,7 @@ export const products: Product[] = [
     description: [
       'Original PlayStation 5 DualSense i klassiskt vit/svart tvåtonat utförande (inventarienummer #174).',
       'Uppgraderad med K-Silver TMR-joysticks som ger silkeslen styrning och garanterat skydd mot stick drift. Kalibrerad i testrigg till imponerande under 10% felmarginal på båda spakar.',
+      'Extremerå rate clicky button mod har installerats i denna kontroll vilket innebär att X,O,Triangle,Square knapparna har en "clicky" mekanisk känsla istället för den orginala mjuka känslan. Gäller även L1, R1, L2, R2.',
       'Levereras helservad med perfekt motstånd i spakarna och full funktionalitet i alla adaptiva trigger-lägen.'
     ],
     features: [
@@ -222,6 +181,7 @@ export const products: Product[] = [
     specs: [
       { label: 'Plattform', value: 'PlayStation 5, PC, Mac, iOS, Android' },
       { label: 'Sensor-teknik', value: 'K-Silver TMR (Tunneling Magnetoresistive)' },
+      { label: 'Button Mod', value: 'ExtremeRate Clicky Button Mod' },
       { label: 'Färg', value: 'Original Vit / Svart (#174)' },
       { label: 'Anslutning', value: 'USB-C & Bluetooth' },
       { label: 'Kalibrering', value: '9.40% vänster / 9.61% höger felmarginal' },
@@ -229,6 +189,8 @@ export const products: Product[] = [
     ],
     images: [
       '/img/products/174/PXL_20260926_185814334.MP.jpg',
+      '/img/products/174/663186886_f8e3146a-865b-4b0b-83a0-356c72d93667.webp',
+      '/img/products/174/663186886_abd45e11-77d2-446f-baa1-4756ee8bfc2a.webp',
       '/img/products/174/PXL_20260926_185823153.MP.jpg',
       '/img/products/174/PXL_20260926_185827923.MP.jpg',
       '/img/products/174/PXL_20260926_185835076.MP.jpg',
@@ -331,15 +293,15 @@ export const products: Product[] = [
     badge: '🧲 TMR Elektromagnetisk',
     condition: 'Professionellt renoverad & TMR-uppgraderad',
     warranty: '6 månaders full funktionsgaranti från mkFix',
-    shortDescription: 'Klassisk vit PS5 DualSense (#189) med splitternya TMR-joysticks och suverän kalibrering (8.7% / 8.5%). Byggd för att hålla i åratal!',
+    shortDescription: 'Klassisk vit PS5 DualSense (#189) med splitternya TMR-joysticks och suverän kalibrering (8.7% / 9.4%). Byggd för att hålla i åratal!',
     description: [
       'Original PlayStation 5 DualSense i vitt utförande (#189 i inventariet), förädlad i verkstaden med elektromagnetiska TMR-spakar.',
-      'Med 8.7% och 8.5% felmarginal i kalibreringstestet får du en kontroller som reagerar blixtsnabbt med perfekt centreringsrespons och helt utan dödzonsglapp.',
+      'Med 8.7% och 9.4% felmarginal i kalibreringstestet får du en kontroller som reagerar blixtsnabbt med perfekt centreringsrespons och helt utan dödzonsglapp.',
       'Fullständig service har genomförts på hela enheten. Levereras rengjord, testad och redo för tusentals timmars intensiv gaming.'
     ],
     features: [
       'Avancerade K-Silver TMR-sensorer utan mekanisk friktion',
-      'Finjusterad hårdvara med 8.7% / 8.5% felmarginal',
+      'Finjusterad hårdvara med 8.7% / 9.4% felmarginal',
       'Alla originalfunktioner intakta: haptik, mikrofon och triggers',
       'Garanterad immunitet mot spakdrift',
       '6 månaders full funktionsgaranti från mkFix'
@@ -347,7 +309,7 @@ export const products: Product[] = [
     specs: [
       { label: 'Plattform', value: 'PlayStation 5, PC, Mac, iOS, Android' },
       { label: 'Sensor-teknik', value: 'K-Silver TMR (Tunneling Magnetoresistive)' },
-      { label: 'Färg', value: 'Original Vit / Svart (#201)' },
+      { label: 'Färg', value: 'Original Vit / Svart (#189)' },
       { label: 'Anslutning', value: 'USB-C & Bluetooth' },
       { label: 'Kalibrering', value: '8.7% vänster / 9.4% höger felmarginal' },
       { label: 'Skick', value: 'Toppskick / TMR-customiserad' }
@@ -362,6 +324,48 @@ export const products: Product[] = [
     ]
   },
 
+  // --- 201: PS5 DualSense White #201 ---
+  {
+    slug: 'ps5-dualsense-white-tmr-188',
+    title: 'Sony PS5 DualSense – Original Vit – TMR-Joysticks (#188)',
+    price: 599,
+    category: 'kontroller',
+    status: 'in_stock',
+    badge: '🧲 TMR Elektromagnetisk',
+    condition: 'Professionellt renoverad & TMR-uppgraderad',
+    warranty: '6 månaders full funktionsgaranti från mkFix',
+    shortDescription: 'Klassisk vit PS5 DualSense (#188) med splitternya TMR-joysticks och suverän kalibrering (8.7% / 8.5%). Byggd för att hålla i åratal!',
+    description: [
+      'Original PlayStation 5 DualSense i vitt utförande (#188 i inventariet), förädlad i verkstaden med elektromagnetiska TMR-spakar.',
+      'Med 8.7% och 8.5% felmarginal i kalibreringstestet får du en kontroller som reagerar blixtsnabbt med perfekt centreringsrespons och helt utan dödzonsglapp.',
+      'Fullständig service har genomförts på hela enheten. Levereras rengjord, testad och redo för tusentals timmars intensiv gaming.'
+    ],
+    features: [
+      'Avancerade K-Silver TMR-sensorer utan mekanisk friktion',
+      'Finjusterad hårdvara med 8.5% / 7.8% felmarginal',
+      'Alla originalfunktioner intakta: haptik, mikrofon och triggers',
+      'Garanterad immunitet mot spakdrift',
+      '6 månaders full funktionsgaranti från mkFix'
+    ],
+    specs: [
+      { label: 'Plattform', value: 'PlayStation 5, PC, Mac, iOS, Android' },
+      { label: 'Sensor-teknik', value: 'K-Silver TMR (Tunneling Magnetoresistive)' },
+      { label: 'Färg', value: 'Original Vit / Svart (#188)' },
+      { label: 'Anslutning', value: 'USB-C & Bluetooth' },
+      { label: 'Kalibrering', value: '8.5% vänster / 7.8% höger felmarginal' },
+      { label: 'Skick', value: 'Toppskick / TMR-customiserad' }
+    ],
+    images: [
+      '/img/products/188/PXL_20261014_182530473.MP.jpg',
+      '/img/products/188/PXL_20261014_180214469.MP.jpg',
+      '/img/products/188/PXL_20261014_182544385.MP.jpg',
+      '/img/products/188/Screenshot 2026-10-14 202111.png',
+      '/img/products/188/PXL_20261014_182537123.MP.jpg',
+      '/img/products/188/PXL_20261014_182540402.MP.jpg'
+    ]
+  },
+
+  /**RESERVDELAR VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV */
   // --- Reservdel 1: K-Silver PS5 TMR Joysticks (2-pack) ---
   {
     slug: 'k-silver-ps5-tmr-joysticks',
