@@ -278,6 +278,90 @@ export const products: Product[] = [
     ]
   },
 
+  {
+    slug: 'xbox-360-wireless-black-HE-205',
+    title: 'Xbox 360 Trådlös Handkontroll – Svart – Hall Effect (#205)',
+    price: 399,
+    category: 'kontroller',
+    status: 'in_stock',
+    badge: '⚡ Retro med Hall Effect',
+    condition: 'Professionellt renoverad & Hall Effect-uppgraderad',
+    warranty: '6 månaders full funktionsgaranti från mkFix',
+    shortDescription: 'Äkta retrokänsla med modern precision! Klassisk svart trådlös Xbox 360-kontroll (#205) helrenoverad och uppgraderad med Hall Effect-spakar. Perfekt cirkuläritet och noll stick drift.',
+    description: [
+      'Ge ditt Xbox 360-spelande nytt liv med en äkta originalkontroll som presterar bättre än när den rullade av fabriksbandet! Denna kontroll (#205) har fått båda sina analogspakar utbytta mot moderna Hall Effect-sensorer.',
+      'Hall Effect-tekniken använder magnetfält istället för kolbanor vilket eliminerar slitage och ger överlägsen precision i klassiker som Halo 3, Gears of War och Forza Motorsport.',
+      'Knappmembran har inspekterats och spakarna är hårdvarukalibrerade till enastående precision i testbänk.'
+    ],
+    features: [
+      'Dubbla Hall Effect magnetiska sensorer installerade',
+      'Hårdvarukalibrerad till 9.4% / 11.2% felmarginal',
+      'Inspektion av kretskort',
+      'Perfekt taktil känsla i knappar, triggers och d-pad',
+      'Kompatibel med alla Xbox 360-modeller och PC (via trådlös adapter)',
+      '6 månaders full funktionsgaranti från mkFix'
+    ],
+    specs: [
+      { label: 'Plattform', value: 'Xbox 360, PC (kräver trådlös USB-adapter)' },
+      { label: 'Sensor-teknik', value: 'Hall Effect' },
+      { label: 'Modell', value: 'Microsoft Xbox 360 Wireless (#205)' },
+      { label: 'Färg', value: 'Klassisk Svart' },
+      { label: 'Kalibrering', value: '9.4% vänster / 11.2% höger felmarginal' },
+      { label: 'Batterifack', value: 'Original AA-batterihållare ingår' },
+      { label: 'Skick', value: 'Renoverad originalkontroll / Hall Effect-uppgraderad' }
+    ],
+    images: [
+      '/img/products/205/PXL_20261013_075713885.MP.jpg',
+      '/img/products/205/PXL_20261013_075720125.MP.jpg',
+      '/img/products/205/PXL_20261013_075725987.MP.jpg',
+      '/img/products/205/PXL_20261013_075735445.MP.jpg',
+      '/img/products/205/PXL_20261013_075852365.MP.jpg',
+      '/img/products/205/PXL_20261012_192015532.MP.jpg',
+      '/img/products/205/Screenshot 2026-10-13 100205.png'
+    ]
+  },
+
+  // --- 189: PS5 DualSense White #189 ---
+  {
+    slug: 'ps5-dualsense-white-tmr-189',
+    title: 'Sony PS5 DualSense – Original Vit – TMR-Joysticks (#189)',
+    price: 599,
+    category: 'kontroller',
+    status: 'in_stock',
+    badge: '🧲 TMR Elektromagnetisk',
+    condition: 'Professionellt renoverad & TMR-uppgraderad',
+    warranty: '6 månaders full funktionsgaranti från mkFix',
+    shortDescription: 'Klassisk vit PS5 DualSense (#189) med splitternya TMR-joysticks och suverän kalibrering (8.7% / 8.5%). Byggd för att hålla i åratal!',
+    description: [
+      'Original PlayStation 5 DualSense i vitt utförande (#189 i inventariet), förädlad i verkstaden med elektromagnetiska TMR-spakar.',
+      'Med 8.7% och 8.5% felmarginal i kalibreringstestet får du en kontroller som reagerar blixtsnabbt med perfekt centreringsrespons och helt utan dödzonsglapp.',
+      'Fullständig service har genomförts på hela enheten. Levereras rengjord, testad och redo för tusentals timmars intensiv gaming.'
+    ],
+    features: [
+      'Avancerade K-Silver TMR-sensorer utan mekanisk friktion',
+      'Finjusterad hårdvara med 8.7% / 8.5% felmarginal',
+      'Alla originalfunktioner intakta: haptik, mikrofon och triggers',
+      'Garanterad immunitet mot spakdrift',
+      '6 månaders full funktionsgaranti från mkFix'
+    ],
+    specs: [
+      { label: 'Plattform', value: 'PlayStation 5, PC, Mac, iOS, Android' },
+      { label: 'Sensor-teknik', value: 'K-Silver TMR (Tunneling Magnetoresistive)' },
+      { label: 'Färg', value: 'Original Vit / Svart (#201)' },
+      { label: 'Anslutning', value: 'USB-C & Bluetooth' },
+      { label: 'Kalibrering', value: '8.7% vänster / 9.4% höger felmarginal' },
+      { label: 'Skick', value: 'Toppskick / TMR-customiserad' }
+    ],
+    images: [
+      '/img/products/189/PXL_20261014_161621778.MP.jpg',
+      '/img/products/189/PXL_20260925_172456805.MP.jpg',
+      '/img/products/189/PXL_20261014_161627894.MP.jpg',
+      '/img/products/189/PXL_20261014_161633996.MP.jpg',
+      '/img/products/189/PXL_20261014_161638851.MP.jpg',
+      '/img/products/189/Screenshot 2026-10-14 181418.png',
+    ]
+  },
+
   // --- Reservdel 1: K-Silver PS5 TMR Joysticks (2-pack) ---
   {
     slug: 'k-silver-ps5-tmr-joysticks',
