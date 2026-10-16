@@ -72,23 +72,22 @@ export const products: Product[] = [
 
   // --- 159: Xbox 360 Wireless Controller White #159 ---
   {
-    slug: 'xbox-360-wireless-white-HE-159',
-    title: 'Xbox 360 Trådlös Handkontroll – Vit – TMR (#159)',
+    slug: 'xbox-360-wireless-black-HE-207',
+    title: 'Xbox 360 Trådlös Handkontroll – Svart – TMR (#207)',
     price: 399,
     category: 'kontroller',
     status: 'in_stock',
     badge: '⚡ Retro med Hall Effect',
     condition: 'Professionellt renoverad & Hall Effect-uppgraderad',
     warranty: '6 månaders full funktionsgaranti från mkFix',
-    shortDescription: 'Äkta retrokänsla med modern precision! Klassisk vit trådlös Xbox 360-kontroll (#159) helrenoverad och uppgraderad med Hall Effect-spakar. Perfekt cirkuläritet och noll stick drift.',
+    shortDescription: 'Äkta retrokänsla med modern precision! Klassisk svart trådlös Xbox 360-kontroll (#207) helrenoverad och uppgraderad med Hall Effect-spakar. Perfekt cirkuläritet och noll stick drift.',
     description: [
-      'Ge ditt Xbox 360-spelande nytt liv med en äkta originalkontroll som presterar bättre än när den rullade av fabriksbandet! Denna kontroll (#159) har fått båda sina analogspakar utbytta mot moderna Hall Effect-sensorer.',
+      'Ge ditt Xbox 360-spelande nytt liv med en äkta originalkontroll som presterar bättre än när den rullade av fabriksbandet! Denna kontroll (#207) har fått båda sina analogspakar utbytta mot moderna Hall Effect-sensorer.',
       'Hall Effect-tekniken använder magnetfält istället för kolbanor vilket eliminerar slitage och ger överlägsen precision i klassiker som Halo 3, Gears of War och Forza Motorsport.',
-      'Knappmembran har inspekterats och spakarna är hårdvarukalibrerade till enastående ~9% felmarginal i testbänk.'
+      'Knappmembran har inspekterats och spakarna är hårdvarukalibrerade i testbänk.'
     ],
     features: [
       'Dubbla Hall Effect magnetiska sensorer installerade',
-      'Hårdvarukalibrerad till imponerande 9.3% / 9.0% felmarginal',
       'Inspektion av kretskort',
       'Perfekt taktil känsla i knappar, triggers och d-pad',
       'Kompatibel med alla Xbox 360-modeller och PC (via trådlös adapter)',
@@ -97,19 +96,19 @@ export const products: Product[] = [
     specs: [
       { label: 'Plattform', value: 'Xbox 360, PC (kräver trådlös USB-adapter)' },
       { label: 'Sensor-teknik', value: 'Hall Effect' },
-      { label: 'Modell', value: 'Microsoft Xbox 360 Wireless (#159)' },
-      { label: 'Färg', value: 'Klassisk Vit' },
-      { label: 'Kalibrering', value: '9.3% vänster / 9.0% höger felmarginal' },
+      { label: 'Modell', value: 'Microsoft Xbox 360 Wireless (#207)' },
+      { label: 'Färg', value: 'Klassisk Svart' },
+      { label: 'Kalibrerad', value: '✅ Ja' },
       { label: 'Batterifack', value: 'Original AA-batterihållare ingår' },
       { label: 'Skick', value: 'Renoverad originalkontroll / Hall Effect-uppgraderad' }
     ],
     images: [
-      '/img/products/159/PXL_20260919_102451182.MP.jpg',
-      '/img/products/159/PXL_20260919_102457318.MP.jpg',
-      '/img/products/159/PXL_20260919_102510134.MP.jpg',
-      '/img/products/159/PXL_20260919_102515424.MP.jpg',
-      '/img/products/159/PXL_20260919_101327798.MP.jpg',
-      '/img/products/159/Screenshot 2026-09-19 122204.png'
+      '/img/products/207/PXL_20261015_164353923.MP.jpg',
+      '/img/products/207/PXL_20261015_163708027.MP.jpg',
+      '/img/products/207/PXL_20261015_164405401.MP.jpg',
+      '/img/products/207/PXL_20261015_164410080.MP.jpg',
+      '/img/products/207/PXL_20261015_164415958.MP.jpg',
+      '/img/products/207/Screenshot 2026-10-16 160153.png'
     ]
   },
   // --- 171: Xbox Series Wireless Controller (Model 1914) Carbon Black #171 ---
