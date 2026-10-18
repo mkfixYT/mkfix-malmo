@@ -503,8 +503,21 @@ nav {
 
 /* --- MOBILANPASSNING (Under 850px) --- */
 .menu-toggle,
-.menu-icon {
+.menu-icon,
+.menu-overlay {
     display: none;
+}
+
+.drop-arrow {
+    display: inline-block;
+    margin-left: 4px;
+    font-size: 0.75rem;
+    transition: transform 0.25s ease;
+}
+
+/* Förhindra att sidan bakom scrollar när mobilmenyn är öppen */
+body.menu-open {
+    overflow: hidden;
 }
 
 @media (max-width: 850px) {
@@ -515,8 +528,10 @@ nav {
     .menu-icon {
         display: block;
         cursor: pointer;
-        z-index: 1001;
+        position: relative;
+        z-index: 1002;
         padding: 10px;
+        -webkit-tap-highlight-color: transparent;
     }
 
     .menu-icon span {
@@ -525,22 +540,67 @@ nav {
         height: 3px;
         background: var(--text-main);
         margin: 5px 0;
-        transition: 0.3s;
+        transition: 0.3s cubic-bezier(0.1, 0.7, 0.1, 1);
+        border-radius: 2px;
     }
 
+    /* Mörk och oskarp bakgrundstoning när menyn är öppen */
+    .menu-overlay {
+        display: none;
+    }
+
+    .menu-toggle:checked~.menu-overlay {
+        display: block;
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.65);
+        backdrop-filter: blur(4px);
+        -webkit-backdrop-filter: blur(4px);
+        z-index: 999;
+    }
+
+    /* Mobilmeny-låda med full scrollning */
     .nav-links {
         position: fixed;
         top: 0;
         right: -100%;
         /* Dold utanför skärmen */
-        width: 80%;
+        width: min(85vw, 360px);
         height: 100vh;
+        height: 100dvh;
+        max-height: 100dvh;
         background: var(--bg);
         flex-direction: column;
-        justify-content: center;
-        transition: 0.4s cubic-bezier(0.1, 0.7, 0.1, 1);
+        justify-content: flex-start;
+        align-items: stretch;
+        gap: 1.1rem;
+        padding: calc(75px + env(safe-area-inset-top, 0px)) 1.5rem calc(40px + env(safe-area-inset-bottom, 0px)) 1.5rem;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+        overscroll-behavior-y: contain;
+        transition: right 0.35s cubic-bezier(0.1, 0.7, 0.1, 1);
         border-left: 1px solid var(--border);
         box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
+        z-index: 1000;
+        scrollbar-width: thin;
+        scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
+    }
+
+    .nav-links::-webkit-scrollbar {
+        width: 6px;
+    }
+
+    .nav-links::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    .nav-links::-webkit-scrollbar-thumb {
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 4px;
+    }
+
+    .nav-links::-webkit-scrollbar-thumb:hover {
+        background: var(--accent);
     }
 
     /* När checkboxen är ikryssad, visa menyn */
@@ -561,19 +621,78 @@ nav {
         transform: translateY(-8px) rotate(-45deg);
     }
 
-    .dropdown-content {
-        position: static;
+    .nav-links > li {
+        width: 100%;
+    }
+
+    .nav-links > li > a {
         display: block;
-        /* Alltid synlig i mobilmenyn */
-        background: transparent;
-        border: none;
-        box-shadow: none;
-        padding-left: 20px;
+        padding: 6px 0;
+        font-size: 1.05rem;
+    }
+
+    /* Dropdown under "Tjänster" på mobil */
+    .dropdown {
+        width: 100%;
     }
 
     .dropbtn {
         color: var(--accent) !important;
-        pointer-events: none;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        cursor: pointer;
+        padding: 6px 0;
+        user-select: none;
+    }
+
+    .dropdown.is-collapsed .drop-arrow {
+        transform: rotate(-90deg);
+    }
+
+    .dropdown-content {
+        position: static;
+        display: block;
+        background: rgba(255, 255, 255, 0.02);
+        border: none;
+        border-left: 2px solid rgba(56, 189, 248, 0.35);
+        border-radius: 0 8px 8px 0;
+        box-shadow: none;
+        padding: 6px 0 6px 12px;
+        margin: 6px 0 4px 4px;
+        list-style: none;
+    }
+
+    .dropdown.is-collapsed .dropdown-content {
+        display: none;
+    }
+
+    .dropdown-content li {
+        width: 100%;
+    }
+
+    .dropdown-content a {
+        padding: 8px 10px;
+        display: block;
+        font-size: 0.92rem;
+        color: var(--text-dim);
+        border-radius: 6px;
+        transition: background 0.2s, color 0.2s;
+    }
+
+    .dropdown-content a:hover,
+    .dropdown-content a:focus {
+        color: var(--text-main);
+        background: rgba(255, 255, 255, 0.05);
+    }
+
+    .nav-links .nav-cta {
+        display: block;
+        text-align: center;
+        padding: 12px 18px;
+        margin-top: 6px;
     }
 }
 
