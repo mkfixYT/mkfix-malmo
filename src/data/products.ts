@@ -326,6 +326,55 @@ export const products: Product[] = [
     ]
   },
 
+  // --- 208: PS4 DualShock 4 Wave Blue – TMR + USB-C + 2500mAh #208 ---
+  {
+    slug: 'ps4-dualshock-4-wave-blue-tmr-usbc-208',
+    title: 'Sony PlayStation 4 DualShock 4 – Wave Blue – TMR, USB-C & 2500mAh (#208)',
+    price: 899,
+    category: 'kontroller',
+    status: 'in_stock',
+    badge: '🧲 TMR & USB-C Mod',
+    condition: 'Professionellt ombyggd & TMR-uppgraderad',
+    warranty: '6 månaders full funktionsgaranti från mkFix',
+    shortDescription: 'Specialbyggd Sony PlayStation 4 DualShock 4 i läcker Wave Blue (#208). Uppgraderad med elektromagnetiska TMR-joysticks (4.6% / 4.0% felmarginal), modern USB-C laddningsport samt ett nytt 2500mAh högkapacitetsbatteri!',
+    description: [
+      'En unik och kraftigt uppgraderad Sony PlayStation 4 DualShock 4 i snyggt Wave Blue-utförande (#208 i vårt inventarium), skräddarsydd och förädlad i vår Malmö-verkstad.',
+      'Kontrollen har fått den gamla slitkänsliga Micro-USB-porten utbytt mot en modern USB-C-laddningsport. Nu slipper du krångla med förlegade sladdar och kan ladda kontrollen med samma moderna USB-C-kabel som du använder till mobilen, datorn eller PS5.',
+      'För att maximera speltiden har originalbatteriet ersatts av ett splitternytt högkapacitetsbatteri på hela 2500mAh (LIP1522). Det är mer än dubbelt så stor kapacitet jämfört med Sonys originalbatteri (som oftast ligger på 800–1000mAh), vilket ger dig oerhört många timmars trådlös gaming på en enda laddning.',
+      'Båda analogspakarna har bytts ut mot banbrytande K-Silver TMR-joysticks (Tunneling Magnetoresistive). TMR är marknadens mest avancerade sensorteknik och läser av spakrörelser kontaktlöst via magnetfält istället för fysiska kolbanor. Den är hårdvarukalibrerad i testbänk till fantastiska 4.6% (vänster) och 4.0% (höger) felmarginal – 100% säkrad mot framtida stick drift!'
+    ],
+    features: [
+      'Splitternya elektromagnetiska TMR-joysticks installerade via mikrolödning',
+      'Helt immun mot framtida stick drift och mekaniskt slitage',
+      'Hårdvarukalibrerad till imponerande 4.6% / 4.0% felmarginal',
+      'Anpassad USB-C laddningsport (ersätter gamla Micro-USB)',
+      'Nytt 2500mAh Li-ion högkapacitetsbatteri (över 2.5x originalkapacitet)',
+      'Full funktionalitet: Touchpad, gyro, 3.5mm ljuduttag, ljusramp och vibration',
+      'Kompatibel med PlayStation 4, PC, Mac, iOS och Android',
+      '6 månaders full funktionsgaranti från mkFix'
+    ],
+    specs: [
+      { label: 'Plattform', value: 'PlayStation 4, PC (Steam/Windows), Mac, iOS, Android' },
+      { label: 'Sensor-teknik', value: 'K-Silver TMR (Tunneling Magnetoresistive)' },
+      { label: 'Modell', value: 'Sony DualShock 4 V2 (#208)' },
+      { label: 'Färg', value: 'Wave Blue (Blå / Svart)' },
+      { label: 'Laddningsport', value: 'USB-C (custom modifikation)' },
+      { label: 'Batterikapacitet', value: '2500mAh Li-ion (nytt högkapacitetsbatteri)' },
+      { label: 'Kalibrering', value: '4.6% vänster / 4.0% höger felmarginal' },
+      { label: 'Anslutning', value: 'Bluetooth & USB-C' },
+      { label: 'Headsetuttag', value: '3.5 mm stereojack' },
+      { label: 'Skick', value: 'Mycket fint skick / Custom-modifierad' }
+    ],
+    images: [
+      '/img/products/208/20261016_193734.jpg',
+      '/img/products/208/20261016_193742.jpg',
+      '/img/products/208/20261016_193706.jpg',
+      '/img/products/208/20261016_193522.jpg',
+      '/img/products/208/20261016_180222.jpg',
+      '/img/products/208/Screenshot 2026-10-16 194012.png'
+    ]
+  },
+
   /**RESERVDELAR VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV */
   // --- Reservdel 1: K-Silver PS5 TMR Joysticks (2-pack) ---
   {
