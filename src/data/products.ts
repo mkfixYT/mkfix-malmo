@@ -27,49 +27,6 @@ export interface Product {
 }
 
 export const products: Product[] = [
-  // --- 126: Xbox One Wireless Controller (Model 1708) White ---
-  {
-    slug: 'xbox-wireless-controller-white-tmr-126',
-    title: 'Xbox Trådlös Handkontroll (Model 1708) – Vit – TMR (#126)',
-    price: 449,
-    category: 'kontroller',
-    status: 'in_stock',
-    badge: '🧲 TMR Elektromagnetisk',
-    condition: 'Professionellt renoverad & TMR-uppgraderad',
-    warranty: '6 månaders full funktionsgaranti från mkFix',
-    shortDescription: 'Klassisk vit Xbox One trådlös handkontroll (Modell 1708) uppgraderad i verkstaden med elektromagnetiska TMR-joysticks. Helt immun mot stick drift!',
-    description: [
-      'En professionellt genomgången och uppgraderad Xbox trådlös handkontroll (Modell 1708) i stilrent vitt utförande (märkt #126 i vårt inventarium).',
-      'De gamla fabrikspotentiometrarna har bytts ut mot moderna elektromagnetiska TMR-joysticks (Tunneling Magnetoresistive). TMR läser av spakarnas rörelser helt utan mekanisk friktion och slits därför inte ut som traditionella spakar gör.',
-      'Kontrollen är hårdvarukalibrerad i testbänk för perfekt centreringsrespons och hög precision. Redo för Xbox eller trådlöst PC-spelande!'
-    ],
-    features: [
-      'Splitternya elektromagnetiska TMR-joysticks installerade',
-      'Helt immun mot mekanisk förslitning och stick drift',
-      'Modell 1708 med inbyggd Bluetooth för Xbox, PC, Mac och mobil',
-      '3.5 mm stereoljudsuttag för gamingheadset',
-      'Hårdvarukalibrerad och testad i gamepad-mjukvara',
-      '6 månaders full funktionsgaranti från mkFix'
-    ],
-    specs: [
-      { label: 'Plattform', value: 'Xbox Series X/S, Xbox One, Windows PC, iOS, Android' },
-      { label: 'Sensor-teknik', value: 'TMR (Tunneling Magnetoresistive)' },
-      { label: 'Modell', value: 'Microsoft Model 1708 (#126)' },
-      { label: 'Färg', value: 'Robot White (Vit)' },
-      { label: 'Anslutning', value: 'Bluetooth, Xbox Wireless & Micro-USB' },
-      { label: 'Headsetuttag', value: '3.5 mm standardjack' },
-      { label: 'Batterityp', value: '2x AA-batterier eller uppladdningsbart batteripaket' },
-      { label: 'Skick', value: 'Mycket fint skick / Nyskick i spakar' }
-    ],
-    images: [
-      '/img/products/126/PXL_20260925_143439032.MP.jpg',
-      '/img/products/126/PXL_20260925_143453505.MP.jpg',
-      '/img/products/126/PXL_20260925_143507418.MP.jpg',
-      '/img/products/126/PXL_20260925_143515061.MP.jpg',
-      '/img/products/126/Screenshot 2026-09-25 162509.png'
-    ]
-  },
-
   // --- 159: Xbox 360 Wireless Controller White #159 ---
   {
     slug: 'xbox-360-wireless-black-HE-207',
