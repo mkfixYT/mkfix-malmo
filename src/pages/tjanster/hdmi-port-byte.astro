@@ -1,0 +1,449 @@
+---
+// src/pages/tjanster/hdmi-port-byte.astro
+import MainLayout from "../../layouts/MainLayout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "HDMI-port Byte Spelkonsoler (PS5, PS4, Xbox Series, Xbox One) Malmö",
+  "provider": {
+    "@type": "ElectronicsRepairShop",
+    "name": "mkFix",
+    "url": "https://mkfix.se",
+    "telephone": "+46790320605",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Malmö",
+      "addressCountry": "SE"
+    }
+  },
+  "areaServed": [
+    { "@type": "City", "name": "Malmö" },
+    { "@type": "Country", "name": "Sverige" }
+  ],
+  "description": "Professionellt byte av trasiga HDMI-portar på PlayStation 5, PlayStation 4, Xbox Series X/S, Xbox One och retrokonsoler med mikrolödning i Malmö. 6 månaders funktionsgaranti.",
+  "offers": {
+    "@type": "AggregateOffer",
+    "priceCurrency": "SEK",
+    "lowPrice": "499",
+    "highPrice": "1199",
+    "offerCount": "8"
+  }
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Vad kostar det att byta HDMI-port på min konsol?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ett HDMI-port byte kostar 1 199 kr för PlayStation 5, PlayStation 4, Xbox Series X/S samt Xbox One. För äldre konsoler som PS3 kostar det 999 kr, Xbox 360 / Wii U 899 kr, och för Nintendo Switch Dock 499 kr. Alla priser är fasta inklusive arbete, reservdel och 6 månaders garanti."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Hur lång tid tar ett HDMI-port byte?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Vi utför normalt HDMI-bytet inom 24 till 48 timmar efter att konsolen lämnats in i vår verkstad i Malmö. Skickar du in konsolen via PostNord returnerar vi den oftast 1-2 vardagar efter mottagandet."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Konsolen tappades i golvet med kabeln i – kan den fortfarande lagas?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ja, absolut. När en konsol tappas eller kabeln rycks loss slits ibland kretskortets kopparbanor (lödpads) av. Vi är experter på mikrolödning och kan reparera och återskapa brutna ledningsbanor (trace repair / jumpers) så att signalen återställs helt."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Hur vet jag om det är HDMI-porten eller TV:n/kabeln som är trasig?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Börja med att prova en annan HDMI-kabel och en annan ingång på TV:n. Lyser konsolens statuslampa som vanligt (t.ex. vit lampa på PS5 och PS4) men skärmen visar 'Ingen signal', eller ser du böjda/saknade guldstift när du lyser in i porten, är det nästan garanterat HDMI-porten som behöver bytas."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kan jag skicka in konsolen om jag inte bor i Malmö?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ja! Vi tar emot konsoler och kontroller via PostNord från hela Sverige varje vecka. Du packar konsolen väl och skickar in den spårbart, vi lagar den och skickar tillbaka den väl emballerad."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Ingår garanti på reparationen?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Självklart. Vi lämnar alltid 6 månaders full funktionsgaranti på såväl den nya HDMI-porten som själva lödarbetet."
+      }
+    }
+  ]
+};
+---
+
+<MainLayout
+  title="HDMI-port Byte Spelkonsol Malmö | PS5, PS4, Xbox Series & One | mkFix"
+  description="Trasig HDMI-port eller svart skärm? Vi byter HDMI-port på PlayStation 5, PS4, Xbox Series X/S, Xbox One med mikrolödning i Malmö. Fast pris 1 199 kr & 6 mån garanti."
+  keywords="byta hdmi port ps5 malmö, hdmi reparation xbox series x, trasig hdmi playstation 4, laga hdmi port konsol, ingen signal ps5, ps5 vit lampa ingen bild, ps4 hdmi port byte pris, xbox one hdmi rep, mikrolödning hdmi malmö, mkfix"
+  ogTitle="HDMI-port Byte Spelkonsol i Malmö (PS5, PS4, Xbox) | mkFix"
+  ogDescription="Svart skärm eller böjda stift? Vi mikrolöder dit en ny original HDMI-port på din konsol. Fast pris 1 199 kr & 6 mån garanti."
+  canonicalUrl="https://mkfix.se/tjanster/hdmi-port-byte"
+  jsonLd={[serviceSchema, faqSchema]}
+>
+  <Header />
+
+  <main class="container">
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="trust-box">
+        <span class="trust-badge">⚡ MIKROLÖDNING I MALMÖ</span>
+        <span>Fasta priser • 6 mån garanti • Skicka eller lämna in</span>
+      </div>
+      <h1>HDMI-port Byte för <span>Spelkonsoler</span> i Malmö</h1>
+      <p>
+        Möts du av <strong>"Ingen signal"</strong> på TV:n, flimrar bilden eller är guldstiften inuti HDMI-uttaget böjda eller avbrutna? 
+        Hos <strong>mkFix i Malmö</strong> utför vi professionellt byte av HDMI-portar på alla moderna konsoler och retroenheter. 
+        Vi mikrolöder dit en helt ny originalport med <strong>förstärkta fästpunkter</strong> så att du återfår kristallklar 4K-bild och surroundljud!
+      </p>
+
+      <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-top: 2rem;">
+        <a href="/#boka" class="submit-btn" style="text-decoration: none; display: inline-block;">BOKA HDMI-BYTE NU</a>
+        <a href="/tjanster/skicka-in" class="submit-btn" style="text-decoration: none; display: inline-block; background: transparent; border: 2px solid var(--accent); color: var(--accent);">SKICKA IN VIA POSTNORD →</a>
+      </div>
+    </section>
+
+    <!-- Priser Grid -->
+    <h2 class="section-title" style="margin-top: 3rem;">Fasta Priser för HDMI-byte</h2>
+    <p style="text-align: center; color: var(--text-dim); max-width: 680px; margin: -1.2rem auto 2.5rem;">
+      Inga dolda kostnader. I priset ingår komplett demontering, avlödning, mikrolödning av ny förstärkt port, kretskortskontroll och 6 månaders funktionsgaranti.
+    </p>
+
+    <div class="grid">
+      <!-- PS5 -->
+      <div class="card" style="border: 2px solid var(--accent); position: relative;">
+        <span class="popular-tag">VANLIGAST</span>
+        <span class="service-tag new-tag" style="margin-bottom: 0.8rem; display: inline-block;">HDMI 2.1 (4K @ 120Hz)</span>
+        <h3>PlayStation 5 (PS5)</h3>
+        <p style="color: var(--text-dim); font-size: 0.95rem; margin-bottom: 1.2rem;">
+          Gäller alla modeller: PS5 med skivläsare, PS5 Digital Edition, PS5 Slim och PS5 Pro.
+        </p>
+        <ul style="list-style: none; padding: 0; margin-bottom: 1.5rem; font-size: 0.95rem;">
+          <li style="margin-bottom: 0.4rem;">✓ Original HDMI 2.1-kontakt</li>
+          <li style="margin-bottom: 0.4rem;">✓ Höghastighets- och HDR-certifierad</li>
+          <li style="margin-bottom: 0.4rem;">✓ Förstärkta chassiben för extra tålighet</li>
+          <li style="margin-bottom: 0.4rem;">✓ 6 månaders full funktionsgaranti</li>
+        </ul>
+        <span class="service-price" style="color: var(--accent); font-size: 2rem; font-weight: 800; display: block;">1 199 <small style="font-size: 1rem; font-weight: normal; color: var(--text-dim);">kr</small></span>
+      </div>
+
+      <!-- Xbox Series -->
+      <div class="card" style="border: 2px solid var(--accent);">
+        <span class="service-tag new-tag" style="margin-bottom: 0.8rem; display: inline-block;">HDMI 2.1 (4K @ 120Hz)</span>
+        <h3>Xbox Series X &amp; Series S</h3>
+        <p style="color: var(--text-dim); font-size: 0.95rem; margin-bottom: 1.2rem;">
+          Gäller både flaggskeppet Series X och kompakta Series S.
+        </p>
+        <ul style="list-style: none; padding: 0; margin-bottom: 1.5rem; font-size: 0.95rem;">
+          <li style="margin-bottom: 0.4rem;">✓ Originalkontakt med perfekt passform</li>
+          <li style="margin-bottom: 0.4rem;">✓ Testad med 4K/120Hz och VRR</li>
+          <li style="margin-bottom: 0.4rem;">✓ Genomgång av ESD-dioder och filter</li>
+          <li style="margin-bottom: 0.4rem;">✓ 6 månaders full funktionsgaranti</li>
+        </ul>
+        <span class="service-price" style="color: var(--accent); font-size: 2rem; font-weight: 800; display: block;">1 199 <small style="font-size: 1rem; font-weight: normal; color: var(--text-dim);">kr</small></span>
+      </div>
+
+      <!-- PS4 -->
+      <div class="card">
+        <span class="service-tag time" style="margin-bottom: 0.8rem; display: inline-block;">Snabb service</span>
+        <h3>PlayStation 4 (PS4)</h3>
+        <p style="color: var(--text-dim); font-size: 0.95rem; margin-bottom: 1.2rem;">
+          Gäller PS4 Original (Fat), PS4 Slim samt PS4 Pro.
+        </p>
+        <ul style="list-style: none; padding: 0; margin-bottom: 1.5rem; font-size: 0.95rem;">
+          <li style="margin-bottom: 0.4rem;">✓ Helt ny förstärkt HDMI-port</li>
+          <li style="margin-bottom: 0.4rem;">✓ Åtgärdar klassisk "White Light of Death"</li>
+          <li style="margin-bottom: 0.4rem;">✓ Fullständig rengöring av kontaktpunkter</li>
+          <li style="margin-bottom: 0.4rem;">✓ 6 månaders full funktionsgaranti</li>
+        </ul>
+        <span class="service-price" style="color: var(--accent); font-size: 2rem; font-weight: 800; display: block;">1 199 <small style="font-size: 1rem; font-weight: normal; color: var(--text-dim);">kr</small></span>
+      </div>
+
+      <!-- Xbox One -->
+      <div class="card">
+        <span class="service-tag time" style="margin-bottom: 0.8rem; display: inline-block;">Snabb service</span>
+        <h3>Xbox One (Alla modeller)</h3>
+        <p style="color: var(--text-dim); font-size: 0.95rem; margin-bottom: 1.2rem;">
+          Gäller Xbox One Standard, Xbox One S och Xbox One X.
+        </p>
+        <ul style="list-style: none; padding: 0; margin-bottom: 1.5rem; font-size: 0.95rem;">
+          <li style="margin-bottom: 0.4rem;">✓ Ny "HDMI OUT"-port monterad</li>
+          <li style="margin-bottom: 0.4rem;">✓ Rejäl förankring mot chassit</li>
+          <li style="margin-bottom: 0.4rem;">✓ Full bild- och ljudkontroll</li>
+          <li style="margin-bottom: 0.4rem;">✓ 6 månaders full funktionsgaranti</li>
+        </ul>
+        <span class="service-price" style="color: var(--accent); font-size: 2rem; font-weight: 800; display: block;">1 199 <small style="font-size: 1rem; font-weight: normal; color: var(--text-dim);">kr</small></span>
+      </div>
+
+      <!-- PS3 -->
+      <div class="card">
+        <span class="service-tag bundle-tag" style="margin-bottom: 0.8rem; display: inline-block;">Retro HDMI</span>
+        <h3>PlayStation 3 (PS3)</h3>
+        <p style="color: var(--text-dim); font-size: 0.95rem; margin-bottom: 1.2rem;">
+          Gäller PS3 Fat, PS3 Slim och PS3 Super Slim.
+        </p>
+        <ul style="list-style: none; padding: 0; margin-bottom: 1.5rem; font-size: 0.95rem;">
+          <li style="margin-bottom: 0.4rem;">✓ Ny HDMI-kontakt för skarp digital bild</li>
+          <li style="margin-bottom: 0.4rem;">✓ Skonsam lödning på äldre moderkort</li>
+          <li style="margin-bottom: 0.4rem;">✓ 6 månaders full funktionsgaranti</li>
+        </ul>
+        <span class="service-price" style="color: var(--accent); font-size: 2rem; font-weight: 800; display: block;">999 <small style="font-size: 1rem; font-weight: normal; color: var(--text-dim);">kr</small></span>
+      </div>
+
+      <!-- Xbox 360 -->
+      <div class="card">
+        <span class="service-tag bundle-tag" style="margin-bottom: 0.8rem; display: inline-block;">Retro HDMI</span>
+        <h3>Xbox 360 (HDMI-modeller)</h3>
+        <p style="color: var(--text-dim); font-size: 0.95rem; margin-bottom: 1.2rem;">
+          Gäller Xbox 360 Fat (med HDMI), Xbox 360 S och 360 E.
+        </p>
+        <ul style="list-style: none; padding: 0; margin-bottom: 1.5rem; font-size: 0.95rem;">
+          <li style="margin-bottom: 0.4rem;">✓ Ersätter trasig eller glappande port</li>
+          <li style="margin-bottom: 0.4rem;">✓ Noggrann uppmätning av videosignaler</li>
+          <li style="margin-bottom: 0.4rem;">✓ 6 månaders full funktionsgaranti</li>
+        </ul>
+        <span class="service-price" style="color: var(--accent); font-size: 2rem; font-weight: 800; display: block;">899 <small style="font-size: 1rem; font-weight: normal; color: var(--text-dim);">kr</small></span>
+      </div>
+
+      <!-- Nintendo Wii U -->
+      <div class="card">
+        <span class="service-tag bundle-tag" style="margin-bottom: 0.8rem; display: inline-block;">Nintendo</span>
+        <h3>Nintendo Wii U</h3>
+        <p style="color: var(--text-dim); font-size: 0.95rem; margin-bottom: 1.2rem;">
+          Få tillbaka full 1080p HDMI-utmatning till TV:n från din Wii U-konsol.
+        </p>
+        <ul style="list-style: none; padding: 0; margin-bottom: 1.5rem; font-size: 0.95rem;">
+          <li style="margin-bottom: 0.4rem;">✓ Ny originalpassande HDMI-kontakt</li>
+          <li style="margin-bottom: 0.4rem;">✓ Testad mot bild och gamepad-synk</li>
+          <li style="margin-bottom: 0.4rem;">✓ 6 månaders full funktionsgaranti</li>
+        </ul>
+        <span class="service-price" style="color: var(--accent); font-size: 2rem; font-weight: 800; display: block;">899 <small style="font-size: 1rem; font-weight: normal; color: var(--text-dim);">kr</small></span>
+      </div>
+
+      <!-- Switch Dock / USB-C -->
+      <div class="card">
+        <span class="service-tag bundle-tag" style="margin-bottom: 0.8rem; display: inline-block;">Switch Dock</span>
+        <h3>Nintendo Switch Dock</h3>
+        <p style="color: var(--text-dim); font-size: 0.95rem; margin-bottom: 1.2rem;">
+          HDMI-porten på originaldockningsstationen eller OLED-dockan.
+        </p>
+        <ul style="list-style: none; padding: 0; margin-bottom: 1.5rem; font-size: 0.95rem;">
+          <li style="margin-bottom: 0.4rem;">✓ Ny HDMI-port på dock-kretskortet</li>
+          <li style="margin-bottom: 0.4rem;">✓ <em>(Tips: Switch konsol USB-C byte: 799 kr)</em></li>
+          <li style="margin-bottom: 0.4rem;">✓ 6 månaders full funktionsgaranti</li>
+        </ul>
+        <span class="service-price" style="color: var(--accent); font-size: 2rem; font-weight: 800; display: block;">499 <small style="font-size: 1rem; font-weight: normal; color: var(--text-dim);">kr</small></span>
+      </div>
+    </div>
+
+    <!-- Paketbonus / Combo Banner -->
+    <div style="background: linear-gradient(135deg, rgba(56, 189, 248, 0.12), rgba(34, 197, 94, 0.08)); border: 2px solid var(--accent); border-radius: 20px; padding: 2.5rem; margin: 3rem 0; box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
+      <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1.5rem;">
+        <div style="max-width: 650px;">
+          <span style="background: var(--success); color: var(--bg); font-weight: 800; font-size: 0.85rem; padding: 4px 12px; border-radius: 6px; text-transform: uppercase;">🔥 REKOMMENDERAD KOMBO</span>
+          <h3 style="font-size: 1.6rem; margin: 0.8rem 0 0.5rem; color: #fff;">Spara upp till 300 kr: Lägg till Konsolrengöring &amp; Kylpastabyte!</h3>
+          <p style="color: var(--text-dim); margin-bottom: 0; font-size: 1.05rem;">
+            När vi byter HDMI-porten måste moderkortet ändå lyftas ur. Passa på att ge konsolen en fullständig invändig djuprengöring med tryckluft, rengöring av fläktar och byte till färsk premium kylpasta (eller Liquid Metal på PS5) för endast <strong>299 kr</strong> (Ord. pris 499–599 kr!).
+          </p>
+        </div>
+        <div>
+          <div style="text-align: right; margin-bottom: 0.8rem;">
+            <span style="text-decoration: line-through; color: var(--text-dim); font-size: 1.1rem; margin-right: 0.5rem;">Ord. 599 kr</span>
+            <span style="color: #4ade80; font-weight: 800; font-size: 1.8rem;">+299 kr</span>
+          </div>
+          <a href="/#boka" class="submit-btn" style="text-decoration: none; display: inline-block; white-space: nowrap;">VÄLJ MED PAKETRABATT</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Symptom-sektion -->
+    <section style="background: rgba(56, 189, 248, 0.04); border: 1px solid var(--border); border-radius: 20px; padding: 2.5rem; margin: 3rem 0;">
+      <h2 style="color: var(--accent); margin-top: 0; font-size: 1.8rem; text-align: center; margin-bottom: 2rem;">
+        Vanliga tecken på att din HDMI-port behöver bytas
+      </h2>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
+        <div style="background: var(--card-bg); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border);">
+          <div style="font-size: 1.8rem; margin-bottom: 0.5rem;">📺</div>
+          <h4 style="color: #fff; margin-bottom: 0.5rem;">"Ingen signal" / Svart skärm</h4>
+          <p style="color: var(--text-dim); font-size: 0.95rem; margin-bottom: 0;">
+            Konsolen startar som den ska och visar fast vit lampa (PS5 / PS4), men din TV eller skärm upptäcker ingen som helst signal.
+          </p>
+        </div>
+
+        <div style="background: var(--card-bg); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border);">
+          <div style="font-size: 1.8rem; margin-bottom: 0.5rem;">🔍</div>
+          <h4 style="color: #fff; margin-bottom: 0.5rem;">Böjda eller intryckta stift</h4>
+          <p style="color: var(--text-dim); font-size: 0.95rem; margin-bottom: 0;">
+            Lyser du in i porten ser du att guldstiften är skeva, korsade eller tillbakapressade. Försök inte böja tillbaka dem med nål – det orsakar ofta kortslutning mot moderkortet!
+          </p>
+        </div>
+
+        <div style="background: var(--card-bg); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border);">
+          <div style="font-size: 1.8rem; margin-bottom: 0.5rem;">🔌</div>
+          <h4 style="color: #fff; margin-bottom: 0.5rem;">Glappande eller känslig kabel</h4>
+          <p style="color: var(--text-dim); font-size: 0.95rem; margin-bottom: 0;">
+            Bilden försvinner eller blinkar svart så fort du rör vid sladden, eller så fungerar bilden bara om du håller kabeln i en viss onaturlig vinkel.
+          </p>
+        </div>
+
+        <div style="background: var(--card-bg); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border);">
+          <div style="font-size: 1.8rem; margin-bottom: 0.5rem;">❄️</div>
+          <h4 style="color: #fff; margin-bottom: 0.5rem;">"Snö", färgfel &amp; låg upplösning</h4>
+          <p style="color: var(--text-dim); font-size: 0.95rem; margin-bottom: 0;">
+            Skärmen blinkar, visar vita prickar (artefakter/snö) eller låser sig till suddiga 480p/720p på grund av att datalinjerna (TMDS / FRL) inte får kontakt.
+          </p>
+        </div>
+
+        <div style="background: var(--card-bg); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border);">
+          <div style="font-size: 1.8rem; margin-bottom: 0.5rem;">💥</div>
+          <h4 style="color: #fff; margin-bottom: 0.5rem;">Fallskada eller ryckt kabel</h4>
+          <p style="color: var(--text-dim); font-size: 0.95rem; margin-bottom: 0;">
+            Konsolen har fallit från tv-bänken med kabeln i, eller kabeln har ryckts ur i vinkel så att fästena inuti porten brutits av.
+          </p>
+        </div>
+
+        <div style="background: var(--card-bg); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border);">
+          <div style="font-size: 1.8rem; margin-bottom: 0.5rem;">🛡️</div>
+          <h4 style="color: #fff; margin-bottom: 0.5rem;">Brutna banor? Vi lagar dem!</h4>
+          <p style="color: var(--text-dim); font-size: 0.95rem; margin-bottom: 0;">
+            Har tidigare försök eller ett hårt ryck slitit bort kretskortets kopparpads? Med mikrolödning drar vi mikroledare (jumpers) och bygger upp banorna igen.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Hur går det till (Process) -->
+    <section class="hero" style="padding-top: 2rem;">
+      <h2>Hur går ett HDMI-byte till hos mkFix?</h2>
+      <p>
+        Att byta HDMI-port på en modern konsol är ett avancerat mikrolödningsarbete som kräver rätt utrustning, mikroskop och stor vana vid temperaturreglering på flerskiktskretskort.
+      </p>
+
+      <div class="grid" style="text-align: left; margin-top: 2rem;">
+        <div class="card">
+          <span style="color: var(--accent); font-weight: 800; font-size: 1.3rem; display: block; margin-bottom: 0.5rem;">01. Säker demontering</span>
+          <p>
+            Konsolen plockas isär metodiskt ner till moderkortet med rätt verktyg. Inga repor, inga brutna clips och varsam hantering av känsliga fläktar och kylpasta.
+          </p>
+        </div>
+
+        <div class="card">
+          <span style="color: var(--accent); font-weight: 800; font-size: 1.3rem; display: block; margin-bottom: 0.5rem;">02. Skonsam avlödning</span>
+          <p>
+            Med temperaturkontrollerad förvärmare och professionell varmluftsstation avlägsnas den trasiga porten skonsamt utan att kretskortet överhettas eller att pads slits av.
+          </p>
+        </div>
+
+        <div class="card">
+          <span style="color: var(--accent); font-weight: 800; font-size: 1.3rem; display: block; margin-bottom: 0.5rem;">03. Rengöring &amp; Mätning</span>
+          <p>
+            Alla lödpunkter rensas och prepareras med fluss och färskt lod. Vi mäter filter (chokes) och ESD-dioder med multimeter för att säkerställa att inga kringkomponenter är brända.
+          </p>
+        </div>
+
+        <div class="card">
+          <span style="color: var(--accent); font-weight: 800; font-size: 1.3rem; display: block; margin-bottom: 0.5rem;">04. Precisionslödning</span>
+          <p>
+            En splitterny originalport monteras. Samtliga 19–21 stift mikrolöds ett och ett under mikroskop och chassibenens fästen förstärks rikligt för maximal fysisk styrka.
+          </p>
+        </div>
+
+        <div class="card">
+          <span style="color: var(--accent); font-weight: 800; font-size: 1.3rem; display: block; margin-bottom: 0.5rem;">05. Hårdvarutest &amp; 4K</span>
+          <p>
+            Innan montering verifieras alla stift med HDMI-testare. Därefter testkörs konsolen i 4K/120Hz HDR och ljudutmatning provspelas så att allt levererar felfritt.
+          </p>
+        </div>
+
+        <div class="card">
+          <span style="color: var(--accent); font-weight: 800; font-size: 1.3rem; display: block; margin-bottom: 0.5rem;">06. 6 månaders garanti</span>
+          <p>
+            Konsolen lämnas eller skickas tillbaka rengjord och redo för spelande med 6 månaders full garanti på utfört arbete och komponenter.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section style="background: rgba(15, 23, 42, 0.6); border: 1px solid var(--border); border-radius: 20px; padding: 2.5rem; margin: 3rem 0;">
+      <h2 style="color: var(--accent); text-align: center; margin-top: 0; margin-bottom: 2rem;">Vanliga frågor om HDMI-byte</h2>
+
+      <div style="display: flex; flex-direction: column; gap: 1.5rem; max-width: 850px; margin: 0 auto;">
+        <div style="background: var(--card-bg); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border);">
+          <h4 style="color: #fff; margin-bottom: 0.5rem;">Vad kostar det att byta HDMI-port på min konsol?</h4>
+          <p style="color: var(--text-dim); margin-bottom: 0;">
+            Priset är <strong>1 199 kr</strong> för PlayStation 5, PlayStation 4, Xbox Series X/S samt Xbox One. För PlayStation 3 kostar det 999 kr, Xbox 360 / Nintendo Wii U 899 kr, och Nintendo Switch Dock 499 kr. Priserna är fasta inklusive arbete, reservdel och 6 månaders garanti.
+          </p>
+        </div>
+
+        <div style="background: var(--card-bg); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border);">
+          <h4 style="color: #fff; margin-bottom: 0.5rem;">Hur snabbt är reparationen klar?</h4>
+          <p style="color: var(--text-dim); margin-bottom: 0;">
+            Normalt är konsolen klar inom <strong>24 till 48 timmar</strong> efter att den lämnats in i vår verkstad i Malmö. Skickar du in med posten skickas den i regel i retur inom 1–2 vardagar efter att vi mottagit paketet.
+          </p>
+        </div>
+
+        <div style="background: var(--card-bg); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border);">
+          <h4 style="color: #fff; margin-bottom: 0.5rem;">Konsolen tappades och kopparbanorna på moderkortet slets bort – går det att rädda?</h4>
+          <p style="color: var(--text-dim); margin-bottom: 0;">
+            Ja! Vi är specialister på kretskortsreparation och mikrolödning. Med mikroskop och isolerad koppartråd bygger vi upp de avslitna banorna (pad repair / trace jumping). Vid omfattande skador informerar vi alltid innan om eventuellt mindre tillägg krävs.
+          </p>
+        </div>
+
+        <div style="background: var(--card-bg); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border);">
+          <h4 style="color: #fff; margin-bottom: 0.5rem;">Kan jag skicka in konsolen via PostNord från annan ort?</h4>
+          <p style="color: var(--text-dim); margin-bottom: 0;">
+            Självklart! Kunder från hela Sverige skickar in konsoler till oss varje vecka. Välj spårbart paket (t.ex. PostNord Skicka Lätt eller Paket), packa väl med bubbelplast och skicka. Läs mer på vår sida för att <a href="/tjanster/skicka-in" style="color: var(--accent); font-weight: 600;">skicka in konsolen här</a>.
+          </p>
+        </div>
+
+        <div style="background: var(--card-bg); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border);">
+          <h4 style="color: #fff; margin-bottom: 0.5rem;">Förlorar jag mina sparfiler eller konton vid HDMI-bytet?</h4>
+          <p style="color: var(--text-dim); margin-bottom: 0;">
+            Nej, absolut inte! Hårddisken och konsolens interna SSD berörs inte under reparationen. Alla dina sparfiler, installerade spel och konton finns kvar precis som innan.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bottom CTA Banner -->
+    <div class="contact-card" style="margin: 4rem 0; text-align: center;">
+      <h2 style="font-size: 2rem; margin-bottom: 1rem; color: #fff;">Redo att få bild på TV:n igen?</h2>
+      <p style="color: var(--text-dim); max-width: 600px; margin: 0 auto 2rem; font-size: 1.1rem;">
+        Fyll i vårt smidiga bokningsformulär så återkommer vi snabbt med bekräftelse och tidsförslag eller inlämningsdetaljer.
+      </p>
+      <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+        <a href="/#boka" class="submit-btn" style="text-decoration: none; display: inline-block;">BOKA REPARATION HÄR</a>
+        <a href="tel:0790320605" class="submit-btn" style="text-decoration: none; display: inline-block; background: transparent; border: 2px solid var(--accent); color: var(--accent);">📞 RING 079-032 06 05</a>
+      </div>
+    </div>
+  </main>
+
+  <Footer />
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-DRKX0X33V3"></script>
+  <script is:inline>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag("js", new Date());
+    gtag("config", "G-DRKX0X33V3");
+  </script>
+</MainLayout>
