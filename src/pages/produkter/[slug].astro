@@ -320,6 +320,22 @@ const productSchema = {
               </div>
             </div>
           )}
+
+          <!-- Thumbcap Service Callout for Spare Part Thumbcaps -->
+          {product.slug.startsWith('thumbcaps-') && (
+            <div class="product-tradein-hint" style="border-color: rgba(56, 189, 248, 0.4); background: rgba(56, 189, 248, 0.08);">
+              <span class="tradein-hint-icon">🛠️</span>
+              <div class="tradein-hint-text">
+                <strong>Vill du hellre att vi utför bytet åt dig?</strong>
+                <p>
+                  Lämna in i Malmö eller skicka via PostNord – vi byter ut dina spakhattar för endast <strong>99 kr</strong> inklusive nya spakhattar och montering!
+                  <a href={product.slug.includes('xbox') ? '/produkter/thumbcap-byte-xbox' : '/produkter/thumbcap-byte-playstation'} style="color: var(--accent); font-weight: 600; margin-left: 0.35rem;">
+                    Boka byte här (99 kr) →
+                  </a>
+                </p>
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </section>

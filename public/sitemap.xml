@@ -265,6 +265,20 @@
    </url>
 
    <url>
+      <loc>https://mkfix.se/produkter/thumbcap-byte-playstation</loc>
+      <lastmod>2026-10-20</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.8</priority>
+   </url>
+
+   <url>
+      <loc>https://mkfix.se/produkter/thumbcap-byte-xbox</loc>
+      <lastmod>2026-10-20</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.8</priority>
+   </url>
+
+   <url>
       <loc>https://mkfix.se/produkter/cartridge-sparbatterier-cr2025-cr1616</loc>
       <lastmod>2026-10-12</lastmod>
       <changefreq>monthly</changefreq>

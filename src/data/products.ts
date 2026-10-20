@@ -509,35 +509,37 @@ export const products: Product[] = [
     ]
   },
 
-  // --- Reservdel 6: Thumbsticks / Spakhattar för PlayStation 1 & PlayStation 2 – Mörkgrå (2-pack) ---
+  // --- Reservdel 6: Thumbsticks / Spakhattar för PlayStation 1, PS2 & PS3 – Mörkgrå (2-pack) ---
   {
     slug: 'thumbcaps-ps1-ps2',
-    title: 'Thumbsticks / Spakhattar för PlayStation 1 & PS2 – Mörkgrå (2-pack)',
+    title: 'Thumbsticks / Spakhattar för PlayStation 1, PS2 & PS3 – Mörkgrå (2-pack)',
     price: 39,
     category: 'reservdelar',
     status: 'in_stock',
     badge: '🕹️ Spakhattar Retro',
     condition: 'Fabriksnya komponenter',
     warranty: 'Passformsgaranti från mkFix',
-    shortDescription: 'Ett par (2 st) klassiska mörkgrå spakhattar för Sony PlayStation 1 och PlayStation 2 DualShock-kontroller. Klassisk konvex rundad kupol med knottrigt grepp.',
+    shortDescription: 'Ett par (2 st) klassiska mörkgrå spakhattar för Sony PlayStation 1, PS2 och PS3 DualShock-kontroller. Klassisk konvex rundad kupol med knottrigt grepp.',
     description: [
-      'Har gummit på dina gamla PS1- eller PS2-spakar blivit klibbigt, sprucket eller nedslitet efter åratal av intensivt spelande? Dessa fabriksnya spakhattar ger kontrollen ett rejält lyft.',
+      'Har gummit på dina gamla PS1-, PS2- eller PS3-spakar blivit klibbigt, sprucket eller nedslitet efter åratal av intensivt spelande? Dessa fabriksnya spakhattar ger kontrollen ett rejält lyft.',
       'Tillverkade med originalmått och den klassiska konvexa (utåtbuktande) formen med knottrig texturyta som kännetecknar Sonys ikoniska retrokontroller.',
-      'Enkla att byta: öppna kontrollens hölje och tryck fast de nya spakhattarna direkt på joystickaxlarna. Ingen lödning behövs.'
+      'Enkla att byta: öppna kontrollens hölje och tryck fast de nya spakhattarna direkt på joystickaxlarna. Ingen lödning behövs.',
+      'Vill du hellre att vi utför bytet åt dig? Vi erbjuder professionellt thumbcap-byte i Malmö eller via PostNord för endast 99 kr inklusive nya spakhattar!'
     ],
     features: [
       '2 st (1 par) spakhattar i klassisk mörkgrå retrolansering',
       'Autentisk konvex formfaktor med halkfri knottrad yta',
       'Exakt OEM-fattning för standard joystickaxlar',
-      'Passar PlayStation 1 DualShock och PlayStation 2 DualShock 2',
-      'Enkel montering utan lödning'
+      'Passar PlayStation 1 DualShock, PS2 DualShock 2 och PS3 DualShock 3',
+      'Enkel montering utan lödning',
+      'Monteringstjänst tillgänglig: Vi byter dem åt dig i vår Malmö-verkstad för endast 99 kr!'
     ],
     specs: [
       { label: 'Antal', value: '2 st (1 par)' },
       { label: 'Färg', value: 'Mörkgrå / Koksgrå (Original-look)' },
       { label: 'Profil', value: 'Konvex kupol med texturerat grepp' },
-      { label: 'Kompatibilitet', value: 'Sony PS1 DualShock, Sony PS2 DualShock 2' },
-      { label: 'Installation', value: 'Tryckmontering på spakaxel' }
+      { label: 'Kompatibilitet', value: 'Sony PS1 DualShock, Sony PS2 DualShock 2, Sony PS3 DualShock 3' },
+      { label: 'Installation', value: 'Tryckmontering på spakaxel (eller byte hos oss för 99 kr)' }
     ],
     images: [
       '/img/products/parts/Playstation 1 playstation 2 thumbcaps/PXL_20261012_161605160.MP.jpg'
@@ -565,7 +567,8 @@ export const products: Product[] = [
       'Slitstark gummiblandning med högt grepp och lång livslängd',
       'Klassisk konkav design med markerad greppkant',
       'OEM-precision på infästningen',
-      'Passar DualShock 4 V1 & V2'
+      'Passar DualShock 4 V1 & V2',
+      'Monteringstjänst i verkstad: Vi byter dina spakhattar för 99 kr inkl. delar!'
     ],
     specs: [
       { label: 'Antal', value: '2 st (1 par)' },
@@ -600,7 +603,8 @@ export const products: Product[] = [
       'OEM-profil med mikrotextur för optimalt tumgrepp',
       'Högkvalitativ gummikant som motstår slitage och handsvett',
       'Passar perfekt på K-Silver TMR, Hall Effect och originalspakar',
-      'Enkel montering vid renovering eller underhåll'
+      'Enkel montering vid renovering eller underhåll',
+      'Monteringstjänst i verkstad: Vi byter dina spakhattar för 99 kr inkl. delar!'
     ],
     specs: [
       { label: 'Antal', value: '2 st (1 par)' },
@@ -669,7 +673,8 @@ export const products: Product[] = [
       'Klassisk design med de fyra upphöjda grepprickarna',
       'Fräscht grepp och behaglig gummikänsla',
       'Exakt passform på Xbox 360 joystickaxlar',
-      'Enkel montering utan lödning'
+      'Enkel montering utan lödning',
+      'Monteringstjänst i verkstad: Vi byter dina spakhattar för 99 kr inkl. delar!'
     ],
     specs: [
       { label: 'Antal', value: '2 st (1 par)' },
@@ -704,7 +709,8 @@ export const products: Product[] = [
       'Autentisk retrolook anpassad för vita originalkontroller',
       'Klassisk konkav skålning med fyra grepprickar',
       'Slitstark gummibelagd ovansida',
-      'Exakt passform på 360-joystickmekanismer'
+      'Exakt passform på 360-joystickmekanismer',
+      'Monteringstjänst i verkstad: Vi byter dina spakhattar för 99 kr inkl. delar!'
     ],
     specs: [
       { label: 'Antal', value: '2 st (1 par)' },
@@ -739,17 +745,94 @@ export const products: Product[] = [
       'Ergonomisk skålad mitt med diamantmönstrad greppkant',
       'OEM-kvalitet och slittålig gummiblandning',
       'Passar både Xbox One och Xbox Series X/S handkontroller',
-      'Lätt att montera utan lödning'
+      'Lätt att montera utan lödning',
+      'Monteringstjänst i verkstad: Vi byter dina spakhattar för 99 kr inkl. delar!'
     ],
     specs: [
       { label: 'Antal', value: '2 st (1 par)' },
       { label: 'Färg', value: 'Svart' },
       { label: 'Design', value: 'Skålad mitt med diamantmönstrad ytterkant' },
       { label: 'Kompatibilitet', value: 'Xbox Series X/S (1914), Xbox One (1537, 1697, 1708)' },
-      { label: 'Installation', value: 'Tryckmontering på spakaxel' }
+      { label: 'Installation', value: 'Tryckmontering på spakaxel (eller byte hos oss för 99 kr)' }
     ],
     images: [
       '/img/products/parts/Xbox series or xbox one thumbcaps/PXL_20261012_161448704.MP.jpg'
+    ]
+  },
+
+  // --- Tjänst / Byte 13: Thumbcap-byte för PlayStation (PS1, PS2, PS3, PS4, PS5) ---
+  {
+    slug: 'thumbcap-byte-playstation',
+    title: 'Thumbcap-byte – PlayStation 1, 2, 3, 4 & 5 Handkontroll',
+    price: 99,
+    category: 'reservdelar',
+    status: 'in_stock',
+    badge: '🛠️ Byte & Montering',
+    condition: 'Fabriksnya delar + Professionell montering',
+    warranty: 'Passforms- & funktionsgaranti från mkFix',
+    shortDescription: 'Slitna, spruckna eller klibbiga spakhattar på din PlayStation-kontroll? Vi byter båda spakhattarna till fabriksnya OEM-thumbcaps i vår Malmö-verkstad eller via PostNord.',
+    description: [
+      'Är spakarna på din PlayStation-kontroll utslitna, hala eller har gummit börjat lossna och bli klibbigt? Med vårt thumbcap-byte får din favoritkontroll fabriksfräscht grepp och full precision igen.',
+      'Vi demonterar din kontroll varsamt i vår Malmö-verkstad, rengör spakaxlarna och monterar ett par splitternya spakhattar av OEM-kvalitet med perfekt passform.',
+      'Gäller alla generationer av PlayStation: PS1 DualShock, PS2 DualShock 2, PS3 DualShock 3, PS4 DualShock 4 samt PlayStation 5 DualSense. Lämna in i Malmö eller skicka in via PostNord från hela Sverige!'
+    ],
+    features: [
+      'Komplett byte av båda spakhattarna (vänster & höger analogspak)',
+      'Fabriksnya spakhattar i originalkvalitet och OEM-profil ingår',
+      'Professionell och skonsam demontering och montering i verkstad',
+      'Passar PlayStation 1, PlayStation 2, PlayStation 3, PlayStation 4 och PlayStation 5',
+      'Snabb hantering – klart på ca 15–30 minuter vid inlämning i Malmö',
+      'Kan även skickas in spårbart via PostNord'
+    ],
+    specs: [
+      { label: 'Tjänst', value: 'Thumbcap-byte / Montering av nya spakhattar' },
+      { label: 'Pris', value: '99 kr (inklusive nya spakhattar & arbete)' },
+      { label: 'Kompatibilitet', value: 'PS1, PS2, PS3, PS4 & PS5 DualSense' },
+      { label: 'Leveranstid', value: 'Ca 15–30 min i Malmö / Samma dag vid post' },
+      { label: 'Inlämning', value: 'Verkstad i Malmö eller spårbart via PostNord' }
+    ],
+    images: [
+      '/img/products/parts/Playstation 5 thumbcaps/PXL_20261012_161200488.MP.jpg',
+      '/img/products/parts/Playstation 4 thumbcaps/PXL_20261012_161357051.MP.jpg',
+      '/img/products/parts/Playstation 1 playstation 2 thumbcaps/PXL_20261012_161605160.MP.jpg'
+    ]
+  },
+
+  // --- Tjänst / Byte 14: Thumbcap-byte för Xbox (Xbox 360, Xbox One, Xbox Series) ---
+  {
+    slug: 'thumbcap-byte-xbox',
+    title: 'Thumbcap-byte – Xbox 360, Xbox One & Xbox Series Handkontroll',
+    price: 99,
+    category: 'reservdelar',
+    status: 'in_stock',
+    badge: '🛠️ Byte & Montering',
+    condition: 'Fabriksnya delar + Professionell montering',
+    warranty: 'Passforms- & funktionsgaranti från mkFix',
+    shortDescription: 'Har gummit eller grepprickarna på din Xbox-kontroll slitits ut? Vi byter ut båda spakhattarna mot fabriksnya thumbcaps för Xbox 360, One eller Series för 99 kr.',
+    description: [
+      'Slitna analogspakar är ett av de vanligaste problemen på Xbox-kontroller. På Xbox 360 nöts de fyra grepprickarna snabbt ner till hårdplast, och på Xbox One & Series X/S fläks den räfflade ytterringen ofta av.',
+      'Vi byter ut båda dina slitna spakhattar mot helt nya OEM-spakhattar i vår Malmö-verkstad så att du återfår det fasta och sköna greppet under intensiva spelsessioner.',
+      'Gäller samtliga Xbox-generationer: Microsoft Xbox 360 (svarta eller grå hattar), Xbox One (modell 1537, 1697, 1708) samt Xbox Series X/S (modell 1914). Lämna in på plats i Malmö eller skicka via PostNord!'
+    ],
+    features: [
+      'Komplett byte av båda spakhattarna (vänster & höger analogspak)',
+      'Nya fabriksnya spakhattar av OEM-kvalitet ingår i priset',
+      'Valmöjlighet: Klassiska svarta eller grå spakhattar för Xbox 360',
+      'Texturerade OEM-spakhattar för Xbox One & Xbox Series X/S',
+      'Professionell demontering och återmontering utan att skada skalet',
+      'Kan kombineras med service, rengöring eller TMR/Hall Effect-uppgradering'
+    ],
+    specs: [
+      { label: 'Tjänst', value: 'Thumbcap-byte / Montering av nya spakhattar' },
+      { label: 'Pris', value: '99 kr (inklusive nya spakhattar & arbete)' },
+      { label: 'Kompatibilitet', value: 'Xbox 360, Xbox One, Xbox Series X/S' },
+      { label: 'Leveranstid', value: 'Ca 15–30 min i Malmö / Samma dag vid post' },
+      { label: 'Inlämning', value: 'Verkstad i Malmö eller spårbart via PostNord' }
+    ],
+    images: [
+      '/img/products/parts/Xbox series or xbox one thumbcaps/PXL_20261012_161448704.MP.jpg',
+      '/img/products/parts/Xbox 360 thumbcaps black/PXL_20261012_161520716.MP.jpg',
+      '/img/products/parts/xbox 360 thumbcaps gray/PXL_20261012_161620315.MP.jpg'
     ]
   },
 
