@@ -283,6 +283,52 @@ export const products: Product[] = [
     ]
   },
 
+  // --- 190: PS4 DualShock 4 Jet Black – TMR #190 ---
+  {
+    slug: 'ps4-dualshock-4-jet-black-tmr-190',
+    title: 'Sony PlayStation 4 DualShock 4 V2 – Jet Black – TMR (#190)',
+    price: 499,
+    category: 'kontroller',
+    status: 'in_stock',
+    badge: '🧲 TMR Elektromagnetisk',
+    condition: 'Professionellt renoverad & TMR-uppgraderad',
+    warranty: '6 månaders full funktionsgaranti från mkFix',
+    shortDescription: 'Klassisk Sony PlayStation 4 DualShock 4 V2 i Jet Black (#190). Uppgraderad med elektromagnetiska K-Silver TMR-joysticks och hårdvarukalibrerad till fantastiska 5.1% / 5.6% felmarginal. Helt immun mot stick drift!',
+    description: [
+      'Original Sony PlayStation 4 DualShock 4 V2 i stilrent Jet Black-utförande (inventarienummer #190), professionellt genomgången och förädlad i vår Malmö-verkstad.',
+      'Kontrollen har fått båda sina analoga spakar utbytta mot banbrytande K-Silver TMR-joysticks (Tunneling Magnetoresistive). TMR är marknadens mest avancerade sensorteknik som läser av spakrörelser kontaktlöst via magnetfält istället för fysiska kolbanor. Detta ger silkeslen precision och gör kontrollen fullständigt immun mot mekaniskt slitage och stick drift.',
+      'Spakarna är hårdvarukalibrerade i testbänk till exceptionella 5.1% (vänster) och 5.6% (höger) cirkuläritetsfelmarginal med perfekt återgång till center (grön centrering). Kontrollen har genomgått full service, rengjorts grundligt och hårdvarutestats inför försäljning.'
+    ],
+    features: [
+      'Splitternya elektromagnetiska K-Silver TMR-joysticks installerade via mikrolödning',
+      'Helt immun mot framtida stick drift och mekaniskt slitage',
+      'Hårdvarukalibrerad till enastående 5.1% / 5.6% felmarginal',
+      'DualShock 4 V2-modell (CUH-ZCT2E) med ljuslist i touchplattan',
+      'Full funktionalitet: Touchpad, gyro/rörelsesensor, 3.5 mm headsetuttag och vibration',
+      'Total invändig och utvändig rengöring samt funktionskontroll',
+      'Kompatibel med PlayStation 4, PC (Steam/Windows), Mac, iOS och Android',
+      '6 månaders full funktionsgaranti från mkFix'
+    ],
+    specs: [
+      { label: 'Plattform', value: 'PlayStation 4, PC (Steam/Windows), Mac, iOS, Android' },
+      { label: 'Sensor-teknik', value: 'K-Silver TMR (Tunneling Magnetoresistive)' },
+      { label: 'Modell', value: 'Sony DualShock 4 V2 (CUH-ZCT2E, #190)' },
+      { label: 'Färg', value: 'Jet Black (Svart)' },
+      { label: 'Kalibrering', value: '5.1% vänster / 5.6% höger felmarginal' },
+      { label: 'Anslutning', value: 'Bluetooth & Micro-USB' },
+      { label: 'Headsetuttag', value: '3.5 mm stereojack' },
+      { label: 'Skick', value: 'Mycket fint skick / Nyuppgraderad med TMR' }
+    ],
+    images: [
+      '/img/products/190/PXL_20261020_170742833.MP.jpg',
+      '/img/products/190/PXL_20261020_170750103.MP.jpg',
+      '/img/products/190/PXL_20261020_170753761.MP.jpg',
+      '/img/products/190/PXL_20261020_170758960.MP.jpg',
+      '/img/products/190/PXL_20261020_164659906.MP.jpg',
+      '/img/products/190/Screenshot 2026-10-20 190711.png'
+    ]
+  },
+
   // --- 208: PS4 DualShock 4 Wave Blue – TMR + USB-C + 2500mAh #208 ---
   {
     slug: 'ps4-dualshock-4-wave-blue-tmr-usbc-208',
@@ -329,6 +375,49 @@ export const products: Product[] = [
       '/img/products/208/20261016_193522.jpg',
       '/img/products/208/20261016_180222.jpg',
       '/img/products/208/Screenshot 2026-10-16 194012.png'
+    ]
+  },
+
+  // --- 190: PS4 DualShock 4 Jet Black – TMR #190 ---
+  {
+    slug: 'ps4-dualshock-4-jet-black-tmr-209',
+    title: 'Sony PlayStation 4 DualShock 4 V2 – Jet Black – TMR (#209)',
+    price: 499,
+    category: 'kontroller',
+    status: 'in_stock',
+    badge: '🧲 TMR Elektromagnetisk',
+    condition: 'Professionellt renoverad & TMR-uppgraderad',
+    warranty: '6 månaders full funktionsgaranti från mkFix',
+    shortDescription: 'Klassisk Sony PlayStation 4 DualShock 4 V2 i Jet Black (#209). Uppgraderad med elektromagnetiska K-Silver TMR-joysticks och hårdvarukalibrerad. Helt immun mot stick drift!',
+    description: [
+      'Original Sony PlayStation 4 DualShock , professionellt genomgången och förädlad i vår Malmö-verkstad.',
+      'Kontrollen har fått båda sina analoga spakar utbytta mot banbrytande K-Silver TMR-joysticks (Tunneling Magnetoresistive). TMR är marknadens mest avancerade sensorteknik som läser av spakrörelser kontaktlöst via magnetfält istället för fysiska kolbanor. Detta ger silkeslen precision och gör kontrollen fullständigt immun mot mekaniskt slitage och stick drift.',
+      'Spakarna är hårdvarukalibrerade i testbänk med perfekt återgång till center (grön centrering). Kontrollen har genomgått full service, rengjorts grundligt och hårdvarutestats inför försäljning.'
+    ],
+    features: [
+      'Splitternya elektromagnetiska K-Silver TMR-joysticks installerade via mikrolödning',
+      'Helt immun mot framtida stick drift och mekaniskt slitage',
+      'DualShock 4 V2-modell (CUH-ZCT2E) med ljuslist i touchplattan',
+      'Full funktionalitet: Touchpad, gyro/rörelsesensor, 3.5 mm headsetuttag och vibration',
+      'Total invändig och utvändig rengöring samt funktionskontroll',
+      'Kompatibel med PlayStation 4, PC (Steam/Windows), Mac, iOS och Android',
+      '6 månaders full funktionsgaranti från mkFix'
+    ],
+    specs: [
+      { label: 'Plattform', value: 'PlayStation 4, PC (Steam/Windows), Mac, iOS, Android' },
+      { label: 'Sensor-teknik', value: 'K-Silver TMR (Tunneling Magnetoresistive)' },
+      { label: 'Färg', value: 'Jet Black (Svart)' },
+      { label: 'Anslutning', value: 'Bluetooth & Micro-USB' },
+      { label: 'Headsetuttag', value: '3.5 mm stereojack' },
+      { label: 'Skick', value: 'Mycket fint skick / Nyuppgraderad med TMR' }
+    ],
+    images: [
+      '/img/products/209/PXL_20261020_181532153.MP.jpg',
+      '/img/products/209/PXL_20261020_180500904.MP.jpg',
+      '/img/products/209/PXL_20261020_181539717.MP.jpg',
+      '/img/products/209/PXL_20261020_181547445.MP.jpg',
+      '/img/products/209/PXL_20261020_181551802.MP.jpg',
+      '/img/products/209/Screenshot 2026-10-20 201431.png'
     ]
   },
 

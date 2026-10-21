@@ -5,99 +5,154 @@ const pathname = Astro.url.pathname;
 // Helper function to check if a link is active
 // This regex handles trailing slashes perfectly (e.g., /blog vs /blog/)
 const isActive = (path: string) => {
-  if (path === '/' && pathname === '/') return true;
-  if (path !== '/' && pathname.startsWith(path)) return true;
+  if (path === "/" && pathname === "/") return true;
+  if (path !== "/" && pathname.startsWith(path)) return true;
   return false;
 };
 ---
+
 <header>
-    <div class="container">
-        <nav>
-            <a href="/" class="logo">mkFix</a>
+  <div class="container">
+    <nav>
+      <a href="/" class="logo">mkFix</a>
 
-            <input type="checkbox" id="menu-toggle" class="menu-toggle" aria-label="Meny">
-            <label for="menu-toggle" class="menu-icon" aria-label="Öppna eller stäng meny">
-                <span></span>
-                <span></span>
-                <span></span>
-            </label>
+      <!-- Move the accessible label to the checkbox input and clean the label -->
+      <input
+        type="checkbox"
+        id="menu-toggle"
+        class="menu-toggle"
+        aria-label="Öppna eller stäng meny"
+      />
+      <label for="menu-toggle" class="menu-icon" aria-hidden="true">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
 
-            <label for="menu-toggle" class="menu-overlay" aria-hidden="true"></label>
+      <label for="menu-toggle" class="menu-overlay" aria-hidden="true"></label>
 
-            <ul class="nav-links">
-                <li class="dropdown">
-                    <a href="/#tjanster" class="dropbtn"><span>Tjänster</span> <span class="drop-arrow">▼</span></a>
-                    <ul class="dropdown-content">
-                        <li><a href="/foretag" style="color: var(--accent); font-weight: 700;">🏢 Företag &amp; Spelbutiker (Bulk)</a></li>
-                        <li><a href="/vi-koper-kontroller" style="color: #4ade80; font-weight: 700;">💰 Vi köper dina kontroller</a></li>
-                        <li style="border-top: 1px solid var(--border); margin: 5px 0;"></li>
-                        <li><a href="/tjanster/hdmi-port-byte" style="color: var(--accent); font-weight: 600;">🔌 HDMI-port Byte (PS5, PS4, Xbox)</a></li>
-                        <li><a href="/tjanster/tmr-sticks">Vad är TMR Sticks?</a></li>
-                        <li><a href="/tjanster/joycon-reparation">Joy-Con Drift &amp; TMR</a></li>
-                        <li><a href="/tjanster/konsolrengoring">Konsolrengöring &amp; Kylpasta</a></li>
-                        <li><a href="/tjanster/custom-mods">Custom Mods &amp; Triggers</a></li>
-                        <li><a href="/tjanster/cartridge-batteribyte">Cartridge Batteribyte</a></li>
-                        <li><a href="/tjanster/elektronikreparation">Elektronikreparation</a></li>
-                        <li><a href="/tjanster/ps2-reparation">PS2 Flex-PCB &amp; Alps Swap</a></li>
-                        <li><a href="/tjanster/ps1-ps2-reparation">PS1/2 Joysticks</a></li>
-                        <li><a href="/tjanster/xbox-360-hall-effect">Xbox 360 Hall effect</a></li>
-                        <li><a href="/tjanster/game-gear">Game Gear recap</a></li>
-                        <li><a href="/tjanster/gamecube-picoboot">GameCube PicoBoot</a></li>
-                        <li style="border-top: 1px solid var(--border); margin: 5px 0;"></li>
-                        <li><a href="/tjanster/skicka-in">Skicka via PostNord</a></li>
-                        <li><a href="/#tjanster">Visa alla priser</a></li>
-                        <li><a href="/tjanster/gratis-reparation">Gratis reparation</a></li>
-                    </ul>
-                </li>
-                <li><a href="/foretag" style={isActive('/foretag') ? 'color: var(--accent); font-weight: 700;' : ''}>Företag / B2B</a></li>
-                <li><a href="/#youtube">YouTube</a></li>
-                <li><a href="/blog">Blog, Nyheter &amp; Case studies</a></li>
-                <li><a href="/#boka" class="nav-cta">Boka Nu</a></li>
-                <li><a href="/produkter" class="nav-cta">Butik</a></li>
-            </ul>
+      <ul class="nav-links">
+        <li class="dropdown">
+          <a href="/#tjanster" class="dropbtn"
+            ><span>Tjänster</span> <span class="drop-arrow">▼</span></a
+          >
+          <ul class="dropdown-content">
+            <li>
+              <a href="/foretag" style="color: var(--accent); font-weight: 700;"
+                >🏢 Företag &amp; Spelbutiker (Bulk)</a
+              >
+            </li>
+            <li>
+              <a
+                href="/vi-koper-kontroller"
+                style="color: #4ade80; font-weight: 700;"
+                >💰 Vi köper dina kontroller</a
+              >
+            </li>
+            <li style="border-top: 1px solid var(--border); margin: 5px 0;">
+            </li>
+            <li>
+              <a
+                href="/tjanster/hdmi-port-byte"
+                style="color: var(--accent); font-weight: 600;"
+                >🔌 HDMI-port Byte (PS5, PS4, Xbox)</a
+              >
+            </li>
+            <li><a href="/tjanster/tmr-sticks">Vad är TMR Sticks?</a></li>
+            <li>
+              <a href="/tjanster/joycon-reparation">Joy-Con Drift &amp; TMR</a>
+            </li>
+            <li>
+              <a href="/tjanster/konsolrengoring"
+                >Konsolrengöring &amp; Kylpasta</a
+              >
+            </li>
+            <li>
+              <a href="/tjanster/custom-mods">Custom Mods &amp; Triggers</a>
+            </li>
+            <li>
+              <a href="/tjanster/cartridge-batteribyte">Cartridge Batteribyte</a
+              >
+            </li>
+            <li>
+              <a href="/tjanster/elektronikreparation">Elektronikreparation</a>
+            </li>
+            <li>
+              <a href="/tjanster/ps2-reparation">PS2 Flex-PCB &amp; Alps Swap</a
+              >
+            </li>
+            <li><a href="/tjanster/ps1-ps2-reparation">PS1/2 Joysticks</a></li>
+            <li>
+              <a href="/tjanster/xbox-360-hall-effect">Xbox 360 Hall effect</a>
+            </li>
+            <li><a href="/tjanster/game-gear">Game Gear recap</a></li>
+            <li><a href="/tjanster/gamecube-picoboot">GameCube PicoBoot</a></li>
+            <li style="border-top: 1px solid var(--border); margin: 5px 0;">
+            </li>
+            <li><a href="/tjanster/skicka-in">Skicka via PostNord</a></li>
+            <li><a href="/#tjanster">Visa alla priser</a></li>
+            <li><a href="/tjanster/gratis-reparation">Gratis reparation</a></li>
+          </ul>
+        </li>
+        <li>
+          <a
+            href="/foretag"
+            style={isActive("/foretag")
+              ? "color: var(--accent); font-weight: 700;"
+              : ""}>Företag / B2B</a
+          >
+        </li>
+        <li><a href="/#youtube">YouTube</a></li>
+        <li><a href="/blog">Blog, Nyheter &amp; Case studies</a></li>
+        <li><a href="/#boka" class="nav-cta">Boka Nu</a></li>
+        <li><a href="/produkter" class="nav-cta">Butik</a></li>
+      </ul>
 
-            <div class="nav-city-desktop">Malmö | Sverige</div>
-        </nav>
-    </div>
+      <div class="nav-city-desktop">Malmö | Sverige</div>
+    </nav>
+  </div>
 </header>
 
 <script is:inline>
-  (function() {
+  (function () {
     function initMenu() {
-      const menuToggle = document.getElementById('menu-toggle');
-      const navLinks = document.querySelector('.nav-links');
-      const dropdown = document.querySelector('.dropdown');
-      const dropbtn = document.querySelector('.dropbtn');
+      const menuToggle = document.getElementById("menu-toggle");
+      const navLinks = document.querySelector(".nav-links");
+      const dropdown = document.querySelector(".dropdown");
+      const dropbtn = document.querySelector(".dropbtn");
 
       if (!menuToggle) return;
 
-      menuToggle.addEventListener('change', () => {
+      menuToggle.addEventListener("change", () => {
         if (menuToggle.checked) {
-          document.body.classList.add('menu-open');
+          document.body.classList.add("menu-open");
         } else {
-          document.body.classList.remove('menu-open');
+          document.body.classList.remove("menu-open");
         }
       });
 
       if (navLinks) {
-        navLinks.querySelectorAll('a').forEach((link) => {
-          link.addEventListener('click', (e) => {
-            if (link.classList.contains('dropbtn') && window.innerWidth <= 850) {
+        navLinks.querySelectorAll("a").forEach((link) => {
+          link.addEventListener("click", (e) => {
+            if (
+              link.classList.contains("dropbtn") &&
+              window.innerWidth <= 850
+            ) {
               e.preventDefault();
               if (dropdown) {
-                dropdown.classList.toggle('is-collapsed');
+                dropdown.classList.toggle("is-collapsed");
               }
               return;
             }
             menuToggle.checked = false;
-            document.body.classList.remove('menu-open');
+            document.body.classList.remove("menu-open");
           });
         });
       }
     }
 
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', initMenu);
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", initMenu);
     } else {
       initMenu();
     }
