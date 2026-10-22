@@ -14,7 +14,18 @@ const pageTitle = frontmatter.title.includes("mkFix")
   ? frontmatter.title
   : `${frontmatter.title} | mkFix Blogg`;
 
-const canonicalUrl = frontmatter.canonicalUrl || Astro.url.href;
+const rawCanonicalUrl = frontmatter.canonicalUrl || Astro.url.href;
+const canonicalUrl = (() => {
+  try {
+    const parsed = new URL(rawCanonicalUrl, "https://mkfix.se");
+    if (!parsed.pathname.endsWith("/") && !parsed.pathname.split("/").pop()?.includes(".")) {
+      parsed.pathname = `${parsed.pathname}/`;
+    }
+    return parsed.href;
+  } catch {
+    return rawCanonicalUrl.endsWith("/") ? rawCanonicalUrl : `${rawCanonicalUrl}/`;
+  }
+})();
 
 const blogPostingSchema = {
   "@context": "https://schema.org",

@@ -17,7 +17,7 @@ interface Props {
 const {
   title = "Laga Handkontroll Malmö | Stick Drift & TMR Fix | mkFix",
   description = "Fixa stick drift permanent i Malmö! TMR & Hall Effect uppgraderingar för PS5, Xbox och Switch. Snabbt med 6 månaders garanti.",
-  canonicalUrl = Astro.url.href, // Dynamically gets current URL
+  canonicalUrl: propCanonicalUrl,
   keywords = "stick drift repair malmö, laga handkontroll malmö, TMR sensor upgrade, laga PS5 kontroll malmö, nintendo switch lagning",
   ogTitle = "mkFix - Säg hejdå till Stick Drift",
   ogDescription = "Vi uppgraderar din kontroll till nästa nivå med TMR-stickor och custom mods i Malmö.",
@@ -27,12 +27,26 @@ const {
   jsonLd,
 } = Astro.props;
 
+// Ensure canonical URL always has a trailing slash for directory routes
+const rawCanonical = propCanonicalUrl || Astro.url.href;
+const canonicalUrl = (() => {
+  try {
+    const parsed = new URL(rawCanonical, "https://mkfix.se");
+    if (!parsed.pathname.endsWith("/") && !parsed.pathname.split("/").pop()?.includes(".")) {
+      parsed.pathname = `${parsed.pathname}/`;
+    }
+    return parsed.href;
+  } catch {
+    return rawCanonical.endsWith("/") ? rawCanonical : `${rawCanonical}/`;
+  }
+})();
+
 const defaultSchema = {
   "@context": "https://schema.org",
   "@type": "ElectronicsRepairShop",
   "name": "mkFix Malmö",
   "image": ogImage,
-  "url": "https://mkfix.se",
+  "url": "https://mkfix.se/",
   "telephone": "+46790320605",
   "priceRange": "SEK",
   "address": {

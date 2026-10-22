@@ -65,11 +65,11 @@ const productSchema = {
     "price": product.price,
     "priceCurrency": "SEK",
     "availability": schemaAvailability,
-    "url": `https://mkfix.se/produkter/${product.slug}`,
+    "url": `https://mkfix.se/produkter/${product.slug}/`,
     "seller": {
       "@type": "Organization",
       "name": "mkFix",
-      "url": "https://mkfix.se"
+      "url": "https://mkfix.se/"
     }
   }
 };
@@ -82,7 +82,7 @@ const productSchema = {
   ogTitle={`${product.title} | ${product.price} kr | mkFix`}
   ogDescription={product.shortDescription}
   ogImage={product.images[0]}
-  canonicalUrl={`https://mkfix.se/produkter/${product.slug}`}
+  canonicalUrl={`https://mkfix.se/produkter/${product.slug}/`}
   jsonLd={productSchema}
 >
   <Header />
@@ -92,7 +92,7 @@ const productSchema = {
     <nav class="breadcrumb" aria-label="Brödsmulor">
       <a href="/">Hem</a>
       <span class="sep">/</span>
-      <a href="/produkter">Butik &amp; Galleri</a>
+      <a href="/produkter/">Butik &amp; Galleri</a>
       <span class="sep">/</span>
       <span class="current">{product.title}</span>
     </nav>

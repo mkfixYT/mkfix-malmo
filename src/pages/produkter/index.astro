@@ -18,7 +18,7 @@ const itemListSchema = {
   "itemListElement": products.map((product, index) => ({
     "@type": "ListItem",
     "position": index + 1,
-    "url": `https://mkfix.se/produkter/${product.slug}`,
+    "url": `https://mkfix.se/produkter/${product.slug}/`,
     "name": product.title
   }))
 };
@@ -30,7 +30,7 @@ const itemListSchema = {
   keywords="köpa laga handkontroll, ps5 dualsense tmr, k-silver tmr reservdelar, nintendo switch joy-con, sega game gear recap kit, cr2025 batteribyte pokemon, mkfix butik malmö"
   ogTitle="mkFix Butik & Produktgalleri | Kontroller & Reservdelar"
   ogDescription="Handbyggda och driftfria kontroller, noggrant testade reservdelar och retrokonsoler. 6 mån garanti & snabb leverans."
-  canonicalUrl="https://mkfix.se/produkter"
+  canonicalUrl="https://mkfix.se/produkter/"
   jsonLd={itemListSchema}
 >
   <Header />
