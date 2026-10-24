@@ -925,6 +925,156 @@ export const products: Product[] = [
     ]
   },
 
+  // --- Tjänst 15: Service & Rengöring samt Liquid Metal – PlayStation 5 ---
+  {
+    slug: 'service-rengoring-ps5-liquid-metal',
+    title: 'Service & Rengöring samt Liquid Metal – PlayStation 5',
+    price: 649,
+    category: 'reservdelar',
+    status: 'in_stock',
+    badge: '⚡ Liquid Metal & Service',
+    condition: 'Professionell djuprengöring & Liquid Metal',
+    warranty: '6 månaders funktionsgaranti från mkFix',
+    shortDescription: 'Låter din PS5 mycket eller varnar för värme? Fullständig invändig djuprengöring av dammfällor och fläkt samt översyn och applicering av Liquid Metal (flytande metall) istället för kylpasta.',
+    description: [
+      'Börjar din PlayStation 5 låta högre under tunga spelsessioner eller stänger av sig? Med tiden samlar fläktar och dammfällor på sig damm, och den fabriksapplicerade flytande metallen kan oxidera eller utveckla torra fläckar mot APU-processorn.',
+      'Hos mkFix i Malmö plockar vi isär hela konsolen metodiskt ner till moderkortet. Vi blåser rent fläkt, chassi och kylflänsar med tryckluft och rengör med isopropanol.',
+      'Därefter görs en fullständig översyn och noggrann applicering av Liquid Metal (flytande metall) för maximal värmeöverföring. Lämna in på plats i Malmö eller skicka in via PostNord från hela Sverige!'
+    ],
+    features: [
+      'Fullständig demontering och djuprengöring av dammfällor, fläkt och kylfläns',
+      'Översyn, borttagning av oxidering och applicering av Liquid Metal (flytande metall) istället för kylpasta',
+      'Sänker arbetstemperaturen och eliminerar höga fläktljud',
+      'Förhindrar thermal throttling och överhettningsavstängningar',
+      'Snabb hantering – klart inom 24–48 timmar i Malmö eller via PostNord',
+      '6 månaders full funktionsgaranti från mkFix'
+    ],
+    specs: [
+      { label: 'Tjänst', value: 'Service & Rengöring samt Liquid Metal' },
+      { label: 'Pris', value: '649 kr (inkl. arbete & flytande metall)' },
+      { label: 'Plattform', value: 'PlayStation 5 (Standard & Digital, Fat & Slim)' },
+      { label: 'Kylmedium', value: 'Liquid Metal (Flytande metall)' },
+      { label: 'Leveranstid', value: '24–48 timmar i Malmö / 1–2 vardagar vid post' },
+      { label: 'Inlämning', value: 'Verkstad i Malmö eller spårbart via PostNord' }
+    ],
+    images: [
+      '/img/products/parts/Playstation 5 thumbcaps/PXL_20261012_161200488.MP.jpg'
+    ]
+  },
+
+  // --- Tjänst 16: Service & Rengöring samt Kylarpastabyte – Xbox Series X/S ---
+  {
+    slug: 'service-rengoring-kylarpastabyte-xbox-series',
+    title: 'Service & Rengöring samt Kylarpastabyte – Xbox Series X/S',
+    price: 649,
+    category: 'reservdelar',
+    status: 'in_stock',
+    badge: '⚡ Tyst & Sval Konsol',
+    condition: 'Professionell djuprengöring & kylarpastabyte',
+    warranty: '6 månaders funktionsgaranti från mkFix',
+    shortDescription: 'Få en tyst och sval Xbox Series X eller Series S! Vi demonterar konsolen, blåser rent kylflänsen och fläkten samt applicerar färsk premium kylpasta.',
+    description: [
+      'Xbox Series X och Series S har kraftfulla kylsystem med stora kylflänsar och luftkanaler som drar åt sig damm. Samtidigt torkar fabrikens kylpasta med tiden ut, vilket leder till högre fläktljud och temperaturer.',
+      'Vi på mkFix plockar isär konsolen, rengör fläkt, chassi och lameller grundligt samt byter ut den gamla torkade pastan mot ny högpresterande premium-kylpasta.',
+      'Konsolen testkörs under belastning så att fläkten återgår till normal tyst drift. Lämna in i Malmö eller skicka via PostNord!'
+    ],
+    features: [
+      'Komplett demontering och djuprengöring av kylfläns, fläkt och luftkanaler',
+      'Avlägsning av gammal uttorkad kylpasta och applicering av ny högpresterande premium-kylpasta',
+      'Sänker arbetstemperaturen på APU/GPU markant',
+      'Garanterar stabil drift utan överhettningsavstängningar',
+      'Klart inom 24–48 timmar i Malmö eller spårbart via PostNord',
+      '6 månaders full funktionsgaranti från mkFix'
+    ],
+    specs: [
+      { label: 'Tjänst', value: 'Service & Rengöring samt Kylarpastabyte' },
+      { label: 'Pris', value: '649 kr (inkl. arbete & kylpasta)' },
+      { label: 'Plattform', value: 'Xbox Series X, Xbox Series S' },
+      { label: 'Kylmedium', value: 'Premium kylpasta' },
+      { label: 'Leveranstid', value: '24–48 timmar i Malmö / 1–2 vardagar vid post' },
+      { label: 'Inlämning', value: 'Verkstad i Malmö eller spårbart via PostNord' }
+    ],
+    images: [
+      '/img/products/parts/Xbox series or xbox one thumbcaps/PXL_20261012_161448704.MP.jpg'
+    ]
+  },
+
+  // --- Tjänst 17: Service & Rengöring samt Kylarpastabyte – PlayStation 4 & Xbox One ---
+  {
+    slug: 'service-rengoring-kylarpastabyte-ps4-xbox-one',
+    title: 'Service & Rengöring samt Kylarpastabyte – PlayStation 4 & Xbox One',
+    price: 649,
+    category: 'reservdelar',
+    status: 'in_stock',
+    badge: '⚡ Jetplan-Fix',
+    condition: 'Professionell djuprengöring & kylarpastabyte',
+    warranty: '6 månaders funktionsgaranti från mkFix',
+    shortDescription: 'Låter din PS4 eller Xbox One som ett jetplan? Fullständig invändig djuprengöring av fläkt och kylfläns samt applicering av ny premium-kylpasta för 649 kr.',
+    description: [
+      'PlayStation 4 och Xbox One är ökända för att samla massiva mängder damm och för att den ursprungliga kylpastan blir stenhård efter några års användning. Detta tvingar fläkten att rusa på maximal hastighet.',
+      'Hos mkFix demonterar vi enheten, avlägsnar dammproppar från kylflänsarna med tryckluft och lägger på ny premium-kylpasta.',
+      'Resultatet är en konsol som blir lika tyst och driftsäker som när den var ny.'
+    ],
+    features: [
+      'Fullständig isärtagning och rengöring av damm från fläkt och kylfläns',
+      'Ny premium kylpasta med hög värmeledningsförmåga applicerad',
+      'Eliminerar det klassiska "jetplansljudet" vid tunga spelsessioner',
+      'Förhindrar thermal throttling och permanent överhettningsskada',
+      'Klart inom 24–48 timmar i Malmö eller spårbart via PostNord',
+      '6 månaders full funktionsgaranti från mkFix'
+    ],
+    specs: [
+      { label: 'Tjänst', value: 'Service & Rengöring samt Kylarpastabyte' },
+      { label: 'Pris', value: '649 kr (inkl. arbete & kylpasta)' },
+      { label: 'Plattform', value: 'PS4, PS4 Slim, PS4 Pro, Xbox One, Xbox One S, Xbox One X' },
+      { label: 'Kylmedium', value: 'Premium kylpasta' },
+      { label: 'Leveranstid', value: '24–48 timmar i Malmö / 1–2 vardagar vid post' },
+      { label: 'Inlämning', value: 'Verkstad i Malmö eller spårbart via PostNord' }
+    ],
+    images: [
+      '/img/products/parts/Playstation 4 thumbcaps/PXL_20261012_161357051.MP.jpg',
+      '/img/products/parts/Xbox series or xbox one thumbcaps/PXL_20261012_161448704.MP.jpg'
+    ]
+  },
+
+  // --- Tjänst 18: Service & Rengöring samt Kylarpastabyte – Xbox 360 ---
+  {
+    slug: 'service-rengoring-kylarpastabyte-xbox-360',
+    title: 'Service & Rengöring samt Kylarpastabyte – Xbox 360',
+    price: 499,
+    category: 'reservdelar',
+    status: 'in_stock',
+    badge: '⚡ Förläng Livslängden',
+    condition: 'Professionell djuprengöring & kylarpastabyte',
+    warranty: '6 månaders funktionsgaranti från mkFix',
+    shortDescription: 'Service och rengöring samt kylarpastabyte på din Xbox 360 för endast 499 kr. Skydda din klassiska konsol mot överhettning och hårdvarufel.',
+    description: [
+      'Xbox 360 är en legendarisk retrokonsol som tyvärr är mycket känslig för hög värme och uttorkad kylpasta. Gammal kylpasta förlorar förmågan att leda bort värme från CPU och GPU, vilket kan leda till permanenta hårdvarufel.',
+      'Vi öppnar din Xbox 360 varsamt, rengör fläktkanaler och kylflänsar från åratal av damm och ersätter den gamla pastan med modern kvalitetskylpasta med överlägsen värmeavledning.',
+      'Ett perfekt underhåll för alla retroentusiaster som vill bevara sin Xbox 360 i topptrim!'
+    ],
+    features: [
+      'Varsam öppning och total rengöring av damm, fläktar och kylflänsar',
+      'Byte av gammal uttorkad kylpasta mot ny färsk premium-kylpasta',
+      'Effektivt skydd mot överhettning och värmerelaterade driftstopp',
+      'Tystare och stabilare fläktgång',
+      'Passar alla Xbox 360-modeller (Xbox 360 Fat med HDMI, Slim och 360 E)',
+      '6 månaders full funktionsgaranti från mkFix'
+    ],
+    specs: [
+      { label: 'Tjänst', value: 'Service & Rengöring samt Kylarpastabyte' },
+      { label: 'Pris', value: '499 kr (inkl. arbete & kylpasta)' },
+      { label: 'Plattform', value: 'Xbox 360 Fat (med HDMI), Xbox 360 Slim, Xbox 360 E' },
+      { label: 'Kylmedium', value: 'Premium kylpasta' },
+      { label: 'Leveranstid', value: '24–48 timmar i Malmö / 1–2 vardagar vid post' },
+      { label: 'Inlämning', value: 'Verkstad i Malmö eller spårbart via PostNord' }
+    ],
+    images: [
+      '/img/products/parts/Xbox 360 hall effect joysticks/PXL_20261012_161137438.MP.jpg',
+      '/img/products/parts/Xbox 360 thumbcaps black/PXL_20261012_161520716.MP.jpg'
+    ]
+  },
+
   // // --- Reservdel: Sparbatterier för Game Boy & Pokémon (5-pack) ---
   // {
   //   slug: 'cartridge-sparbatterier-cr2025-cr1616',

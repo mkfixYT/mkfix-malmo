@@ -193,6 +193,28 @@ const faqSchema = {
                         <span class="service-price">99 <small>kr</small></span>
                         <p class="service-desc">Slitna, glatta eller skadade spakhattar? Vi byter ut båda spakhattarna mot fabriksnya thumbcaps i OEM-kvalitet för PS5 DualSense eller Xbox Series.</p>
                     </div>
+                    <div class="service-card featured">
+                        <div class="tags-row">
+                            <span class="service-tag new-tag">✨ KONSOLSERVICE</span>
+                            <span class="service-tag time">⚡ 24–48 tim</span>
+                        </div>
+                        <p class="service-name">Service, Rengöring &amp; Liquid Metal (PS5)</p>
+                        <span class="service-price">649 <small>kr</small></span>
+                        <p class="service-desc">Djuprengöring av dammfällor, fläkt och kylfläns samt översyn och applicering av Liquid Metal (flytande metall) istället för kylpasta för optimal kyleffekt och tyst konsol. <br><br>
+                            <a href="/tjanster/konsolrengoring" style="color: var(--accent); font-weight: bold;">Läs mer om konsolrengöring →</a>
+                        </p>
+                    </div>
+                    <div class="service-card featured">
+                        <div class="tags-row">
+                            <span class="service-tag new-tag">✨ KONSOLSERVICE</span>
+                            <span class="service-tag time">⚡ 24–48 tim</span>
+                        </div>
+                        <p class="service-name">Service, Rengöring &amp; Kylarpasta (Xbox Series)</p>
+                        <span class="service-price">649 <small>kr</small></span>
+                        <p class="service-desc">Fullständig demontering, djuprengöring av massiva kylflänsen och fläkten samt applicering av färsk högpresterande kylpasta för Xbox Series X &amp; Series S. <br><br>
+                            <a href="/tjanster/konsolrengoring" style="color: var(--accent); font-weight: bold;">Läs mer om konsolrengöring →</a>
+                        </p>
+                    </div>
                 </div>
             </div>
 
@@ -266,6 +288,17 @@ const faqSchema = {
                         <p class="service-name">Thumbcap-byte (PS4 &amp; Xbox One)</p>
                         <span class="service-price">99 <small>kr</small></span>
                         <p class="service-desc">Mycket vanligt problem där gummit fläks av eller spricker. Vi byter ut dina spakhattar mot nya slitstarka OEM-thumbcaps på PS4 DualShock 4 eller Xbox One.</p>
+                    </div>
+                    <div class="service-card featured">
+                        <div class="tags-row">
+                            <span class="service-tag new-tag">✨ KONSOLSERVICE</span>
+                            <span class="service-tag time">⚡ 24–48 tim</span>
+                        </div>
+                        <p class="service-name">Service, Rengöring &amp; Kylarpasta (PS4 &amp; Xbox One)</p>
+                        <span class="service-price">649 <small>kr</small></span>
+                        <p class="service-desc">Låter din konsol som ett jetplan? Vi utför komplett isärtagning, djuprengöring av fläkt och kylfläns samt byter ut den uttorkade kylpastan mot ny premium-kylpasta. <br><br>
+                            <a href="/tjanster/konsolrengoring" style="color: var(--accent); font-weight: bold;">Läs mer om konsolrengöring →</a>
+                        </p>
                     </div>
                 </div>
             </div>
@@ -398,6 +431,17 @@ const faqSchema = {
                         <span class="service-price">99 <small>kr</small></span>
                         <p class="service-desc">Har de fyra taktila grepprickarna nötts ner? Vi monterar nya svarta eller klassiskt ljusgrå Xbox 360-thumbcaps med perfekt fäste.</p>
                     </div>
+                    <div class="service-card featured">
+                        <div class="tags-row">
+                            <span class="service-tag new-tag">✨ KONSOLSERVICE</span>
+                            <span class="service-tag time">⚡ 24–48 tim</span>
+                        </div>
+                        <p class="service-name">Service, Rengöring &amp; Kylarpasta (Xbox 360)</p>
+                        <span class="service-price">499 <small>kr</small></span>
+                        <p class="service-desc">Grundlig invändig service och rengöring av damm från kylfläns och fläkt samt byte av uttorkad kylpasta. Skyddar mot överhettning och ger tystare drift. <br><br>
+                            <a href="/tjanster/konsolrengoring" style="color: var(--accent); font-weight: bold;">Läs mer om konsolrengöring →</a>
+                        </p>
+                    </div>
                 </div>
             </div>
 
@@ -457,9 +501,9 @@ const faqSchema = {
                 </div>
                 <div class="service-grid">
                     <div class="service-card">
-                        <p class="service-name">Konsolrengöring</p>
+                        <p class="service-name">Konsolservice &amp; Rengöring</p>
                         <span class="service-price">fr. 499 <small>kr</small></span>
-                        <p class="service-desc">Rengöring av fläktar och byte av kylpasta. Få en tystare konsol och längre livslängd. <br><br>
+                        <p class="service-desc">Djuprengöring av fläktar och kylflänsar samt byte av kylpasta (Liquid Metal på PS5). Xbox 360: 499 kr. PS5, Xbox Series, PS4 &amp; Xbox One: 649 kr. <br><br>
                             <a href="/tjanster/konsolrengoring" style="color: var(--accent); font-weight: bold;">Läs mer här →</a>
                         </p>
                     </div>
@@ -606,6 +650,7 @@ const faqSchema = {
         <div class="form-group">
             <select name="fi-text-enhet" aria-label="Välj enhet" required>
                 <option value="" disabled selected>Välj enhet</option>
+                <option value="konsolservice">Service, Rengöring &amp; Kylpasta / Liquid Metal (Konsol)</option>
                 <option value="hdmi-byte">HDMI-port Byte (PS5, PS4, Xbox, Konsol)</option>
                 <option value="ps5">Playstation 5</option>
                 <option value="ps4">Playstation 4</option>
@@ -622,7 +667,7 @@ const faqSchema = {
             </select>
         </div>
         <div class="form-group">
-            <textarea name="fi-text-message" placeholder="Beskriv problemet (t.ex. stick drift, thumbcap-byte, trasig HDMI-port eller knappar)" rows="4" aria-label="Beskriv problemet" required></textarea>
+            <textarea name="fi-text-message" placeholder="Beskriv problemet (t.ex. konsolservice/kylarpasta, stick drift, thumbcap-byte, trasig HDMI-port eller knappar)" rows="4" aria-label="Beskriv problemet" required></textarea>
         </div>
         <div class="form-group">
             <select name="fi-text-contact-me" aria-label="Kontakta mig helst genom" required>
