@@ -1,119 +1,97 @@
-﻿---
+---
 // src/pages/index.astro
 import MainLayout from "../layouts/MainLayout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 interface Props {
-    title?: string;
-    description?: string;
+	title?: string;
+	description?: string;
 }
 const { title, description } = Astro.props;
 
 const websiteSchema = {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    name: "mkFix",
-    url: "https://mkfix.se",
-    description:
-        "Reparation, moddar och uppgradering av kontroller, konsoler och elektronik i Malmö och hela Sverige via PostNord.",
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "mkFix",
+  "url": "https://mkfix.se",
+  "description": "Reparation, moddar och uppgradering av kontroller, konsoler och elektronik i Malmö och hela Sverige via PostNord."
 };
 
 const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: [
-        {
-            "@type": "Question",
-            name: "Hur kan jag vara säker på att jobbet blivit utfört korrekt?",
-            acceptedAnswer: {
-                "@type": "Answer",
-                text: "Jag spelar in alla mina reparationer eller så livestreamar jag dem på YouTube. Kunden får alltid en länk till reparationen om de vill se den för maximal trygghet och transparens.",
-            },
-        },
-        {
-            "@type": "Question",
-            name: "Varför används TMR sticks och vad är det?",
-            acceptedAnswer: {
-                "@type": "Answer",
-                text: "TMR sticks (Tunneling Magnetoresistance) har kontaktlösa magnetiska sensorer som aldrig slits ut mekaniskt och därmed eliminerar stick drift permanent. Traditionella analoga spakar slits ut med tiden när kolspåret skrapas bort.",
-            },
-        },
-        {
-            "@type": "Question",
-            name: "Vad ingår i garantin hos mkFix?",
-            acceptedAnswer: {
-                "@type": "Answer",
-                text: "mkFix lämnar alltid 6 månaders funktionsgaranti på alla reservdelar och utfört arbete (t.ex. TMR-sensorer, lödningar och batteribyten) vid normal användning.",
-            },
-        },
-        {
-            "@type": "Question",
-            name: "Kan jag skicka in min handkontroll om jag inte bor i Malmö?",
-            acceptedAnswer: {
-                "@type": "Answer",
-                text: "Ja! Vi tar emot kontroller via post från hela Sverige varje vecka. Skicka spårbart via PostNord, vi reparerar och returnerar snabbt och tryggt.",
-            },
-        },
-    ],
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Hur kan jag vara säker på att jobbet blivit utfört korrekt?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Jag spelar in alla mina reparationer eller så livestreamar jag dem på YouTube. Kunden får alltid en länk till reparationen om de vill se den för maximal trygghet och transparens."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Varför används TMR sticks och vad är det?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "TMR sticks (Tunneling Magnetoresistance) har kontaktlösa magnetiska sensorer som aldrig slits ut mekaniskt och därmed eliminerar stick drift permanent. Traditionella analoga spakar slits ut med tiden när kolspåret skrapas bort."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Vad ingår i garantin hos mkFix?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "mkFix lämnar alltid 6 månaders funktionsgaranti på alla reservdelar och utfört arbete (t.ex. TMR-sensorer, lödningar och batteribyten) vid normal användning."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kan jag skicka in min handkontroll om jag inte bor i Malmö?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ja! Vi tar emot kontroller via post från hela Sverige varje vecka. Skicka spårbart via PostNord, vi reparerar och returnerar snabbt och tryggt."
+      }
+    }
+  ]
 };
 ---
 
 <MainLayout
-    title="Laga Handkontroll Malmö & PostNord | Stick Drift & TMR Fix | mkFix"
-    description="Fixa stick drift permanent med magnetiska TMR-sensorer för PS5, Xbox & Switch. Verkstad i Malmö & snabb PostNord-service i hela Sverige. 6 mån garanti!"
-    keywords="stick drift repair malmö, laga handkontroll malmö, TMR sensor upgrade, laga PS5 kontroll malmö, nintendo switch lagning, reparation retrospel företag, skicka handkontroll lagning, postnord kontroll reparation"
-    ogTitle="mkFix - Säg hejdå till Stick Drift med TMR"
-    ogDescription="Vi uppgraderar din handkontroll till nästa nivå med magnetiska TMR-sticks i Malmö eller via post från hela Sverige."
-    canonicalUrl="https://mkfix.se/"
-    jsonLd={[websiteSchema, faqSchema]}
+	title="Laga Handkontroll Malmö & PostNord | Stick Drift & TMR Fix | mkFix"
+	description="Fixa stick drift permanent med magnetiska TMR-sensorer för PS5, Xbox & Switch. Verkstad i Malmö & snabb PostNord-service i hela Sverige. 6 mån garanti!"
+	keywords="stick drift repair malmö, laga handkontroll malmö, TMR sensor upgrade, laga PS5 kontroll malmö, nintendo switch lagning, reparation retrospel företag, skicka handkontroll lagning, postnord kontroll reparation"
+	ogTitle="mkFix - Säg hejdå till Stick Drift med TMR"
+	ogDescription="Vi uppgraderar din handkontroll till nästa nivå med magnetiska TMR-sticks i Malmö eller via post från hela Sverige."
+	canonicalUrl="https://mkfix.se/"
+	jsonLd={[websiteSchema, faqSchema]}
 >
-    <Header />
-    <main class="container">
+	<Header />
+	<main class="container">
         <section class="hero">
             <div class="trust-box">
                 <span class="trust-badge">6 MÅN GARANTI</span>
                 <span>Verkstad i Malmö &amp; PostNord från hela Sverige</span>
             </div>
             <h1>Laga & uppgradera handkontroller i Malmö</h1>
-            <p>
-                Har din handkontroll börjat <strong
-                    >drifta, tappa precision eller kännas opålitlig?</strong
-                >
-                Hos <strong>mkFix</strong> jobbar vi med <strong
-                    >reparation och uppgradering av handkontroller</strong
-                >, där vi <strong>fixar stick drift</strong> och <strong
-                    >byter ut slitna komponenter</strong
-                > för att få tillbaka känslan i spelet. <br />
-                Oavsett om det handlar om en <strong>snabb lagning</strong> eller
-                en mer <strong>hållbar TMR-uppgradering</strong> ser vi till att din
-                kontroll fungerar som den ska igen
+            <p>Har din handkontroll börjat <strong>drifta, tappa precision eller kännas opålitlig?</strong>
+                Hos <strong>mkFix</strong> jobbar vi med <strong>reparation och uppgradering av handkontroller</strong>,
+                där vi <strong>fixar stick drift</strong> och <strong>byter ut slitna komponenter</strong> för att få
+                tillbaka känslan i spelet. <br />
+                Oavsett om det handlar om en <strong>snabb lagning</strong> eller en mer <strong>hållbar
+                    TMR-uppgradering</strong> ser vi till att din kontroll fungerar som den ska igen
             </p>
-            <div
-                class="hero-actions"
-                style="display: flex; gap: 1rem; justify-content: center; align-items: center; flex-wrap: wrap; margin-top: 1.5rem;"
-            >
-                <a
-                    href="#boka"
-                    class="contact-method"
-                    style="font-size: 1.15rem; background: var(--accent); color: var(--bg); display: inline-block; padding: 14px 28px; border-radius: 10px; font-weight: 800; text-decoration: none;"
-                    >BOKA DIN REPARATION</a
-                >
-                <a
-                    href="/produkter/"
-                    class="shop-hero-btn"
-                    style="font-size: 1rem; background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.2); color: #fff; display: inline-flex; align-items: center; gap: 8px; padding: 14px 22px; border-radius: 10px; font-weight: 600; text-decoration: none; transition: all 0.2s ease;"
-                >
+            <div class="hero-actions" style="display: flex; gap: 1rem; justify-content: center; align-items: center; flex-wrap: wrap; margin-top: 1.5rem;">
+                <a href="#boka" class="contact-method"
+                    style="font-size: 1.15rem; background: var(--accent); color: var(--bg); display: inline-block; padding: 14px 28px; border-radius: 10px; font-weight: 800; text-decoration: none;">BOKA
+                    DIN REPARATION</a>
+                <a href="/produkter/" class="shop-hero-btn"
+                    style="font-size: 1rem; background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.2); color: #fff; display: inline-flex; align-items: center; gap: 8px; padding: 14px 22px; border-radius: 10px; font-weight: 600; text-decoration: none; transition: all 0.2s ease;">
                     🛒 Köp färdig TMR-kontroll →
                 </a>
             </div>
-            <p
-                style="margin-top: 1rem; font-size: 0.95rem; color: var(--text-dim);"
-            >
-                Bor du inte i Malmö? <a
-                    href="/tjanster/skicka-in/"
-                    style="color: var(--accent); font-weight: 600;"
-                    >Skicka in via PostNord från hela Sverige →</a
-                >
+            <p style="margin-top: 1rem; font-size: 0.95rem; color: var(--text-dim);">
+                Bor du inte i Malmö? <a href="/tjanster/skicka-in/" style="color: var(--accent); font-weight: 600;">Skicka in via PostNord från hela Sverige →</a>
             </p>
         </section>
 
@@ -122,20 +100,10 @@ const faqSchema = {
             <div class="b2b-promo-badge">🏢 FÖR SPELBUTIKER &amp; FÖRETAG</div>
             <div class="b2b-promo-body">
                 <div class="b2b-promo-text">
-                    <h3>
-                        Driver du spelbutik eller retroaffär? Vi lagar ert
-                        inbyteslager i bulk!
-                    </h3>
+                    <h3>Driver du spelbutik eller retroaffär? Vi lagar ert inbyteslager i bulk!</h3>
                     <p>
-                        Har ni en låda med driftande kontroller (PS1–PS5, Xbox,
-                        Switch), konsoler som inte läser skivor eller
-                        Pokémon-kassetter med döda sparbatterier? Vi erbjuder <strong
-                            >förmånliga bulkpriser</strong
-                        >, snabb verkstadshantering och <strong
-                            >6 månaders garanti</strong
-                        > för butiker som <em>Spelgalaxen</em>, <em
-                            >Nostalgibutiken</em
-                        > och spelhandlare i hela Sverige.
+                        Har ni en låda med driftande kontroller (PS1–PS5, Xbox, Switch), konsoler som inte läser skivor eller Pokémon-kassetter med döda sparbatterier? 
+                        Vi erbjuder <strong>förmånliga bulkpriser</strong>, snabb verkstadshantering och <strong>6 månaders garanti</strong> för butiker som <em>Spelgalaxen</em>, <em>Nostalgibutiken</em> och spelhandlare i hela Sverige.
                     </p>
                     <div class="b2b-perks-row">
                         <span>📦 Mängdrabatt vid 5+ enheter</span>
@@ -145,29 +113,22 @@ const faqSchema = {
                     </div>
                 </div>
                 <div class="b2b-promo-action">
-                    <a href="/foretag/" class="b2b-promo-btn"
-                        >SE BULKPRISER &amp; ERBJUDANDE →</a
-                    >
-                    <span class="b2b-sub-cta"
-                        >Eller SMS:a 079-032 06 05 direkt</span
-                    >
+                    <a href="/foretag/" class="b2b-promo-btn">SE BULKPRISER &amp; ERBJUDANDE →</a>
+                    <span class="b2b-sub-cta">Eller SMS:a 079-032 06 05 direkt</span>
                 </div>
             </div>
         </section>
 
         <h2 class="section-title" id="tjanster">Våra Tjänster</h2>
         <div class="services-wrapper">
+
             <!-- ===== PS5 / Xbox Series ===== -->
             <div class="platform-group">
                 <div class="platform-header">
                     <div class="platform-icon">🎮</div>
                     <div>
-                        <p class="platform-title">
-                            PlayStation 5 &amp; Xbox Series X/S
-                        </p>
-                        <p class="platform-subtitle">
-                            Moderna kontroller — snabba reparationer
-                        </p>
+                        <p class="platform-title">PlayStation 5 &amp; Xbox Series X/S</p>
+                        <p class="platform-subtitle">Moderna kontroller — snabba reparationer</p>
                     </div>
                 </div>
                 <div class="service-grid">
@@ -177,163 +138,81 @@ const faqSchema = {
                         </div>
                         <p class="service-name">TMR Sensor Upgrade</p>
                         <span class="service-price">449 <small>kr</small></span>
-                        <p class="service-desc">
-                            Vi ersätter dina analoga spakar med magnetiska
-                            TMR-sensorer. En permanent lösning som aldrig får
-                            stick drift. <br /><br />
-                            <a
-                                href="/tjanster/tmr-sticks/"
-                                style="color: var(--accent); font-weight: bold;"
-                                >Vad är TMR? Läs mer här →</a
-                            >
+                        <p class="service-desc">Vi ersätter dina analoga spakar med magnetiska TMR-sensorer. En permanent lösning som aldrig får stick drift. <br><br>
+                            <a href="/tjanster/tmr-sticks/" style="color: var(--accent); font-weight: bold;">Vad är TMR? Läs mer här →</a>
                         </p>
                     </div>
                     <div class="service-card bundle">
                         <div class="tags-row">
                             <span class="service-tag bundle-tag">📦 Paket</span>
-                            <span class="service-tag save-tag"
-                                >✓ Spara 99 kr</span
-                            >
+                            <span class="service-tag save-tag">✓ Spara 99 kr</span>
                         </div>
-                        <p class="service-name">
-                            TMR-uppgradering + Full service
-                        </p>
+                        <p class="service-name">TMR-uppgradering + Full service</p>
                         <span class="service-price">599 <small>kr</small></span>
-                        <p class="service-desc">
-                            Kombinera permanenta magnetiska TMR-sensorer med en
-                            komplett demontering och djuprengöring av kontrollen
-                            för nyskick. (Ord. 698 kr)
-                        </p>
+                        <p class="service-desc">Kombinera permanenta magnetiska TMR-sensorer med en komplett demontering och djuprengöring av kontrollen för nyskick. (Ord. 698 kr)</p>
                     </div>
                     <div class="service-card">
-                        <p class="service-name">
-                            Fullständig service &amp; rengöring
-                        </p>
+                        <p class="service-name">Fullständig service &amp; rengöring</p>
                         <span class="service-price">249 <small>kr</small></span>
-                        <p class="service-desc">
-                            Komplett demontering, invändig och utvändig
-                            djuprengöring av knappar, skal och membran samt
-                            smörjning och full funktionskontroll.
-                        </p>
+                        <p class="service-desc">Komplett demontering, invändig och utvändig djuprengöring av knappar, skal och membran samt smörjning och full funktionskontroll.</p>
                     </div>
                     <div class="service-card">
                         <div class="tags-row">
-                            <span class="service-tag bundle-tag"
-                                >🛠️ Custom &amp; Mods</span
-                            >
+                            <span class="service-tag bundle-tag">🛠️ Custom &amp; Mods</span>
                         </div>
                         <p class="service-name">Skalbyten &amp; Clicky Mods</p>
-                        <span
-                            class="service-price"
-                            style="font-size: 1.3rem; letter-spacing: 0;"
-                            >Pris på förfrågan</span
-                        >
-                        <p class="service-desc">
-                            Vi utför modifikationer (så som clicky button mods,
-                            smart triggers och paddles) samt skalbyten om du
-                            beställer delarna från nätet. Är du osäker på vad
-                            som passar? Vi ger kostnadsfri konsultation!
-                        </p>
+                        <span class="service-price" style="font-size: 1.3rem; letter-spacing: 0;">Pris på förfrågan</span>
+                        <p class="service-desc">Vi utför modifikationer (så som clicky button mods, smart triggers och paddles) samt skalbyten om du beställer delarna från nätet. Är du osäker på vad som passar? Vi ger kostnadsfri konsultation!</p>
                     </div>
                     <div class="service-card">
                         <p class="service-name">USB-C laddport</p>
                         <span class="service-price">399 <small>kr</small></span>
-                        <p class="service-desc">
-                            Är USB-C porten på din PS5-kontroll lös eller
-                            sönder? Vi byter ut den åt dig!
-                        </p>
+                        <p class="service-desc">Är USB-C porten på din PS5-kontroll lös eller sönder? Vi byter ut den åt dig!</p>
                     </div>
                     <div class="service-card featured">
                         <div class="tags-row">
                             <span class="service-tag new-tag">✨ NYHET</span>
                             <span class="service-tag time">⚡ 24–48 tim</span>
                         </div>
-                        <p class="service-name">
-                            HDMI-port Byte (PS5 &amp; Xbox Series)
-                        </p>
-                        <span class="service-price"
-                            >1 199 <small>kr</small></span
-                        >
-                        <p class="service-desc">
-                            Svart skärm eller böjda stift? Vi mikrolöder en
-                            splitterny original HDMI 2.1-kontakt med förstärkta
-                            fästen och 6 mån garanti. <br /><br />
-                            <a
-                                href="/tjanster/hdmi-port-byte/"
-                                style="color: var(--accent); font-weight: bold;"
-                                >Läs mer om HDMI-byte här →</a
-                            >
+                        <p class="service-name">HDMI-port Byte (PS5 &amp; Xbox Series)</p>
+                        <span class="service-price">1 199 <small>kr</small></span>
+                        <p class="service-desc">Svart skärm eller böjda stift? Vi mikrolöder en splitterny original HDMI 2.1-kontakt med förstärkta fästen och 6 mån garanti. <br><br>
+                            <a href="/tjanster/hdmi-port-byte/" style="color: var(--accent); font-weight: bold;">Läs mer om HDMI-byte här →</a>
                         </p>
                     </div>
                     <div class="service-card">
                         <div class="tags-row">
                             <span class="service-tag time">⚡ Ca 2 timmar</span>
                         </div>
-                        <p class="service-name">
-                            TMR Uppgradering — Scuf / Aim
-                        </p>
+                        <p class="service-name">TMR Uppgradering — Scuf / Aim</p>
                         <span class="service-price">700 <small>kr</small></span>
-                        <p class="service-desc">
-                            Har du en Scuf eller Aim-kontroll? Dessa är mer
-                            avancerade men vi fixar även dessa med TMR
-                            joysticks.
-                        </p>
+                        <p class="service-desc">Har du en Scuf eller Aim-kontroll? Dessa är mer avancerade men vi fixar även dessa med TMR joysticks.</p>
                     </div>
                     <div class="service-card">
-                        <p class="service-name">
-                            Thumbcap-byte (PS5 &amp; Xbox Series)
-                        </p>
+                        <p class="service-name">Thumbcap-byte (PS5 &amp; Xbox Series)</p>
                         <span class="service-price">99 <small>kr</small></span>
-                        <p class="service-desc">
-                            Slitna, glatta eller skadade spakhattar? Vi byter ut
-                            båda spakhattarna mot fabriksnya thumbcaps i
-                            OEM-kvalitet för PS5 DualSense eller Xbox Series.
+                        <p class="service-desc">Slitna, glatta eller skadade spakhattar? Vi byter ut båda spakhattarna mot fabriksnya thumbcaps i OEM-kvalitet för PS5 DualSense eller Xbox Series.</p>
+                    </div>
+                    <div class="service-card featured">
+                        <div class="tags-row">
+                            <span class="service-tag new-tag">✨ KONSOLSERVICE</span>
+                            <span class="service-tag time">⚡ 24–48 tim</span>
+                        </div>
+                        <p class="service-name">Service, Rengöring &amp; Liquid Metal (PS5)</p>
+                        <span class="service-price">649 <small>kr</small></span>
+                        <p class="service-desc">Djuprengöring av dammfällor, fläkt och kylfläns samt översyn och applicering av Liquid Metal (flytande metall) istället för kylpasta för optimal kyleffekt och tyst konsol. <br><br>
+                            <a href="/tjanster/konsolrengoring/" style="color: var(--accent); font-weight: bold;">Läs mer om konsolrengöring →</a>
                         </p>
                     </div>
                     <div class="service-card featured">
                         <div class="tags-row">
-                            <span class="service-tag new-tag"
-                                >✨ KONSOLSERVICE</span
-                            >
+                            <span class="service-tag new-tag">✨ KONSOLSERVICE</span>
                             <span class="service-tag time">⚡ 24–48 tim</span>
                         </div>
-                        <p class="service-name">
-                            Service, Rengöring &amp; Liquid Metal (PS5)
-                        </p>
+                        <p class="service-name">Service, Rengöring &amp; Kylarpasta (Xbox Series)</p>
                         <span class="service-price">649 <small>kr</small></span>
-                        <p class="service-desc">
-                            Djuprengöring av dammfällor, fläkt och kylfläns samt
-                            översyn och applicering av Liquid Metal (flytande
-                            metall) istället för kylpasta för optimal kyleffekt
-                            och tyst konsol. <br /><br />
-                            <a
-                                href="/tjanster/konsolrengoring/"
-                                style="color: var(--accent); font-weight: bold;"
-                                >Läs mer om konsolrengöring →</a
-                            >
-                        </p>
-                    </div>
-                    <div class="service-card featured">
-                        <div class="tags-row">
-                            <span class="service-tag new-tag"
-                                >✨ KONSOLSERVICE</span
-                            >
-                            <span class="service-tag time">⚡ 24–48 tim</span>
-                        </div>
-                        <p class="service-name">
-                            Service, Rengöring &amp; Kylarpasta (Xbox Series)
-                        </p>
-                        <span class="service-price">649 <small>kr</small></span>
-                        <p class="service-desc">
-                            Fullständig demontering, djuprengöring av massiva
-                            kylflänsen och fläkten samt applicering av färsk
-                            högpresterande kylpasta för Xbox Series X &amp;
-                            Series S. <br /><br />
-                            <a
-                                href="/tjanster/konsolrengoring/"
-                                style="color: var(--accent); font-weight: bold;"
-                                >Läs mer om konsolrengöring →</a
-                            >
+                        <p class="service-desc">Fullständig demontering, djuprengöring av massiva kylflänsen och fläkten samt applicering av färsk högpresterande kylpasta för Xbox Series X &amp; Series S. <br><br>
+                            <a href="/tjanster/konsolrengoring/" style="color: var(--accent); font-weight: bold;">Läs mer om konsolrengöring →</a>
                         </p>
                     </div>
                 </div>
@@ -344,12 +223,8 @@ const faqSchema = {
                 <div class="platform-header">
                     <div class="platform-icon">🕹️</div>
                     <div>
-                        <p class="platform-title">
-                            PlayStation 4 &amp; Xbox One
-                        </p>
-                        <p class="platform-subtitle">
-                            Äldre kontroller förtjänar också kärlek
-                        </p>
+                        <p class="platform-title">PlayStation 4 &amp; Xbox One</p>
+                        <p class="platform-subtitle">Äldre kontroller förtjänar också kärlek</p>
                     </div>
                 </div>
                 <div class="service-grid">
@@ -359,141 +234,70 @@ const faqSchema = {
                         </div>
                         <p class="service-name">TMR Sensor Upgrade</p>
                         <span class="service-price">399 <small>kr</small></span>
-                        <p class="service-desc">
-                            Vi ersätter dina analoga spakar med magnetiska
-                            TMR-sensorer — permanent fix utan drift. <br /><br
-                            />
-                            <a
-                                href="/tjanster/tmr-sticks/"
-                                style="color: var(--accent); font-weight: bold;"
-                                >Vad är TMR? Läs mer här →</a
-                            >
+                        <p class="service-desc">Vi ersätter dina analoga spakar med magnetiska TMR-sensorer — permanent fix utan drift. <br><br>
+                            <a href="/tjanster/tmr-sticks/" style="color: var(--accent); font-weight: bold;">Vad är TMR? Läs mer här →</a>
                         </p>
                     </div>
                     <div class="service-card bundle">
                         <div class="tags-row">
                             <span class="service-tag bundle-tag">📦 Paket</span>
-                            <span class="service-tag save-tag"
-                                >✓ Spara 99 kr</span
-                            >
+                            <span class="service-tag save-tag">✓ Spara 99 kr</span>
                         </div>
-                        <p class="service-name">
-                            TMR-uppgradering + Full service
-                        </p>
+                        <p class="service-name">TMR-uppgradering + Full service</p>
                         <span class="service-price">549 <small>kr</small></span>
-                        <p class="service-desc">
-                            Bli av med stick drift med magnetiska TMR-sensorer
-                            och få kontrollen grundligt servad och rengjord i
-                            samma paket. (Ord. 648 kr)
-                        </p>
+                        <p class="service-desc">Bli av med stick drift med magnetiska TMR-sensorer och få kontrollen grundligt servad och rengjord i samma paket. (Ord. 648 kr)</p>
                     </div>
                     <div class="service-card">
-                        <p class="service-name">
-                            Fullständig service &amp; rengöring
-                        </p>
+                        <p class="service-name">Fullständig service &amp; rengöring</p>
                         <span class="service-price">249 <small>kr</small></span>
-                        <p class="service-desc">
-                            Komplett demontering och djuprengöring av skal,
-                            knappar, styrkors och kretskort för DualShock 4
-                            eller Xbox One-kontroll.
-                        </p>
+                        <p class="service-desc">Komplett demontering och djuprengöring av skal, knappar, styrkors och kretskort för DualShock 4 eller Xbox One-kontroll.</p>
                     </div>
                     <div class="service-card">
                         <div class="tags-row">
-                            <span class="service-tag bundle-tag"
-                                >🛠️ Custom &amp; Mods</span
-                            >
+                            <span class="service-tag bundle-tag">🛠️ Custom &amp; Mods</span>
                         </div>
                         <p class="service-name">Skalbyten &amp; Clicky Mods</p>
-                        <span
-                            class="service-price"
-                            style="font-size: 1.3rem; letter-spacing: 0;"
-                            >Pris på förfrågan</span
-                        >
-                        <p class="service-desc">
-                            Vill du ha clicky buttons, paddles eller byta skal
-                            på din PS4 eller Xbox One? Beställ delarna från
-                            nätet så sköter vi monteringen. Vi ger rådgivning
-                            och konsultation om du är osäker.
-                        </p>
+                        <span class="service-price" style="font-size: 1.3rem; letter-spacing: 0;">Pris på förfrågan</span>
+                        <p class="service-desc">Vill du ha clicky buttons, paddles eller byta skal på din PS4 eller Xbox One? Beställ delarna från nätet så sköter vi monteringen. Vi ger rådgivning och konsultation om du är osäker.</p>
                     </div>
                     <div class="service-card">
                         <div class="tags-row">
-                            <span class="service-tag new-tag"
-                                >⚡ Modernisering</span
-                            >
+                            <span class="service-tag new-tag">⚡ Modernisering</span>
                         </div>
                         <p class="service-name">USB-C Laddportsmodd (PS4)</p>
                         <span class="service-price">299 <small>kr</small></span>
-                        <p class="service-desc">
-                            Uppgradera din DualShock 4 från sliten Micro-USB
-                            till modern, vändbar och tålig USB-C laddport.
-                        </p>
+                        <p class="service-desc">Uppgradera din DualShock 4 från sliten Micro-USB till modern, vändbar och tålig USB-C laddport.</p>
                     </div>
                     <div class="service-card featured">
                         <div class="tags-row">
                             <span class="service-tag new-tag">✨ NYHET</span>
                             <span class="service-tag time">⚡ 24–48 tim</span>
                         </div>
-                        <p class="service-name">
-                            HDMI-port Byte (PS4 &amp; Xbox One)
-                        </p>
-                        <span class="service-price"
-                            >1 199 <small>kr</small></span
-                        >
-                        <p class="service-desc">
-                            Lyser konsolen men ingen bild på TV:n? Vi mikrolöder
-                            dit en ny förstärkt originalkontakt med 6 månaders
-                            garanti. <br /><br />
-                            <a
-                                href="/tjanster/hdmi-port-byte/"
-                                style="color: var(--accent); font-weight: bold;"
-                                >Läs mer om HDMI-byte här →</a
-                            >
+                        <p class="service-name">HDMI-port Byte (PS4 &amp; Xbox One)</p>
+                        <span class="service-price">1 199 <small>kr</small></span>
+                        <p class="service-desc">Lyser konsolen men ingen bild på TV:n? Vi mikrolöder dit en ny förstärkt originalkontakt med 6 månaders garanti. <br><br>
+                            <a href="/tjanster/hdmi-port-byte/" style="color: var(--accent); font-weight: bold;">Läs mer om HDMI-byte här →</a>
                         </p>
                     </div>
                     <div class="service-card">
                         <p class="service-name">Högkapacitetsbatteri (PS4)</p>
                         <span class="service-price">199 <small>kr</small></span>
-                        <p class="service-desc">
-                            Vi ersätter ditt gamla batteri med ett splitter nytt
-                            2600 mAh-batteri för längre spelsessioner.
-                        </p>
+                        <p class="service-desc">Vi ersätter ditt gamla batteri med ett splitter nytt 2600 mAh-batteri för längre spelsessioner.</p>
                     </div>
                     <div class="service-card">
-                        <p class="service-name">
-                            Thumbcap-byte (PS4 &amp; Xbox One)
-                        </p>
+                        <p class="service-name">Thumbcap-byte (PS4 &amp; Xbox One)</p>
                         <span class="service-price">99 <small>kr</small></span>
-                        <p class="service-desc">
-                            Mycket vanligt problem där gummit fläks av eller
-                            spricker. Vi byter ut dina spakhattar mot nya
-                            slitstarka OEM-thumbcaps på PS4 DualShock 4 eller
-                            Xbox One.
-                        </p>
+                        <p class="service-desc">Mycket vanligt problem där gummit fläks av eller spricker. Vi byter ut dina spakhattar mot nya slitstarka OEM-thumbcaps på PS4 DualShock 4 eller Xbox One.</p>
                     </div>
                     <div class="service-card featured">
                         <div class="tags-row">
-                            <span class="service-tag new-tag"
-                                >✨ KONSOLSERVICE</span
-                            >
+                            <span class="service-tag new-tag">✨ KONSOLSERVICE</span>
                             <span class="service-tag time">⚡ 24–48 tim</span>
                         </div>
-                        <p class="service-name">
-                            Service, Rengöring &amp; Kylarpasta (PS4 &amp; Xbox
-                            One)
-                        </p>
+                        <p class="service-name">Service, Rengöring &amp; Kylarpasta (PS4 &amp; Xbox One)</p>
                         <span class="service-price">649 <small>kr</small></span>
-                        <p class="service-desc">
-                            Låter din konsol som ett jetplan? Vi utför komplett
-                            isärtagning, djuprengöring av fläkt och kylfläns
-                            samt byter ut den uttorkade kylpastan mot ny
-                            premium-kylpasta. <br /><br />
-                            <a
-                                href="/tjanster/konsolrengoring/"
-                                style="color: var(--accent); font-weight: bold;"
-                                >Läs mer om konsolrengöring →</a
-                            >
+                        <p class="service-desc">Låter din konsol som ett jetplan? Vi utför komplett isärtagning, djuprengöring av fläkt och kylfläns samt byter ut den uttorkade kylpastan mot ny premium-kylpasta. <br><br>
+                            <a href="/tjanster/konsolrengoring/" style="color: var(--accent); font-weight: bold;">Läs mer om konsolrengöring →</a>
                         </p>
                     </div>
                 </div>
@@ -504,61 +308,33 @@ const faqSchema = {
                 <div class="platform-header">
                     <div class="platform-icon">🔴</div>
                     <div>
-                        <p class="platform-title">
-                            Nintendo Switch &amp; GameCube
-                        </p>
-                        <p class="platform-subtitle">
-                            Joycon drift och classic controller-fix
-                        </p>
+                        <p class="platform-title">Nintendo Switch &amp; GameCube</p>
+                        <p class="platform-subtitle">Joycon drift och classic controller-fix</p>
                     </div>
                 </div>
                 <div class="service-grid">
                     <div class="service-card featured">
                         <p class="service-name">TMR Joycon Upgrade</p>
-                        <span class="service-price"
-                            >299 <small>kr / st</small></span
-                        >
-                        <p class="service-desc">
-                            Joycons är ökända för att drifta. Vi löser det
-                            permanent med TMR-sensorer! Båda för 399 kr. <br
-                            /><br />
-                            <a
-                                href="/tjanster/joycon-reparation/"
-                                style="color: var(--accent); font-weight: bold;"
-                                >Läs mer här →</a
-                            >
+                        <span class="service-price">299 <small>kr / st</small></span>
+                        <p class="service-desc">Joycons är ökända för att drifta. Vi löser det permanent med TMR-sensorer! Båda för 399 kr. <br><br>
+                            <a href="/tjanster/joycon-reparation/" style="color: var(--accent); font-weight: bold;">Läs mer här →</a>
                         </p>
                     </div>
                     <div class="service-card">
-                        <p class="service-name">
-                            Fullständig service &amp; rengöring
-                        </p>
+                        <p class="service-name">Fullständig service &amp; rengöring</p>
                         <span class="service-price">149 <small>kr</small></span>
-                        <p class="service-desc">
-                            Djuprengöring och service av Switch Pro Controller,
-                            Joy-Cons eller GameCube-kontroller.
-                        </p>
+                        <p class="service-desc">Djuprengöring och service av Switch Pro Controller, Joy-Cons eller GameCube-kontroller.</p>
                     </div>
                     <div class="service-card">
                         <p class="service-name">GameCube — Joystick byte</p>
                         <span class="service-price">349 <small>kr</small></span>
-                        <p class="service-desc">
-                            Går kontrollen av sig själv? Vi byter joysticken mot
-                            en ny. C-sticka + joystick? Paketpris!
-                        </p>
+                        <p class="service-desc">Går kontrollen av sig själv? Vi byter joysticken mot en ny. C-sticka + joystick? Paketpris!</p>
                     </div>
                     <div class="service-card">
                         <p class="service-name">GameCube — Picoboot mod</p>
                         <span class="service-price">949 <small>kr</small></span>
-                        <p class="service-desc">
-                            Vi moddar din GameCube med Picoboot. Spela backups
-                            och hantera saves via micro-SD. Allt utom SD-kortet
-                            ingår. <br /><br />
-                            <a
-                                href="/tjanster/gamecube-picoboot/"
-                                style="color: var(--accent); font-weight: bold;"
-                                >Läs mer här →</a
-                            >
+                        <p class="service-desc">Vi moddar din GameCube med Picoboot. Spela backups och hantera saves via micro-SD. Allt utom SD-kortet ingår. <br><br>
+                            <a href="/tjanster/gamecube-picoboot/" style="color: var(--accent); font-weight: bold;">Läs mer här →</a>
                         </p>
                     </div>
                 </div>
@@ -569,110 +345,53 @@ const faqSchema = {
                 <div class="platform-header">
                     <div class="platform-icon">💾</div>
                     <div>
-                        <p class="platform-title">
-                            PlayStation 2 &amp; PlayStation 3
-                        </p>
-                        <p class="platform-subtitle">
-                            DualShock 2 &amp; DualShock 3 — Service, reparation
-                            och moddar
-                        </p>
+                        <p class="platform-title">PlayStation 2 &amp; PlayStation 3</p>
+                        <p class="platform-subtitle">DualShock 2 &amp; DualShock 3 — Service, reparation och moddar</p>
                     </div>
                 </div>
                 <div class="service-grid">
                     <div class="service-card">
                         <p class="service-name">Flex-PCB byte (PS2)</p>
                         <span class="service-price">199 <small>kr</small></span>
-                        <p class="service-desc">
-                            Slutar knappar att reagera? Vi byter Flex-PCB:n som
-                            styr knapplayouten så att allt fungerar igen. <br
-                            /><br />
-                            <a
-                                href="/tjanster/ps2-reparation/"
-                                style="color: var(--accent); font-weight: bold;"
-                                >Läs mer här →</a
-                            >
+                        <p class="service-desc">Slutar knappar att reagera? Vi byter Flex-PCB:n som styr knapplayouten så att allt fungerar igen. <br><br>
+                            <a href="/tjanster/ps2-reparation/" style="color: var(--accent); font-weight: bold;">Läs mer här →</a>
                         </p>
                     </div>
                     <div class="service-card">
-                        <p class="service-name">
-                            Joystick swap till original Alps (PS2)
-                        </p>
+                        <p class="service-name">Joystick swap till original Alps (PS2)</p>
                         <span class="service-price">199 <small>kr</small></span>
-                        <p class="service-desc">
-                            Vi byter ut dina driftiga joysticks mot originella
-                            Alps-spakar för att återfå den klassiska känslan. <br
-                            /><br />
-                            <a
-                                href="/tjanster/ps2-reparation/"
-                                style="color: var(--accent); font-weight: bold;"
-                                >Läs mer här →</a
-                            >
+                        <p class="service-desc">Vi byter ut dina driftiga joysticks mot originella Alps-spakar för att återfå den klassiska känslan. <br><br>
+                            <a href="/tjanster/ps2-reparation/" style="color: var(--accent); font-weight: bold;">Läs mer här →</a>
                         </p>
                     </div>
                     <div class="service-card">
-                        <p class="service-name">
-                            Fullständig service &amp; rengöring
-                        </p>
+                        <p class="service-name">Fullständig service &amp; rengöring</p>
                         <span class="service-price">149 <small>kr</small></span>
-                        <p class="service-desc">
-                            Demontering, rengöring av kontaktytor, knappar och
-                            invändig smuts för DualShock 2 och DualShock 3.
-                        </p>
+                        <p class="service-desc">Demontering, rengöring av kontaktytor, knappar och invändig smuts för DualShock 2 och DualShock 3.</p>
                     </div>
                     <div class="service-card bundle">
                         <div class="tags-row">
                             <span class="service-tag bundle-tag">📦 Paket</span>
-                            <span class="service-tag save-tag"
-                                >✓ Spara 49 kr</span
-                            >
+                            <span class="service-tag save-tag">✓ Spara 49 kr</span>
                         </div>
-                        <p class="service-name">
-                            Flex-PCB + Joystick swap (PS2)
-                        </p>
+                        <p class="service-name">Flex-PCB + Joystick swap (PS2)</p>
                         <span class="service-price">349 <small>kr</small></span>
-                        <p class="service-desc">
-                            Kombinera båda reparationerna till ett paketpris.
-                            Bästa sättet att ge din gamla PS2-kontroll nytt liv. <br
-                            /><br />
-                            <a
-                                href="/tjanster/ps2-reparation/"
-                                style="color: var(--accent); font-weight: bold;"
-                                >Läs mer här →</a
-                            >
+                        <p class="service-desc">Kombinera båda reparationerna till ett paketpris. Bästa sättet att ge din gamla PS2-kontroll nytt liv. <br><br>
+                            <a href="/tjanster/ps2-reparation/" style="color: var(--accent); font-weight: bold;">Läs mer här →</a>
                         </p>
                     </div>
                     <div class="service-card">
                         <div class="tags-row">
-                            <span class="service-tag bundle-tag"
-                                >🛠️ Custom &amp; Mods</span
-                            >
+                            <span class="service-tag bundle-tag">🛠️ Custom &amp; Mods</span>
                         </div>
-                        <p class="service-name">
-                            Skalbyten &amp; Modifikationer
-                        </p>
-                        <span
-                            class="service-price"
-                            style="font-size: 1.3rem; letter-spacing: 0;"
-                            >Pris på förfrågan</span
-                        >
-                        <p class="service-desc">
-                            Skalbyten och modifikationer på PS2- och
-                            PS3-kontroller utförs om du beställer delarna från
-                            nätet. Hör av dig om du är osäker så hjälper vi
-                            gärna med konsultation inför köp!
-                        </p>
+                        <p class="service-name">Skalbyten &amp; Modifikationer</p>
+                        <span class="service-price" style="font-size: 1.3rem; letter-spacing: 0;">Pris på förfrågan</span>
+                        <p class="service-desc">Skalbyten och modifikationer på PS2- och PS3-kontroller utförs om du beställer delarna från nätet. Hör av dig om du är osäker så hjälper vi gärna med konsultation inför köp!</p>
                     </div>
                     <div class="service-card">
-                        <p class="service-name">
-                            Thumbcap-byte (PS2 &amp; PS3)
-                        </p>
+                        <p class="service-name">Thumbcap-byte (PS2 &amp; PS3)</p>
                         <span class="service-price">99 <small>kr</small></span>
-                        <p class="service-desc">
-                            Klibbiga, missfärgade eller nedslitna analoga spakar
-                            på DualShock 2 eller DualShock 3? Vi byter till
-                            fräscha nya spakhattar med originalpassform och rätt
-                            motstånd.
-                        </p>
+                        <p class="service-desc">Klibbiga, missfärgade eller nedslitna analoga spakar på DualShock 2 eller DualShock 3? Vi byter till fräscha nya spakhattar med originalpassform och rätt motstånd.</p>
                     </div>
                 </div>
             </div>
@@ -683,87 +402,44 @@ const faqSchema = {
                     <div class="platform-icon">🟢</div>
                     <div>
                         <p class="platform-title">Xbox 360</p>
-                        <p class="platform-subtitle">
-                            Hall effect upgrade för klassikern
-                        </p>
+                        <p class="platform-subtitle">Hall effect upgrade för klassikern</p>
                     </div>
                 </div>
                 <div class="service-grid">
                     <div class="service-card featured">
                         <p class="service-name">Hall Effect Uppgradering</p>
                         <span class="service-price">349 <small>kr</small></span>
-                        <p class="service-desc">
-                            Vi ger din Xbox 360-kontroll Hall effect joysticks
-                            och kalibrerar den för prickskjutning igen. <br
-                            /><br />
-                            <a
-                                href="/tjanster/xbox-360-hall-effect/"
-                                style="color: var(--accent); font-weight: bold;"
-                                >Läs mer här →</a
-                            >
+                        <p class="service-desc">Vi ger din Xbox 360-kontroll Hall effect joysticks och kalibrerar den för prickskjutning igen. <br><br>
+                            <a href="/tjanster/xbox-360-hall-effect/" style="color: var(--accent); font-weight: bold;">Läs mer här →</a>
                         </p>
                     </div>
                     <div class="service-card">
-                        <p class="service-name">
-                            Fullständig service &amp; rengöring
-                        </p>
+                        <p class="service-name">Fullständig service &amp; rengöring</p>
                         <span class="service-price">149 <small>kr</small></span>
-                        <p class="service-desc">
-                            Djuprengöring av skal, D-pad, knappar och invändigt
-                            damm för din Xbox 360-kontroll.
-                        </p>
+                        <p class="service-desc">Djuprengöring av skal, D-pad, knappar och invändigt damm för din Xbox 360-kontroll.</p>
                     </div>
                     <div class="service-card">
                         <div class="tags-row">
-                            <span class="service-tag bundle-tag"
-                                >🛠️ Custom &amp; Mods</span
-                            >
+                            <span class="service-tag bundle-tag">🛠️ Custom &amp; Mods</span>
                         </div>
-                        <p class="service-name">
-                            Skalbyten &amp; Modifikationer
-                        </p>
-                        <span
-                            class="service-price"
-                            style="font-size: 1.3rem; letter-spacing: 0;"
-                            >Pris på förfrågan</span
-                        >
-                        <p class="service-desc">
-                            Vill du fräscha upp din Xbox 360-kontroll med ett
-                            nytt skal eller custom knappar? Beställ delarna från
-                            nätet så installerar vi dem. Vi erbjuder
-                            konsultation om du är osäker på delarna.
-                        </p>
+                        <p class="service-name">Skalbyten &amp; Modifikationer</p>
+                        <span class="service-price" style="font-size: 1.3rem; letter-spacing: 0;">Pris på förfrågan</span>
+                        <p class="service-desc">Vill du fräscha upp din Xbox 360-kontroll med ett nytt skal eller custom knappar? Beställ delarna från nätet så installerar vi dem. Vi erbjuder konsultation om du är osäker på delarna.</p>
                     </div>
                     <div class="service-card">
                         <p class="service-name">Thumbcap-byte (Xbox 360)</p>
                         <span class="service-price">99 <small>kr</small></span>
-                        <p class="service-desc">
-                            Har de fyra taktila grepprickarna nötts ner? Vi
-                            monterar nya svarta eller klassiskt ljusgrå Xbox
-                            360-thumbcaps med perfekt fäste.
-                        </p>
+                        <p class="service-desc">Har de fyra taktila grepprickarna nötts ner? Vi monterar nya svarta eller klassiskt ljusgrå Xbox 360-thumbcaps med perfekt fäste.</p>
                     </div>
                     <div class="service-card featured">
                         <div class="tags-row">
-                            <span class="service-tag new-tag"
-                                >✨ KONSOLSERVICE</span
-                            >
+                            <span class="service-tag new-tag">✨ KONSOLSERVICE</span>
                             <span class="service-tag time">⚡ 24–48 tim</span>
                         </div>
-                        <p class="service-name">
-                            Service, Rengöring &amp; Kylarpasta (Xbox 360)
-                        </p>
+                        <p class="service-name">Service, Rengöring &amp; Kylarpasta (Xbox 360)</p>
                         <span class="service-price">499 <small>kr</small></span>
-                        <p class="service-desc">
-                            Grundlig invändig service och rengöring av damm från
-                            kylfläns och fläkt samt byte av uttorkad kylpasta.
-                            Skyddar mot överhettning och ger tystare drift. <br
-                            /><br />
-                            <a
-                                href="/tjanster/konsolrengoring/"
-                                style="color: var(--accent); font-weight: bold;"
-                                >Läs mer om konsolrengöring →</a
-                            >
+                        <p class="service-desc">Grundlig invändig service och rengöring av damm från kylfläns och fläkt samt byte av uttorkad kylpasta. Skyddar mot överhettning och ger tystare drift. <br><br>
+                            <a href="/tjanster/konsolrengoring/" style="color: var(--accent); font-weight: bold;">Läs mer om konsolrengöring →</a>
                         </p>
                     </div>
                 </div>
@@ -774,83 +450,42 @@ const faqSchema = {
                 <div class="platform-header">
                     <div class="platform-icon">📺</div>
                     <div>
-                        <p class="platform-title">
-                            Retro — SEGA Game Gear &amp; PlayStation 1
-                        </p>
-                        <p class="platform-subtitle">
-                            Ger gamla favoriter nytt liv
-                        </p>
+                        <p class="platform-title">Retro — SEGA Game Gear &amp; PlayStation 1</p>
+                        <p class="platform-subtitle">Ger gamla favoriter nytt liv</p>
                     </div>
                 </div>
                 <div class="service-grid">
                     <div class="service-card">
                         <p class="service-name">Game Gear — Recap</p>
-                        <span class="service-price"
-                            >fr. 749 <small>kr</small></span
-                        >
-                        <p class="service-desc">
-                            Game Gears kondensatorer är kända för att läcka. Vi
-                            recapar med kondensatorer som inte läcker! <br /><br
-                            />
-                            <a
-                                href="/tjanster/game-gear/"
-                                style="color: var(--accent); font-weight: bold;"
-                                >Läs mer här →</a
-                            >
+                        <span class="service-price">fr. 749 <small>kr</small></span>
+                        <p class="service-desc">Game Gears kondensatorer är kända för att läcka. Vi recapar med kondensatorer som inte läcker! <br><br>
+                            <a href="/tjanster/game-gear/" style="color: var(--accent); font-weight: bold;">Läs mer här →</a>
                         </p>
                     </div>
                     <div class="service-card">
                         <p class="service-name">PS1 Joystick byte</p>
                         <span class="service-price">299 <small>kr</small></span>
-                        <p class="service-desc">
-                            Driftar din PlayStation 1-kontroll? Vi byter ut dina
-                            joysticks mot nya. <br /><br />
-                            <a
-                                href="/tjanster/ps1-ps2-reparation/"
-                                style="color: var(--accent); font-weight: bold;"
-                                >Läs mer här →</a
-                            >
+                        <p class="service-desc">Driftar din PlayStation 1-kontroll? Vi byter ut dina joysticks mot nya. <br><br>
+                            <a href="/tjanster/ps1-ps2-reparation/" style="color: var(--accent); font-weight: bold;">Läs mer här →</a>
                         </p>
                     </div>
                     <div class="service-card">
-                        <p class="service-name">
-                            Fullständig service &amp; rengöring
-                        </p>
+                        <p class="service-name">Fullständig service &amp; rengöring</p>
                         <span class="service-price">149 <small>kr</small></span>
-                        <p class="service-desc">
-                            Skonsam demontering och rengöring av klassiska PS1-
-                            och DualShock 1-kontroller.
-                        </p>
+                        <p class="service-desc">Skonsam demontering och rengöring av klassiska PS1- och DualShock 1-kontroller.</p>
                     </div>
                     <div class="service-card">
                         <div class="tags-row">
-                            <span class="service-tag bundle-tag"
-                                >🛠️ Custom &amp; Mods</span
-                            >
+                            <span class="service-tag bundle-tag">🛠️ Custom &amp; Mods</span>
                         </div>
-                        <p class="service-name">
-                            Skalbyten &amp; Modifikationer (PS1)
-                        </p>
-                        <span
-                            class="service-price"
-                            style="font-size: 1.3rem; letter-spacing: 0;"
-                            >Pris på förfrågan</span
-                        >
-                        <p class="service-desc">
-                            Vi utför skalbyten och modifikationer på PlayStation
-                            1-kontroller om du beställer delarna från nätet.
-                            Kostnadsfri konsultation ges om du är osäker på
-                            kompatibilitet.
-                        </p>
+                        <p class="service-name">Skalbyten &amp; Modifikationer (PS1)</p>
+                        <span class="service-price" style="font-size: 1.3rem; letter-spacing: 0;">Pris på förfrågan</span>
+                        <p class="service-desc">Vi utför skalbyten och modifikationer på PlayStation 1-kontroller om du beställer delarna från nätet. Kostnadsfri konsultation ges om du är osäker på kompatibilitet.</p>
                     </div>
                     <div class="service-card">
                         <p class="service-name">Thumbcap-byte (PS1)</p>
                         <span class="service-price">99 <small>kr</small></span>
-                        <p class="service-desc">
-                            Ge din PlayStation 1 DualShock-kontroll nya
-                            spakhattar med den klassiska konvexa retroprofilen
-                            och knottriga greppytan.
-                        </p>
+                        <p class="service-desc">Ge din PlayStation 1 DualShock-kontroll nya spakhattar med den klassiska konvexa retroprofilen och knottriga greppytan.</p>
                     </div>
                 </div>
             </div>
@@ -860,164 +495,77 @@ const faqSchema = {
                 <div class="platform-header">
                     <div class="platform-icon">🔧</div>
                     <div>
-                        <p class="platform-title">
-                            Övrigt &amp; Generella tjänster
-                        </p>
-                        <p class="platform-subtitle">
-                            Cartridges, konsol, custom mods och mer
-                        </p>
+                        <p class="platform-title">Övrigt &amp; Generella tjänster</p>
+                        <p class="platform-subtitle">Cartridges, konsol, custom mods och mer</p>
                     </div>
                 </div>
                 <div class="service-grid">
                     <div class="service-card">
-                        <p class="service-name">
-                            Konsolservice &amp; Rengöring
-                        </p>
-                        <span class="service-price"
-                            >fr. 499 <small>kr</small></span
-                        >
-                        <p class="service-desc">
-                            Djuprengöring av fläktar och kylflänsar samt byte av
-                            kylpasta (Liquid Metal på PS5). Xbox 360: 499 kr.
-                            PS5, Xbox Series, PS4 &amp; Xbox One: 649 kr. <br
-                            /><br />
-                            <a
-                                href="/tjanster/konsolrengoring/"
-                                style="color: var(--accent); font-weight: bold;"
-                                >Läs mer här →</a
-                            >
+                        <p class="service-name">Konsolservice &amp; Rengöring</p>
+                        <span class="service-price">fr. 499 <small>kr</small></span>
+                        <p class="service-desc">Djuprengöring av fläktar och kylflänsar samt byte av kylpasta (Liquid Metal på PS5). Xbox 360: 499 kr. PS5, Xbox Series, PS4 &amp; Xbox One: 649 kr. <br><br>
+                            <a href="/tjanster/konsolrengoring/" style="color: var(--accent); font-weight: bold;">Läs mer här →</a>
                         </p>
                     </div>
                     <div class="service-card">
                         <p class="service-name">Cartridge — Batteribyte</p>
                         <span class="service-price">199 <small>kr</small></span>
-                        <p class="service-desc">
-                            Vi byter ut ditt gamla batteri i t.ex. ditt Pokémon
-                            Crystal-spel så att du kan spara igen! <br /><br />
-                            <a
-                                href="/tjanster/cartridge-batteribyte/"
-                                style="color: var(--accent); font-weight: bold;"
-                                >Läs mer här →</a
-                            >
+                        <p class="service-desc">Vi byter ut ditt gamla batteri i t.ex. ditt Pokémon Crystal-spel så att du kan spara igen! <br><br>
+                            <a href="/tjanster/cartridge-batteribyte/" style="color: var(--accent); font-weight: bold;">Läs mer här →</a>
                         </p>
                     </div>
                     <div class="service-card">
                         <p class="service-name">Övrig service</p>
-                        <span class="service-price"
-                            >fr. 199 <small>kr</small></span
-                        >
-                        <p class="service-desc">
-                            Vi hjälper dig med laddportar, knappar och
-                            batteribyten. Hör av dig för prisförslag!
-                        </p>
+                        <span class="service-price">fr. 199 <small>kr</small></span>
+                        <p class="service-desc">Vi hjälper dig med laddportar, knappar och batteribyten. Hör av dig för prisförslag!</p>
                     </div>
                     <div class="service-card">
                         <p class="service-name">Custom Mods</p>
-                        <span
-                            class="service-price"
-                            style="font-size: 1.3rem; letter-spacing: 0;"
-                            >Pris på förfrågan</span
-                        >
-                        <p class="service-desc">
-                            Back buttons, USB-C moddar och mer. Gör din
-                            handkontroll personlig och bättre. <br /><br />
-                            <a
-                                href="/tjanster/custom-mods/"
-                                style="color: var(--accent); font-weight: bold;"
-                                >Läs mer här →</a
-                            >
+                        <span class="service-price" style="font-size: 1.3rem; letter-spacing: 0;">Pris på förfrågan</span>
+                        <p class="service-desc">Back buttons, USB-C moddar och mer. Gör din handkontroll personlig och bättre. <br><br>
+                            <a href="/tjanster/custom-mods/" style="color: var(--accent); font-weight: bold;">Läs mer här →</a>
                         </p>
                     </div>
                     <div class="service-card featured">
                         <p class="service-name">Kostnadsfri felsökning</p>
-                        <span class="service-price" style="color: #22c55e;"
-                            >Gratis</span
-                        >
-                        <p class="service-desc">
-                            Osäker på felet? Vi hittar det gratis och berättar
-                            vad som bör göras. Väljer du att inte fortsätta
-                            betalar du ingenting.
-                        </p>
+                        <span class="service-price" style="color: #22c55e;">Gratis</span>
+                        <p class="service-desc">Osäker på felet? Vi hittar det gratis och berättar vad som bör göras. Väljer du att inte fortsätta betalar du ingenting.</p>
                     </div>
                     <div class="service-card bundle">
                         <div class="tags-row">
                             <span class="service-tag new-tag">✨ NYHET</span>
                         </div>
                         <p class="service-name">Allmän Elektronik</p>
-                        <span
-                            class="service-price"
-                            style="font-size: 1.3rem; letter-spacing: 0;"
-                            >Pris efter felsökning</span
-                        >
-                        <p class="service-desc">
-                            Vi lagar mer än bara spel! Lödning av kretskort,
-                            reparation av hörlurar och hushållsmaskiner. <br
-                            /><br />
-                            <a
-                                href="/tjanster/elektronikreparation/"
-                                style="color: var(--accent); font-weight: bold;"
-                                >Läs mer här →</a
-                            >
+                        <span class="service-price" style="font-size: 1.3rem; letter-spacing: 0;">Pris efter felsökning</span>
+                        <p class="service-desc">Vi lagar mer än bara spel! Lödning av kretskort, reparation av hörlurar och hushållsmaskiner. <br><br>
+                            <a href="/tjanster/elektronikreparation/" style="color: var(--accent); font-weight: bold;">Läs mer här →</a>
                         </p>
                     </div>
-                    <div
-                        class="service-card featured"
-                        style="border-color: rgba(56, 189, 248, 0.6); background: linear-gradient(135deg, rgba(56, 189, 248, 0.1), rgba(15, 23, 42, 0.9));"
-                    >
+                    <div class="service-card featured" style="border-color: rgba(56, 189, 248, 0.6); background: linear-gradient(135deg, rgba(56, 189, 248, 0.1), rgba(15, 23, 42, 0.9));">
                         <div class="tags-row">
-                            <span class="service-tag new-tag">✨ NY TJÄNST</span
-                            >
-                            <span class="service-tag bundle-tag"
-                                >Mikrolödning</span
-                            >
+                            <span class="service-tag new-tag">✨ NY TJÄNST</span>
+                            <span class="service-tag bundle-tag">Mikrolödning</span>
                         </div>
                         <p class="service-name">HDMI-port Byte Konsoler</p>
-                        <span class="service-price"
-                            >1 199 <small>kr</small></span
-                        >
-                        <p class="service-desc">
-                            PlayStation 5, PS4, Xbox Series X/S &amp; Xbox One
-                            för 1 199 kr. Även PS3, Xbox 360, Wii U och Switch
-                            Dock från 499–999 kr. 6 mån garanti. <br /><br />
-                            <a
-                                href="/tjanster/hdmi-port-byte/"
-                                style="color: var(--accent); font-weight: bold;"
-                                >Se alla priser &amp; läs mer →</a
-                            >
+                        <span class="service-price">1 199 <small>kr</small></span>
+                        <p class="service-desc">PlayStation 5, PS4, Xbox Series X/S &amp; Xbox One för 1 199 kr. Även PS3, Xbox 360, Wii U och Switch Dock från 499–999 kr. 6 mån garanti. <br><br>
+                            <a href="/tjanster/hdmi-port-byte/" style="color: var(--accent); font-weight: bold;">Se alla priser &amp; läs mer →</a>
                         </p>
                     </div>
-                    <div
-                        class="service-card featured"
-                        style="border-color: rgba(56, 189, 248, 0.6); background: linear-gradient(135deg, rgba(56, 189, 248, 0.1), rgba(15, 23, 42, 0.9));"
-                    >
+                    <div class="service-card featured" style="border-color: rgba(56, 189, 248, 0.6); background: linear-gradient(135deg, rgba(56, 189, 248, 0.1), rgba(15, 23, 42, 0.9));">
                         <div class="tags-row">
-                            <span class="service-tag bundle-tag"
-                                >🏢 B2B &amp; BUTIKER</span
-                            >
+                            <span class="service-tag bundle-tag">🏢 B2B &amp; BUTIKER</span>
                             <span class="service-tag save-tag">Bulkpriser</span>
                         </div>
-                        <p class="service-name">
-                            Företag &amp; Spelbutiker (Bulk)
-                        </p>
-                        <span
-                            class="service-price"
-                            style="font-size: 1.25rem; letter-spacing: 0;"
-                            >Förmånlig mängdrabatt</span
-                        >
-                        <p class="service-desc">
-                            Vi servar partier av kontroller, konsoler och
-                            cartridges för butiker som Spelgalaxen &amp;
-                            Nostalgibutiken. 6 mån garanti &amp; faktura. <br
-                            /><br />
-                            <a
-                                href="/foretag/"
-                                style="color: var(--accent); font-weight: bold;"
-                                >Se B2B-erbjudandet här →</a
-                            >
+                        <p class="service-name">Företag &amp; Spelbutiker (Bulk)</p>
+                        <span class="service-price" style="font-size: 1.25rem; letter-spacing: 0;">Förmånlig mängdrabatt</span>
+                        <p class="service-desc">Vi servar partier av kontroller, konsoler och cartridges för butiker som Spelgalaxen &amp; Nostalgibutiken. 6 mån garanti &amp; faktura. <br><br>
+                            <a href="/foretag/" style="color: var(--accent); font-weight: bold;">Se B2B-erbjudandet här →</a>
                         </p>
                     </div>
                 </div>
             </div>
+
         </div>
 
         <!-- ===== Vi köper dina kontroller Promo Banner ===== -->
@@ -1025,17 +573,10 @@ const faqSchema = {
             <div class="buyback-promo-badge">💰 VI KÖPER DINA KONTROLLER</div>
             <div class="buyback-promo-body">
                 <div class="buyback-promo-text">
-                    <h3>
-                        Orkar du inte laga din gamla kontroll? Sälj den till oss
-                        istället!
-                    </h3>
+                    <h3>Orkar du inte laga din gamla kontroll? Sälj den till oss istället!</h3>
                     <p>
-                        Vi köper kontroller med stick drift, glapp eller slitna
-                        delar – samt fullt fungerande enheter (PS5, Xbox,
-                        Switch, retro). Få <strong
-                            >pengar direkt på Swish</strong
-                        > eller byt in mot <strong>extra rabatt</strong> på en ny
-                        TMR-moddad kontroll i vår butik.
+                        Vi köper kontroller med stick drift, glapp eller slitna delar – samt fullt fungerande enheter (PS5, Xbox, Switch, retro). 
+                        Få <strong>pengar direkt på Swish</strong> eller byt in mot <strong>extra rabatt</strong> på en ny TMR-moddad kontroll i vår butik.
                     </p>
                     <div class="buyback-perks-row">
                         <span>⚡ Swish samma dag</span>
@@ -1045,571 +586,359 @@ const faqSchema = {
                     </div>
                 </div>
                 <div class="buyback-promo-action">
-                    <a href="/vi-koper-kontroller/" class="buyback-promo-btn"
-                        >SE PRISLISTA &amp; SÄLJ HÄR →</a
-                    >
-                    <span class="buyback-sub-cta"
-                        >Eller SMS:a 079-032 06 05</span
-                    >
+                    <a href="/vi-koper-kontroller/" class="buyback-promo-btn">SE PRISLISTA &amp; SÄLJ HÄR →</a>
+                    <span class="buyback-sub-cta">Eller SMS:a 079-032 06 05</span>
                 </div>
             </div>
         </section>
 
-        <section
-            id="youtube"
-            style="text-align: center; padding: 4rem 1rem; background: rgba(255, 0, 0, 0.05); border-radius: 20px; margin: 2rem auto; max-width: 1000px; border: 1px solid rgba(255, 0, 0, 0.1);"
-        >
-            <h2 style="color: #ff0000; margin-bottom: 1rem;">
-                📺 MKFix på YouTube
-            </h2>
-            <p style="margin-bottom: 2rem;">
-                Följ mina reparationer live eller se mina guider för kalibrering
-                och uppgradering.
-            </p>
+        <section id="youtube"
+            style="text-align: center; padding: 4rem 1rem; background: rgba(255, 0, 0, 0.05); border-radius: 20px; margin: 2rem auto; max-width: 1000px; border: 1px solid rgba(255, 0, 0, 0.1);">
+            <h2 style="color: #ff0000; margin-bottom: 1rem;">📺 MKFix på YouTube</h2>
+            <p style="margin-bottom: 2rem;">Följ mina reparationer live eller se mina guider för kalibrering och
+                uppgradering.</p>
 
             <div style="margin-bottom: 3rem;">
-                <a
-                    href="https://www.youtube.com/@mkfixyt/live"
-                    target="_blank"
-                    style="text-decoration: none; display: inline-block;"
-                >
+                <a href="https://www.youtube.com/@mkfixyt/live" target="_blank"
+                    style="text-decoration: none; display: inline-block;">
                     <div
-                        style="background: #ff0000; color: white; padding: 1.2rem 2.5rem; border-radius: 12px; font-weight: bold; display: flex; align-items: center; gap: 15px; box-shadow: 0 10px 20px rgba(255,0,0,0.2);"
-                    >
+                        style="background: #ff0000; color: white; padding: 1.2rem 2.5rem; border-radius: 12px; font-weight: bold; display: flex; align-items: center; gap: 15px; box-shadow: 0 10px 20px rgba(255,0,0,0.2);">
                         <span class="live-dot"></span>
                         SE LIVE-STREAM HÄR
                     </div>
                 </a>
-                <p style="font-size: 0.8rem; margin-top: 0.8rem; opacity: 0.7;">
-                    Klicka för att se om jag är live just nu på YouTube
-                </p>
+                <p style="font-size: 0.8rem; margin-top: 0.8rem; opacity: 0.7;">Klicka för att se om jag är live just nu
+                    på YouTube</p>
             </div>
 
-            <h3 style="margin-bottom: 1.5rem; font-size: 1.2rem; color: #fff;">
-                Mina mest populära guider
-            </h3>
-            <div
-                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;"
-            >
+            <h3 style="margin-bottom: 1.5rem; font-size: 1.2rem; color: #fff;">Mina mest populära guider</h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
                 <div
-                    style="border-radius: 15px; overflow: hidden; background: #000; border: 1px solid rgba(255,255,255,0.1);"
-                >
+                    style="border-radius: 15px; overflow: hidden; background: #000; border: 1px solid rgba(255,255,255,0.1);">
                     <div style="aspect-ratio: 16/9;">
-                        <iframe
-                            width="100%"
-                            height="100%"
-                            src="https://www.youtube.com/embed/vZfi6NYj5n8"
-                            title="PS5 Controller TMR Upgrade guide"
-                            frameborder="0"
-                            allowfullscreen
-                            loading="lazy"></iframe>
+                        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/vZfi6NYj5n8"
+                            title="PS5 Controller TMR Upgrade guide" frameborder="0" allowfullscreen loading="lazy"></iframe>
                     </div>
-                    <p style="padding: 15px; font-size: 0.95rem;">
-                        PS5 Controller TMR Upgrade
-                    </p>
+                    <p style="padding: 15px; font-size: 0.95rem;">PS5 Controller TMR Upgrade</p>
                 </div>
                 <div
-                    style="border-radius: 15px; overflow: hidden; background: #000; border: 1px solid rgba(255,255,255,0.1);"
-                >
+                    style="border-radius: 15px; overflow: hidden; background: #000; border: 1px solid rgba(255,255,255,0.1);">
                     <div style="aspect-ratio: 16/9;">
-                        <iframe
-                            width="100%"
-                            height="100%"
-                            src="https://www.youtube.com/embed/kEqIDXbsg30"
-                            title="Kalibrera din Xbox-kontroll guide"
-                            frameborder="0"
-                            allowfullscreen
-                            loading="lazy"></iframe>
+                        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/kEqIDXbsg30"
+                            title="Kalibrera din Xbox-kontroll guide" frameborder="0" allowfullscreen loading="lazy"></iframe>
                     </div>
-                    <p style="padding: 15px; font-size: 0.95rem;">
-                        Kalibrera din Xbox-kontroll
-                    </p>
+                    <p style="padding: 15px; font-size: 0.95rem;">Kalibrera din Xbox-kontroll</p>
                 </div>
             </div>
         </section>
 
-        <section id="boka" class="contact-card">
-            <h2>Boka din reparation</h2>
-            <p>
-                Beskriv felet så återkommer jag med pris och tidsförslag. Lämna
-                in i Malmö eller skicka via PostNord från hela Sverige!
-            </p>
+       <section id="boka" class="contact-card">
+    <h2>Boka din reparation</h2>
+    <p>Beskriv felet så återkommer jag med pris och tidsförslag. Lämna in i Malmö eller skicka via PostNord från hela Sverige!</p>
+    
+    <!-- 1. FIXED: Added enctype="multipart/form-data" for your file upload -->
+    <form id="contact-form" class="contact-form" method="POST" enctype="multipart/form-data">
+        <div class="form-group">
+            <input type="text" name="fi-sender-firstName" placeholder="Ditt namn*" autocomplete="name" aria-label="Ditt namn" required>
+        </div>
+        <div class="form-group">
+            <input type="email" name="fi-sender-email" placeholder="Din e-post*" autocomplete="email" aria-label="Din e-post" required>
+        </div>
+        <div class="form-group">
+            <input type="tel" id="contact-phone" name="fi-sender-phone" placeholder="Telefon (t.ex. 070-123 45 67 eller +46...)" autocomplete="tel" aria-label="Telefonnummer">
+        </div>
+        <div class="form-group">
+            <select name="fi-text-enhet" aria-label="Välj enhet" required>
+                <option value="" disabled selected>Välj enhet</option>
+                <option value="konsolservice">Service, Rengöring &amp; Kylpasta / Liquid Metal (Konsol)</option>
+                <option value="hdmi-byte">HDMI-port Byte (PS5, PS4, Xbox, Konsol)</option>
+                <option value="ps5">Playstation 5</option>
+                <option value="ps4">Playstation 4</option>
+                <option value="ps3">Playstation 3</option>
+                <option value="xbox">Xbox Series/One</option>
+                <option value="scuf-aim">Scuf/Aim</option>
+                <option value="switch">Nintendo Switch</option>
+                <option value="gamecube">Nintendo GameCube</option>
+                <option value="xbox 360">Xbox 360</option>
+                <option value="ps2">Playstation 2</option>
+                <option value="ps1">Playstation 1</option>
+                <option value="annat">Annat / Konsol</option>
+                <option value="ovrig-elektronik">Övrig elektronik (Kretskort, lödning, etc)</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <textarea name="fi-text-message" placeholder="Beskriv problemet (t.ex. konsolservice/kylarpasta, stick drift, thumbcap-byte, trasig HDMI-port eller knappar)" rows="4" aria-label="Beskriv problemet" required></textarea>
+        </div>
+        <div class="form-group">
+            <select name="fi-text-contact-me" aria-label="Kontakta mig helst genom" required>
+                <option value="whatever" disabled selected>Kontakta mig helst genom</option>
+                <option value="email">E-post</option>
+                <option value="sms">Sms</option>
+                <option value="call">Samtal</option>
+            </select>
+        </div>
+        <div class="form-group file-upload">
+            <label for="photo">Bifoga bild på kontrollen (valfritt):</label>
+            <input type="file" id="photo" name="fi-file-photo" accept="image/*">
+        </div>
 
-            <!-- 1. FIXED: Added enctype="multipart/form-data" for your file upload -->
-            <form
-                id="contact-form"
-                class="contact-form"
-                method="POST"
-                enctype="multipart/form-data"
-            >
-                <div class="form-group">
-                    <input
-                        type="text"
-                        name="fi-sender-firstName"
-                        placeholder="Ditt namn*"
-                        autocomplete="name"
-                        aria-label="Ditt namn"
-                        required
-                    />
-                </div>
-                <div class="form-group">
-                    <input
-                        type="email"
-                        name="fi-sender-email"
-                        placeholder="Din e-post*"
-                        autocomplete="email"
-                        aria-label="Din e-post"
-                        required
-                    />
-                </div>
-                <div class="form-group">
-                    <input
-                        type="tel"
-                        id="contact-phone"
-                        name="fi-sender-phone"
-                        placeholder="Telefon (t.ex. 070-123 45 67 eller +46...)"
-                        autocomplete="tel"
-                        aria-label="Telefonnummer"
-                    />
-                </div>
-                <div class="form-group">
-                    <select
-                        name="fi-text-enhet"
-                        aria-label="Välj enhet"
-                        required
-                    >
-                        <option value="" disabled selected>Välj enhet</option>
-                        <option value="konsolservice"
-                            >Service, Rengöring &amp; Kylpasta / Liquid Metal
-                            (Konsol)</option
-                        >
-                        <option value="hdmi-byte"
-                            >HDMI-port Byte (PS5, PS4, Xbox, Konsol)</option
-                        >
-                        <option value="ps5">Playstation 5</option>
-                        <option value="ps4">Playstation 4</option>
-                        <option value="ps3">Playstation 3</option>
-                        <option value="xbox">Xbox Series/One</option>
-                        <option value="scuf-aim">Scuf/Aim</option>
-                        <option value="switch">Nintendo Switch</option>
-                        <option value="gamecube">Nintendo GameCube</option>
-                        <option value="xbox 360">Xbox 360</option>
-                        <option value="ps2">Playstation 2</option>
-                        <option value="ps1">Playstation 1</option>
-                        <option value="annat">Annat / Konsol</option>
-                        <option value="ovrig-elektronik"
-                            >Övrig elektronik (Kretskort, lödning, etc)</option
-                        >
-                    </select>
-                </div>
-                <div class="form-group">
-                    <textarea
-                        name="fi-text-message"
-                        placeholder="Beskriv problemet (t.ex. konsolservice/kylarpasta, stick drift, thumbcap-byte, trasig HDMI-port eller knappar)"
-                        rows="4"
-                        aria-label="Beskriv problemet"
-                        required></textarea>
-                </div>
-                <div class="form-group">
-                    <select
-                        name="fi-text-contact-me"
-                        aria-label="Kontakta mig helst genom"
-                        required
-                    >
-                        <option value="whatever" disabled selected
-                            >Kontakta mig helst genom</option
-                        >
-                        <option value="email">E-post</option>
-                        <option value="sms">Sms</option>
-                        <option value="call">Samtal</option>
-                    </select>
-                </div>
-                <div class="form-group file-upload">
-                    <label for="photo"
-                        >Bifoga bild på kontrollen (valfritt):</label
-                    >
-                    <input
-                        type="file"
-                        id="photo"
-                        name="fi-file-photo"
-                        accept="image/*"
-                    />
-                </div>
+        <button type="submit" class="submit-btn">SKICKA FÖRFRÅGAN</button>
+    </form>
 
-                <button type="submit" class="submit-btn"
-                    >SKICKA FÖRFRÅGAN</button
-                >
-            </form>
+    <div id="result" style="margin-top: 1rem; color: var(--accent); font-weight: bold;"></div>
 
-            <div
-                id="result"
-                style="margin-top: 1rem; color: var(--accent); font-weight: bold;"
-            >
-            </div>
+    <script src="https://forminit.com/sdk/v1/forminit.js"></script>
 
-            <script src="https://forminit.com/sdk/v1/forminit.js"></script>
+    <script is:inline>
+        function normalizePhone(raw) {
+            if (!raw) return { e164: "", raw: "" };
+            const trimmed = String(raw).trim();
+            if (!trimmed) return { e164: "", raw: "" };
 
-            <script is:inline>
-                function normalizePhone(raw) {
-                    if (!raw) return { e164: "", raw: "" };
-                    const trimmed = String(raw).trim();
-                    if (!trimmed) return { e164: "", raw: "" };
+            let cleaned = trimmed;
+            if (cleaned.startsWith("00")) {
+                cleaned = "+" + cleaned.slice(2);
+            }
+            cleaned = cleaned.replace(/^\+46[\s\-\.]*\(?0\)?[\s\-\.]*/, "+46");
 
-                    let cleaned = trimmed;
-                    if (cleaned.startsWith("00")) {
-                        cleaned = "+" + cleaned.slice(2);
+            let e164 = "";
+            if (cleaned.startsWith("+")) {
+                const digits = cleaned.slice(1).replace(/\D/g, "");
+                if (digits.length >= 6 && digits.length <= 15) {
+                    e164 = "+" + digits;
+                }
+            } else {
+                const digits = cleaned.replace(/\D/g, "");
+                if (digits.startsWith("0")) {
+                    if (digits.length >= 7 && digits.length <= 11) {
+                        e164 = "+46" + digits.slice(1);
                     }
-                    cleaned = cleaned.replace(
-                        /^\+46[\s\-\.]*\(?0\)?[\s\-\.]*/,
-                        "+46",
-                    );
-
-                    let e164 = "";
-                    if (cleaned.startsWith("+")) {
-                        const digits = cleaned.slice(1).replace(/\D/g, "");
-                        if (digits.length >= 6 && digits.length <= 15) {
-                            e164 = "+" + digits;
-                        }
+                } else if (digits.startsWith("46") && digits.length >= 9 && digits.length <= 13) {
+                    if (digits.startsWith("460")) {
+                        e164 = "+46" + digits.slice(3);
                     } else {
-                        const digits = cleaned.replace(/\D/g, "");
-                        if (digits.startsWith("0")) {
-                            if (digits.length >= 7 && digits.length <= 11) {
-                                e164 = "+46" + digits.slice(1);
-                            }
-                        } else if (
-                            digits.startsWith("46") &&
-                            digits.length >= 9 &&
-                            digits.length <= 13
-                        ) {
-                            if (digits.startsWith("460")) {
-                                e164 = "+46" + digits.slice(3);
-                            } else {
-                                e164 = "+" + digits;
-                            }
-                        } else if (
-                            digits.length === 9 &&
-                            digits.startsWith("7")
-                        ) {
-                            e164 = "+46" + digits;
-                        } else if (digits.length >= 7 && digits.length <= 15) {
-                            if (digits.length <= 9) {
-                                e164 = "+46" + digits;
-                            } else {
-                                e164 = "+" + digits;
-                            }
+                        e164 = "+" + digits;
+                    }
+                } else if (digits.length === 9 && digits.startsWith("7")) {
+                    e164 = "+46" + digits;
+                } else if (digits.length >= 7 && digits.length <= 15) {
+                    if (digits.length <= 9) {
+                        e164 = "+46" + digits;
+                    } else {
+                        e164 = "+" + digits;
+                    }
+                }
+            }
+
+            const isValidE164 = /^\+[1-9]\d{6,14}$/.test(e164);
+            return {
+                e164: isValidE164 ? e164 : "",
+                raw: trimmed
+            };
+        }
+
+        function initContactForm() {
+            const forminit = new Forminit();
+            const FORM_ID = "7b7ffs280f3";
+            const formElement = document.getElementById("contact-form");
+            
+            if (formElement) {
+                formElement.addEventListener("submit", async (e) => {
+                    e.preventDefault();
+                    const result = document.getElementById("result");
+                    if (result) {
+                        result.textContent = "Skickar...";
+                        result.style.color = "var(--accent)";
+                    }
+
+                    const formData = new FormData(e.target);
+
+                    const rawPhone = formData.get("fi-sender-phone");
+                    if (rawPhone !== null && rawPhone !== undefined) {
+                        const { e164, raw } = normalizePhone(rawPhone);
+                        if (raw) {
+                            formData.set("fi-text-telefon", raw);
+                        }
+                        if (e164) {
+                            formData.set("fi-sender-phone", e164);
+                        } else {
+                            formData.delete("fi-sender-phone");
                         }
                     }
 
-                    const isValidE164 = /^\+[1-9]\d{6,14}$/.test(e164);
-                    return {
-                        e164: isValidE164 ? e164 : "",
-                        raw: trimmed,
-                    };
-                }
+                    let res = await forminit.submit(FORM_ID, formData);
 
-                function initContactForm() {
-                    const forminit = new Forminit();
-                    const FORM_ID = "7b7ffs280f3";
-                    const formElement = document.getElementById("contact-form");
-
-                    if (formElement) {
-                        formElement.addEventListener("submit", async (e) => {
-                            e.preventDefault();
-                            const result = document.getElementById("result");
-                            if (result) {
-                                result.textContent = "Skickar...";
-                                result.style.color = "var(--accent)";
-                            }
-
-                            const formData = new FormData(e.target);
-
-                            const rawPhone = formData.get("fi-sender-phone");
-                            if (rawPhone !== null && rawPhone !== undefined) {
-                                const { e164, raw } = normalizePhone(rawPhone);
-                                if (raw) {
-                                    formData.set("fi-text-telefon", raw);
-                                }
-                                if (e164) {
-                                    formData.set("fi-sender-phone", e164);
-                                } else {
-                                    formData.delete("fi-sender-phone");
-                                }
-                            }
-
-                            let res = await forminit.submit(FORM_ID, formData);
-
-                            if (
-                                res.error &&
-                                (res.error.code === "FI_RULES_PHONE_INVALID" ||
-                                    (res.error.message &&
-                                        /phone/i.test(res.error.message)))
-                            ) {
-                                formData.delete("fi-sender-phone");
-                                res = await forminit.submit(FORM_ID, formData);
-                            }
-
-                            if (res.error) {
-                                if (result) {
-                                    result.textContent =
-                                        "Något gick fel: " + res.error.message;
-                                    result.style.color = "red";
-                                }
-                                return;
-                            }
-
-                            window.location.href = "/tack";
-                        });
+                    if (res.error && (res.error.code === "FI_RULES_PHONE_INVALID" || (res.error.message && /phone/i.test(res.error.message)))) {
+                        formData.delete("fi-sender-phone");
+                        res = await forminit.submit(FORM_ID, formData);
                     }
-                }
 
-                if (document.readyState === "loading") {
-                    document.addEventListener(
-                        "DOMContentLoaded",
-                        initContactForm,
-                    );
-                } else {
-                    initContactForm();
-                }
-            </script>
+                    if (res.error) {
+                        if (result) {
+                            result.textContent = "Något gick fel: " + res.error.message;
+                            result.style.color = "red";
+                        }
+                        return;
+                    }
 
+                    window.location.href = "/tack";
+                });
+            }
+        }
+
+        if (document.readyState === "loading") {
+            document.addEventListener("DOMContentLoaded", initContactForm);
+        } else {
+            initContactForm();
+        }
+    </script>
+    
+    <div style="margin-top: 2rem; border-top: 1px solid var(--border); padding-top: 2rem;">
+        <p>Föredrar du direktkontakt?</p>
+        <a href="tel:0790320605" style="color: var(--accent); text-decoration: none; font-weight: bold;">079-032 06 05</a>
+    </div>
+</section>
+
+        <a href="https://discord.gg/s75Kww368a" target="_blank" style="text-decoration: none;">
             <div
-                style="margin-top: 2rem; border-top: 1px solid var(--border); padding-top: 2rem;"
-            >
-                <p>Föredrar du direktkontakt?</p>
-                <a
-                    href="tel:0790320605"
-                    style="color: var(--accent); text-decoration: none; font-weight: bold;"
-                    >079-032 06 05</a
-                >
-            </div>
-        </section>
-
-        <a
-            href="https://discord.gg/s75Kww368a"
-            target="_blank"
-            style="text-decoration: none;"
-        >
-            <div
-                style="background: #5865F2; color: white; padding: 1rem 2rem; border-radius: 12px; margin-bottom: 1.5rem; font-weight: bold; display: flex; align-items: center; gap: 10px; box-shadow: 0 10px 20px rgba(88, 101, 242, 0.2);"
-            >
+                style="background: #5865F2; color: white; padding: 1rem 2rem; border-radius: 12px; margin-bottom: 1.5rem; font-weight: bold; display: flex; align-items: center; gap: 10px; box-shadow: 0 10px 20px rgba(88, 101, 242, 0.2);">
                 <span>🎮</span> GÅ MED I DISCORD
-                <p style="font-size: 0.9rem; margin-top: .1rem; opacity: 0.8;">
-                    Här snackar vi teknik, mods och drar dåliga skämt. Också ett
-                    bra ställe att kontakta mig direkt. Högt i tak!
-                </p>
+                <p style="font-size: 0.9rem; margin-top: .1rem; opacity: 0.8;">Här snackar vi teknik, mods och drar
+                    dåliga skämt. Också ett bra ställe att kontakta mig direkt.
+                    Högt i tak!</p>
             </div>
         </a>
 
         <section class="container" style="margin-bottom: 5rem;">
             <h2 class="section-title">Vanliga frågor & Garanti</h2>
             <div class="card" style="background: rgba(56, 189, 248, 0.05);">
-                <p>
-                    <strong
-                        >Hur kan jag vara säker på att jobbet blivit utfört
-                        korrekt?</strong
-                    ><br />
-                    jag spelar in alla mina reparationer eller så livestreamar jag
-                    dem. Kunden får alltid en länk på reparationen om dem vill se
-                    den. Att dokumentera vad man gör är bra för allas trygghet!
-                </p>
-                <br />
-                <p>
-                    <strong>Varför används TMR sticks och vad är det?</strong
-                    ><br />
-                    TMR sticks har magnetiska TMR-sensorer. De slits aldrig ut mekaniskt
-                    och eliminerar stick drift för gott. Kontroller kommer vanligtvis
-                    med potentiometerbaserade joysticks. Dessa har metal"washers"
-                    som trycker på ett kolspår. Detta sliter ut kolspåret med tiden
-                    och skapar stickdrift.
-                </p>
-                <br />
+                <p><strong>Hur kan jag vara säker på att jobbet blivit utfört korrekt?</strong><br>
+                    jag spelar in alla mina reparationer eller så livestreamar jag dem. Kunden får alltid en länk på
+                    reparationen om dem vill se den. Att dokumentera
+                    vad man gör är bra för allas trygghet!</p>
+                <br>
+                <p><strong>Varför används TMR sticks och vad är det?</strong><br>
+                    TMR sticks har magnetiska TMR-sensorer. De slits aldrig ut mekaniskt och eliminerar stick drift för
+                    gott. Kontroller kommer vanligtvis med potentiometerbaserade joysticks.
+                    Dessa har metal"washers" som trycker på ett kolspår. Detta sliter ut kolspåret med tiden och skapar
+                    stickdrift. </p>
+                <br>
 
                 <p><strong>Mer om garanti</strong></p>
-                <p>
-                    <strong>Vad ingår i garantin?</strong><br />
-                    Jag lämnar 6 månaders garanti på alla reservdelar och utfört arbete.
-                    Det täcker tekniska fel som uppstår vid normal användning.
-                </p>
-                <br />
-                <p>
-                    <strong
-                        >Gäller garantin om jag kastar kontrollen i väggen?</strong
-                    ><br />
-                    Tyvärr inte! 😉 Garantin täcker inte "gamer rage", tappskador,
-                    vätskeskador eller om kontrollen öppnats av någon annan efter
-                    min service.
-                </p>
-                <br />
+                <p><strong>Vad ingår i garantin?</strong><br>
+                    Jag lämnar 6 månaders garanti på alla reservdelar och utfört arbete. Det täcker tekniska fel som
+                    uppstår vid normal användning.</p>
+                <br>
+                <p><strong>Gäller garantin om jag kastar kontrollen i väggen?</strong><br>
+                    Tyvärr inte! 😉 Garantin täcker inte "gamer rage", tappskador, vätskeskador eller om kontrollen
+                    öppnats av någon annan efter min service.</p>
+                <br>
 
-                <p>
-                    När du lagar din kontroll hos mkFix Malmö vill jag att du
-                    ska känna dig trygg. Därför lämnar jag alltid 6 månaders
-                    funktionsgaranti på det utförda arbetet och de delar som
-                    bytts ut (t.ex. TMR-sensorer eller batteri).
-                </p>
-                <br />
+                <p>När du lagar din kontroll hos mkFix Malmö vill jag att du ska känna dig trygg. Därför lämnar jag
+                    alltid 6 månaders funktionsgaranti på det utförda arbetet och de delar som bytts ut (t.ex.
+                    TMR-sensorer eller batteri).</p>
+                <br>
                 <p><strong>Vad garantin täcker:</strong></p>
                 <ul>
-                    <li>
-                        Tekniska fel: Om stick drift kommer tillbaka på den
-                        utbytta sensorn eller om en lödning släpper.
+                    <li>Tekniska fel: Om stick drift kommer tillbaka på den utbytta sensorn eller om en lödning släpper.
                     </li>
 
-                    <li>
-                        Komponentfel: Om det nya batteriet slutar ta laddning
-                        eller om den utbytta laddporten slutar fungera under
-                        normal användning.
-                    </li>
+                    <li>Komponentfel: Om det nya batteriet slutar ta laddning eller om den utbytta laddporten slutar
+                        fungera under normal användning.</li>
                 </ul>
-                <br />
+                <br>
                 <p><strong>Vad garantin INTE täcker (Undantag):</strong></p>
                 <ul>
-                    <li>
-                        Yttre åverkan: Om kontrollen har kastats, tappats i
-                        golvet eller utsatts för annat fysiskt våld.
+
+                    <li>Yttre åverkan: Om kontrollen har kastats, tappats i golvet eller utsatts för annat fysiskt våld.
                     </li>
 
-                    <li>
-                        Vätskeskador: Om du råkat spilla läsk eller kaffe i
-                        kontrollen efter reparationen.
-                    </li>
+                    <li>Vätskeskador: Om du råkat spilla läsk eller kaffe i kontrollen efter reparationen.</li>
 
-                    <li>
-                        Eget ingrepp: Om du (eller någon annan) har öppnat
-                        kontrollen efter att jag förseglat den.
-                    </li>
+                    <li>Eget ingrepp: Om du (eller någon annan) har öppnat kontrollen efter att jag förseglat den.</li>
 
-                    <li>
-                        Normalt slitage: Garantin täcker inte att knapparna blir
-                        "blanka" eller gummit på spakarna slits ner av vanligt
-                        spelande.
-                    </li>
+                    <li>Normalt slitage: Garantin täcker inte att knapparna blir "blanka" eller gummit på spakarna slits
+                        ner av vanligt spelande.</li>
                 </ul>
             </div>
         </section>
 
-        <section
-            class="terms-container"
-            style="max-width: 800px; margin: 4rem auto; padding: 0 1rem;"
-        >
+        <section class="terms-container" style="max-width: 800px; margin: 4rem auto; padding: 0 1rem;">
             <details
-                style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 12px; padding: 1.5rem; cursor: pointer; transition: all 0.3s ease;"
-            >
+                style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 12px; padding: 1.5rem; cursor: pointer; transition: all 0.3s ease;">
                 <summary
-                    style="font-weight: 600; font-size: 1.1rem; color: var(--accent); list-style: none; display: flex; justify-content: space-between; align-items: center;"
-                >
+                    style="font-weight: 600; font-size: 1.1rem; color: var(--accent); list-style: none; display: flex; justify-content: space-between; align-items: center;">
                     Villkor för reparation & GDPR (MKFix)
-                    <span style="font-size: 0.8rem; opacity: 0.6;"
-                        >Klicka för att läsa</span
-                    >
+                    <span style="font-size: 0.8rem; opacity: 0.6;">Klicka för att läsa</span>
                 </summary>
 
                 <div
-                    style="margin-top: 1.5rem; text-align: left; font-size: 0.95rem; line-height: 1.7; color: #e0e0e0; cursor: default;"
-                >
+                    style="margin-top: 1.5rem; text-align: left; font-size: 0.95rem; line-height: 1.7; color: #e0e0e0; cursor: default;">
+
                     <div style="margin-bottom: 1.5rem;">
-                        <h4 style="color: #fff; margin-bottom: 0.5rem;">
-                            1. Garanti
-                        </h4>
-                        <p>
-                            Vi lämnar <strong
-                                >6 månaders funktionsgaranti</strong
-                            > på det specifika arbete vi utfört (t.ex. byte till TMR-sensorer).
-                            Garantin täcker materialfel och monteringsfel. Den täcker
-                            inte fel som uppstått genom yttre påverkan (tappskador,
-                            vätska, våld eller om kontrollen öppnats av annan part).
+                        <h4 style="color: #fff; margin-bottom: 0.5rem;">1. Garanti</h4>
+                        <p>Vi lämnar <strong>6 månaders funktionsgaranti</strong> på det specifika arbete vi utfört
+                            (t.ex. byte till TMR-sensorer). Garantin täcker materialfel och monteringsfel. Den täcker
+                            inte fel som uppstått genom yttre påverkan (tappskador, vätska, våld eller om kontrollen
+                            öppnats av annan part).</p>
+                    </div>
+
+                    <div style="margin-bottom: 1.5rem;">
+                        <h4 style="color: #fff; margin-bottom: 0.5rem;">2. Ansvar & Befintliga fel</h4>
+                        <p>MKFix ansvarar endast för den reparation som beställts. Vi ansvarar inte för dolda fel som
+                            upptäcks under reparationen eller förlust av data på konsoler. Om vi upptäcker andra fel
+                            under arbetets gång kontaktar vi dig innan vi går vidare.</p>
+                    </div>
+
+                    <div style="margin-bottom: 1.5rem;">
+                        <h4 style="color: #fff; margin-bottom: 0.5rem;">3. Inlämning & Frakt</h4>
+                        <p>Vid postfrakt ansvarar kunden för att varan paketeras väl. Vi rekommenderar alltid
+                            <strong>spårbar frakt</strong>. MKFix ansvarar för varan från att den tagits emot till att
+                            den lämnats in hos ombud för returfrakt.
                         </p>
                     </div>
 
                     <div style="margin-bottom: 1.5rem;">
-                        <h4 style="color: #fff; margin-bottom: 0.5rem;">
-                            2. Ansvar & Befintliga fel
-                        </h4>
-                        <p>
-                            MKFix ansvarar endast för den reparation som
-                            beställts. Vi ansvarar inte för dolda fel som
-                            upptäcks under reparationen eller förlust av data på
-                            konsoler. Om vi upptäcker andra fel under arbetets
-                            gång kontaktar vi dig innan vi går vidare.
-                        </p>
+                        <h4 style="color: #fff; margin-bottom: 0.5rem;">4. Ej uthämtade varor</h4>
+                        <p>Reparerade varor som ej hämtats ut eller betalats inom <strong>6 månader</strong> efter
+                            färdigställd reparation tillfaller MKFix som kompensation för arbetskostnad och delar
+                            (enligt konsumenttjänstlagen).</p>
                     </div>
 
                     <div style="margin-bottom: 1.5rem;">
-                        <h4 style="color: #fff; margin-bottom: 0.5rem;">
-                            3. Inlämning & Frakt
-                        </h4>
-                        <p>
-                            Vid postfrakt ansvarar kunden för att varan
-                            paketeras väl. Vi rekommenderar alltid
-                            <strong>spårbar frakt</strong>. MKFix ansvarar för
-                            varan från att den tagits emot till att den lämnats
-                            in hos ombud för returfrakt.
-                        </p>
+                        <h4 style="color: #fff; margin-bottom: 0.5rem;">5. Integritetspolicy (GDPR)</h4>
+                        <p>Vi sparar endast ditt namn, telefonnummer och adress för att kunna hantera din beställning.
+                            Vi säljer aldrig dina uppgifter vidare och raderar dem om du så önskar efter avslutad
+                            garantiperiod. Vi håller även din information konfidentiell under streams.</p>
                     </div>
 
                     <div style="margin-bottom: 1.5rem;">
-                        <h4 style="color: #fff; margin-bottom: 0.5rem;">
-                            4. Ej uthämtade varor
-                        </h4>
-                        <p>
-                            Reparerade varor som ej hämtats ut eller betalats
-                            inom <strong>6 månader</strong> efter färdigställd reparation
-                            tillfaller MKFix som kompensation för arbetskostnad och
-                            delar (enligt konsumenttjänstlagen).
-                        </p>
-                    </div>
-
-                    <div style="margin-bottom: 1.5rem;">
-                        <h4 style="color: #fff; margin-bottom: 0.5rem;">
-                            5. Integritetspolicy (GDPR)
-                        </h4>
-                        <p>
-                            Vi sparar endast ditt namn, telefonnummer och adress
-                            för att kunna hantera din beställning. Vi säljer
-                            aldrig dina uppgifter vidare och raderar dem om du
-                            så önskar efter avslutad garantiperiod. Vi håller
-                            även din information konfidentiell under streams.
-                        </p>
-                    </div>
-
-                    <div style="margin-bottom: 1.5rem;">
-                        <h4 style="color: #fff; margin-bottom: 0.5rem;">
-                            6. Extra kostnader
-                        </h4>
-                        <p>
-                            Om en enhet ankommer i ett rent ut sagt äckligt
-                            skick så jobbar vi inte på den utan att rengöra den.
-                            Det tillför en kostnad på 99kr som kunden blir
-                            meddelad om innan arbetet påbörjas. Om detta inte
-                            accepteras av kunden skickas enheten tillbaka. MkFix
-                            står inte för pengar förlorade på att frakta enheten
-                            om så är fallet.
-                        </p>
+                        <h4 style="color: #fff; margin-bottom: 0.5rem;">6. Extra kostnader</h4>
+                        <p>Om en enhet ankommer i ett rent ut sagt äckligt skick så jobbar vi inte på den utan att
+                            rengöra den. Det tillför en kostnad på 99kr som kunden blir meddelad om innan arbetet
+                            påbörjas. Om detta inte accepteras av kunden skickas enheten tillbaka. MkFix står inte för
+                            pengar förlorade på att frakta enheten om så är fallet.</p>
                     </div>
                     <div style="margin-bottom: 0.5rem;">
-                        <h4 style="color: #fff; margin-bottom: 0.5rem;">
-                            7. Kakor
-                        </h4>
-                        <p>
-                            Vi använder Google Analytics för att se hur besökare
-                            använder sidan. Detta sker anonymt via cookies.
-                        </p>
+                        <h4 style="color: #fff; margin-bottom: 0.5rem;">7. Kakor</h4>
+                        <p>Vi använder Google Analytics för att se hur besökare använder sidan. Detta sker anonymt via
+                            cookies.</p>
                     </div>
                 </div>
             </details>
         </section>
     </main>
-    <Footer />
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-DRKX0X33V3"
-    ></script>
-    <script is:inline>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() {
-            dataLayer.push(arguments);
-        }
-        gtag("js", new Date());
+	<Footer />
+	<!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-DRKX0X33V3"
+	></script>
+	<script is:inline>
+		window.dataLayer = window.dataLayer || [];
+		function gtag() {
+			dataLayer.push(arguments);
+		}
+		gtag("js", new Date());
 
-        gtag("config", "G-DRKX0X33V3");
-    </script>
+		gtag("config", "G-DRKX0X33V3");
+	</script>
 </MainLayout>
