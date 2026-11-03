@@ -1,20 +1,8 @@
 // src/data/products.ts
 import type { ImageMetadata } from 'astro';
+import { resolveImage } from '../utils/images';
 
-const imageModules = import.meta.glob<{ default: ImageMetadata }>(
-  '/src/assets/img/**/*.{jpeg,jpg,png,gif,webp,JPG,PNG,WEBP}',
-  { eager: true }
-);
-
-export function resolveProductImage(path: string | ImageMetadata): ImageMetadata | string {
-  if (!path || typeof path !== 'string' || path.startsWith('http')) {
-    return path;
-  }
-  const cleanPath = path.startsWith('/src/assets')
-    ? path
-    : '/src/assets' + path;
-  return imageModules[cleanPath]?.default || path;
-}
+export const resolveProductImage = resolveImage;
 
 export interface ProductSpec {
   label: string;

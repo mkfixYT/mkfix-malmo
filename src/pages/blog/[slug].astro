@@ -1,0 +1,238 @@
+---
+// src/pages/blog/[slug].astro
+import BlogLayout from "../../layouts/BlogLayout.astro";
+import { Image } from "astro:assets";
+import { posts, type BlogPost } from "../../data/posts";
+
+export async function getStaticPaths() {
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+interface Props {
+  post: BlogPost;
+}
+
+const { post } = Astro.props;
+
+const frontmatter = {
+  ...post,
+  ogImage: typeof post.heroImage === "object" ? post.heroImage.src : post.heroImage,
+};
+---
+
+<BlogLayout frontmatter={frontmatter}>
+  <div class="blog-post-body">
+    {post.intro && post.intro.length > 0 && (
+      <div class="blog-intro-block">
+        {post.intro.map((para) => (
+          <p class="blog-intro-lead" set:html={para} />
+        ))}
+      </div>
+    )}
+
+    {post.sections.map((section) => {
+      const hasImages = section.images && section.images.length > 0;
+      const singleImage = hasImages && section.images!.length === 1;
+
+      return (
+        <section class="card blog-section-card">
+          {section.title && (
+            <h2 class="section-title" style="color: var(--accent);">{section.title}</h2>
+          )}
+
+          {section.content && section.content.map((para) => (
+            <p set:html={para} />
+          ))}
+
+          {section.bullets && section.bullets.length > 0 && (
+            <ul class="section-bullets">
+              {section.bullets.map((b) => (
+                <li set:html={b} />
+              ))}
+            </ul>
+          )}
+
+          {section.expertTip && (
+            <div class="expert-tip-box">
+              <span class="tip-badge">💡 Expert-tips:</span>
+              <span set:html={section.expertTip} />
+            </div>
+          )}
+
+          {hasImages && (
+            singleImage ? (
+              <figure class="single-image-wrapper">
+                {typeof section.images![0].src === "object" ? (
+                  <Image
+                    src={section.images![0].src}
+                    alt={section.images![0].alt}
+                    class="section-img"
+                  />
+                ) : (
+                  <img
+                    src={section.images![0].src}
+                    alt={section.images![0].alt}
+                    class="section-img"
+                    loading="lazy"
+                  />
+                )}
+                {section.images![0].caption && (
+                  <figcaption class="img-caption">{section.images![0].caption}</figcaption>
+                )}
+              </figure>
+            ) : (
+              <div class={`image-grid grid-${Math.min(section.images!.length, 2)}`}>
+                {section.images!.map((img) => (
+                  <figure class="grid-image-item">
+                    {typeof img.src === "object" ? (
+                      <Image
+                        src={img.src}
+                        alt={img.alt}
+                        class="section-img"
+                      />
+                    ) : (
+                      <img
+                        src={img.src}
+                        alt={img.alt}
+                        class="section-img"
+                        loading="lazy"
+                      />
+                    )}
+                    {img.caption && (
+                      <figcaption class="img-caption">{img.caption}</figcaption>
+                    )}
+                  </figure>
+                ))}
+              </div>
+            )
+          )}
+        </section>
+      );
+    })}
+  </div>
+</BlogLayout>
+
+<style>
+  .blog-post-body {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .blog-intro-block {
+    margin-bottom: 2.5rem;
+  }
+
+  .blog-intro-lead {
+    font-size: 1.25rem;
+    line-height: 1.7;
+    color: var(--text);
+  }
+
+  .blog-section-card {
+    margin-bottom: 3rem;
+  }
+
+  .section-title {
+    margin-top: 0;
+    margin-bottom: 1.25rem;
+    font-size: 1.6rem;
+  }
+
+  .section-bullets {
+    margin: 1.25rem 0;
+    padding-left: 1.5rem;
+  }
+
+  .section-bullets li {
+    margin-bottom: 0.5rem;
+    line-height: 1.6;
+  }
+
+  .expert-tip-box {
+    margin-top: 1.5rem;
+    padding: 1.1rem 1.3rem;
+    background: rgba(56, 189, 248, 0.08);
+    border-left: 4px solid var(--accent);
+    border-radius: 8px;
+    font-size: 1.05rem;
+    line-height: 1.6;
+  }
+
+  .tip-badge {
+    font-weight: 700;
+    color: var(--accent);
+    display: inline-block;
+    margin-right: 0.4rem;
+  }
+
+  /* Single Image Feature (16:9 aspect) */
+  .single-image-wrapper {
+    margin: 1.75rem 0 0 0;
+    background: var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .single-image-wrapper .section-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    display: block;
+  }
+
+  /* Multi-image Grid */
+  .image-grid {
+    display: grid;
+    gap: 12px;
+    margin-top: 1.75rem;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  }
+
+  .image-grid.grid-2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 600px) {
+    .image-grid.grid-2 {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .grid-image-item {
+    margin: 0;
+    background: var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    aspect-ratio: 4 / 3;
+  }
+
+  .grid-image-item .section-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    display: block;
+  }
+
+  .img-caption {
+    font-size: 0.85rem;
+    color: var(--text-dim);
+    text-align: center;
+    padding: 0.4rem 0.6rem;
+  }
+</style>
+
