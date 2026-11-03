@@ -3,6 +3,7 @@
 import MainLayout from "../../layouts/MainLayout.astro";
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
+import ProductPromo from "../../components/ProductPromo.astro";
 
 const serviceSchema = {
   "@context": "https://schema.org",
@@ -106,6 +107,20 @@ const serviceSchema = {
     <div style="text-align: center; margin: 3rem 0;">
       <a href="/#boka" class="submit-btn" style="text-decoration: none; display: inline-block;">BOKA KONSOLRENGÖRING HÄR</a>
     </div>
+
+    <!-- Produktexponering för beställning av konsolservice online -->
+    <ProductPromo
+      badge="📦 BESTÄLL DIREKT ONLINE"
+      title="Beställ konsolservice direkt i butiken"
+      subtitle="Du kan lägga din serviceorder direkt online i vår webbutik för snabb hantering. Lämna in på plats i Malmö eller skicka smidigt via PostNord från hela Sverige!"
+      slugs={[
+        "service-rengoring-ps5-liquid-metal",
+        "service-rengoring-kylarpastabyte-xbox-series"
+      ]}
+      ctaText="BESTÄLL SERVICEN I WEBBUTIKEN HÄR →"
+      ctaLink="/produkter/"
+    />
+
   </main>
   <Footer />
 

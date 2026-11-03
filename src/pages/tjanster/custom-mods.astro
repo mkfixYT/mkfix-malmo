@@ -3,6 +3,7 @@
 import MainLayout from "../../layouts/MainLayout.astro";
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
+import ProductPromo from "../../components/ProductPromo.astro";
 
 const serviceSchema = {
   "@context": "https://schema.org",
@@ -36,7 +37,7 @@ const serviceSchema = {
   <main class="container">
     <section class="hero">
       <div class="trust-box">
-        <span class="trust-badge">ESPORT & PRO-MODDAR</span>
+        <span class="trust-badge">ESPORT &amp; PRO-MODDAR</span>
         <span>Skräddarsydd service i Malmö</span>
       </div>
       <h1>Custom Mods, <span>Back Buttons</span> &amp; Smart Triggers</h1>
@@ -99,14 +100,21 @@ const serviceSchema = {
     <div style="text-align: center; margin: 3rem 0;">
       <a href="/#boka" class="submit-btn" style="text-decoration: none; display: inline-block;">DISKUTERA DIN CUSTOM MODD HÄR</a>
     </div>
+
+    <!-- Specifik produktsektion för Custom & Mods -->
+    <ProductPromo
+      badge="✨ HANDBYGGDA PRO-KONTROLLER"
+      title="Köp våra färdigmoddade handkontroller i butiken"
+      subtitle="Vill du ha en unik kontroll med klickiga knappar, paddlar eller TMR direkt? Kolla in våra färdigbyggda esport- och pro-kontroller i butiken – noga testade med 6 månaders garanti!"
+      slugs={[
+        "ps5-dualsense-white-tmr-clicky-mod-174",
+        "ps4-dualshock-4-wave-blue-tmr-usbc-208",
+        "ps4-dualshock-4-jet-black-tmr-190"
+      ]}
+      ctaText="KÖP VÅRA MODIFIERADE KONTROLLER HÄR →"
+      ctaLink="/produkter/?kategori=kontroller"
+    />
+
   </main>
   <Footer />
-
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-DRKX0X33V3"></script>
-  <script is:inline>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag("js", new Date());
-    gtag("config", "G-DRKX0X33V3");
-  </script>
 </MainLayout>

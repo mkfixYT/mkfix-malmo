@@ -1,8 +1,9 @@
 ---
-// src/pages/index.astro
+// src/pages/tjanster/tmr-sticks.astro
 import MainLayout from "../../layouts/MainLayout.astro";
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
+import ProductPromo from "../../components/ProductPromo.astro";
 ---
 
 <MainLayout
@@ -24,18 +25,18 @@ import Footer from "../../components/Footer.astro";
             <p>Till skillnad från traditionella analoga joysticks som slits mekaniskt över tid, använder TMR magnetisk avläsning utan fysisk kontakt. Det gör att risken för stick drift minskar kraftigt.</p>
         </section>
 
-        <section style="background: rgba(56, 189, 248, 0.05); padding: 2rem; border-radius: 15px; margin: 0 0;">
+        <section style="background: rgba(56, 189, 248, 0.05); padding: 2rem; border-radius: 15px; margin: 0 0 2rem;">
             <h2 style="color: var(--accent); margin-top: 0;">Fördelar med TMR-uppgradering:</h2>
             <ul style="list-style: none; padding: 0;">
                 <li style="margin-bottom: 1rem;">✅ <strong>Mer</strong> exakt och stabil styrning</li>
                 <li style="margin-bottom: 1rem;">✅ <strong>Ingen</strong> risk för stick drift</li>
                 <li style="margin-bottom: 1rem;">✅ <strong>Jämnare</strong> och mer responsiv känsla i siktet</li>
                 <li style="margin-bottom: 1rem;">✅ <strong>Mindre</strong> energiförbrukning i vissa kontroller</li>
-                <li style="margin-bottom: 1rem;">✅ <strong>Förbättrad</strong>  precision vid små rörelser</li>
+                <li style="margin-bottom: 1rem;">✅ <strong>Förbättrad</strong> precision vid små rörelser</li>
             </ul>
         </section>
 
-        <section class="hero">
+        <section class="hero" style="padding-top: 2rem;">
             <h2>TMR vs Hall-effect, vad är skillnaden?</h2>
             <p> 
                 Hall-effect har länge varit standarden för driftfria joysticks, men TMR är en vidareutveckling som erbjuder ännu finare avläsning av rörelser.<br/>
@@ -43,49 +44,64 @@ import Footer from "../../components/Footer.astro";
             </p>
         </section>
 
-        <section style="background: rgba(56, 189, 248, 0.05); padding: 2rem; border-radius: 15px; margin: 0 0;">
+        <section style="background: rgba(56, 189, 248, 0.05); padding: 2rem; border-radius: 15px; margin: 0 0 2rem;">
             <h2 style="color: var(--accent); margin-top: 0;">När passar en TMR-uppgradering?</h2>
             <p style="margin-bottom: 4px">En TMR-reparation eller uppgradering passar dig som:</p>
             <ul style="list-style: none; padding: 0;">
-                <li style="margin-bottom: 1rem;">✅ Vill slippa återkommande stick drif</li>
+                <li style="margin-bottom: 1rem;">✅ Vill slippa återkommande stick drift för alltid</li>
                 <li style="margin-bottom: 1rem;">✅ Vill ha bättre precision i spel</li>
                 <li style="margin-bottom: 1rem;">✅ Spelar FPS eller spel där små rörelser spelar stor roll</li>
                 <li style="margin-bottom: 1rem;">✅ Vill förlänga livslängden på din handkontroll</li>
             </ul>
         </section>
-        <h2 style="margin-top: 24px;">Videojämnförelse på vanliga ALPS vs TMR som visar varför drift uppstår</h2>
+
+        <h2 style="margin-top: 32px; text-align: center;">Videojämförelse: Vanliga ALPS vs TMR – därför uppstår drift</h2>
         <div
             style="aspect-ratio: 16/9; margin: 2rem 0; border-radius: 20px; overflow: hidden; border: 1px solid var(--accent);">
             <iframe width="100%" height="100%" src="https://www.youtube.com/embed/PsdnZ-OYln8?si=ID-RhhDyY1S80n9b" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         </div>
-        <a href="https://mkfix.se/#boka" class="submit-btn" style="text-decoration: none; display: inline-block;">STARTA
-            DIN BOKNING HÄR</a>
-        <div class="grid">
+
+        <div class="grid" style="margin-bottom: 3rem;">
             <div class="card">
                 <h3>Vanliga Spakar (ALPS)</h3>
-                <p>Använder kolspår som slits ner mekaniskt varje gång du rör spaken. Förr eller senare börjar de
-                    "drifta".</p>
+                <p>Använder kolspår som slits ner mekaniskt varje gång du rör spaken. Förr eller senare börjar de "drifta".</p>
             </div>
             <div class="card" style="border: 2px solid var(--accent);">
                 <h3>TMR (Tunnel Magnetoresistance)</h3>
-                <p>Ingen fysisk kontakt. Sensorerna läser av magnetism. De slits aldrig ut och har extremt låg
-                    strömförbrukning.</p>
+                <p>Ingen fysisk kontakt. Sensorerna läser av magnetism. De slits aldrig ut och har extremt låg strömförbrukning.</p>
             </div>
         </div>
+
+        <div style="text-align: center; margin-bottom: 4rem;">
+            <a href="/#boka" class="submit-btn" style="text-decoration: none; display: inline-block;">BOKA REPARATION AV DIN KONTROLL HÄR</a>
+        </div>
+
+        <!-- Specifik produktexponering för TMR & Stick Drift -->
+        <ProductPromo
+            badge="⚡ SLIPP VÄNTA PÅ REPARATION"
+            title="Köp våra modifierade kontroller – Driftfria för evigt!"
+            subtitle="Vill du ha en ny handkontroll direkt utan att behöva skicka in din gamla? Vi har fabriksnya och proffsrenoverade kontroller för PS5 och Xbox med magnetiska TMR-sensorer i butiken!"
+            slugs={[
+                "ps5-dualsense-white-tmr-clicky-mod-174",
+                "xbox-series-controller-carbon-black-tmr-171",
+                "k-silver-ps5-tmr-joysticks"
+            ]}
+            ctaText="KÖP VÅRA MODIFIERADE KONTROLLER HÄR →"
+            ctaLink="/produkter/"
+        />
+
     </main>
 
 	<Footer />
+
 	<!-- Google tag (gtag.js) -->
-     <!-- TODO: Greate GTM component -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=G-DRKX0X33V3"
-	></script>
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-DRKX0X33V3"></script>
 	<script is:inline>
 		window.dataLayer = window.dataLayer || [];
 		function gtag() {
 			dataLayer.push(arguments);
 		}
 		gtag("js", new Date());
-
 		gtag("config", "G-DRKX0X33V3");
 	</script>
 </MainLayout>

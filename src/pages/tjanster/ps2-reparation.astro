@@ -3,6 +3,7 @@
 import MainLayout from "../../layouts/MainLayout.astro";
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
+import ProductPromo from "../../components/ProductPromo.astro";
 
 const serviceSchema = {
   "@context": "https://schema.org",
@@ -96,14 +97,21 @@ const serviceSchema = {
     <div style="text-align: center; margin: 3rem 0;">
       <a href="/#boka" class="submit-btn" style="text-decoration: none; display: inline-block;">BOKA PS2-REPARATION HÄR</a>
     </div>
+
+    <!-- Specifik produktsektion för PS2 -->
+    <ProductPromo
+      badge="🎮 FÄRDIGRENOVERADE RETRO-ORIGINAL"
+      title="Köp en helrenoverad PS2 DualShock 2 i butiken"
+      subtitle="Vill du hellre ha en extra originalkontroll i toppskick direkt? Vi har helrenoverade PlayStation 2-originalkontroller och reservdelar i butiken – noga testade med 6 månaders garanti!"
+      slugs={[
+        "ps2-dualshock-2-satin-silver-206",
+        "retro-joysticks-ps1-ps2-xbox-original",
+        "thumbcaps-ps1-ps2"
+      ]}
+      ctaText="KÖP RENOVERADE PS2-KONTROLLER HÄR →"
+      ctaLink="/produkter/ps2-dualshock-2-satin-silver-206/"
+    />
+
   </main>
   <Footer />
-
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-DRKX0X33V3"></script>
-  <script is:inline>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag("js", new Date());
-    gtag("config", "G-DRKX0X33V3");
-  </script>
 </MainLayout>

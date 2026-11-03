@@ -1,40 +1,140 @@
 ---
-// src/pages/index.astro
+// src/pages/tack.astro
 import MainLayout from "../layouts/MainLayout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
-interface Props {
-	title?: string;
-	description?: string;
-}
-const { title, description } = Astro.props;
+import ProductPromo from "../components/ProductPromo.astro";
 ---
 
 <MainLayout
-	title="Tack för din förfrågan | mkFix Malmö"
-	description="Tack för din bokningsförfrågan hos mkFix i Malmö. Vi återkommer till dig så snart som möjligt."
-	canonicalUrl="https://mkfix.se/tack/"
-	noindex={true}
+  title="Tack för din förfrågan | mkFix Malmö"
+  description="Tack för din bokningsförfrågan hos mkFix i Malmö. Vi återkommer till dig så snart som möjligt."
+  canonicalUrl="https://mkfix.se/tack/"
+  noindex={true}
 >
-	<Header />
-	<main class="thanks-container">
-        <div class="check-icon">✓</div>
-        <h1>Tack för din förfrågan!</h1>
-        <p>Jag har tagit emot ditt meddelande och återkommer till dig så snart jag kan (oftast inom 24 timmar).</p>
-        <br>
-        <a href="/" class="submit-btn" style="text-decoration: none;">TILLBAKA TILL STARTSIDAN</a>
-    </main>
-	<Footer />
-	<!-- Google tag (gtag.js) -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=G-DRKX0X33V3"
-	></script>
-	<script is:inline>
-		window.dataLayer = window.dataLayer || [];
-		function gtag() {
-			dataLayer.push(arguments);
-		}
-		gtag("js", new Date());
+  <Header />
+  <main class="container" style="padding-top: 2rem; padding-bottom: 5rem;">
+    
+    <!-- Bekräftelseruta -->
+    <div class="thanks-box">
+      <div class="check-circle">✓</div>
+      <h1>Tack för din förfrågan!</h1>
+      <p>
+        Vi har tagit emot ditt meddelande och återkommer till dig så snart vi kan (oftast inom några timmar eller senast nästa vardag) med pris och tidsförslag.
+      </p>
+      <div class="thanks-actions">
+        <a href="/" class="back-home-btn">← Tillbaka till startsidan</a>
+        <a href="/produkter/" class="browse-shop-btn">🛒 Utforska butiken</a>
+      </div>
+    </div>
 
-		gtag("config", "G-DRKX0X33V3");
-	</script>
+    <!-- Produktexponering direkt på tacksidan -->
+    <ProductPromo
+      badge="🎮 SPELA DIREKT UTAN ATT VÄNTA"
+      title="Vill du hellre ha en ny handkontroll direkt?"
+      subtitle="Medan du väntar på svar – visste du att du kan köpa våra proffsbyggda kontroller med magnetiska TMR-sensorer direkt ur butiken? Skickas spårbart samma eller nästa vardag med 6 månaders garanti!"
+      slugs={[
+        "ps5-dualsense-white-tmr-clicky-mod-174",
+        "xbox-series-controller-carbon-black-tmr-171",
+        "ps4-dualshock-4-wave-blue-tmr-usbc-208"
+      ]}
+      ctaText="KÖP VÅRA MODIFIERADE KONTROLLER HÄR →"
+      ctaLink="/produkter/"
+    />
+
+  </main>
+  <Footer />
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-DRKX0X33V3"></script>
+  <script is:inline>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
+    gtag("config", "G-DRKX0X33V3");
+  </script>
 </MainLayout>
+
+<style>
+  .thanks-box {
+    background: linear-gradient(145deg, rgba(30, 41, 59, 0.9), rgba(15, 23, 42, 0.95));
+    border: 1px solid var(--accent);
+    border-radius: 24px;
+    padding: 3.5rem 2rem;
+    text-align: center;
+    max-width: 750px;
+    margin: 2rem auto 4rem;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.4);
+  }
+
+  .check-circle {
+    width: 72px;
+    height: 72px;
+    background: rgba(34, 197, 94, 0.15);
+    border: 2px solid var(--success);
+    color: var(--success);
+    font-size: 2.4rem;
+    font-weight: 900;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+  }
+
+  .thanks-box h1 {
+    font-size: clamp(2rem, 5vw, 2.6rem);
+    font-weight: 800;
+    margin-bottom: 1rem;
+    color: #fff;
+  }
+
+  .thanks-box p {
+    font-size: 1.15rem;
+    color: var(--text-dim);
+    max-width: 600px;
+    margin: 0 auto 2rem;
+    line-height: 1.6;
+  }
+
+  .thanks-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .back-home-btn {
+    text-decoration: none;
+    padding: 12px 24px;
+    border-radius: 10px;
+    font-weight: 600;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border);
+    color: #fff;
+    transition: all 0.2s ease;
+  }
+
+  .back-home-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.3);
+  }
+
+  .browse-shop-btn {
+    text-decoration: none;
+    padding: 12px 28px;
+    border-radius: 10px;
+    font-weight: 800;
+    background: var(--accent);
+    color: var(--bg);
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 15px rgba(56, 189, 248, 0.2);
+  }
+
+  .browse-shop-btn:hover {
+    transform: translateY(-2px);
+    opacity: 0.92;
+  }
+</style>

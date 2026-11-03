@@ -3,6 +3,7 @@
 import MainLayout from "../../layouts/MainLayout.astro";
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
+import ProductPromo from "../../components/ProductPromo.astro";
 
 const serviceSchema = {
   "@context": "https://schema.org",
@@ -456,6 +457,19 @@ const faqSchema = {
         >
       </div>
     </div>
+
+    <!-- Specifik produktsektion: Köp färdig kontroll istället för att skicka in -->
+    <ProductPromo
+      badge="⚡ SLIPP VÄNTA PÅ POSTGÅNG"
+      title="Vill du hellre köpa en färdigbyggd kontroll direkt?"
+      subtitle="Har du bråttom eller vill ha en extra kontroll redo för match? Vi har färdigmoddade handkontroller för PS5 och Xbox med magnetiska TMR-sensorer klara att skickas med PostNord samma dag!"
+      slugs={[
+        "ps5-dualsense-white-tmr-clicky-mod-174",
+        "xbox-series-controller-carbon-black-tmr-171"
+      ]}
+      ctaText="KÖP VÅRA MODIFIERADE KONTROLLER HÄR →"
+      ctaLink="/produkter/?kategori=kontroller"
+    />
 
     <!-- Packguide Section -->
     <section

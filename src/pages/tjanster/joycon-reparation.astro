@@ -3,6 +3,7 @@
 import MainLayout from "../../layouts/MainLayout.astro";
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
+import ProductPromo from "../../components/ProductPromo.astro";
 
 const serviceSchema = {
   "@context": "https://schema.org",
@@ -89,6 +90,17 @@ const serviceSchema = {
         Vill du hellre sälja dina trasiga Joy-Cons? <a href="/vi-koper-kontroller/" style="color: var(--accent); font-weight: 700;">Vi köper dem – se priser här →</a>
       </p>
     </div>
+
+    <!-- Specifik produktrekommendation för Switch -->
+    <ProductPromo
+      badge="🔧 FÖR DIG SOM MEKAR SJÄLV"
+      title="Köp TMR-moduler för Nintendo Switch i butiken"
+      subtitle="Vill du hellre byta joysticks själv hemma? Vi säljer samma testade och driftsäkra K-Silver TMR-moduler som vi använder i verkstaden. Enkla att montera och 100% säkrade mot drift!"
+      slugs={["k-silver-nintendo-switch-joycon-tmr"]}
+      ctaText="KÖP TMR JOY-CON MODULER HÄR →"
+      ctaLink="/produkter/k-silver-nintendo-switch-joycon-tmr/"
+    />
+
   </main>
   <Footer />
 

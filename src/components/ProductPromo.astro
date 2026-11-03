@@ -1,0 +1,334 @@
+---
+// src/components/ProductPromo.astro
+import { products, type Product } from "../data/products";
+
+interface Props {
+  title?: string;
+  badge?: string;
+  subtitle?: string;
+  slugs?: string[];
+  category?: "kontroller" | "reservdelar";
+  ctaText?: string;
+  ctaLink?: string;
+}
+
+const {
+  title = "Köp våra färdigbyggda kontroller i butiken",
+  badge = "🛒 DIREKT FRÅN BUTIKEN",
+  subtitle = "Orkar du inte vänta på reparation? Vi har färdigmoddade handkontroller med magnetiska TMR-sensorer klara för omgående leverans med 6 månaders garanti.",
+  slugs,
+  category,
+  ctaText = "KÖP VÅRA MODIFIERADE KONTROLLER HÄR →",
+  ctaLink = "/produkter/",
+} = Astro.props;
+
+// Plocka ut specifika produkter baserat på slugs eller kategori
+const promoProducts: Product[] =
+  slugs && slugs.length > 0
+    ? slugs
+        .map((slug) => products.find((p) => p.slug === slug))
+        .filter((p): p is Product => Boolean(p))
+    : category
+      ? products.filter((p) => p.category === category).slice(0, 3)
+      : products.filter((p) => p.category === "kontroller").slice(0, 3);
+---
+
+<section class="product-promo-section">
+  <div class="promo-header">
+    {badge && <span class="promo-badge">{badge}</span>}
+    <h2 class="promo-title">{title}</h2>
+    {subtitle && <p class="promo-subtitle">{subtitle}</p>}
+  </div>
+
+  <div class="promo-grid">
+    {
+      promoProducts.map((p) => {
+        const image = p.images[0] || "/favicon.svg";
+        return (
+          <article class="promo-card">
+            <a
+              href={`/produkter/${p.slug}/`}
+              class="promo-img-link"
+              aria-label={`Visa ${p.title}`}
+            >
+              <div class="promo-img-wrap">
+                <img src={image} alt={p.title} loading="lazy" />
+                {p.badge && <span class="card-badge">{p.badge}</span>}
+              </div>
+            </a>
+
+            <div class="promo-card-body">
+              <div class="promo-card-meta">
+                <span class="meta-warranty">✓ 6 mån garanti</span>
+                <span class="meta-status">I lager</span>
+              </div>
+
+              <h3 class="promo-card-title">
+                <a href={`/produkter/${p.slug}/`}>{p.title}</a>
+              </h3>
+
+              <p class="promo-card-desc">{p.shortDescription}</p>
+
+              <div class="promo-card-footer">
+                <span class="promo-card-price">
+                  {p.price} <small>kr</small>
+                </span>
+                <a href={`/produkter/${p.slug}/`} class="promo-view-btn">
+                  Köp / Läs mer →
+                </a>
+              </div>
+            </div>
+          </article>
+        );
+      })
+    }
+  </div>
+
+  {
+    ctaText && (
+      <div class="promo-action">
+        <a href={ctaLink} class="promo-main-btn">
+          {ctaText}
+        </a>
+      </div>
+    )
+  }
+</section>
+
+<style>
+  .product-promo-section {
+    background: linear-gradient(
+      145deg,
+      rgba(30, 41, 59, 0.75),
+      rgba(15, 23, 42, 0.95)
+    );
+    border: 1px solid var(--accent);
+    border-radius: 24px;
+    padding: 3rem 2rem;
+    margin: 4rem 0;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.35);
+  }
+
+  .promo-header {
+    text-align: center;
+    max-width: 750px;
+    margin: 0 auto 2.5rem;
+  }
+
+  .promo-badge {
+    display: inline-block;
+    background: rgba(56, 189, 248, 0.15);
+    color: var(--accent);
+    border: 1px solid rgba(56, 189, 248, 0.3);
+    font-size: 0.78rem;
+    font-weight: 800;
+    padding: 4px 12px;
+    border-radius: 6px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    margin-bottom: 0.8rem;
+  }
+
+  .promo-title {
+    font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+    color: #fff;
+    font-weight: 800;
+    margin: 0.5rem 0 0.8rem;
+    line-height: 1.2;
+  }
+
+  .promo-subtitle {
+    color: var(--text-dim);
+    font-size: 1.05rem;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .promo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .promo-card {
+    background: rgba(15, 23, 42, 0.7);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition:
+      transform 0.25s ease,
+      border-color 0.25s ease,
+      box-shadow 0.25s ease;
+  }
+
+  .promo-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--accent);
+    box-shadow: 0 10px 30px rgba(56, 189, 248, 0.15);
+  }
+
+  .promo-img-link {
+    display: block;
+    overflow: hidden;
+    aspect-ratio: 4 / 3;
+    background: #000;
+    position: relative;
+  }
+
+  .promo-img-wrap {
+    width: 100%;
+    height: 100%;
+    position: relative;
+  }
+
+  .promo-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+
+  .promo-card:hover .promo-img-wrap img {
+    transform: scale(1.04);
+  }
+
+  .card-badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: rgba(15, 23, 42, 0.85);
+    backdrop-filter: blur(8px);
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    font-size: 0.72rem;
+    font-weight: 800;
+    padding: 3px 8px;
+    border-radius: 6px;
+  }
+
+  .promo-card-body {
+    padding: 1.4rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    justify-content: space-between;
+  }
+
+  .promo-card-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.78rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .meta-warranty {
+    color: #4ade80;
+    font-weight: 700;
+  }
+
+  .meta-status {
+    color: var(--accent);
+    font-weight: 600;
+  }
+
+  .promo-card-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    line-height: 1.35;
+    margin: 0 0 0.6rem;
+  }
+
+  .promo-card-title a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .promo-card-title a:hover {
+    color: var(--accent);
+  }
+
+  .promo-card-desc {
+    color: var(--text-dim);
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin: 0 0 1.2rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .promo-card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border);
+    margin-top: auto;
+  }
+
+  .promo-card-price {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--accent);
+  }
+
+  .promo-card-price small {
+    font-size: 0.85rem;
+    font-weight: normal;
+    color: var(--text-dim);
+  }
+
+  .promo-view-btn {
+    background: rgba(56, 189, 248, 0.12);
+    color: var(--accent);
+    border: 1px solid rgba(56, 189, 248, 0.3);
+    padding: 7px 14px;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+
+  .promo-view-btn:hover {
+    background: var(--accent);
+    color: var(--bg);
+  }
+
+  .promo-action {
+    text-align: center;
+  }
+
+  .promo-main-btn {
+    display: inline-block;
+    background: var(--accent);
+    color: var(--bg);
+    padding: 14px 32px;
+    border-radius: 12px;
+    font-size: 1.05rem;
+    font-weight: 800;
+    text-decoration: none;
+    transition:
+      transform 0.2s ease,
+      opacity 0.2s ease;
+    box-shadow: 0 8px 24px rgba(56, 189, 248, 0.25);
+  }
+
+  .promo-main-btn:hover {
+    transform: translateY(-2px);
+    opacity: 0.92;
+  }
+
+  @media (max-width: 768px) {
+    .product-promo-section {
+      padding: 2rem 1.25rem;
+    }
+  }
+</style>
+

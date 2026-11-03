@@ -3,6 +3,7 @@
 import MainLayout from "../../layouts/MainLayout.astro";
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
+import ProductPromo from "../../components/ProductPromo.astro";
 
 const serviceSchema = {
   "@context": "https://schema.org",
@@ -381,6 +382,19 @@ const faqSchema = {
         </div>
       </div>
     </section>
+
+    <!-- Specifik produktsektion för HDMI-sidan -->
+    <ProductPromo
+      badge="🎮 TILL DIN NYLAGADE KONSOL"
+      title="Passa på: Komplettera med en driftfri TMR-kontroll"
+      subtitle="När konsolen levererar knivskarp bild på TV:n igen – se till att du har en handkontroll som matchar! Vi har färdigbyggda kontroller för PS5 och Xbox med magnetiska TMR-sensorer i butiken."
+      slugs={[
+        "ps5-dualsense-white-tmr-clicky-mod-174",
+        "xbox-series-controller-carbon-black-tmr-171"
+      ]}
+      ctaText="KÖP VÅRA MODIFIERADE KONTROLLER HÄR →"
+      ctaLink="/produkter/?kategori=kontroller"
+    />
 
     <!-- FAQ Section -->
     <section style="background: rgba(15, 23, 42, 0.6); border: 1px solid var(--border); border-radius: 20px; padding: 2.5rem; margin: 3rem 0;">
