@@ -1,5 +1,5 @@
 Fixa:
-Laga handkontroller OCH konsoler på förstasidan. 
+Vi lagar inte bara handkontroller längre. Hitta alla ställen där det står saker som "Laga & uppgradera handkontroller i Malmö" till att säga att vi både lagar och modifierar kontroller, konsoler och lagar elektronik
 
 
 Sen: 
