@@ -1,4 +1,20 @@
 // src/data/products.ts
+import type { ImageMetadata } from 'astro';
+
+const imageModules = import.meta.glob<{ default: ImageMetadata }>(
+  '/src/assets/img/**/*.{jpeg,jpg,png,gif,webp,JPG,PNG,WEBP}',
+  { eager: true }
+);
+
+export function resolveProductImage(path: string | ImageMetadata): ImageMetadata | string {
+  if (!path || typeof path !== 'string' || path.startsWith('http')) {
+    return path;
+  }
+  const cleanPath = path.startsWith('/src/assets')
+    ? path
+    : '/src/assets' + path;
+  return imageModules[cleanPath]?.default || path;
+}
 
 export interface ProductSpec {
   label: string;
@@ -23,10 +39,10 @@ export interface Product {
   description: string[];    // Stycken med utförlig beskrivning på produktsidan
   features: string[];       // Punktlista med egenskaper/vad som ingår
   specs: ProductSpec[];     // Specifikationstabell
-  images: string[];         // Flera bilder stöds! Första bilden visas som huvudbild
+  images: (string | ImageMetadata)[];         // Flera bilder stöds! Första bilden visas som huvudbild
 }
 
-export const products: Product[] = [
+const rawProducts: (Omit<Product, 'images'> & { images: (string | ImageMetadata)[] })[] = [
   // --- 159: Xbox 360 Wireless Controller White #159 ---
   {
     slug: 'xbox-360-wireless-black-HE-207',
@@ -1066,6 +1082,11 @@ export const products: Product[] = [
   //   ]
   // }
 ];
+
+export const products: Product[] = rawProducts.map((p) => ({
+  ...p,
+  images: p.images.map(resolveProductImage),
+}));
 
 // Helper functions för att hämta produkter
 export function getAllProducts(): Product[] {

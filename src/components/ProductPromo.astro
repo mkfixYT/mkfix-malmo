@@ -1,5 +1,6 @@
 ---
 // src/components/ProductPromo.astro
+import { Image } from "astro:assets";
 import { products, type Product } from "../data/products";
 
 interface Props {
@@ -52,7 +53,11 @@ const promoProducts: Product[] =
               aria-label={`Visa ${p.title}`}
             >
               <div class="promo-img-wrap">
-                <img src={image} alt={p.title} loading="lazy" />
+                {typeof image === "object" ? (
+                  <Image src={image} alt={p.title} />
+                ) : (
+                  <img src={image} alt={p.title} loading="lazy" />
+                )}
                 {p.badge && <span class="card-badge">{p.badge}</span>}
               </div>
             </a>

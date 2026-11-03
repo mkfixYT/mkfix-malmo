@@ -13,5 +13,8 @@
   },
   "dependencies": {
     "astro": "^6.4.2"
+  },
+  "devDependencies": {
+    "astro-compress": "^2.4.3"
   }
 }

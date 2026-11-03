@@ -1,5 +1,20 @@
 ---
 import BlogLayout from "../../layouts/BlogLayout.astro";
+import { Image } from "astro:assets";
+
+import tmr1 from "../../assets/img/2026/0505/tmr 1.jpg";
+import tmr2 from "../../assets/img/2026/0505/tmr 2.jpg";
+import tmr3 from "../../assets/img/2026/0505/tmr 3.jpg";
+import tmr4 from "../../assets/img/2026/0505/tmr 4.jpg";
+import tmr5 from "../../assets/img/2026/0505/tmr 5.jpg";
+import macImg from "../../assets/img/2026/0505/mac.jpg";
+import gamecubeImg from "../../assets/img/2026/0505/gamecube.jpg";
+import blurayImg from "../../assets/img/2026/0505/bluray.jpg";
+import gamegear1 from "../../assets/img/2026/0505/gamegear1.jpg";
+import gamegear2 from "../../assets/img/2026/0505/gamegear2.jpg";
+import switch1 from "../../assets/img/2026/0505/switch1.jpg";
+import switch2 from "../../assets/img/2026/0505/switch2.jpg";
+import switch3 from "../../assets/img/2026/0505/switch3.jpg";
 
 export const frontmatter = {
     title: "Case Study: TMR-sticks, game gear, game cube, mac, nintendo switch och blu ray | mkFix Malmö",
@@ -40,45 +55,45 @@ export const frontmatter = {
                 <div
                     style="background: var(--border); object-fit: cover; border-radius: 10px; display: flex; align-items: center; justify-content: center;"
                 >
-                    <img
-                        style="width: 100%; object-fit: cover; border-radius: 10px;"
-                        src="/img/2026/0505/tmr 1.jpg"
+                    <Image
+                        style="width: 100%; height: auto; object-fit: cover; border-radius: 10px;"
+                        src={tmr1}
                         alt="Gammla joysticks och nya Malmö"
                     />
                 </div>
                 <div
                     style="background: var(--border); object-fit: cover; border-radius: 10px; display: flex; align-items: center; justify-content: center;"
                 >
-                    <img
-                        style="width: 100%; object-fit: cover; border-radius: 10px;"
-                        src="/img/2026/0505/tmr 2.jpg"
+                    <Image
+                        style="width: 100%; height: auto; object-fit: cover; border-radius: 10px;"
+                        src={tmr2}
                         alt="TMR uppgradering Malmö"
                     />
                 </div>
                 <div
                     style="background: var(--border); object-fit: cover; border-radius: 10px; display: flex; align-items: center; justify-content: center;"
                 >
-                    <img
-                        style="width: 100%; object-fit: cover; border-radius: 10px;"
-                        src="/img/2026/0505/tmr 3.jpg"
+                    <Image
+                        style="width: 100%; height: auto; object-fit: cover; border-radius: 10px;"
+                        src={tmr3}
                         alt="Två lagade playstation 5 kontroller Malmö"
                     />
                 </div>
                 <div
                     style="background: var(--border); object-fit: cover; border-radius: 10px; display: flex; align-items: center; justify-content: center;"
                 >
-                    <img
-                        style="width: 100%; object-fit: cover; border-radius: 10px;"
-                        src="/img/2026/0505/tmr 4.jpg"
+                    <Image
+                        style="width: 100%; height: auto; object-fit: cover; border-radius: 10px;"
+                        src={tmr4}
                         alt="Tre lagade PS5 kontroller Malmö"
                     />
                 </div>
                 <div
                     style="background: var(--border); object-fit: cover; border-radius: 10px; display: flex; align-items: center; justify-content: center;"
                 >
-                    <img
-                        style="width: 100%; object-fit: cover; border-radius: 10px;"
-                        src="/img/2026/0505/tmr 5.jpg"
+                    <Image
+                        style="width: 100%; height: auto; object-fit: cover; border-radius: 10px;"
+                        src={tmr5}
                         alt="Närbild nya TMR sticks Malmö"
                     />
                 </div>
@@ -95,9 +110,9 @@ export const frontmatter = {
             <div
                 style="background: var(--border); width: 100%; aspect-ratio: 16/9; border-radius: 10px; margin-top: 1.5rem; display: flex; align-items: center; justify-content: center;"
             >
-                <img
-                    style="width:100%; border-radius: 10px;"
-                    src="/img/2026/0505/mac.jpg"
+                <Image
+                    style="width:100%; height: 100%; object-fit: cover; border-radius: 10px;"
+                    src={macImg}
                     alt="Reparation av Macbook air Malmö"
                 />
             </div>
@@ -113,9 +128,9 @@ export const frontmatter = {
             <div
                 style="background: var(--border); width: 100%; aspect-ratio: 16/9; border-radius: 10px; margin-top: 1.5rem; display: flex; align-items: center; justify-content: center;"
             >
-                <img
-                    style="width:100%; border-radius: 10px;"
-                    src="/img/2026/0505/gamecube.jpg"
+                <Image
+                    style="width:100%; height: 100%; object-fit: cover; border-radius: 10px;"
+                    src={gamecubeImg}
                     alt="Reparation av Nintendo Game cube Malmö"
                 />
             </div>
@@ -133,9 +148,9 @@ export const frontmatter = {
             <div
                 style="background: var(--border); width: 100%; aspect-ratio: 16/9; border-radius: 10px; margin-top: 1.5rem; display: flex; align-items: center; justify-content: center;"
             >
-                <img
-                    style="width:100%; border-radius: 10px;"
-                    src="/img/2026/0505/bluray.jpg"
+                <Image
+                    style="width:100%; height: 100%; object-fit: cover; border-radius: 10px;"
+                    src={blurayImg}
                     alt="Reparation av Blu ray spelare Malmö"
                 />
             </div>
@@ -156,18 +171,18 @@ export const frontmatter = {
                 <div
                     style="background: var(--border); object-fit: cover; border-radius: 10px; display: flex; align-items: center; justify-content: center;"
                 >
-                    <img
-                        style="width: 100%; object-fit: cover; border-radius: 10px;"
-                        src="/img/2026/0505/gamegear1.jpg"
+                    <Image
+                        style="width: 100%; height: auto; object-fit: cover; border-radius: 10px;"
+                        src={gamegear1}
                         alt="Game gear som inte fungerade Malmö"
                     />
                 </div>
                 <div
                     style="background: var(--border); object-fit: cover; border-radius: 10px; display: flex; align-items: center; justify-content: center;"
                 >
-                    <img
-                        style="width: 100%; object-fit: cover; border-radius: 10px;"
-                        src="/img/2026/0505/gamegear2.jpg"
+                    <Image
+                        style="width: 100%; height: auto; object-fit: cover; border-radius: 10px;"
+                        src={gamegear2}
                         alt="Gamegear fungerar igen Malmö"
                     />
                 </div>
@@ -189,27 +204,27 @@ export const frontmatter = {
                 <div
                     style="background: var(--border); object-fit: cover; border-radius: 10px; display: flex; align-items: center; justify-content: center;"
                 >
-                    <img
-                        style="width: 100%; border-radius: 10px;"
-                        src="/img/2026/0505/switch1.jpg"
+                    <Image
+                        style="width: 100%; height: auto; border-radius: 10px;"
+                        src={switch1}
                         alt="Gammal kylarpasta Malmö"
                     />
                 </div>
                 <div
                     style="background: var(--border); object-fit: cover; border-radius: 10px; display: flex; align-items: center; justify-content: center;"
                 >
-                    <img
-                        style="width: 100%; object-fit: cover; border-radius: 10px;"
-                        src="/img/2026/0505/switch2.jpg"
+                    <Image
+                        style="width: 100%; height: auto; object-fit: cover; border-radius: 10px;"
+                        src={switch2}
                         alt="nintendo switch reparation Malmö"
                     />
                 </div>
                 <div
                     style="background: var(--border); object-fit: cover; border-radius: 10px; display: flex; align-items: center; justify-content: center;"
                 >
-                    <img
-                        style="width: 100%; object-fit: cover; border-radius: 10px;"
-                        src="/img/2026/0505/switch3.jpg"
+                    <Image
+                        style="width: 100%; height: auto; object-fit: cover; border-radius: 10px;"
+                        src={switch3}
                         alt="Nintendo switch ny kylarpasta Malmö"
                     />
                 </div>

@@ -3,6 +3,7 @@
 import MainLayout from "../../layouts/MainLayout.astro";
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
+import { Image } from "astro:assets";
 import { products, type Product } from "../../data/products";
 
 const countAll = products.length;
@@ -128,12 +129,20 @@ const itemListSchema = {
           <article class="product-card" data-category={product.category}>
             <a href={`/produkter/${product.slug}`} class="card-image-link" aria-label={`Visa ${product.title}`}>
               <div class="card-image-wrapper">
-                <img
-                  src={primaryImage}
-                  alt={product.title}
-                  loading="lazy"
-                  class="card-img"
-                />
+                {typeof primaryImage === "object" ? (
+                  <Image
+                    src={primaryImage}
+                    alt={product.title}
+                    class="card-img"
+                  />
+                ) : (
+                  <img
+                    src={primaryImage}
+                    alt={product.title}
+                    loading="lazy"
+                    class="card-img"
+                  />
+                )}
                 
                 {product.badge && (
                   <span class="product-badge">{product.badge}</span>

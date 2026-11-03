@@ -3,6 +3,7 @@
 import MainLayout from "../../layouts/MainLayout.astro";
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
+import { Image } from "astro:assets";
 import { products, type Product } from "../../data/products";
 
 export async function getStaticPaths() {
@@ -49,13 +50,18 @@ const mailBody = encodeURIComponent(
   `Hej mkFix!\n\nJag vill köpa "${product.title}" för ${product.price} kr.\n\nÖnskat leveranssätt (avhämtning i Malmö eller PostNord spårbart):\nMitt namn:\nTelefon:\nAdress (vid frakt):`
 );
 
+const productImagesUrls = product.images.map((img) => {
+  const src = typeof img === "string" ? img : img.src;
+  return src.startsWith("http") ? src : `https://mkfix.se${src}`;
+});
+
 // Schema.org Product markup
 const productSchema = {
   "@context": "https://schema.org",
   "@type": "Product",
   "name": product.title,
   "description": product.shortDescription,
-  "image": product.images.map((img) => (img.startsWith("http") ? img : `https://mkfix.se${img}`)),
+  "image": productImagesUrls,
   "brand": {
     "@type": "Brand",
     "name": "mkFix"
@@ -81,7 +87,7 @@ const productSchema = {
   keywords={`${product.title}, köpa ${product.category}, ${product.slug}, handkontroll butik Malmö, mkfix`}
   ogTitle={`${product.title} | ${product.price} kr | mkFix`}
   ogDescription={product.shortDescription}
-  ogImage={product.images[0]}
+  ogImage={productImagesUrls[0] || "https://mkfix.se/assets/og-image.jpg"}
   canonicalUrl={`https://mkfix.se/produkter/${product.slug}/`}
   jsonLd={productSchema}
 >
@@ -102,12 +108,22 @@ const productSchema = {
       <!-- Left Column: Multi-Image Gallery -->
       <div class="gallery-col">
         <div class="main-image-wrapper" id="main-image-container" title="Klicka för att förstora bilden">
-          <img
-            id="main-preview-img"
-            src={product.images[0] || "/favicon.svg"}
-            alt={product.title}
-            class="main-preview-img"
-          />
+          {typeof product.images[0] === "object" ? (
+            <Image
+              id="main-preview-img"
+              src={product.images[0]}
+              alt={product.title}
+              class="main-preview-img"
+              loading="eager"
+            />
+          ) : (
+            <img
+              id="main-preview-img"
+              src={product.images[0] || "/favicon.svg"}
+              alt={product.title}
+              class="main-preview-img"
+            />
+          )}
 
           {product.badge && (
             <span class="gallery-badge">{product.badge}</span>
@@ -137,17 +153,24 @@ const productSchema = {
         {/* Thumbnail Strip (if multiple images) */}
         {product.images.length > 1 && (
           <div class="thumbnails-strip" aria-label="Fler produktbilder">
-            {product.images.map((imgUrl, idx) => (
-              <button
-                type="button"
-                class={`thumb-btn ${idx === 0 ? "active" : ""}`}
-                data-src={imgUrl}
-                data-index={idx}
-                aria-label={`Visa bild ${idx + 1}`}
-              >
-                <img src={imgUrl} alt={`${product.title} bild ${idx + 1}`} class="thumb-img" />
-              </button>
-            ))}
+            {product.images.map((img, idx) => {
+              const imgSrc = typeof img === "string" ? img : img.src;
+              return (
+                <button
+                  type="button"
+                  class={`thumb-btn ${idx === 0 ? "active" : ""}`}
+                  data-src={imgSrc}
+                  data-index={idx}
+                  aria-label={`Visa bild ${idx + 1}`}
+                >
+                  {typeof img === "object" ? (
+                    <Image src={img} alt={`${product.title} bild ${idx + 1}`} class="thumb-img" />
+                  ) : (
+                    <img src={imgSrc} alt={`${product.title} bild ${idx + 1}`} class="thumb-img" />
+                  )}
+                </button>
+              );
+            })}
           </div>
         )}
 
@@ -160,7 +183,7 @@ const productSchema = {
       <div
         id="image-lightbox"
         class="lightbox-modal"
-        data-images={JSON.stringify(product.images)}
+        data-images={JSON.stringify(product.images.map(img => typeof img === "string" ? img : img.src))}
         data-title={product.title}
         role="dialog"
         aria-modal="true"
@@ -198,7 +221,7 @@ const productSchema = {
             <div class="lightbox-img-wrapper" id="lightbox-img-stage">
               <img
                 id="lightbox-current-img"
-                src={product.images[0] || "/favicon.svg"}
+                src={typeof product.images[0] === "object" ? product.images[0].src : (product.images[0] || "/favicon.svg")}
                 alt={`${product.title} förstorad bild`}
                 class="lightbox-img"
               />
@@ -216,16 +239,23 @@ const productSchema = {
           <!-- Lightbox Bottom Thumbnails (if multiple images) -->
           {product.images.length > 1 && (
             <div class="lightbox-thumbs">
-              {product.images.map((imgUrl, idx) => (
-                <button
-                  type="button"
-                  class={`lightbox-thumb-btn ${idx === 0 ? "active" : ""}`}
-                  data-index={idx}
-                  aria-label={`Visa bild ${idx + 1} i helskärm`}
-                >
-                  <img src={imgUrl} alt={`${product.title} miniatyr ${idx + 1}`} />
-                </button>
-              ))}
+              {product.images.map((img, idx) => {
+                const imgSrc = typeof img === "string" ? img : img.src;
+                return (
+                  <button
+                    type="button"
+                    class={`lightbox-thumb-btn ${idx === 0 ? "active" : ""}`}
+                    data-index={idx}
+                    aria-label={`Visa bild ${idx + 1} i helskärm`}
+                  >
+                    {typeof img === "object" ? (
+                      <Image src={img} alt={`${product.title} miniatyr ${idx + 1}`} />
+                    ) : (
+                      <img src={imgSrc} alt={`${product.title} miniatyr ${idx + 1}`} />
+                    )}
+                  </button>
+                );
+              })}
             </div>
           )}
         </div>
@@ -412,7 +442,11 @@ const productSchema = {
           {otherProducts.map((other) => (
             <a href={`/produkter/${other.slug}`} class="related-card">
               <div class="related-img-wrap">
-                <img src={other.images[0] || "/favicon.svg"} alt={other.title} loading="lazy" />
+                {typeof other.images[0] === "object" ? (
+                  <Image src={other.images[0]} alt={other.title} />
+                ) : (
+                  <img src={other.images[0] || "/favicon.svg"} alt={other.title} loading="lazy" />
+                )}
               </div>
               <div class="related-info">
                 <h4>{other.title}</h4>
