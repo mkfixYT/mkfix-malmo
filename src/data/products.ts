@@ -199,47 +199,6 @@ export const products: Product[] = [
     ]
   },
 
-  // --- 201: PS5 DualSense White #201 ---
-  {
-    slug: 'ps5-dualsense-white-tmr-188',
-    title: 'Sony PS5 DualSense – Original Vit – TMR-Joysticks (#188)',
-    price: 599,
-    category: 'kontroller',
-    status: 'in_stock',
-    badge: '🧲 TMR Elektromagnetisk',
-    condition: 'Professionellt renoverad & TMR-uppgraderad',
-    warranty: '6 månaders full funktionsgaranti från mkFix',
-    shortDescription: 'Klassisk vit PS5 DualSense (#188) med splitternya TMR-joysticks och suverän kalibrering (8.7% / 8.5%). Byggd för att hålla i åratal!',
-    description: [
-      'Original PlayStation 5 DualSense i vitt utförande (#188 i inventariet), förädlad i verkstaden med elektromagnetiska TMR-spakar.',
-      'Med 8.7% och 8.5% felmarginal i kalibreringstestet får du en kontroller som reagerar blixtsnabbt med perfekt centreringsrespons och helt utan dödzonsglapp.',
-      'Fullständig service har genomförts på hela enheten. Levereras rengjord, testad och redo för tusentals timmars intensiv gaming.'
-    ],
-    features: [
-      'Avancerade K-Silver TMR-sensorer utan mekanisk friktion',
-      'Finjusterad hårdvara med 8.5% / 7.8% felmarginal',
-      'Alla originalfunktioner intakta: haptik, mikrofon och triggers',
-      'Garanterad immunitet mot spakdrift',
-      '6 månaders full funktionsgaranti från mkFix'
-    ],
-    specs: [
-      { label: 'Plattform', value: 'PlayStation 5, PC, Mac, iOS, Android' },
-      { label: 'Sensor-teknik', value: 'K-Silver TMR (Tunneling Magnetoresistive)' },
-      { label: 'Färg', value: 'Original Vit / Svart (#188)' },
-      { label: 'Anslutning', value: 'USB-C & Bluetooth' },
-      { label: 'Kalibrering', value: '8.5% vänster / 7.8% höger felmarginal' },
-      { label: 'Skick', value: 'Toppskick / TMR-customiserad' }
-    ],
-    images: [
-      '/img/products/188/PXL_20261014_182530473.MP.jpg',
-      '/img/products/188/PXL_20261014_180214469.MP.jpg',
-      '/img/products/188/PXL_20261014_182544385.MP.jpg',
-      '/img/products/188/Screenshot 2026-10-14 202111.png',
-      '/img/products/188/PXL_20261014_182537123.MP.jpg',
-      '/img/products/188/PXL_20261014_182540402.MP.jpg'
-    ]
-  },
-
   // --- 206: PS2 DualShock 2 Satin Silver #206 ---
   {
     slug: 'ps2-dualshock-2-satin-silver-206',

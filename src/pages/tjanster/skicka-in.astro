@@ -1,62 +1,1007 @@
 ---
-// src/pages/index.astro
+// src/pages/tjanster/skicka-in.astro
 import MainLayout from "../../layouts/MainLayout.astro";
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: "Skicka in konsol & handkontroll för lagning via PostNord",
+  provider: {
+    "@type": "ElectronicsRepairShop",
+    name: "mkFix",
+    url: "https://mkfix.se",
+    telephone: "+46790320605",
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Malmö",
+      addressCountry: "SE",
+    },
+  },
+  areaServed: [
+    { "@type": "City", name: "Stockholm" },
+    { "@type": "City", name: "Göteborg" },
+    { "@type": "City", name: "Malmö" },
+    { "@type": "City", name: "Uppsala" },
+    { "@type": "Country", name: "Sverige" },
+  ],
+  description:
+    "Reparation och uppgradering av spelkonsoler (PS5, Xbox, Switch) och handkontroller via spårbar postfrakt med PostNord från Stockholm, Göteborg och hela Sverige. Fasta priser och 6 månaders funktionsgaranti.",
+  serviceType: "Electronics Repair & Mail-in Service",
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: "Postorder reparationer",
+    itemListElement: [
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "TMR Sensor Joystick Upgrade (PS5 & Xbox)",
+        },
+        price: "449",
+        priceCurrency: "SEK",
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "HDMI-port Byte Konsol (PS5 & Xbox Series)",
+        },
+        price: "1199",
+        priceCurrency: "SEK",
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "Konsolrengöring & Liquid Metal / Kylpasta",
+        },
+        price: "649",
+        priceCurrency: "SEK",
+      },
+    ],
+  },
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "Kan jag skicka in min konsol eller kontroll från Stockholm eller Göteborg?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Ja, absolut! Över 60% av alla våra inlämningar kommer från kunder i Stockholm, Göteborg, Uppsala och resten av Sverige. PostNord levererar normalt inom 1–2 vardagar till vår verkstad. Vi utför lagningen snabbt (oftast inom 24–48 timmar) och returnerar spårbart till ditt närmaste ombud.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Vilken frakttjänst hos PostNord ska jag välja?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Vi rekommenderar 'PostNord Skicka Lätt' eller 'PostNord Paket' som du enkelt bokar och betalar i PostNord-appen eller på postnord.se. Båda alternativen är spårbara och försäkrade. För handkontroller kostar frakten oftast från ca 69–99 kr, och för spelkonsoler ca 135–179 kr.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Hur packar jag min enhet så att den inte skadas i transporten?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "För handkontroller: Använd alltid en liten, hård kartong med rikligt med bubbelplast runt om så att joysticks och spakar inte utsätts för tryck (skicka aldrig i enbart vadderat kuvert). För konsoler: Använd en rejäl kartong med minst 5 cm dämpande material (bubbelplast eller kraftpapper) runt hela chassit. Skicka endast själva enheten – inga lösa sladdar behövs.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Hur lång tid tar hela processen från att jag skickar tills jag får tillbaka den?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Normalt tar det 4–6 vardagar totalt: PostNord tar 1–2 vardagar ner till verkstaden, vi reparerar och testar inom 24–48 timmar, och därefter tar returfrakten 1–2 vardagar tillbaka till ditt ombud.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Hur betalar jag för reparationen och returfrakten?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Du betalar först när arbetet är färdigt och testat. Vi skickar en faktura eller Swish-betalningsunderlag tillsammans med kvitto och spårningsnummer för returpaketet. Faktisk returfrakt enligt PostNords prislista tillkommer.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Vad händer om min enhet visar sig vara omöjlig att laga?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Vi har kostnadsfri felsökning. Om felet mot förmodan inte går att åtgärda betalar du 0 kr för själva arbetet – endast den faktiska returfrakten om du vill ha enheten återsänd, eller så kan vi köpa in den som reservdelar om du önskar.",
+      },
+    },
+  ],
+};
 ---
 
 <MainLayout
-	title="Skicka in din handkontroll för lagning | mkFix"
-	description="Bor du inte i Malmö? Inga problem! Skicka in din handkontroll till mkFix via PostNord. Snabb service, fasta priser och 6 månaders garanti."
-	keywords="skicka handkontroll på lagning, laga ps5 kontroll post, PostNord lagning, mkFix frakt, laga Xbox kontroll Sverige"
-	ogTitle="Skicka in din kontroll för lagning | mkFix Sverige"
-	ogDescription="Enkel guide för hur du skickar din trasiga kontroll till oss. Vi lagar och skickar tillbaka snabbt!"
-    canonicalUrl="https://mkfix.se/tjanster/skicka-in/"
+  title="Skicka in Konsol & Handkontroll för Lagning | PostNord Stockholm & Hela Sverige | mkFix"
+  description="Bor du i Stockholm, Göteborg eller övriga Sverige? Skicka in din PS5, Xbox, Switch eller handkontroll via PostNord. Snabb service 24–48h, fasta priser och 6 månaders garanti!"
+  keywords="skicka konsol på lagning, laga ps5 stockholm post, laga ps5 kontroll postnord, laga xbox stockholm, skicka handkontroll lagning göteborg, postnord skicka lätt konsol reparation, laga stick drift stockholm, ps5 hdmi reparation stockholm post, mkfix skicka in"
+  ogTitle="Skicka in konsol & kontroll på lagning via PostNord | mkFix Sverige"
+  ogDescription="Vi tar emot kontroller och konsoler från Stockholm, Göteborg och hela Sverige. Snabb turnaround, fast pris och 6 mån garanti."
+  canonicalUrl="https://mkfix.se/tjanster/skicka-in/"
+  jsonLd={[serviceSchema, faqSchema]}
 >
-	<Header />
-    <main class="container">
-        <h1 class="section-title">Bor du inte i Malmö? <span>Inga problem!</span></h1>
-        <p style="text-align: center;">Vi tar emot kontroller via post från hela Sverige varje vecka.</p>
+  <Header />
+  <main class="container">
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="trust-box">
+        <span class="trust-badge">POSTNORD HELA SVERIGE</span>
+        <span>Spårbar frakt • 24–48h turnaround • 6 mån garanti</span>
+      </div>
+      <h1>Laga konsol &amp; handkontroll via <span>PostNord</span></h1>
+      <p>
+        Bor du i <strong>Stockholm, Göteborg, Uppsala</strong> eller någon annanstans
+        i Sverige? Du behöver inte bo i Malmö för att få tillgång till professionell
+        mikrolödning och permanenta
+        <strong>TMR-uppgraderingar</strong>. Över 60% av våra kunder skickar in
+        sina enheter spårbart via posten varje vecka.
+      </p>
 
-        <div class="grid" style="margin-top: 3rem;">
-            <div class="card">
-                <span class="price">1</span>
-                <h3>Boka & Få adress</h3>
-                <p>Fyll i formuläret på startsidan. Jag återkommer med pris och exakt adress för inlämning/frakt.</p>
-            </div>
-            <div class="card">
-                <span class="price">2</span>
-                <h3>Packa & Skicka</h3>
-                <p>Använd bubbelplast eller originalkartong. Skicka helst med PostNord "Skicka Lätt" (spårbart) för din
-                    trygghet.</p>
-            </div>
-            <div class="card">
-                <span class="price">3</span>
-                <h3>Lagning & Retur</h3>
-                <p>Jag lagar din kontroll (ofta live på YT!), testar den och skickar tillbaka den välpaketerad. Frakt
-                    tillbaka tillkommer.</p>
-            </div>
+      <div
+        class="hero-actions"
+        style="display: flex; gap: 1rem; justify-content: center; align-items: center; flex-wrap: wrap; margin-top: 1.5rem;"
+      >
+        <a
+          href="#boka-frakt"
+          class="contact-method"
+          style="font-size: 1.1rem; background: var(--accent); color: var(--bg); display: inline-block; padding: 14px 28px; border-radius: 10px; font-weight: 800; text-decoration: none;"
+        >
+          BOKA INSKICKNING HÄR ↓
+        </a>
+        <a
+          href="#packguide"
+          class="shop-hero-btn"
+          style="font-size: 1rem; background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.2); color: #fff; display: inline-flex; align-items: center; gap: 8px; padding: 14px 22px; border-radius: 10px; font-weight: 600; text-decoration: none;"
+        >
+          📦 Se Packguide &amp; Råd →
+        </a>
+      </div>
+    </section>
+
+    <!-- Regional Callout Banner (Stockholm & Västra Götaland Focus) -->
+    <section
+      style="background: linear-gradient(135deg, rgba(56, 189, 248, 0.12), rgba(30, 41, 59, 0.8)); border: 1px solid var(--accent); border-radius: 20px; padding: 2rem 2.5rem; margin: 2rem 0 4rem; box-shadow: 0 10px 30px rgba(0,0,0,0.3);"
+    >
+      <div
+        style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1.5rem;"
+      >
+        <div style="max-width: 720px;">
+          <span
+            style="background: var(--accent); color: var(--bg); font-weight: 800; font-size: 0.8rem; padding: 4px 10px; border-radius: 6px; text-transform: uppercase;"
+          >
+            ⚡ SNABBT FRÅN STOCKHOLM &amp; GÖTEBORG
+          </span>
+          <h2 style="font-size: 1.6rem; margin: 0.8rem 0 0.5rem; color: #fff;">
+            Bara 1–2 vardagars postgång från Stockholms län &amp; Västra
+            Götaland
+          </h2>
+          <p
+            style="color: var(--text-dim); margin-bottom: 0; font-size: 1rem; line-height: 1.6;"
+          >
+            Med <strong>PostNord Skicka Lätt</strong> har paketet ofta anlänt till
+            verkstaden redan nästa vardag. Vi påbörjar felsökning eller lödning direkt
+            vid ankomst, dokumenterar eller livestreamar reparationen på YouTube,
+            och skickar tillbaka den väl emballerad till ditt lokala ombud. Hela processen
+            tar oftast mindre än en vecka!
+          </p>
+        </div>
+        <div style="text-align: center; min-width: 180px;">
+          <div style="font-size: 2.5rem; font-weight: 900; color: #4ade80;">
+            24–48h
+          </div>
+          <div
+            style="color: var(--text-dim); font-size: 0.85rem; font-weight: 600;"
+          >
+            Verkstadstid i snitt
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3-stegs guide -->
+    <h2 class="section-title">Hur fungerar det? <span>3 enkla steg</span></h2>
+    <div class="grid" style="margin-bottom: 4rem;">
+      <div
+        class="card"
+        style="display: flex; flex-direction: column; justify-content: space-between;"
+      >
+        <div>
+          <span class="price" style="font-size: 2.2rem; margin-bottom: 0.5rem;"
+            >1</span
+          >
+          <h3>Boka &amp; få inlämningsadress</h3>
+          <p style="margin-top: 0.8rem;">
+            Fyll i formuläret längst ner på sidan eller skicka ett SMS till <a
+              href="tel:0790320605"
+              style="color: var(--accent); font-weight: 700;">079-032 06 05</a
+            > med felet du upplever. Vi bekräftar fast pris och skickar verkstadens
+            exakta leveransadress.
+          </p>
+        </div>
+        <div
+          style="margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid var(--border); font-size: 0.85rem; color: var(--accent);"
+        >
+          ✓ Alltid kostnadsfri konsultation
+        </div>
+      </div>
+
+      <div
+        class="card"
+        style="display: flex; flex-direction: column; justify-content: space-between;"
+      >
+        <div>
+          <span class="price" style="font-size: 2.2rem; margin-bottom: 0.5rem;"
+            >2</span
+          >
+          <h3>Packa tryggt &amp; skicka spårbart</h3>
+          <p style="margin-top: 0.8rem;">
+            Vira in kontrollen eller konsolen i bubbelplast och lägg i en hård
+            kartong. Köp en fraktsedel via <strong>PostNord Skicka Lätt</strong> (från
+            69 kr) och lämna in hos ditt närmaste postombud.
+          </p>
+        </div>
+        <div
+          style="margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid var(--border); font-size: 0.85rem; color: var(--accent);"
+        >
+          ✓ Full spårbarhet via PostNord-appen
+        </div>
+      </div>
+
+      <div
+        class="card"
+        style="display: flex; flex-direction: column; justify-content: space-between;"
+      >
+        <div>
+          <span class="price" style="font-size: 2.2rem; margin-bottom: 0.5rem;"
+            >3</span
+          >
+          <h3>Vi lagar, testar &amp; returnerar</h3>
+          <p style="margin-top: 0.8rem;">
+            Vi reparerar enheten i vår verkstad, genomför full funktionstestning
+            och skickar tillbaka den tryggt packad. Du betalar smidigt med Swish
+            eller faktura efter godkänd reparation!
+          </p>
+        </div>
+        <div
+          style="margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid var(--border); font-size: 0.85rem; color: var(--accent);"
+        >
+          ✓ 6 månaders garanti på delar &amp; jobb
+        </div>
+      </div>
+    </div>
+
+    <!-- Populära reparationer att skicka in -->
+    <h2 class="section-title">
+      Vad kan du skicka in? <span>Populära tjänster</span>
+    </h2>
+    <div
+      style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-bottom: 4rem;"
+    >
+      <!-- PS5 & Xbox Kontroller TMR -->
+      <div class="service-card featured">
+        <div class="tags-row">
+          <span class="service-tag bundle-tag">🎮 Kontroll</span>
+          <span class="service-tag time">⚡ 24h</span>
+        </div>
+        <h3 style="font-size: 1.25rem; color: #fff; margin: 0.5rem 0 0.2rem;">
+          TMR Sensor Uppgradering
+        </h3>
+        <p
+          style="color: var(--accent); font-weight: 800; font-size: 1.5rem; margin: 0;"
+        >
+          449 kr <small
+            style="font-size: 0.9rem; color: var(--text-dim); font-weight: normal;"
+            >(PS5 / Xbox Series)</small>
+        </p>
+        <p
+          style="color: var(--text-dim); font-size: 0.92rem; margin-top: 0.5rem;"
+        >
+          Byt ut mekaniska potentiometrar mot kontaktlösa magnetiska
+          TMR-sensorer. Eliminerar stick drift för alltid.
+        </p>
+        <a
+          href="/tjanster/tmr-sticks/"
+          style="color: var(--accent); font-weight: 700; font-size: 0.85rem;"
+          >Läs mer om TMR →</a
+        >
+      </div>
+
+      <!-- HDMI-port Byte Konsol -->
+      <div class="service-card featured">
+        <div class="tags-row">
+          <span class="service-tag new-tag">🔌 Hårdvara</span>
+          <span class="service-tag time">⚡ 24–48h</span>
+        </div>
+        <h3 style="font-size: 1.25rem; color: #fff; margin: 0.5rem 0 0.2rem;">
+          HDMI-port Byte Konsoler
+        </h3>
+        <p
+          style="color: var(--accent); font-weight: 800; font-size: 1.5rem; margin: 0;"
+        >
+          1 199 kr <small
+            style="font-size: 0.9rem; color: var(--text-dim); font-weight: normal;"
+            >(PS5 / Xbox / PS4)</small>
+        </p>
+        <p
+          style="color: var(--text-dim); font-size: 0.92rem; margin-top: 0.5rem;"
+        >
+          Svart skärm, ingen signal eller böjda stift? Vi mikrolöder dit en ny
+          förstärkt originalport med 6 månaders garanti.
+        </p>
+        <a
+          href="/tjanster/hdmi-port-byte/"
+          style="color: var(--accent); font-weight: 700; font-size: 0.85rem;"
+          >Läs mer om HDMI-byte →</a
+        >
+      </div>
+
+      <!-- Konsolservice & Rengöring -->
+      <div class="service-card">
+        <div class="tags-row">
+          <span class="service-tag bundle-tag">❄️ Kylning</span>
+          <span class="service-tag time">⚡ 24–48h</span>
+        </div>
+        <h3 style="font-size: 1.25rem; color: #fff; margin: 0.5rem 0 0.2rem;">
+          Rengöring &amp; Liquid Metal
+        </h3>
+        <p
+          style="color: var(--accent); font-weight: 800; font-size: 1.5rem; margin: 0;"
+        >
+          649 kr <small
+            style="font-size: 0.9rem; color: var(--text-dim); font-weight: normal;"
+            >(PS5 / Xbox Series)</small>
+        </p>
+        <p
+          style="color: var(--text-dim); font-size: 0.92rem; margin-top: 0.5rem;"
+        >
+          Låter fläkten som ett jetplan? Djuprengöring av kylflänsar och byte
+          till flytande metall (PS5) eller premium kylpasta.
+        </p>
+        <a
+          href="/tjanster/konsolrengoring/"
+          style="color: var(--accent); font-weight: 700; font-size: 0.85rem;"
+          >Läs mer om konsolrengöring →</a
+        >
+      </div>
+
+      <!-- Nintendo Joy-Con & Switch -->
+      <div class="service-card">
+        <div class="tags-row">
+          <span class="service-tag bundle-tag">🔴 Nintendo</span>
+          <span class="service-tag time">⚡ 24h</span>
+        </div>
+        <h3 style="font-size: 1.25rem; color: #fff; margin: 0.5rem 0 0.2rem;">
+          Joy-Con TMR Uppgradering
+        </h3>
+        <p
+          style="color: var(--accent); font-weight: 800; font-size: 1.5rem; margin: 0;"
+        >
+          299 kr <small
+            style="font-size: 0.9rem; color: var(--text-dim); font-weight: normal;"
+            >(1 st) / 399 kr (par)</small>
+        </p>
+        <p
+          style="color: var(--text-dim); font-size: 0.92rem; margin-top: 0.5rem;"
+        >
+          Få slut på Joy-Con drift en gång för alla. Vi byter till Hall Effect /
+          TMR magnetiska moduler för perfekt precision.
+        </p>
+        <a
+          href="/tjanster/joycon-reparation/"
+          style="color: var(--accent); font-weight: 700; font-size: 0.85rem;"
+          >Läs mer om Joy-Cons →</a
+        >
+      </div>
+
+      <!-- Retro Recap & Cartridge -->
+      <div class="service-card">
+        <div class="tags-row">
+          <span class="service-tag bundle-tag">📺 Retro</span>
+          <span class="service-tag time">⚡ 2–3 dgr</span>
+        </div>
+        <h3 style="font-size: 1.25rem; color: #fff; margin: 0.5rem 0 0.2rem;">
+          Retro &amp; Game Boy / Game Gear
+        </h3>
+        <p
+          style="color: var(--accent); font-weight: 800; font-size: 1.5rem; margin: 0;"
+        >
+          fr. 199 kr
+        </p>
+        <p
+          style="color: var(--text-dim); font-size: 0.92rem; margin-top: 0.5rem;"
+        >
+          Pokémon sparbatteribyte (199 kr), SEGA Game Gear recap (749 kr),
+          PS1/PS2 spakbyten och GameCube PicoBoot mod.
+        </p>
+        <a
+          href="/tjanster/cartridge-batteribyte/"
+          style="color: var(--accent); font-weight: 700; font-size: 0.85rem;"
+          >Läs mer om retro →</a
+        >
+      </div>
+
+      <!-- Custom Mods & Clicky buttons -->
+      <div class="service-card">
+        <div class="tags-row">
+          <span class="service-tag bundle-tag">🛠️ Custom</span>
+          <span class="service-tag time">⚡ 24–48h</span>
+        </div>
+        <h3 style="font-size: 1.25rem; color: #fff; margin: 0.5rem 0 0.2rem;">
+          Custom Mods &amp; Laddportar
+        </h3>
+        <p
+          style="color: var(--accent); font-weight: 800; font-size: 1.5rem; margin: 0;"
+        >
+          fr. 299 kr
+        </p>
+        <p
+          style="color: var(--text-dim); font-size: 0.92rem; margin-top: 0.5rem;"
+        >
+          Clicky mouse-triggers, paddlar, skalbyten och USB-C konvertering på
+          PS4 DualShock 4 eller glappa PS5-portar.
+        </p>
+        <a
+          href="/tjanster/custom-mods/"
+          style="color: var(--accent); font-weight: 700; font-size: 0.85rem;"
+          >Läs mer om mods →</a
+        >
+      </div>
+    </div>
+
+    <!-- Packguide Section -->
+    <section
+      id="packguide"
+      style="background: rgba(15, 23, 42, 0.7); border: 1px solid var(--border); border-radius: 20px; padding: 2.5rem; margin: 4rem 0;"
+    >
+      <h2
+        style="color: var(--accent); font-size: 1.8rem; text-align: center; margin-top: 0; margin-bottom: 1rem;"
+      >
+        📦 Packguide: Så emballerar du säkert inför transport
+      </h2>
+      <p
+        style="text-align: center; color: var(--text-dim); max-width: 700px; margin: 0 auto 2.5rem;"
+      >
+        Att skicka elektronik är tryggt så länge du emballerar ordentligt. Följ
+        dessa enkla tips för att säkerställa att din kontroll eller konsol
+        färdas oskadd i posthanteringen:
+      </p>
+
+      <div
+        style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;"
+      >
+        <div
+          style="background: var(--card-bg); padding: 1.8rem; border-radius: 14px; border: 1px solid var(--border);"
+        >
+          <div style="font-size: 2rem; margin-bottom: 0.8rem;">
+            🎮 För handkontroller
+          </div>
+          <ul
+            style="list-style: none; padding: 0; margin: 0; color: var(--text-dim); font-size: 0.95rem; display: flex; flex-direction: column; gap: 0.8rem;"
+          >
+            <li>
+              <strong>❌ Undvik mjuka kuvert:</strong> Skicka aldrig en handkontroll
+              i ett vadderat kuvert! Sorteringsmaskiner kan trycka sönder styrspakarna
+              eller krossa skalet.
+            </li>
+            <li>
+              <strong>✅ Använd hård kartong:</strong> En liten skokartong eller en
+              PostNord Blå påse M / kartong är perfekt.
+            </li>
+            <li>
+              <strong>✅ Vira in i bubbelplast:</strong> Ge kontrollen 2–3 lager bubbelplast
+              eller skrynklat papper så att spakarna inte ligger pressade mot kartongväggen.
+            </li>
+            <li>
+              <strong>✅ Lägg i en kontaktlapp:</strong> Skriv ditt namn, telefonnummer
+              och returadress på ett papper inuti kartongen.
+            </li>
+          </ul>
         </div>
 
-        <div class="contact-card" style="margin-top: 4rem;">
-            <p><strong>Betalning?</strong> Sker genom faktura när lagningen är klar och testad.</p>
-            <a href="https://mkfix.se/#boka" class="submit-btn"
-                style="text-decoration: none; display: inline-block;">STARTA DIN BOKNING HÄR</a>
+        <div
+          style="background: var(--card-bg); padding: 1.8rem; border-radius: 14px; border: 1px solid var(--border);"
+        >
+          <div style="font-size: 2rem; margin-bottom: 0.8rem;">
+            🖥️ För spelkonsoler (PS5, Xbox, m.fl.)
+          </div>
+          <ul
+            style="list-style: none; padding: 0; margin: 0; color: var(--text-dim); font-size: 0.95rem; display: flex; flex-direction: column; gap: 0.8rem;"
+          >
+            <li>
+              <strong>✅ Skicka enbart konsolen:</strong> Lämna strömkabel, HDMI-kabel
+              och stativ hemma (om vi inte specifikt bett om dem för felsökning).
+            </li>
+            <li>
+              <strong>✅ Minst 5 cm stötdämpning:</strong> Konsoler är tunga. Se till
+              att det finns rikligt med bubbelplast eller skum runt alla hörn och
+              kanter.
+            </li>
+            <li>
+              <strong>✅ Skaka kartongen lätt:</strong> Konsolen ska ligga helt still
+              i lådan och inte glida runt vid rörelse.
+            </li>
+            <li>
+              <strong>✅ Tejpa ordentligt:</strong> Förslut kartongens alla skarvar
+              med packtejp i ett "H-mönster".
+            </li>
+          </ul>
         </div>
-    </main>
+      </div>
 
-	<Footer />
-	<!-- Google tag (gtag.js) -->
-     <!-- TODO: Greate GTM component -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=G-DRKX0X33V3"
-	></script>
-	<script is:inline>
-		window.dataLayer = window.dataLayer || [];
-		function gtag() {
-			dataLayer.push(arguments);
-		}
-		gtag("js", new Date());
+      <div
+        style="background: rgba(56, 189, 248, 0.08); border-left: 4px solid var(--accent); padding: 1rem 1.5rem; border-radius: 8px; margin-top: 2rem;"
+      >
+        <p style="margin: 0; color: var(--text-main); font-size: 0.95rem;">
+          <strong>💡 Tips för fraktsedel:</strong> Ladda ner PostNord-appen eller
+          gå till <a
+            href="https://portal.postnord.com/skickadirekt/"
+            target="_blank"
+            rel="noopener noreferrer"
+            style="color: var(--accent); font-weight: 700;"
+            >postnord.se/skickadirekt</a
+          >. Välj <em>"Skicka Lätt"</em> för paket upp till 2 kg. Du får en QR-kod
+          direkt i mobilen och behöver inte ens en egen skrivare – ombudet skriver
+          ut etiketten åt dig gratis!
+        </p>
+      </div>
+    </section>
 
-		gtag("config", "G-DRKX0X33V3");
-	</script>
+    <!-- Fraktkostnader Tabell -->
+    <section style="margin: 4rem 0;">
+      <h2 class="section-title">
+        Vad kostar frakten? <span>Transparanta fraktpriser</span>
+      </h2>
+      <div
+        style="max-width: 800px; margin: 0 auto; background: var(--card-bg); border: 1px solid var(--border); border-radius: 16px; overflow: hidden;"
+      >
+        <table
+          style="width: 100%; border-collapse: collapse; text-align: left; font-size: 0.95rem;"
+        >
+          <thead>
+            <tr
+              style="background: rgba(255,255,255,0.04); border-bottom: 1px solid var(--border);"
+            >
+              <th style="padding: 1rem 1.5rem; color: #fff;">Typ av paket</th>
+              <th style="padding: 1rem 1.5rem; color: #fff;"
+                >PostNord Frakt till oss</th
+              >
+              <th style="padding: 1rem 1.5rem; color: #fff;"
+                >Returfrakt från mkFix</th
+              >
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom: 1px solid var(--border);">
+              <td
+                style="padding: 1rem 1.5rem; font-weight: 600; color: var(--text-main);"
+              >
+                Handkontroll (1–2 st)<br />
+                <small style="color: var(--text-dim); font-weight: normal;"
+                  >PostNord Skicka Lätt (spårbart &lt; 1 kg)</small
+                >
+              </td>
+              <td
+                style="padding: 1rem 1.5rem; color: var(--accent); font-weight: 700;"
+                >Ca 69–79 kr</td
+              >
+              <td
+                style="padding: 1rem 1.5rem; color: #4ade80; font-weight: 700;"
+                >79 kr (spårbart)</td
+              >
+            </tr>
+            <tr style="border-bottom: 1px solid var(--border);">
+              <td
+                style="padding: 1rem 1.5rem; font-weight: 600; color: var(--text-main);"
+              >
+                Konsol (PS5, Xbox, PS4)<br />
+                <small style="color: var(--text-dim); font-weight: normal;"
+                  >PostNord Paket (spårbart &lt; 10 kg)</small
+                >
+              </td>
+              <td
+                style="padding: 1rem 1.5rem; color: var(--accent); font-weight: 700;"
+                >Ca 135–179 kr</td
+              >
+              <td
+                style="padding: 1rem 1.5rem; color: #4ade80; font-weight: 700;"
+                >149 kr (spårbart)</td
+              >
+            </tr>
+            <tr>
+              <td
+                style="padding: 1rem 1.5rem; font-weight: 600; color: var(--text-main);"
+              >
+                Spelkassett / Cartridge<br />
+                <small style="color: var(--text-dim); font-weight: normal;"
+                  >PostNord Litet Spårbart</small
+                >
+              </td>
+              <td
+                style="padding: 1rem 1.5rem; color: var(--accent); font-weight: 700;"
+                >Ca 55–69 kr</td
+              >
+              <td
+                style="padding: 1rem 1.5rem; color: #4ade80; font-weight: 700;"
+                >59 kr (spårbart)</td
+              >
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p
+        style="text-align: center; color: var(--text-dim); font-size: 0.85rem; margin-top: 1rem;"
+      >
+        * Priserna avser PostNords ordinarie portotaxa för inrikestransport.
+        mkFix tar aldrig ut några extra dolda expeditionsavgifter!
+      </p>
+    </section>
+
+    <!-- FAQ Section -->
+    <section
+      style="background: rgba(15, 23, 42, 0.6); border: 1px solid var(--border); border-radius: 20px; padding: 2.5rem; margin: 4rem 0;"
+    >
+      <h2
+        style="color: var(--accent); text-align: center; margin-top: 0; margin-bottom: 2rem;"
+      >
+        Vanliga frågor om att skicka in via post
+      </h2>
+
+      <div
+        style="display: flex; flex-direction: column; gap: 1.5rem; max-width: 850px; margin: 0 auto;"
+      >
+        <div
+          style="background: var(--card-bg); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border);"
+        >
+          <h4 style="color: #fff; margin-bottom: 0.5rem;">
+            Kan jag skicka in min konsol eller kontroll från Stockholm eller
+            Göteborg?
+          </h4>
+          <p style="color: var(--text-dim); margin-bottom: 0;">
+            Ja, självklart! Mer än 60% av alla våra reparationer kommer från
+            Stockholm, Göteborg, Uppsala och övriga Sverige. Postgången med
+            PostNord Skicka Lätt tar normalt 1–2 vardagar. Vi lagar enheten
+            snabbt och skickar tillbaka den välpackad till ditt närmaste ombud.
+          </p>
+        </div>
+
+        <div
+          style="background: var(--card-bg); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border);"
+        >
+          <h4 style="color: #fff; margin-bottom: 0.5rem;">
+            Vilken frakttjänst hos PostNord ska jag välja?
+          </h4>
+          <p style="color: var(--text-dim); margin-bottom: 0;">
+            Vi rekommenderar alltid spårbara alternativ: <strong
+              >PostNord Skicka Lätt</strong
+            > eller <strong>PostNord Paket</strong>. Du bokar enkelt i appen
+            eller online och får full spårning hela vägen fram till vår dörr
+            eller vårt ombud.
+          </p>
+        </div>
+
+        <div
+          style="background: var(--card-bg); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border);"
+        >
+          <h4 style="color: #fff; margin-bottom: 0.5rem;">
+            Hur vet jag att paketet kommit fram till er?
+          </h4>
+          <p style="color: var(--text-dim); margin-bottom: 0;">
+            Förutom att du ser statusen i PostNord-appen skickar vi alltid ett
+            personligt SMS så fort vi hämtat ut och öppnat ditt paket i
+            verkstaden.
+          </p>
+        </div>
+
+        <div
+          style="background: var(--card-bg); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border);"
+        >
+          <h4 style="color: #fff; margin-bottom: 0.5rem;">
+            Hur lång tid tar det innan jag har den tillbaka?
+          </h4>
+          <p style="color: var(--text-dim); margin-bottom: 0;">
+            Normalt 4–6 vardagar från det att du lämnar in paketet hos ditt
+            ombud tills du kan hämta ut det igen. Vår interna verkstadstid är
+            vanligtvis bara 24–48 timmar.
+          </p>
+        </div>
+
+        <div
+          style="background: var(--card-bg); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border);"
+        >
+          <h4 style="color: #fff; margin-bottom: 0.5rem;">
+            Hur betalar jag och när?
+          </h4>
+          <p style="color: var(--text-dim); margin-bottom: 0;">
+            Du betalar först när reparationen är färdigställd och fullt testad.
+            Vi skickar bild/video eller streaminglänk tillsammans med
+            betalningsanvisning via Swish eller faktura (med F-skatt). När
+            betalningen är klar skickas paketet omedelbart i retur.
+          </p>
+        </div>
+
+        <div
+          style="background: var(--card-bg); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border);"
+        >
+          <h4 style="color: #fff; margin-bottom: 0.5rem;">
+            Gäller garantin även när jag skickar via post?
+          </h4>
+          <p style="color: var(--text-dim); margin-bottom: 0;">
+            Ja! Du får samma trygga <strong>6 månaders funktionsgaranti</strong> på
+            alla reservdelar och utfört arbete som om du hade lämnat in över disk
+            i Malmö.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bokningsformulär direkt på sidan -->
+    <section id="boka-frakt" class="contact-card" style="margin-top: 4rem;">
+      <h2>Boka din postorder-reparation</h2>
+      <p style="max-width: 650px; margin: 0 auto 2rem; color: var(--text-dim);">
+        Beskriv vad du vill laga och vilken ort du skickar ifrån (t.ex.
+        Stockholm eller Göteborg). Vi återkommer blixtsnabbt med fast pris,
+        tidsplan och exakt inlämningsadress!
+      </p>
+
+      <form
+        id="contact-form"
+        class="contact-form"
+        method="POST"
+        enctype="multipart/form-data"
+      >
+        <div class="form-group">
+          <input
+            type="text"
+            name="fi-sender-firstName"
+            placeholder="Ditt namn*"
+            autocomplete="name"
+            aria-label="Ditt namn"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <input
+            type="email"
+            name="fi-sender-email"
+            placeholder="Din e-post*"
+            autocomplete="email"
+            aria-label="Din e-post"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <input
+            type="tel"
+            id="contact-phone"
+            name="fi-sender-phone"
+            placeholder="Telefon (t.ex. 070-123 45 67)"
+            autocomplete="tel"
+            aria-label="Telefonnummer"
+          />
+        </div>
+        <div class="form-group">
+          <select
+            name="fi-text-enhet"
+            aria-label="Välj enhet eller tjänst"
+            required
+          >
+            <option value="" disabled selected>Välj enhet eller tjänst</option>
+            <option value="ps5-kontroll-tmr"
+              >PS5 DualSense (Stick drift / TMR uppgradering)</option
+            >
+            <option value="ps5-hdmi"
+              >PS5 Konsol (Trasig HDMI-port / Svart skärm)</option
+            >
+            <option value="ps5-liquid-metal"
+              >PS5 Konsol (Fläkt rengöring &amp; Liquid Metal)</option
+            >
+            <option value="xbox-kontroll-tmr"
+              >Xbox Kontroll (Stick drift / TMR / LB-RB knappar)</option
+            >
+            <option value="xbox-series-hdmi"
+              >Xbox Series X/S Konsol (HDMI-port / Rengöring)</option
+            >
+            <option value="switch-joycon"
+              >Nintendo Switch / Joy-Con (Stick drift / TMR)</option
+            >
+            <option value="retro-gameboy-gear"
+              >Retro (Game Boy, SEGA Game Gear, Cartridge batteri)</option
+            >
+            <option value="annat-post">Annan enhet / Flera enheter</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <textarea
+            name="fi-text-message"
+            placeholder="Beskriv problemet och varifrån du skickar (t.ex. 'PS5 DualSense med stick drift, skickar från Stockholm')"
+            rows="4"
+            aria-label="Beskriv problemet"
+            required></textarea>
+        </div>
+        <div class="form-group">
+          <select
+            name="fi-text-contact-me"
+            aria-label="Kontakta mig helst genom"
+            required
+          >
+            <option value="sms" selected>Sms (Snabbast)</option>
+            <option value="email">E-post</option>
+            <option value="call">Samtal</option>
+          </select>
+        </div>
+        <div class="form-group file-upload">
+          <label for="photo">Bifoga bild på enheten/skadan (valfritt):</label>
+          <input type="file" id="photo" name="fi-file-photo" accept="image/*" />
+        </div>
+
+        <button
+          type="submit"
+          class="submit-btn"
+          style="width: 100%; max-width: 400px; margin: 0 auto; display: block;"
+          >SKICKA BOKNINGSFÖRFRÅGAN</button
+        >
+      </form>
+
+      <div
+        id="result"
+        style="margin-top: 1rem; color: var(--accent); font-weight: bold;"
+      >
+      </div>
+
+      <div
+        style="margin-top: 2rem; border-top: 1px solid var(--border); padding-top: 2rem;"
+      >
+        <p style="color: var(--text-dim); margin-bottom: 0.5rem;">
+          Föredrar du direktkontakt inför att du skickar?
+        </p>
+        <a
+          href="tel:0790320605"
+          style="color: var(--accent); text-decoration: none; font-weight: bold; font-size: 1.2rem;"
+          >079-032 06 05</a
+        >
+        <p
+          style="color: var(--text-dim); font-size: 0.85rem; margin-top: 0.5rem;"
+        >
+          (SMS går utmärkt dygnet runt!)
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+
+  <!-- Forminit Script -->
+  <script src="https://forminit.com/sdk/v1/forminit.js"></script>
+  <script is:inline>
+    function normalizePhone(raw) {
+      if (!raw) return { e164: "", raw: "" };
+      const trimmed = String(raw).trim();
+      if (!trimmed) return { e164: "", raw: "" };
+
+      let cleaned = trimmed;
+      if (cleaned.startsWith("00")) {
+        cleaned = "+" + cleaned.slice(2);
+      }
+      cleaned = cleaned.replace(/^\+46[\s\-\.]*\(?0\)?[\s\-\.]*/, "+46");
+
+      let e164 = "";
+      if (cleaned.startsWith("+")) {
+        const digits = cleaned.slice(1).replace(/\D/g, "");
+        if (digits.length >= 6 && digits.length <= 15) {
+          e164 = "+" + digits;
+        }
+      } else {
+        const digits = cleaned.replace(/\D/g, "");
+        if (digits.startsWith("0")) {
+          if (digits.length >= 7 && digits.length <= 11) {
+            e164 = "+46" + digits.slice(1);
+          }
+        } else if (
+          digits.startsWith("46") &&
+          digits.length >= 9 &&
+          digits.length <= 13
+        ) {
+          if (digits.startsWith("460")) {
+            e164 = "+46" + digits.slice(3);
+          } else {
+            e164 = "+" + digits;
+          }
+        } else if (digits.length === 9 && digits.startsWith("7")) {
+          e164 = "+46" + digits;
+        } else if (digits.length >= 7 && digits.length <= 15) {
+          if (digits.length <= 9) {
+            e164 = "+46" + digits;
+          } else {
+            e164 = "+" + digits;
+          }
+        }
+      }
+
+      const isValidE164 = /^\+[1-9]\d{6,14}$/.test(e164);
+      return {
+        e164: isValidE164 ? e164 : "",
+        raw: trimmed,
+      };
+    }
+
+    function initContactForm() {
+      const forminit = new Forminit();
+      const FORM_ID = "7b7ffs280f3";
+      const formElement = document.getElementById("contact-form");
+
+      if (formElement) {
+        formElement.addEventListener("submit", async (e) => {
+          e.preventDefault();
+          const result = document.getElementById("result");
+          if (result) {
+            result.textContent = "Skickar din bokning...";
+            result.style.color = "var(--accent)";
+          }
+
+          const formData = new FormData(e.target);
+
+          const rawPhone = formData.get("fi-sender-phone");
+          if (rawPhone !== null && rawPhone !== undefined) {
+            const { e164, raw } = normalizePhone(rawPhone);
+            if (raw) {
+              formData.set("fi-text-telefon", raw);
+            }
+            if (e164) {
+              formData.set("fi-sender-phone", e164);
+            } else {
+              formData.delete("fi-sender-phone");
+            }
+          }
+
+          let res = await forminit.submit(FORM_ID, formData);
+
+          if (
+            res.error &&
+            (res.error.code === "FI_RULES_PHONE_INVALID" ||
+              (res.error.message && /phone/i.test(res.error.message)))
+          ) {
+            formData.delete("fi-sender-phone");
+            res = await forminit.submit(FORM_ID, formData);
+          }
+
+          if (res.error) {
+            if (result) {
+              result.textContent = "Något gick fel: " + res.error.message;
+              result.style.color = "red";
+            }
+            return;
+          }
+
+          window.location.href = "/tack";
+        });
+      }
+    }
+
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", initContactForm);
+    } else {
+      initContactForm();
+    }
+  </script>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-DRKX0X33V3"
+  ></script>
+  <script is:inline>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
+    gtag("config", "G-DRKX0X33V3");
+  </script>
 </MainLayout>
