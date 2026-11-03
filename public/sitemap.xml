@@ -3,23 +3,21 @@
    <!-- Startsida -->
    <url>
       <loc>https://mkfix.se/</loc>
-      <lastmod>2026-10-05</lastmod>
+      <lastmod>2026-11-03</lastmod>
       <changefreq>weekly</changefreq>
       <priority>1.0</priority>
    </url>
 
-   <!-- B2B & Företag -->
+   <!-- B2B & Inköp -->
    <url>
       <loc>https://mkfix.se/foretag/</loc>
-      <lastmod>2026-10-05</lastmod>
+      <lastmod>2026-11-03</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.9</priority>
    </url>
-
-   <!-- Vi köper kontroller -->
    <url>
       <loc>https://mkfix.se/vi-koper-kontroller/</loc>
-      <lastmod>2026-10-14</lastmod>
+      <lastmod>2026-11-03</lastmod>
       <changefreq>weekly</changefreq>
       <priority>0.9</priority>
    </url>
@@ -27,98 +25,91 @@
    <!-- Tjänster -->
    <url>
       <loc>https://mkfix.se/tjanster/hdmi-port-byte/</loc>
-      <lastmod>2026-10-19</lastmod>
+      <lastmod>2026-11-03</lastmod>
       <changefreq>weekly</changefreq>
       <priority>0.9</priority>
    </url>
-
    <url>
-      <loc>https://mkfix.se/tjanster/tmr-sticks/</loc>
-      <lastmod>2026-08-06</lastmod>
-      <changefreq>monthly</changefreq>
+      <loc>https://mkfix.se/tjanster/overhettning/</loc>
+      <lastmod>2026-11-03</lastmod>
+      <changefreq>weekly</changefreq>
       <priority>0.9</priority>
    </url>
-
+   <url>
+      <loc>https://mkfix.se/tjanster/konsolrengoring/</loc>
+      <lastmod>2026-11-03</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.8</priority>
+   </url>
+   <url>
+      <loc>https://mkfix.se/tjanster/tmr-sticks/</loc>
+      <lastmod>2026-11-03</lastmod>
+      <changefreq>weekly</changefreq>
+      <priority>0.9</priority>
+   </url>
    <url>
       <loc>https://mkfix.se/tjanster/skicka-in/</loc>
       <lastmod>2026-11-03</lastmod>
       <changefreq>weekly</changefreq>
       <priority>0.9</priority>
    </url>
-
-   <url>
-      <loc>https://mkfix.se/tjanster/ps2-reparation/</loc>
-      <lastmod>2026-10-05</lastmod>
-      <changefreq>monthly</changefreq>
-      <priority>0.8</priority>
-   </url>
-
-   <url>
-      <loc>https://mkfix.se/tjanster/ps1-ps2-reparation/</loc>
-      <lastmod>2026-08-06</lastmod>
-      <changefreq>monthly</changefreq>
-      <priority>0.8</priority>
-   </url>
-
-   <url>
-      <loc>https://mkfix.se/tjanster/joycon-reparation/</loc>
-      <lastmod>2026-08-06</lastmod>
-      <changefreq>monthly</changefreq>
-      <priority>0.8</priority>
-   </url>
-
-   <url>
-      <loc>https://mkfix.se/tjanster/xbox-360-hall-effect/</loc>
-      <lastmod>2026-08-06</lastmod>
-      <changefreq>monthly</changefreq>
-      <priority>0.8</priority>
-   </url>
-
-   <url>
-      <loc>https://mkfix.se/tjanster/game-gear/</loc>
-      <lastmod>2026-08-06</lastmod>
-      <changefreq>monthly</changefreq>
-      <priority>0.8</priority>
-   </url>
-
-   <url>
-      <loc>https://mkfix.se/tjanster/gamecube-picoboot/</loc>
-      <lastmod>2026-08-06</lastmod>
-      <changefreq>monthly</changefreq>
-      <priority>0.8</priority>
-   </url>
-
-   <url>
-      <loc>https://mkfix.se/tjanster/cartridge-batteribyte/</loc>
-      <lastmod>2026-09-29</lastmod>
-      <changefreq>monthly</changefreq>
-      <priority>0.8</priority>
-   </url>
-
-   <url>
-      <loc>https://mkfix.se/tjanster/konsolrengoring/</loc>
-      <lastmod>2026-08-06</lastmod>
-      <changefreq>monthly</changefreq>
-      <priority>0.8</priority>
-   </url>
-
    <url>
       <loc>https://mkfix.se/tjanster/custom-mods/</loc>
-      <lastmod>2026-10-05</lastmod>
+      <lastmod>2026-11-03</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.8</priority>
    </url>
-
    <url>
       <loc>https://mkfix.se/tjanster/elektronikreparation/</loc>
-      <lastmod>2026-08-06</lastmod>
+      <lastmod>2026-11-03</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.8</priority>
    </url>
-
+   <url>
+      <loc>https://mkfix.se/tjanster/joycon-reparation/</loc>
+      <lastmod>2026-11-03</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.8</priority>
+   </url>
+   <url>
+      <loc>https://mkfix.se/tjanster/ps2-reparation/</loc>
+      <lastmod>2026-11-03</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.8</priority>
+   </url>
+   <url>
+      <loc>https://mkfix.se/tjanster/ps1-ps2-reparation/</loc>
+      <lastmod>2026-11-03</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.8</priority>
+   </url>
+   <url>
+      <loc>https://mkfix.se/tjanster/xbox-360-hall-effect/</loc>
+      <lastmod>2026-11-03</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.8</priority>
+   </url>
+   <url>
+      <loc>https://mkfix.se/tjanster/game-gear/</loc>
+      <lastmod>2026-11-03</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.8</priority>
+   </url>
+   <url>
+      <loc>https://mkfix.se/tjanster/gamecube-picoboot/</loc>
+      <lastmod>2026-11-03</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.8</priority>
+   </url>
+   <url>
+      <loc>https://mkfix.se/tjanster/cartridge-batteribyte/</loc>
+      <lastmod>2026-11-03</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.8</priority>
+   </url>
    <url>
       <loc>https://mkfix.se/tjanster/gratis-reparation/</loc>
-      <lastmod>2026-08-06</lastmod>
+      <lastmod>2026-11-03</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.8</priority>
    </url>
@@ -126,204 +117,195 @@
    <!-- Butik & Produkter -->
    <url>
       <loc>https://mkfix.se/produkter/</loc>
-      <lastmod>2026-10-14</lastmod>
+      <lastmod>2026-11-03</lastmod>
       <changefreq>weekly</changefreq>
       <priority>0.8</priority>
    </url>
-
    <url>
-      <loc>https://mkfix.se/produkter/xbox-360-wireless-white-HE-159/</loc>
-      <lastmod>2026-10-14</lastmod>
+      <loc>https://mkfix.se/produkter/xbox-360-wireless-black-HE-207/</loc>
+      <lastmod>2026-11-03</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.7</priority>
    </url>
-
    <url>
       <loc>https://mkfix.se/produkter/xbox-series-controller-carbon-black-tmr-171/</loc>
-      <lastmod>2026-10-14</lastmod>
+      <lastmod>2026-11-03</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.7</priority>
    </url>
-
    <url>
       <loc>https://mkfix.se/produkter/ps5-dualsense-white-tmr-clicky-mod-174/</loc>
-      <lastmod>2026-10-14</lastmod>
+      <lastmod>2026-11-03</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.7</priority>
    </url>
-
    <url>
       <loc>https://mkfix.se/produkter/xbox-360-wireless-black-HE-205/</loc>
-      <lastmod>2026-10-14</lastmod>
+      <lastmod>2026-11-03</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.7</priority>
    </url>
-
    <url>
       <loc>https://mkfix.se/produkter/ps2-dualshock-2-satin-silver-206/</loc>
-      <lastmod>2026-10-14</lastmod>
+      <lastmod>2026-11-03</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.7</priority>
    </url>
-
+   <url>
+      <loc>https://mkfix.se/produkter/ps4-dualshock-4-jet-black-tmr-190/</loc>
+      <lastmod>2026-11-03</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.7</priority>
+   </url>
    <url>
       <loc>https://mkfix.se/produkter/ps4-dualshock-4-wave-blue-tmr-usbc-208/</loc>
-      <lastmod>2026-10-18</lastmod>
+      <lastmod>2026-11-03</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.7</priority>
    </url>
-
+   <url>
+      <loc>https://mkfix.se/produkter/ps4-dualshock-4-jet-black-tmr-209/</loc>
+      <lastmod>2026-11-03</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.7</priority>
+   </url>
    <url>
       <loc>https://mkfix.se/produkter/k-silver-ps5-tmr-joysticks/</loc>
-      <lastmod>2026-10-12</lastmod>
+      <lastmod>2026-11-03</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.7</priority>
    </url>
-
    <url>
       <loc>https://mkfix.se/produkter/k-silver-ps4-tmr-joysticks/</loc>
-      <lastmod>2026-10-12</lastmod>
+      <lastmod>2026-11-03</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.7</priority>
    </url>
-
    <url>
       <loc>https://mkfix.se/produkter/k-silver-xbox-tmr-joysticks/</loc>
-      <lastmod>2026-10-12</lastmod>
+      <lastmod>2026-11-03</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.7</priority>
    </url>
-
    <url>
       <loc>https://mkfix.se/produkter/k-silver-nintendo-switch-joycon-tmr/</loc>
-      <lastmod>2026-10-12</lastmod>
+      <lastmod>2026-11-03</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.7</priority>
    </url>
-
    <url>
       <loc>https://mkfix.se/produkter/retro-joysticks-ps1-ps2-xbox-original/</loc>
-      <lastmod>2026-10-12</lastmod>
+      <lastmod>2026-11-03</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.7</priority>
    </url>
-
    <url>
       <loc>https://mkfix.se/produkter/thumbcaps-ps1-ps2/</loc>
-      <lastmod>2026-10-12</lastmod>
+      <lastmod>2026-11-03</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.7</priority>
    </url>
-
    <url>
       <loc>https://mkfix.se/produkter/thumbcaps-ps4-dualshock-4/</loc>
-      <lastmod>2026-10-12</lastmod>
+      <lastmod>2026-11-03</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.7</priority>
    </url>
-
    <url>
       <loc>https://mkfix.se/produkter/thumbcaps-ps5-dualsense/</loc>
-      <lastmod>2026-10-12</lastmod>
+      <lastmod>2026-11-03</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.7</priority>
    </url>
-
    <url>
       <loc>https://mkfix.se/produkter/xbox-360-hall-effect-joysticks/</loc>
-      <lastmod>2026-10-12</lastmod>
+      <lastmod>2026-11-03</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.7</priority>
    </url>
-
    <url>
       <loc>https://mkfix.se/produkter/thumbcaps-xbox-360-black/</loc>
-      <lastmod>2026-10-12</lastmod>
+      <lastmod>2026-11-03</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.7</priority>
    </url>
-
    <url>
       <loc>https://mkfix.se/produkter/thumbcaps-xbox-360-gray/</loc>
-      <lastmod>2026-10-12</lastmod>
+      <lastmod>2026-11-03</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.7</priority>
    </url>
-
    <url>
       <loc>https://mkfix.se/produkter/thumbcaps-xbox-series-xbox-one/</loc>
-      <lastmod>2026-10-12</lastmod>
+      <lastmod>2026-11-03</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.7</priority>
    </url>
-
    <url>
       <loc>https://mkfix.se/produkter/thumbcap-byte-playstation/</loc>
-      <lastmod>2026-10-20</lastmod>
+      <lastmod>2026-11-03</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.8</priority>
    </url>
-
    <url>
       <loc>https://mkfix.se/produkter/thumbcap-byte-xbox/</loc>
-      <lastmod>2026-10-20</lastmod>
+      <lastmod>2026-11-03</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.8</priority>
    </url>
-
    <url>
       <loc>https://mkfix.se/produkter/service-rengoring-ps5-liquid-metal/</loc>
-      <lastmod>2026-10-24</lastmod>
+      <lastmod>2026-11-03</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.8</priority>
    </url>
-
    <url>
       <loc>https://mkfix.se/produkter/service-rengoring-kylarpastabyte-xbox-series/</loc>
-      <lastmod>2026-10-24</lastmod>
+      <lastmod>2026-11-03</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.8</priority>
    </url>
-
    <url>
       <loc>https://mkfix.se/produkter/service-rengoring-kylarpastabyte-ps4-xbox-one/</loc>
-      <lastmod>2026-10-24</lastmod>
+      <lastmod>2026-11-03</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.8</priority>
    </url>
-
    <url>
       <loc>https://mkfix.se/produkter/service-rengoring-kylarpastabyte-xbox-360/</loc>
-      <lastmod>2026-10-24</lastmod>
+      <lastmod>2026-11-03</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.8</priority>
+   </url>
+   <url>
+      <loc>https://mkfix.se/produkter/cartridge-sparbatterier-cr2025-cr1616/</loc>
+      <lastmod>2026-11-03</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.7</priority>
    </url>
 
    <!-- Blogg & Guider -->
    <url>
       <loc>https://mkfix.se/blog/</loc>
-      <lastmod>2026-08-06</lastmod>
+      <lastmod>2026-11-03</lastmod>
       <changefreq>weekly</changefreq>
       <priority>0.8</priority>
    </url>
-
-   <url>
-      <loc>https://mkfix.se/blog/tmr-och-shellswap/</loc>
-      <lastmod>2026-08-06</lastmod>
-      <changefreq>monthly</changefreq>
-      <priority>0.7</priority>
-   </url>
-
    <url>
       <loc>https://mkfix.se/blog/tmr-gamegear-mm/</loc>
-      <lastmod>2026-08-06</lastmod>
+      <lastmod>2026-11-03</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.7</priority>
    </url>
-
+   <url>
+      <loc>https://mkfix.se/blog/tmr-och-shellswap/</loc>
+      <lastmod>2026-11-03</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.7</priority>
+   </url>
    <url>
       <loc>https://mkfix.se/blog/undvik-stickdrift/</loc>
-      <lastmod>2026-08-06</lastmod>
+      <lastmod>2026-11-03</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.7</priority>
    </url>

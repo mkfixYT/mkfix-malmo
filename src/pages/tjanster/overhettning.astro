@@ -1,0 +1,754 @@
+---
+// src/pages/tjanster/overhettning.astro
+import MainLayout from "../../layouts/MainLayout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import ProductPromo from "../../components/ProductPromo.astro";
+import { Image } from "astro:assets";
+import fanBeforeAfterImg from "../../assets/img/overheating-console-fan-before-after.jpg";
+import thermalPasteBeforeAfterImg from "../../assets/img/thermal-paste-before-after.jpg";
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: "Konsol Överhettning Reparation & Djuprengöring Malmö",
+  provider: {
+    "@type": "ElectronicsRepairShop",
+    name: "mkFix",
+    url: "https://mkfix.se",
+    telephone: "+46790320605",
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Malmö",
+      addressCountry: "SE",
+    },
+  },
+  areaServed: [
+    { "@type": "City", name: "Malmö" },
+    { "@type": "City", name: "Lund" },
+    { "@type": "Country", name: "Sverige" },
+  ],
+  description:
+    "Lösning på överhettad konsol (PlayStation 5 med Liquid Metal, Xbox Series X/S, PS4, Xbox One, Xbox 360). Djuprengöring av kylflänsar, fläktar och byte av torkad kylpasta i Malmö. Samma dag-service för Malmö & Lund.",
+  offers: {
+    "@type": "AggregateOffer",
+    priceCurrency: "SEK",
+    lowPrice: "499",
+    highPrice: "649",
+    offerCount: "5",
+  },
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "Varför blir min PS5 varm?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "En PlayStation 5 blir överhettad främst av två orsaker: 1) Dammfällor och kylflänsar sätts igen av damm, textilfibrer och djurhår så att kylluften blockeras, och 2) Den fabriksmonterade flytande metallen (Liquid Metal) mellan APU-processorn och kylaren oxiderar eller förflyttar sig och bildar 'torra fläckar' (dry spots). Då leds inte värmen bort från processorn och konsolen stänger av sig med tre pip för att inte smälta.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Hur ofta behöver man byta kylpasta?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Standard kylpasta i konsoler som PS4, PS3, Xbox One, Xbox 360 och Xbox Series bör bytas vart 2–3 år vid regelbundet spelande. Efter några år torkar fabrikspastan ut, hårdnar till ett sprött pulver och förlorar sin värmeledningsförmåga drastiskt, vilket tvingar fläkten att rusa på maxvarv.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Kan damm förstöra moderkortet?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Ja, absolut. Damm fungerar som en isolerande filt som stänger inne extrem värme. Långvarig överhettning utsätter moderkortet för 'thermal stress' och 'solder fatigue', vilket leder till mikrosprickor i BGA-lödningarna under processorn (vanlig orsak till Blue Light of Death eller Red Ring of Death). Dessutom kan damm binda fukt och orsaka elektriska krypströmmar och korrosion på moderkortets SMD-komponenter.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Varför piper min PS5 eller Xbox och stänger av sig mitt i ett spel?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Detta kallas 'Thermal Shutdown'. Konsolens interna temperatursensorer slår larm när processorns kärntemperatur överstiger säkerhetsgränsen (ofta runt 95–105°C). Systemet stänger av strömmen omedelbart för att förhindra att kiselchippet eller moderkortet bränns sönder. Det är ett akut varningstecken på att konsolen kräver invändig rengöring och ny kylpasta/liquid metal.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Kan jag få konsolen rengjord samma dag i Malmö och Lund?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Ja! För kunder i Malmö, Lund och närområden erbjuder mkFix oftast samma dag-service vid drop-off före kl 12:00. Du lämnar in den på förmiddagen och hämtar ut en sval, knäpptyst konsol redan samma eftermiddag eller kväll med 6 månaders funktionsgaranti.",
+      },
+    },
+  ],
+};
+---
+
+<MainLayout
+  title="Överhettad Konsol? Vi Fixar PS5 & Xbox i Malmö | mkFix"
+  description="Piper din PS5 eller Xbox och stänger av sig? Vi stoppar överhettning innan moderkortet skadas! Djuprengöring, Liquid Metal & kylpasta i Malmö. Samma dag-service!"
+  keywords="överhettning ps5 malmö, ps5 piper stänger av sig, laga överhettad xbox series x, byta kylpasta ps5 lund, rengöra konsol malmö, ps5 liquid metal dry spot, ps4 jetplan ljud, console overheating fix malmö, mkfix"
+  ogTitle="Piper din PS5 eller Xbox? Så stoppar vi överhettningen i Malmö | mkFix"
+  ogDescription="Rädda konsolen från värmedöden! Djuprengöring av fläktar och kylflänsar samt förnyad Liquid Metal och kylpasta i Malmö. Samma dag-service & 6 mån garanti."
+  canonicalUrl="https://mkfix.se/tjanster/overhettning/"
+  jsonLd={[serviceSchema, faqSchema]}
+>
+  <Header />
+
+  <main class="container overheating-page">
+    <!-- Hero Section -->
+    <section class="hero overheating-hero">
+      <div class="trust-box">
+        <span class="trust-badge"
+          >🔥 THE OVERHEATING FIX • MALMÖ &amp; LUND</span
+        >
+        <span>Samma dag-service vid drop-off före kl 12:00 • 6 mån garanti</span
+        >
+      </div>
+
+      <h1>
+        Piper din PS5 eller Xbox?<br />
+        <span>Så stoppar du överhettning</span> innan det är för sent
+      </h1>
+
+      <p class="hero-lead">
+        Har konsolen börjat rusa som ett jetplan, varna för hög temperatur på
+        TV-skärmen eller pipa tre gånger och stänga av sig mitt i en match? När
+        fläktar kämpar mot centimetertjocka dammfilter och fabrikens kylpasta
+        har torkat till sten riskerar moderkortet permanenta skador. Hos <strong
+          >mkFix i Malmö</strong
+        > utför vi professionell djuprengöring, förnyar <strong
+          >Liquid Metal (flytande metall)</strong
+        > och applicerar premium-kylpasta så att din konsol blir sval och knäpptyst
+        igen.
+      </p>
+
+      <div
+        class="hero-actions"
+        style="display: flex; gap: 1rem; justify-content: center; align-items: center; flex-wrap: wrap; margin-top: 1.5rem;"
+      >
+        <a
+          href="#boka"
+          class="contact-method cta-overheating-btn"
+          id="hero-cta-button"
+          onclick="gtag('event', 'boka_overhettning_click', { event_category: 'conversion', event_label: 'Boka rengöring nu - rädda din konsol', page_location: window.location.href });"
+          style="font-size: 1.15rem; background: #ef4444; color: #fff; display: inline-block; padding: 15px 30px; border-radius: 12px; font-weight: 800; text-decoration: none; box-shadow: 0 10px 25px rgba(239, 68, 68, 0.35); transition: transform 0.2s, background 0.2s;"
+        >
+          🚨 BOKA RENGÖRING NU – RÄDDA DIN KONSOL →
+        </a>
+        <a
+          href="tel:0790320605"
+          class="call-quick-btn"
+          style="font-size: 1rem; background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.2); color: #fff; display: inline-flex; align-items: center; gap: 8px; padding: 15px 22px; border-radius: 12px; font-weight: 600; text-decoration: none;"
+        >
+          📞 Ring 079-032 06 05
+        </a>
+      </div>
+
+      <p style="margin-top: 1rem; font-size: 0.95rem; color: var(--text-dim);">
+        📍 <strong>Inlämning i Malmö:</strong> Kunder från Malmö &amp; Lund får ofta
+        tillbaka konsolen samma eftermiddag!
+      </p>
+
+      <!-- Hero Visual Showcase -->
+      <div
+        class="hero-visual-card"
+        style="margin-top: 2.5rem; max-width: 900px; margin-left: auto; margin-right: auto; position: relative; border-radius: 20px; overflow: hidden; border: 1px solid rgba(56, 189, 248, 0.3); box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);"
+      >
+        <Image
+          src={fanBeforeAfterImg}
+          alt="Vi fixar din överhettade konsol i Malmö - dammig fläkt före vs ren fläkt efter djuprengöring"
+          class="hero-img-split"
+          style="width: 100%; height: auto; display: block;"
+        />
+        <div
+          class="hero-img-badge"
+          style="position: absolute; bottom: 15px; left: 50%; transform: translateX(-50%); background: rgba(15, 23, 42, 0.92); border: 1px solid var(--accent); color: #fff; padding: 10px 20px; border-radius: 30px; font-weight: 700; font-size: 0.95rem; white-space: nowrap; box-shadow: 0 8px 20px rgba(0,0,0,0.5);"
+        >
+          🛡️ Vi fixar din överhettade konsol i Malmö
+        </div>
+      </div>
+    </section>
+
+    <!-- Warning Signs Section -->
+    <section class="warning-section" style="margin: 4rem 0;">
+      <h2 style="text-align: center; font-size: 2rem; margin-bottom: 0.5rem;">
+        Känner du igen dessa <span style="color: #ef4444;"
+          >varningssignaler</span
+        >?
+      </h2>
+      <p
+        style="text-align: center; color: var(--text-dim); max-width: 700px; margin: 0 auto 2.5rem;"
+      >
+        En modern spelkonsol stänger inte av sig utan anledning. Dessa symptom
+        visar att kylsystemet är kollapsat och att akut service krävs:
+      </p>
+
+      <div
+        class="grid"
+        style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;"
+      >
+        <div class="card warning-card">
+          <div style="font-size: 2.2rem; margin-bottom: 0.75rem;">🚨</div>
+          <h3 style="color: #ef4444; margin-bottom: 0.5rem;">
+            Tre pip &amp; stänger av sig
+          </h3>
+          <p>
+            Plötslig nödavstängning (Thermal Shutdown) mitt i tunga spel som
+            Warzone, GTA eller Fortnite. Konsolen stänger av strömmen för att
+            kiselchippet inte ska smälta.
+          </p>
+        </div>
+
+        <div class="card warning-card">
+          <div style="font-size: 2.2rem; margin-bottom: 0.75rem;">🛫</div>
+          <h3 style="color: #f59e0b; margin-bottom: 0.5rem;">
+            Låter som ett jetplan
+          </h3>
+          <p>
+            Fläkten rusar på maximalt varvtal redan i spelmenyn. När
+            kylflänsarna är igensatta av damm tvingas fläkten jobba på 100% utan
+            att lyckas sänka temperaturen.
+          </p>
+        </div>
+
+        <div class="card warning-card">
+          <div style="font-size: 2.2rem; margin-bottom: 0.75rem;">⚠️</div>
+          <h3 style="color: #ef4444; margin-bottom: 0.5rem;">
+            Värmevarning på TV-skärmen
+          </h3>
+          <p>
+            "Your PS5 is too hot. Turn off your PS5 and wait until the
+            temperature goes down". Ignoreras detta riskerar mikrolödningarna
+            under processorn att spricka.
+          </p>
+        </div>
+
+        <div class="card warning-card">
+          <div style="font-size: 2.2rem; margin-bottom: 0.75rem;">📉</div>
+          <h3 style="color: #38bdf8; margin-bottom: 0.5rem;">
+            FPS-drop &amp; Thermal Throttling
+          </h3>
+          <p>
+            Spelen börjar hacka och tappa bildrutor. Processorn klockar
+            automatiskt ner sin klockfrekvens för att generera mindre värme,
+            vilket förstör spelupplevelsen.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Före / Efter Galleri & Teknisk Förklaring -->
+    <section
+      class="before-after-section"
+      style="background: rgba(15, 23, 42, 0.7); border: 1px solid var(--border); border-radius: 24px; padding: 3rem 2rem; margin: 4rem 0;"
+    >
+      <h2 style="text-align: center; font-size: 2.2rem; margin-bottom: 0.8rem;">
+        Före &amp; Efter: <span style="color: var(--accent);"
+          >Se skillnaden med egna ögon</span
+        >
+      </h2>
+      <p
+        style="text-align: center; color: var(--text-dim); max-width: 750px; margin: 0 auto 3rem;"
+      >
+        Det räcker inte att dammsuga utsidan eller blåsa tryckluft i
+        ventilationshålen – det trycker bara dammet hårdare in i kylflänsen. Så
+        här ser verkligheten ut inuti en konsol:
+      </p>
+
+      <div
+        style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2.5rem; align-items: start;"
+      >
+        <!-- Card 1: Fläkt & Kylfläns -->
+        <div
+          style="background: rgba(30, 41, 59, 0.6); border: 1px solid rgba(255,255,255,0.1); border-radius: 18px; overflow: hidden; padding: 1.5rem;"
+        >
+          <Image
+            src={fanBeforeAfterImg}
+            alt="Före och efter rengöring av konsolens kylfläns och fläkt"
+            style="width: 100%; height: auto; border-radius: 12px; margin-bottom: 1.2rem; border: 1px solid rgba(255,255,255,0.1);"
+          />
+          <h3 style="color: var(--accent); margin-bottom: 0.5rem;">
+            1. Igensatta kylflänsar &amp; dammfällor
+          </h3>
+          <p
+            style="font-size: 0.95rem; line-height: 1.6; color: var(--text-dim);"
+          >
+            <strong>Före:</strong> En tjock matta av damm och textilfibrer täpper
+            till mikrolamellerna i kylaren. Luften kan inte passera och konsolen kvävs.<br
+            />
+            <strong>Efter:</strong> Vi plockar isär enheten helt, rengör varje fläktblad
+            och spolar ur kylflänsarna med tryckluft och isopropanol för fritt luftflöde.
+          </p>
+        </div>
+
+        <!-- Card 2: Kylpasta & Liquid Metal -->
+        <div
+          style="background: rgba(30, 41, 59, 0.6); border: 1px solid rgba(255,255,255,0.1); border-radius: 18px; overflow: hidden; padding: 1.5rem;"
+        >
+          <Image
+            src={thermalPasteBeforeAfterImg}
+            alt="Före och efter byte av torkad kylpasta och Liquid Metal på APU processor"
+            style="width: 100%; height: auto; border-radius: 12px; margin-bottom: 1.2rem; border: 1px solid rgba(255,255,255,0.1);"
+          />
+          <h3 style="color: var(--accent); margin-bottom: 0.5rem;">
+            2. Uttorkad kylpasta &amp; flytande metall
+          </h3>
+          <p
+            style="font-size: 0.95rem; line-height: 1.6; color: var(--text-dim);"
+          >
+            <strong>Före:</strong> Fabrikens kylpasta torkar till hård krita efter
+            2–3 år. På PS5 oxiderar den flytande metallen och lämnar torra fläckar
+            (dry spots) på processorn.<br />
+            <strong>Efter:</strong> Ytorna poleras kemiskt rena och vi applicerar
+            ny högpresterande kylpasta eller förnyar Liquid Metal med jämn värmespridning.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pristabell & Tjänster -->
+    <section class="pricing-section" style="margin: 4rem 0;">
+      <h2 style="text-align: center; font-size: 2rem; margin-bottom: 0.5rem;">
+        Fasta priser för <span style="color: var(--accent);"
+          >överhettningsservice</span
+        >
+      </h2>
+      <p
+        style="text-align: center; color: var(--text-dim); margin-bottom: 2.5rem;"
+      >
+        Alltid fast pris, inga dolda kostnader och <strong
+          >6 månaders full funktionsgaranti</strong
+        >.
+      </p>
+
+      <div
+        class="grid"
+        style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;"
+      >
+        <div
+          class="card"
+          style="border: 2px solid var(--accent); position: relative;"
+        >
+          <div
+            style="position: absolute; top: -12px; right: 15px; background: var(--accent); color: var(--bg); font-size: 0.75rem; font-weight: 800; padding: 3px 10px; border-radius: 20px;"
+          >
+            MEST POPULÄR
+          </div>
+          <span
+            style="font-size: 0.8rem; font-weight: bold; color: var(--accent); text-transform: uppercase;"
+            >Flytande metall</span
+          >
+          <h3>PlayStation 5 (Fat &amp; Slim)</h3>
+          <p
+            style="font-size: 0.92rem; color: var(--text-dim); margin-bottom: 1rem;"
+          >
+            Fullständig demontering till moderkortet, djuprengöring av interna
+            dammfällor, fläkt samt polering och förnyad <strong
+              >Liquid Metal</strong
+            > mot torra fläckar.
+          </p>
+          <div
+            style="font-size: 1.8rem; font-weight: 800; color: #fff; margin-bottom: 1rem;"
+          >
+            649 <small style="font-size: 1rem; font-weight: 400;">kr</small>
+          </div>
+          <a
+            href="#boka"
+            class="service-tag save-tag"
+            style="display: block; text-align: center; padding: 10px; text-decoration: none; font-weight: 700;"
+            >Välj PS5 Service →</a
+          >
+        </div>
+
+        <div class="card" style="border: 1px solid rgba(255,255,255,0.15);">
+          <span
+            style="font-size: 0.8rem; font-weight: bold; color: #22c55e; text-transform: uppercase;"
+            >Premium Kylpasta</span
+          >
+          <h3>Xbox Series X &amp; Series S</h3>
+          <p
+            style="font-size: 0.92rem; color: var(--text-dim); margin-bottom: 1rem;"
+          >
+            Rengöring av den vertikala lufttunneln, den massiva kopparkylflänsen
+            samt byte av torkad fabrikspasta mot högpresterande kylpasta för
+            tyst drift.
+          </p>
+          <div
+            style="font-size: 1.8rem; font-weight: 800; color: #fff; margin-bottom: 1rem;"
+          >
+            649 <small style="font-size: 1rem; font-weight: 400;">kr</small>
+          </div>
+          <a
+            href="#boka"
+            class="service-tag save-tag"
+            style="display: block; text-align: center; padding: 10px; text-decoration: none; font-weight: 700;"
+            >Välj Xbox Series →</a
+          >
+        </div>
+
+        <div class="card" style="border: 1px solid rgba(255,255,255,0.15);">
+          <span
+            style="font-size: 0.8rem; font-weight: bold; color: #eab308; text-transform: uppercase;"
+            >Jetplan-Fix</span
+          >
+          <h3>PlayStation 4 &amp; PS4 Pro</h3>
+          <p
+            style="font-size: 0.92rem; color: var(--text-dim); margin-bottom: 1rem;"
+          >
+            Få slut på jetplansljudet! Komplett rengöring av kylflänsar och
+            fläkt samt byte av hårdnad kylpasta mot modern termisk pasta med hög
+            konduktivitet.
+          </p>
+          <div
+            style="font-size: 1.8rem; font-weight: 800; color: #fff; margin-bottom: 1rem;"
+          >
+            649 <small style="font-size: 1rem; font-weight: 400;">kr</small>
+          </div>
+          <a
+            href="#boka"
+            class="service-tag save-tag"
+            style="display: block; text-align: center; padding: 10px; text-decoration: none; font-weight: 700;"
+            >Välj PS4 Service →</a
+          >
+        </div>
+
+        <div class="card" style="border: 1px solid rgba(255,255,255,0.15);">
+          <span
+            style="font-size: 0.8rem; font-weight: bold; color: #a855f7; text-transform: uppercase;"
+            >Retro &amp; Klassiker</span
+          >
+          <h3>Xbox 360 &amp; PS3</h3>
+          <p
+            style="font-size: 0.92rem; color: var(--text-dim); margin-bottom: 1rem;"
+          >
+            Förebygg Red Ring of Death (RROD) och Yellow Light of Death (YLOD).
+            Djuprengöring och kylpastabyte förlänger livet på dina klassiska
+            favoritkonsoler.
+          </p>
+          <div
+            style="font-size: 1.8rem; font-weight: 800; color: #fff; margin-bottom: 1rem;"
+          >
+            499 <small style="font-size: 1rem; font-weight: 400;">kr</small>
+          </div>
+          <a
+            href="#boka"
+            class="service-tag save-tag"
+            style="display: block; text-align: center; padding: 10px; text-decoration: none; font-weight: 700;"
+            >Välj Retro Service →</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- Lokala förtroendesignaler (Malmö & Lund Fokus + Karta + Recensioner) -->
+    <section
+      class="local-trust-section"
+      style="background: linear-gradient(135deg, rgba(30, 41, 59, 0.8), rgba(15, 23, 42, 0.95)); border: 1px solid var(--accent); border-radius: 24px; padding: 3rem 2rem; margin: 4rem 0;"
+    >
+      <div style="text-align: center; max-width: 800px; margin: 0 auto 2.5rem;">
+        <span
+          class="trust-badge"
+          style="background: rgba(56, 189, 248, 0.15); color: var(--accent); font-weight: 700; padding: 6px 14px; border-radius: 20px;"
+        >
+          📍 LOKAL VERKSTAD I MALMÖ
+        </span>
+        <h2 style="font-size: 2.2rem; margin-top: 1rem; margin-bottom: 0.8rem;">
+          Samma dag-service för dig i Malmö, Lund &amp; Skåne
+        </h2>
+        <p
+          style="color: var(--text-dim); font-size: 1.05rem; line-height: 1.6;"
+        >
+          Bor du i <strong
+            >Malmö, Lund, Lomma, Staffanstorp, Vellinge eller Trelleborg</strong
+          >? Lämna in konsolen hos oss på förmiddagen så är den oftast klar för
+          hämtning redan samma eftermiddag eller kväll! Du slipper skicka iväg
+          din dyrbara konsol och vänta i veckor – vi fixar den lokalt med
+          personlig service och video-transparens.
+        </p>
+      </div>
+
+      <div
+        style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; align-items: stretch; margin-bottom: 3rem;"
+      >
+        <div
+          style="background: rgba(15, 23, 42, 0.6); padding: 1.8rem; border-radius: 18px; border: 1px solid rgba(255,255,255,0.08);"
+        >
+          <h3
+            style="color: var(--accent); margin-bottom: 0.4rem; font-size: 1.2rem;"
+          >
+            ⚡ Samma dag-service
+          </h3>
+          <p
+            style="font-size: 0.95rem; color: var(--text-dim); margin: 0; line-height: 1.6;"
+          >
+            Lämna in före kl 12:00 i Malmö – hämta samma eftermiddag/kväll.
+            Perfekt om du vill vara redo inför helgens matcher.
+          </p>
+        </div>
+        <div
+          style="background: rgba(15, 23, 42, 0.6); padding: 1.8rem; border-radius: 18px; border: 1px solid rgba(255,255,255,0.08);"
+        >
+          <h3
+            style="color: var(--accent); margin-bottom: 0.4rem; font-size: 1.2rem;"
+          >
+            🛡️ 6 månaders garanti
+          </h3>
+          <p
+            style="font-size: 0.95rem; color: var(--text-dim); margin: 0; line-height: 1.6;"
+          >
+            Full funktionsgaranti på utfört arbete och termiskt gränssnitt. Vi
+            garanterar tyst gång och markant sänkta temperaturer.
+          </p>
+        </div>
+        <div
+          style="background: rgba(15, 23, 42, 0.6); padding: 1.8rem; border-radius: 18px; border: 1px solid rgba(255,255,255,0.08);"
+        >
+          <h3
+            style="color: var(--accent); margin-bottom: 0.4rem; font-size: 1.2rem;"
+          >
+            📹 Full transparens
+          </h3>
+          <p
+            style="font-size: 0.95rem; color: var(--text-dim); margin: 0; line-height: 1.6;"
+          >
+            Vi filmar reparationen eller skickar bilder direkt till dig som
+            visar hur konsolen såg ut inuti före och efter servicen.
+          </p>
+        </div>
+        <div
+          style="background: rgba(15, 23, 42, 0.6); padding: 1.8rem; border-radius: 18px; border: 1px solid rgba(255,255,255,0.08);"
+        >
+          <h3
+            style="color: var(--accent); margin-bottom: 0.4rem; font-size: 1.2rem;"
+          >
+            📍 Smidig drop-off
+          </h3>
+          <p
+            style="font-size: 0.95rem; color: var(--text-dim); margin: 0; line-height: 1.6;"
+          >
+            Enkel inlämning i Malmö efter snabb bokning via SMS eller
+            kontaktformulär. Fri parkering precis vid lokalen.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- "Expert-bevis" för AI-sökningar (Google Overviews / FAQ) -->
+    <section class="expert-faq-section" style="margin: 5rem 0;">
+      <div style="text-align: center; max-width: 800px; margin: 0 auto 3rem;">
+        <span
+          class="trust-badge"
+          style="background: rgba(34, 197, 94, 0.15); color: #22c55e; font-weight: 700; padding: 6px 14px; border-radius: 20px;"
+        >
+          🧠 EXPERTGUIDE &amp; TEKNISK FAKTA
+        </span>
+        <h2 style="font-size: 2.2rem; margin-top: 1rem; margin-bottom: 0.8rem;">
+          Expert-svar om överhettning &amp; kylning
+        </h2>
+        <p style="color: var(--text-dim); font-size: 1rem;">
+          Här besvarar vi de vanligaste tekniska frågorna om konsolvärme, damm
+          och moderkortsskador.
+        </p>
+      </div>
+
+      <div
+        style="max-width: 850px; margin: 0 auto; display: flex; flex-direction: column; gap: 1.5rem;"
+      >
+        <div
+          class="faq-item"
+          style="background: rgba(30, 41, 59, 0.5); border: 1px solid var(--border); border-radius: 16px; padding: 1.8rem;"
+        >
+          <h3
+            style="color: var(--accent); margin-top: 0; font-size: 1.25rem; margin-bottom: 0.6rem;"
+          >
+            Varför blir min PS5 varm?
+          </h3>
+          <p style="line-height: 1.7; color: var(--text); margin: 0;">
+            En PlayStation 5 blir överhettad av två samverkande faktorer. För
+            det första drar den kraftfulla 120 mm fläkten in luft och damm som
+            samlas i de interna dammfällorna (dust catchers) och täpper till
+            kylflänsens täta koppar- och aluminiumlameller. För det andra
+            använder PS5 flytande metall (Liquid Metal) istället för
+            traditionell kylpasta. Med tiden kan metallen oxidera eller
+            förskjutas av gravitation och mikrovibrationer, vilket skapar <em
+              >"dry spots"</em
+            > (torra fläckar) där processorn har direkt kontakt med luft istället
+            för kylaren. Då kan inte värmen ledas bort och konsolen larmar med tre
+            pip innan den stänger av sig.
+          </p>
+        </div>
+
+        <div
+          class="faq-item"
+          style="background: rgba(30, 41, 59, 0.5); border: 1px solid var(--border); border-radius: 16px; padding: 1.8rem;"
+        >
+          <h3
+            style="color: var(--accent); margin-top: 0; font-size: 1.25rem; margin-bottom: 0.6rem;"
+          >
+            Hur ofta behöver man byta kylpasta?
+          </h3>
+          <p style="line-height: 1.7; color: var(--text); margin: 0;">
+            I konsoler med standard silikonbaserad kylpasta (som PlayStation 4,
+            PS4 Pro, Xbox Series X/S, Xbox One och Xbox 360) rekommenderas ett
+            byte vart <strong>2 till 3 år</strong> vid regelbunden användning. Fabriksmonterad
+            kylpasta torkar ut genom termisk avdunstning och förvandlas till ett stenhårt,
+            smuligt pulver. När pastan har torkat försämras värmeledningsförmågan
+            med upp till 80 %, vilket gör att fläkten måste rusa på full effekt för
+            att kompensera.
+          </p>
+        </div>
+
+        <div
+          class="faq-item"
+          style="background: rgba(30, 41, 59, 0.5); border: 1px solid var(--border); border-radius: 16px; padding: 1.8rem;"
+        >
+          <h3
+            style="color: var(--accent); margin-top: 0; font-size: 1.25rem; margin-bottom: 0.6rem;"
+          >
+            Kan damm förstöra moderkortet?
+          </h3>
+          <p style="line-height: 1.7; color: var(--text); margin: 0;">
+            <strong>Ja, definitivt.</strong> Damm är inte bara ett estetiskt problem
+            – det fungerar som en isolerande filt som förhindrar värmeavledning. Långvarig
+            överhettning orsakar mikroskopiska deformationer och utmattning i de tusentals
+            små lödkulorna (BGA - Ball Grid Array) som fäster APU/GPU mot moderkortet.
+            Resultatet blir spruckna lödfogar, vilket är den direkta orsaken till
+            permanenta hårdvarufel som "Blue Light of Death" (PS4/PS5) och "Red Ring
+            of Death" (Xbox 360). Dessutom kan damm binda fukt från luften och orsaka
+            krypströmmar och korrosion på moderkortets känsliga kretsar.
+          </p>
+        </div>
+
+        <div
+          class="faq-item"
+          style="background: rgba(30, 41, 59, 0.5); border: 1px solid var(--border); border-radius: 16px; padding: 1.8rem;"
+        >
+          <h3
+            style="color: var(--accent); margin-top: 0; font-size: 1.25rem; margin-bottom: 0.6rem;"
+          >
+            Varför räcker det inte att blåsa med tryckluft utifrån?
+          </h3>
+          <p style="line-height: 1.7; color: var(--text); margin: 0;">
+            Att spraya tryckluft i konsolens ventilationsöppningar utifrån är en
+            av de vanligaste misstagen konsolägare gör. Det som händer är att du
+            trycker in den kompakta dammfilten djupare in i kylflänsen och
+            packar den som en plugg mot fläkten. Dessutom kan tryckluft få
+            fläktbladen att snurra okontrollerat snabbt och inducera en bakström
+            (back-EMF) som kan bränna fläktstyrningskretsen på moderkortet.
+            Konsolen måste öppnas säkert så att dammet avlägsnas fysiskt.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bokningskort / CTA Anchor -->
+    <section
+      id="boka"
+      class="contact-card"
+      style="margin: 4rem auto; max-width: 800px; text-align: center; background: linear-gradient(145deg, rgba(30, 41, 59, 0.95), rgba(15, 23, 42, 0.98)); border: 2px solid var(--accent); border-radius: 24px; padding: 3.5rem 2rem; box-shadow: 0 15px 45px rgba(0,0,0,0.5);"
+    >
+      <span
+        class="trust-badge"
+        style="background: #ef4444; color: #fff; font-weight: 800; padding: 6px 16px; border-radius: 20px; font-size: 0.85rem;"
+      >
+        🚨 RÄDDA DIN KONSOL IDAG
+      </span>
+      <h2 style="font-size: 2.3rem; margin-top: 1.2rem; margin-bottom: 0.8rem;">
+        Boka rengöring &amp; kylservice nu
+      </h2>
+      <p
+        style="color: var(--text-dim); max-width: 600px; margin: 0 auto 2rem; font-size: 1.05rem;"
+      >
+        Beskriv din konsolmodell och vilka fel du upplever så återkommer vi
+        direkt med tidsförslag. Lämna in i Malmö för samma dag-service eller
+        skicka via PostNord!
+      </p>
+
+      <div
+        style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;"
+      >
+        <a
+          href="/#boka"
+          class="submit-btn"
+          id="final-booking-cta"
+          onclick="gtag('event', 'boka_overhettning_click', { event_category: 'conversion', event_label: 'Boka rengöring nu - rädda din konsol', page_location: window.location.href });"
+          style="font-size: 1.15rem; background: #ef4444; color: #fff; text-decoration: none; padding: 16px 36px; border-radius: 12px; font-weight: 800; display: inline-block; box-shadow: 0 10px 30px rgba(239, 68, 68, 0.4);"
+        >
+          BOKA RENGÖRING NU – RÄDDA DIN KONSOL
+        </a>
+        <a
+          href="sms:+46790320605?body=Hej%20mkFix!%20Min%20konsol%20blir%20%C3%B6verhettad.%20Modell:%20"
+          class="submit-btn"
+          style="font-size: 1.15rem; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.2); color: #fff; text-decoration: none; padding: 16px 28px; border-radius: 12px; font-weight: 700; display: inline-block;"
+        >
+          💬 SMS:a 079-032 06 05
+        </a>
+      </div>
+
+      <div
+        style="margin-top: 2rem; border-top: 1px solid var(--border); padding-top: 1.5rem; font-size: 0.95rem; color: var(--text-dim);"
+      >
+        Har du bråttom? Ring mig direkt på <a
+          href="tel:0790320605"
+          style="color: var(--accent); font-weight: bold; text-decoration: none;"
+          >079-032 06 05</a
+        > så bokar vi in en snabb inlämning!
+      </div>
+    </section>
+
+    <!-- Webbutik Service Beställning Direkt -->
+    <ProductPromo
+      badge="📦 BESTÄLL DIREKT ONLINE"
+      title="Vill du lägga din serviceorder direkt i butiken?"
+      subtitle="Beställ din kylservice direkt i webbutiken. Välj om du vill lämna in konsolen i vår Malmö-verkstad eller skicka den spårbart med PostNord från hela Sverige."
+      slugs={[
+        "service-rengoring-ps5-liquid-metal",
+        "service-rengoring-kylarpastabyte-xbox-series",
+      ]}
+      ctaText="BESTÄLL SERVICEN I WEBBUTIKEN HÄR →"
+      ctaLink="/produkter/"
+    />
+  </main>
+
+  <Footer />
+
+  <!-- Google tag (gtag.js) & GA4 Conversion Event Tracking -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-DRKX0X33V3"
+  ></script>
+  <script is:inline>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
+    gtag("config", "G-DRKX0X33V3");
+  </script>
+</MainLayout>
+
+<style>
+  .overheating-page h1 span {
+    color: #ef4444;
+  }
+  .cta-overheating-btn:hover {
+    transform: translateY(-2px);
+    background: #dc2626 !important;
+  }
+  .warning-card {
+    background: rgba(30, 41, 59, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transition:
+      transform 0.2s ease,
+      border-color 0.2s ease;
+  }
+  .warning-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(239, 68, 68, 0.4);
+  }
+  .review-card {
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+</style>
