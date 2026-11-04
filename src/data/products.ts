@@ -412,7 +412,7 @@ const rawProducts: (Omit<Product, 'images'> & { images: (string | ImageMetadata)
       { label: 'Sensor-teknik', value: 'Hall Effect' },
       { label: 'Modell', value: 'Microsoft Xbox 360 Wireless (#205)' },
       { label: 'Färg', value: 'Genomskinlig grön' },
-      { label: 'Skick', value: 'Renoverad originalkontroll / Hall Effect-uppgraderad' }
+      { label: 'Skick', value: 'Renoverad originalkontroll / Hall Effect-uppgraderad ' }
     ],
     images: [
       '/img/products/229/PXL_20261104_180456662.jpg',
