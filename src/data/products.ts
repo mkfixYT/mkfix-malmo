@@ -384,6 +384,45 @@ const rawProducts: (Omit<Product, 'images'> & { images: (string | ImageMetadata)
     ]
   },
 
+  {
+    slug: 'xbox-360-wireless-green-HE-229',
+    title: 'Xbox 360 Trådlös Handkontroll – Genomskinlig Grön – Hall Effect (#229)',
+    price: 699,
+    category: 'kontroller',
+    status: 'in_stock',
+    badge: '⚡ Retro med Hall Effect',
+    condition: 'Professionellt renoverad & Hall Effect-uppgraderad, nytt skal',
+    warranty: '6 månaders full funktionsgaranti från mkFix',
+    shortDescription: 'Äkta retrokänsla med modern precision! Klassisk svart trådlös Xbox 360-kontroll (#229) helrenoverad och uppgraderad med Hall Effect-spakar samt nytt skal. Perfekt cirkuläritet och noll stick drift.',
+    description: [
+      'Ge ditt Xbox 360-spelande nytt liv med en äkta originalkontroll som presterar bättre än när den rullade av fabriksbandet! Denna kontroll (#229) har fått båda sina analogspakar utbytta mot moderna Hall Effect-sensorer samt fått ett nytt, genomskinligt skal.',
+      'Hall Effect-tekniken använder magnetfält istället för kolbanor vilket eliminerar slitage och ger överlägsen precision i klassiker som Halo 3, Gears of War och Forza Motorsport.',
+      'Knappmembran har inspekterats och spakarna är hårdvarukalibrerade till enastående precision i testbänk.'
+    ],
+    features: [
+      'Dubbla Hall Effect magnetiska sensorer installerade',
+      'Genomskinligt, grönt skal',
+      'Inspektion av kretskort',
+      'Perfekt taktil känsla i knappar, triggers och d-pad',
+      'Kompatibel med alla Xbox 360-modeller och PC (via trådlös adapter)',
+      '6 månaders full funktionsgaranti från mkFix'
+    ],
+    specs: [
+      { label: 'Plattform', value: 'Xbox 360, PC (kräver trådlös USB-adapter)' },
+      { label: 'Sensor-teknik', value: 'Hall Effect' },
+      { label: 'Modell', value: 'Microsoft Xbox 360 Wireless (#205)' },
+      { label: 'Färg', value: 'Genomskinlig grön' },
+      { label: 'Skick', value: 'Renoverad originalkontroll / Hall Effect-uppgraderad' }
+    ],
+    images: [
+      '/img/products/205/PXL_20261104_180456662.jpg',
+      '/img/products/205/PXL_20261104_180437253.jpg',
+      '/img/products/205/PXL_20261104_180440993.jpg',
+      '/img/products/205/PXL_20261104_180445226.jpg',
+      '/img/products/205/PXL_20261104_180450885.jpg',
+    ]
+  },
+
   /**RESERVDELAR VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV */
   // --- Reservdel 1: K-Silver PS5 TMR Joysticks (2-pack) ---
   {
