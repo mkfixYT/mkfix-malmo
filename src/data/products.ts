@@ -415,8 +415,8 @@ const rawProducts: (Omit<Product, 'images'> & { images: (string | ImageMetadata)
       { label: 'Skick', value: 'Renoverad originalkontroll / Hall Effect-uppgraderad ' }
     ],
     images: [
-      '/img/products/229/PXL_20261104_180456662.jpg',
       '/img/products/229/PXL_20261104_180437253.jpg',
+      '/img/products/229/PXL_20261104_180456662.jpg',
       '/img/products/229/PXL_20261104_180440993.jpg',
       '/img/products/229/PXL_20261104_180445226.jpg',
       '/img/products/229/PXL_20261104_180450885.jpg',
