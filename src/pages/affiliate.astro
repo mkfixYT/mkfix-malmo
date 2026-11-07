@@ -1,0 +1,1623 @@
+---
+// src/pages/affiliate.astro
+import MainLayout from "../layouts/MainLayout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { affiliateProducts, SUPPORTED_COUNTRIES, UI_TRANSLATIONS } from "../data/affiliate";
+
+// Hämta unika kategorier dynamiskt från produktlistan
+const categories = ["Alla", ...new Set(affiliateProducts.map((p) => p.category))];
+
+// SEO Schema för Google (ItemList & CollectionPage)
+const itemListSchema = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "mkFix Rekommenderad Verkstadsutrustning & Verktyg",
+  "description": "Verktyg, mikroskop och utrustning vi använder och rekommenderar för konsol- och elektronikreparation.",
+  "numberOfItems": affiliateProducts.length,
+  "itemListElement": affiliateProducts.map((item, index) => ({
+    "@type": "ListItem",
+    "position": index + 1,
+    "name": item.name,
+    "description": item.description,
+    "image": item.image,
+    "url": item.countries?.se?.amazon || item.amazonUrl || item.aliExpressUrl || "https://mkfix.se/affiliate/"
+  }))
+};
+---
+
+<MainLayout
+  title="Rekommenderade Verktyg & Utrustning | Lödning & Elektronik | mkFix Malmö"
+  description="Se verktygen och utrustningen vi använder i mkFix-verkstaden i Malmö. Mikroskop, lödstationer, flussmedel och tillbehör med direktlänkar till AliExpress och Amazon anpassade efter ditt land och språk."
+  keywords="affiliate verktyg elektronik, mikroskop mikrolödning, lödstation ps5 reparation, tmr stick verktyg, aliexpress verktyg, amazon elektronikverktyg, mkfix malmö"
+  canonicalUrl="https://mkfix.se/affiliate/"
+  ogTitle="Rekommenderad Verkstadsutrustning & Verktyg | mkFix"
+  ogDescription="Se verktygen vi använder i mkFix-verkstaden för mikrolödning och konsolreparationer. Välj land för rätt Amazon- och AliExpress-länkar."
+  jsonLd={itemListSchema}
+>
+  <Header />
+
+  <main class="container">
+    <!-- Hero Sektion -->
+    <section class="hero affiliate-hero">
+      <div class="trust-box">
+        <span class="trust-badge" id="hero-badge-tag">MKFIX VERKSTADSGUIDE</span>
+        <span id="hero-badge-sub">Testat &amp; beprövat i Malmö</span>
+      </div>
+
+      <h1 id="hero-title-container">
+        <span id="hero-title-main">Rekommenderade</span> <span id="hero-title-highlight">Verktyg &amp; Utrustning</span>
+      </h1>
+
+      <p class="hero-lead" id="hero-lead-text">
+        Här samlar vi de mikroskop, lödstationer, flussmedel och handverktyg vi själva använder dagligen i verkstaden.
+        Välj ditt land nedan för att få rätt butikslänkar för både AliExpress och Amazon med lokal valuta och språk.
+      </p>
+
+      <!-- Trust Badges -->
+      <div class="affiliate-perks">
+        <div class="perk-item">
+          <span class="perk-icon">🔬</span>
+          <span id="perk-1-text">Samma utrustning som i våra YouTube-videos</span>
+        </div>
+        <div class="perk-item">
+          <span class="perk-icon">🌍</span>
+          <span id="perk-2-text">Länkar för Sverige, England, USA, Canada &amp; Polen</span>
+        </div>
+        <div class="perk-item">
+          <span class="perk-icon">🛡️</span>
+          <span id="perk-3-text">Noggrant testat i verklig verkstadsmiljö</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Aktivt Land-indikator Bar -->
+    <div class="country-status-bar" id="country-status-bar">
+      <div class="country-status-left">
+        <span class="status-pin">📍</span>
+        <span id="country-status-prefix">Aktuellt land för affiliatelänkar:</span>
+        <div id="active-country-badge" class="active-country-tag">
+          <span id="active-country-flag" class="flag-wrapper" set:html={SUPPORTED_COUNTRIES[0].svgFlag}></span>
+          <strong id="active-country-name">Sverige</strong>
+          <span class="country-subinfo" id="active-country-domain">(Amazon.se &amp; AliExpress)</span>
+        </div>
+      </div>
+      <button id="change-country-btn" class="change-country-btn" aria-label="Byt land">
+        <span id="change-country-btn-text">🔄 Byt land</span>
+      </button>
+    </div>
+
+    <!-- Sök & Kategorifilter -->
+    <div class="filter-controls-wrapper">
+      <div class="search-box">
+        <span class="search-icon">🔍</span>
+        <input
+          type="text"
+          id="affiliate-search"
+          placeholder="Sök verktyg (t.ex. mikroskop, fluss, lödstation)..."
+          aria-label="Sök bland verktyg"
+        />
+        <button id="clear-search-btn" class="clear-search" style="display: none;" aria-label="Rensa sökning">✕</button>
+      </div>
+
+      <div class="category-filter-bar" id="category-filter-bar">
+        {categories.map((cat, index) => (
+          <button
+            class={`filter-tab ${index === 0 ? "active" : ""}`}
+            data-filter={cat === "Alla" ? "all" : cat.toLowerCase()}
+            data-raw-cat={cat.toLowerCase()}
+          >
+            {cat}
+          </button>
+        ))}
+      </div>
+
+      <div class="results-count-bar">
+        <span id="showing-prefix">Visar</span> <strong id="visible-count">{affiliateProducts.length}</strong> <span id="of-total-text">av</span> {affiliateProducts.length} <span id="tools-unit-text">verktyg</span>
+      </div>
+    </div>
+
+    <!-- Affiliate Transparens & Info (SEO & Konsumentverket-compliance) -->
+    <div class="affiliate-disclosure-box">
+      <div class="disclosure-header">
+        <span class="disclosure-icon">ℹ️</span>
+        <strong id="disclosure-title">Transparens &amp; Affiliate-information</strong>
+      </div>
+      <p id="disclosure-body">
+        Länkarna på denna sida är affiliatelänkar. Om du väljer att köpa via länkarna får mkFix en liten provision från butiken
+        (AliExpress eller Amazon) <em>utan någon som helst extra kostnad för dig</em>. Detta hjälper oss att driva verkstan, köpa in nya
+        testkomponenter och producera gratis reparationsguider på YouTube. Vi rekommenderar uteslutande verktyg vi själva litar på.
+      </p>
+    </div>
+
+    <!-- 
+    ========================================================================================
+    💡 BORTKOMMENTERAD HTML-MALL FÖR ETT AFFILIATE-KORT:
+    Om du i framtiden vill klistra in ett kort manuellt i ren HTML:
+
+    <article class="affiliate-card" data-category="mikroskop" data-search="mikroskop trinokulärt stereo">
+      <div class="card-image-wrapper">
+        <span class="category-badge">Mikroskop</span>
+        <span class="rec-badge">Mikrolödning</span>
+        <img
+          src="https://images.unsplash.com/photo-1582719471384-894fbb16e074?w=600&auto=format&fit=crop&q=80"
+          alt="Trinokulärt Stereo Mikroskop"
+          loading="lazy"
+          decoding="async"
+          width="400"
+          height="250"
+          class="card-img"
+          onerror="this.onerror=null; this.src='/favicon.svg'; this.style.objectFit='contain'; this.style.padding='2rem';"
+        />
+      </div>
+
+      <div class="card-body">
+        <h2 class="card-title">Trinokulärt Stereo Mikroskop</h2>
+        <p class="card-description">
+          Oumbärligt mikroskop för mikrolödning och byte av HDMI-portar.
+        </p>
+
+        <div class="card-tip">
+          <span class="tip-icon">💡</span>
+          <div class="tip-text">
+            <strong>mkFix Tips:</strong> Välj 0.5x Barlow-lins för bäst arbetsavstånd till lödspetsen.
+          </div>
+        </div>
+
+        <div class="card-links">
+          <a
+            href="https://s.click.aliexpress.com/e/_c31dhgCB"
+            target="_blank"
+            rel="sponsored nofollow noopener noreferrer"
+            class="affiliate-btn btn-aliexpress"
+          >
+            <span class="btn-logo-text">AliExpress</span>
+            <span class="btn-arrow">↗</span>
+          </a>
+
+          <a
+            href="https://amzn.to/3UEtMQ5"
+            target="_blank"
+            rel="sponsored nofollow noopener noreferrer"
+            class="affiliate-btn btn-amazon"
+          >
+            <span class="btn-logo-text">Amazon</span>
+            <span class="btn-arrow">↗</span>
+          </a>
+        </div>
+      </div>
+    </article>
+    ========================================================================================
+    -->
+
+    <!-- Affiliate Kort Galleri -->
+    <div class="affiliate-grid" id="affiliate-grid">
+      {affiliateProducts.map((product) => {
+        const categoryData = product.category.toLowerCase();
+        const searchKeywords = `${product.name} ${product.description} ${product.category} ${product.tip || ""} ${product.recommendedFor || ""}`.toLowerCase();
+        
+        // JSON-sträng av landsspecifika länkar och översättningar
+        const countryLinksJson = JSON.stringify(product.countries || {});
+        const i18nJson = JSON.stringify(product.i18n || {});
+        const defaultAmazon = product.countries?.se?.amazon || product.amazonUrl || "";
+        const defaultAliExpress = product.countries?.se?.aliExpress || product.aliExpressUrl || "";
+
+        return (
+          <article
+            class="affiliate-card"
+            data-category={categoryData}
+            data-search={searchKeywords}
+            data-country-links={countryLinksJson}
+            data-i18n={i18nJson}
+            data-name-sv={product.name}
+            data-desc-sv={product.description}
+            data-tip-sv={product.tip || ""}
+            data-rec-sv={product.recommendedFor || ""}
+            data-category-raw={product.category.toLowerCase()}
+            data-global-amazon={product.amazonUrl || ""}
+            data-global-aliexpress={product.aliExpressUrl || ""}
+          >
+            <div class="card-image-wrapper">
+              <span class="category-badge">{product.category}</span>
+              {product.recommendedFor && (
+                <span class="rec-badge">{product.recommendedFor}</span>
+              )}
+              <img
+                src={product.image}
+                alt={product.name}
+                loading="lazy"
+                decoding="async"
+                width="400"
+                height="250"
+                class="card-img"
+                onerror="this.onerror=null; this.src='/favicon.svg'; this.style.objectFit='contain'; this.style.padding='2rem';"
+              />
+            </div>
+
+            <div class="card-body">
+              <h2 class="card-title">{product.name}</h2>
+              <p class="card-description">{product.description}</p>
+
+              {product.tip && (
+                <div class="card-tip">
+                  <span class="tip-icon">💡</span>
+                  <div class="tip-text">
+                    <strong class="tip-label">mkFix Tips:</strong> <span class="tip-content">{product.tip}</span>
+                  </div>
+                </div>
+              )}
+
+              <!-- Knappar för AliExpress & Amazon -->
+              <div class="card-links">
+                <!-- AliExpress Knapp -->
+                <a
+                  href={defaultAliExpress || "#"}
+                  target="_blank"
+                  rel="sponsored nofollow noopener noreferrer"
+                  class="affiliate-btn btn-aliexpress"
+                  aria-label={`Köp ${product.name} på AliExpress`}
+                  style={!defaultAliExpress ? "display: none;" : ""}
+                >
+                  <span class="btn-logo-text aliexpress-btn-label">AliExpress</span>
+                  <span class="btn-arrow">↗</span>
+                </a>
+
+                <!-- Amazon Knapp -->
+                <a
+                  href={defaultAmazon || "#"}
+                  target="_blank"
+                  rel="sponsored nofollow noopener noreferrer"
+                  class="affiliate-btn btn-amazon"
+                  aria-label={`Köp ${product.name} på Amazon`}
+                  style={!defaultAmazon ? "display: none;" : ""}
+                >
+                  <span class="btn-logo-text amazon-btn-label">Amazon</span>
+                  <span class="btn-arrow">↗</span>
+                </a>
+
+                <!-- Prompt om land inte valts ännu -->
+                <button
+                  type="button"
+                  class="select-country-prompt-btn"
+                  style="display: none;"
+                  aria-label="Välj land för att se länkar"
+                >
+                  <span class="prompt-btn-text">📍 Välj land för att se butikslänkar</span>
+                </button>
+              </div>
+            </div>
+          </article>
+        );
+      })}
+    </div>
+
+    <!-- Tomt sökresultat meddelande -->
+    <div id="no-results-message" class="no-results" style="display: none;">
+      <span class="no-results-icon">🔍</span>
+      <h3 id="no-results-title">Inga verktyg matchade din sökning</h3>
+      <p id="no-results-desc">Testa att söka på något annat eller rensa filtret.</p>
+      <button id="reset-filters-btn" class="reset-btn">Återställ filter &amp; sökning</button>
+    </div>
+
+    <!-- Kontakta oss sektion -->
+    <section class="affiliate-cta-box">
+      <h3 id="cta-title">Saknar du något verktyg i listan?</h3>
+      <p id="cta-desc">
+        Har du sett mig använda ett specifikt verktyg i en video och undrar vad det heter, eller söker du tips för just din löduppsättning?
+        Hör gärna av dig eller joina vår Discord!
+      </p>
+      <div class="cta-buttons">
+        <a href="https://discord.gg/s75Kww368a" target="_blank" rel="noopener noreferrer" class="cta-dc-btn" id="cta-discord-btn">
+          💬 Fråga i mkFix Discord
+        </a>
+        <a href="/#boka" class="cta-contact-btn" id="cta-contact-btn">
+          Kontakta verkstaden →
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+
+  <!-- ================================================================= -->
+  <!-- MODAL: VAL AV LAND MED SYNLIGA FLAGGOR (FÖRSTA STEGET)          -->
+  <!-- ================================================================= -->
+  <div id="country-modal-overlay" class="modal-overlay" style="display: none;">
+    <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <div class="modal-header">
+        <div class="modal-icon-badge">🌍</div>
+        <h2 id="modal-title">Välj ditt land / Select Country</h2>
+        <p class="modal-subtitle" id="modal-subtitle">
+          Välj det land du handlar ifrån för att få rätt affiliatelänkar för <strong>AliExpress</strong> och <strong>Amazon</strong> med lokal valuta och språk.
+        </p>
+      </div>
+
+      <!-- Kort för varje land med grafiska flaggor -->
+      <div class="countries-grid">
+        {SUPPORTED_COUNTRIES.map((country) => (
+          <button
+            class="country-card-btn"
+            data-country={country.code}
+            data-lang={country.lang}
+            data-name={country.name}
+            data-domain={country.amazonDomain}
+          >
+            <div class="flag-frame" set:html={country.svgFlag}></div>
+            <div class="country-info">
+              <span class="country-name">{country.name}</span>
+              <span class="country-domain">{country.amazonDomain} • AliExpress</span>
+            </div>
+            <span class="country-check">✓</span>
+          </button>
+        ))}
+      </div>
+
+      <!-- Informationsruta om varför man väljer land och att det inte spåras -->
+      <div class="modal-privacy-info">
+        <div class="privacy-item">
+          <span class="privacy-icon">💡</span>
+          <div>
+            <strong id="modal-why-title">Varför måste du välja land?</strong>
+            <p id="modal-why-text">
+              Både Amazon och AliExpress använder olika regionala sidor och affiliate-system (t.ex. Amazon.se, Amazon.co.uk, Amazon.com, Amazon.ca och Amazon.pl). 
+              För att länkarna ska öppna rätt butik med rätt valuta, lokal frakt och korrekt lagerstatus behöver vi veta vilket land du handlar ifrån.
+            </p>
+          </div>
+        </div>
+
+        <div class="privacy-item">
+          <span class="privacy-icon">🔒</span>
+          <div>
+            <strong id="modal-privacy-title">100% anonymt – Vi spårar ingenting</strong>
+            <p id="modal-privacy-text">
+              Ditt val sparas uteslutande lokalt i din egen webbläsare (<code>localStorage</code>) så att du slipper välja om varje gång du besöker sidan. 
+              mkFix sparar inga personuppgifter, använder inga spårningscookies och skickar ingen data om dig till någon server.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button id="modal-close-btn" class="modal-confirm-btn" style="display: none;">
+          Klar &amp; Visa verktyg →
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Klient-skript för landshantering, flerspråksstöd (i18n), filtrering och sökning -->
+  <script is:inline define:vars={{ 
+    supportedCountriesJson: JSON.stringify(SUPPORTED_COUNTRIES), 
+    translationsJson: JSON.stringify(UI_TRANSLATIONS) 
+  }}>
+    document.addEventListener("DOMContentLoaded", () => {
+      let countriesList = [];
+      let allTranslations = {};
+
+      try {
+        countriesList = JSON.parse(supportedCountriesJson);
+        allTranslations = JSON.parse(translationsJson);
+      } catch (e) {
+        countriesList = [];
+        allTranslations = {};
+      }
+
+      const countriesMeta = {};
+      countriesList.forEach((c) => {
+        countriesMeta[c.code] = c;
+      });
+
+      const STORAGE_KEY = "mkfix_affiliate_country";
+      let activeCountry = localStorage.getItem(STORAGE_KEY);
+
+      // DOM-element
+      const modalOverlay = document.getElementById("country-modal-overlay");
+      const changeCountryBtn = document.getElementById("change-country-btn");
+      const modalCloseBtn = document.getElementById("modal-close-btn");
+      const countryButtons = document.querySelectorAll(".country-card-btn");
+      const activeFlagElem = document.getElementById("active-country-flag");
+      const activeNameElem = document.getElementById("active-country-name");
+      const activeDomainElem = document.getElementById("active-country-domain");
+
+      // UI-översättnings element
+      const heroBadgeTag = document.getElementById("hero-badge-tag");
+      const heroBadgeSub = document.getElementById("hero-badge-sub");
+      const heroTitleMain = document.getElementById("hero-title-main");
+      const heroTitleHighlight = document.getElementById("hero-title-highlight");
+      const heroLeadText = document.getElementById("hero-lead-text");
+      const perk1Text = document.getElementById("perk-1-text");
+      const perk2Text = document.getElementById("perk-2-text");
+      const perk3Text = document.getElementById("perk-3-text");
+      const countryStatusPrefix = document.getElementById("country-status-prefix");
+      const changeCountryBtnText = document.getElementById("change-country-btn-text");
+      const disclosureTitle = document.getElementById("disclosure-title");
+      const disclosureBody = document.getElementById("disclosure-body");
+      const searchInput = document.getElementById("affiliate-search");
+      const clearSearchBtn = document.getElementById("clear-search-btn");
+      const filterButtons = document.querySelectorAll(".filter-tab");
+      const cards = document.querySelectorAll(".affiliate-card");
+      const visibleCountElem = document.getElementById("visible-count");
+      const showingPrefix = document.getElementById("showing-prefix");
+      const ofTotalText = document.getElementById("of-total-text");
+      const toolsUnitText = document.getElementById("tools-unit-text");
+      const noResultsBox = document.getElementById("no-results-message");
+      const noResultsTitle = document.getElementById("no-results-title");
+      const noResultsDesc = document.getElementById("no-results-desc");
+      const resetBtn = document.getElementById("reset-filters-btn");
+      const ctaTitle = document.getElementById("cta-title");
+      const ctaDesc = document.getElementById("cta-desc");
+      const ctaDiscordBtn = document.getElementById("cta-discord-btn");
+      const ctaContactBtn = document.getElementById("cta-contact-btn");
+
+      // Modalelement för översättning
+      const modalTitle = document.getElementById("modal-title");
+      const modalSubtitle = document.getElementById("modal-subtitle");
+      const modalWhyTitle = document.getElementById("modal-why-title");
+      const modalWhyText = document.getElementById("modal-why-text");
+      const modalPrivacyTitle = document.getElementById("modal-privacy-title");
+      const modalPrivacyText = document.getElementById("modal-privacy-text");
+
+      let currentCategory = "all";
+      let currentQuery = "";
+
+      function openModal() {
+        if (!modalOverlay) return;
+        modalOverlay.style.display = "flex";
+        document.body.style.overflow = "hidden";
+        updateModalSelectedUI();
+      }
+
+      function closeModal() {
+        if (!modalOverlay) return;
+        modalOverlay.style.display = "none";
+        document.body.style.overflow = "";
+      }
+
+      function updateModalSelectedUI() {
+        countryButtons.forEach((btn) => {
+          const code = btn.getAttribute("data-country");
+          if (code === activeCountry) {
+            btn.classList.add("selected");
+          } else {
+            btn.classList.remove("selected");
+          }
+        });
+        if (modalCloseBtn && activeCountry) {
+          modalCloseBtn.style.display = "inline-block";
+        }
+      }
+
+      // Applicera land, språk (i18n) och butikslänkar
+      function applyCountry(countryCode) {
+        if (!countriesMeta[countryCode]) {
+          countryCode = "se";
+        }
+
+        activeCountry = countryCode;
+        localStorage.setItem(STORAGE_KEY, countryCode);
+
+        const meta = countriesMeta[countryCode];
+        const lang = meta.lang || "sv"; // "sv", "en", eller "pl"
+        const t = allTranslations[lang] || allTranslations["sv"];
+
+        // 1. Uppdatera statusraden
+        if (activeFlagElem && meta.svgFlag) {
+          activeFlagElem.innerHTML = meta.svgFlag;
+        }
+        if (activeNameElem) {
+          activeNameElem.textContent = meta.name;
+        }
+        if (activeDomainElem) {
+          activeDomainElem.textContent = `(${meta.amazonDomain} & AliExpress)`;
+        }
+        if (countryStatusPrefix && t.activeCountryBar) {
+          countryStatusPrefix.textContent = t.activeCountryBar;
+        }
+        if (changeCountryBtnText && t.changeCountryBtn) {
+          changeCountryBtnText.textContent = t.changeCountryBtn;
+        }
+
+        // 2. Uppdatera Hero- och sidrubriker
+        if (heroBadgeTag && t.heroBadge) heroBadgeTag.textContent = t.heroBadge;
+        if (heroBadgeSub && t.heroBadgeSub) heroBadgeSub.textContent = t.heroBadgeSub;
+        if (heroTitleMain && t.heroTitle) heroTitleMain.textContent = t.heroTitle;
+        if (heroTitleHighlight && t.heroTitleHighlight) heroTitleHighlight.textContent = t.heroTitleHighlight;
+        if (heroLeadText && t.heroLead) heroLeadText.textContent = t.heroLead;
+        if (perk1Text && t.perk1) perk1Text.textContent = t.perk1;
+        if (perk2Text && t.perk2) perk2Text.textContent = t.perk2;
+        if (perk3Text && t.perk3) perk3Text.textContent = t.perk3;
+
+        // 3. Uppdatera Transparens / Disclaimer-text
+        if (disclosureTitle && t.disclosureTitle) disclosureTitle.textContent = t.disclosureTitle;
+        if (disclosureBody && t.disclosureText) disclosureBody.innerHTML = t.disclosureText;
+
+        // 4. Uppdatera Sök- och filtreringstexter
+        if (searchInput && t.searchPlaceholder) {
+          searchInput.placeholder = t.searchPlaceholder;
+          searchInput.setAttribute("aria-label", t.searchAria || "Search");
+        }
+        if (showingPrefix && t.showingCount) showingPrefix.textContent = t.showingCount;
+        if (ofTotalText && t.ofTotal) ofTotalText.textContent = t.ofTotal;
+        if (toolsUnitText && t.toolsUnit) toolsUnitText.textContent = t.toolsUnit;
+        if (noResultsTitle && t.noResultsTitle) noResultsTitle.textContent = t.noResultsTitle;
+        if (noResultsDesc && t.noResultsDesc) noResultsDesc.textContent = t.noResultsDesc;
+        if (resetBtn && t.resetFilterBtn) resetBtn.textContent = t.resetFilterBtn;
+
+        // 5. Uppdatera kategoriknapparna
+        filterButtons.forEach((btn) => {
+          const rawCat = btn.getAttribute("data-raw-cat");
+          if (rawCat === "alla") {
+            btn.textContent = t.allCategory || "Alla";
+          } else if (t.categories && t.categories[rawCat]) {
+            btn.textContent = t.categories[rawCat];
+          }
+        });
+
+        // 6. Uppdatera CTA sektion längst ner
+        if (ctaTitle && t.ctaTitle) ctaTitle.textContent = t.ctaTitle;
+        if (ctaDesc && t.ctaDesc) ctaDesc.textContent = t.ctaDesc;
+        if (ctaDiscordBtn && t.ctaDiscord) ctaDiscordBtn.textContent = t.ctaDiscord;
+        if (ctaContactBtn && t.ctaContact) ctaContactBtn.textContent = t.ctaContact;
+
+        // 7. Uppdatera modal-texter
+        if (modalTitle && t.modalTitle) modalTitle.textContent = t.modalTitle;
+        if (modalSubtitle && t.modalSubtitle) modalSubtitle.textContent = t.modalSubtitle;
+        if (modalWhyTitle && t.modalWhyTitle) modalWhyTitle.textContent = t.modalWhyTitle;
+        if (modalWhyText && t.modalWhyText) modalWhyText.textContent = t.modalWhyText;
+        if (modalPrivacyTitle && t.modalPrivacyTitle) modalPrivacyTitle.textContent = t.modalPrivacyTitle;
+        if (modalPrivacyText && t.modalPrivacyText) modalPrivacyText.innerHTML = t.modalPrivacyText;
+        if (modalCloseBtn && t.modalConfirmBtn) modalCloseBtn.textContent = t.modalConfirmBtn;
+
+        updateModalSelectedUI();
+
+        // 8. Uppdatera varje produktkort: Språk, Rubrik, Beskrivning, Tips & Länkar
+        cards.forEach((card) => {
+          let countryLinks = {};
+          let i18n = {};
+
+          try {
+            countryLinks = JSON.parse(card.getAttribute("data-country-links") || "{}");
+          } catch (e) {
+            countryLinks = {};
+          }
+
+          try {
+            i18n = JSON.parse(card.getAttribute("data-i18n") || "{}");
+          } catch (e) {
+            i18n = {};
+          }
+
+          // Översatt text för detta språk (eller svensk fallback)
+          const localContent = i18n[lang] || {};
+          const title = localContent.name || card.getAttribute("data-name-sv") || "";
+          const desc = localContent.description || card.getAttribute("data-desc-sv") || "";
+          const tipText = localContent.tip || card.getAttribute("data-tip-sv") || "";
+          const recText = localContent.recommendedFor || card.getAttribute("data-rec-sv") || "";
+          const rawCat = card.getAttribute("data-category-raw") || "";
+
+          // Sätt kortets rubrik
+          const titleElem = card.querySelector(".card-title");
+          if (titleElem) titleElem.textContent = title;
+
+          // Sätt kortets beskrivning
+          const descElem = card.querySelector(".card-description");
+          if (descElem) descElem.textContent = desc;
+
+          // Sätt kortets kategori-badge
+          const catBadge = card.querySelector(".category-badge");
+          if (catBadge && t.categories && t.categories[rawCat]) {
+            catBadge.textContent = t.categories[rawCat];
+          }
+
+          // Sätt kortets rekommendations-badge
+          const recBadge = card.querySelector(".rec-badge");
+          if (recBadge) {
+            if (recText) {
+              recBadge.textContent = recText;
+              recBadge.style.display = "inline-block";
+            } else {
+              recBadge.style.display = "none";
+            }
+          }
+
+          // Sätt tips-rutan
+          const tipElem = card.querySelector(".card-tip");
+          if (tipElem) {
+            if (tipText) {
+              tipElem.style.display = "flex";
+              const labelElem = tipElem.querySelector(".tip-label");
+              const contentElem = tipElem.querySelector(".tip-content");
+              if (labelElem) labelElem.textContent = t.tipLabel || "Tips:";
+              if (contentElem) contentElem.textContent = tipText;
+            } else {
+              tipElem.style.display = "none";
+            }
+          }
+
+          // Uppdatera söksträng så sökning fungerar på det valda språket
+          const searchKeywords = `${title} ${desc} ${tipText} ${recText} ${rawCat}`.toLowerCase();
+          card.setAttribute("data-search", searchKeywords);
+
+          // Uppdatera affiliate-knappar för AliExpress och Amazon
+          const globalAmazon = card.getAttribute("data-global-amazon") || "";
+          const globalAliExpress = card.getAttribute("data-global-aliexpress") || "";
+
+          const thisCountrySet = countryLinks[countryCode] || {};
+          const amazonUrl = thisCountrySet.amazon || globalAmazon;
+          const aliExpressUrl = thisCountrySet.aliExpress || globalAliExpress;
+
+          const amazonBtn = card.querySelector(".btn-amazon");
+          const aliExpressBtn = card.querySelector(".btn-aliexpress");
+          const promptBtn = card.querySelector(".select-country-prompt-btn");
+
+          if (promptBtn) promptBtn.style.display = "none";
+
+          if (amazonBtn) {
+            if (amazonUrl) {
+              amazonBtn.setAttribute("href", amazonUrl);
+              amazonBtn.style.display = "inline-flex";
+              const labelElem = amazonBtn.querySelector(".amazon-btn-label");
+              if (labelElem) {
+                labelElem.textContent = meta.amazonDomain;
+              }
+            } else {
+              amazonBtn.style.display = "none";
+            }
+          }
+
+          if (aliExpressBtn) {
+            if (aliExpressUrl) {
+              aliExpressBtn.setAttribute("href", aliExpressUrl);
+              aliExpressBtn.style.display = "inline-flex";
+              const labelElem = aliExpressBtn.querySelector(".aliexpress-btn-label");
+              if (labelElem) {
+                labelElem.textContent = "AliExpress";
+              }
+            } else {
+              aliExpressBtn.style.display = "none";
+            }
+          }
+        });
+
+        closeModal();
+      }
+
+      // Klick på land i modalen
+      countryButtons.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const selected = btn.getAttribute("data-country");
+          if (selected) {
+            applyCountry(selected);
+          }
+        });
+      });
+
+      if (changeCountryBtn) {
+        changeCountryBtn.addEventListener("click", () => {
+          openModal();
+        });
+      }
+
+      if (modalCloseBtn) {
+        modalCloseBtn.addEventListener("click", () => {
+          closeModal();
+        });
+      }
+
+      document.querySelectorAll(".select-country-prompt-btn").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          openModal();
+        });
+      });
+
+      // Kontrollera vid sidladdning
+      if (!activeCountry) {
+        openModal();
+        cards.forEach((card) => {
+          const amazonBtn = card.querySelector(".btn-amazon");
+          const aliExpressBtn = card.querySelector(".btn-aliexpress");
+          const promptBtn = card.querySelector(".select-country-prompt-btn");
+          if (amazonBtn) amazonBtn.style.display = "none";
+          if (aliExpressBtn) aliExpressBtn.style.display = "none";
+          if (promptBtn) promptBtn.style.display = "flex";
+        });
+      } else {
+        applyCountry(activeCountry);
+      }
+
+      // -------------------------------------------------------------
+      // FILTER & SÖKNING
+      // -------------------------------------------------------------
+      function filterItems() {
+        let visibleCount = 0;
+
+        cards.forEach((card) => {
+          const cardCat = card.getAttribute("data-category") || "";
+          const cardSearch = card.getAttribute("data-search") || "";
+
+          const matchesCategory =
+            currentCategory === "all" || cardCat.includes(currentCategory);
+          const matchesSearch =
+            !currentQuery || cardSearch.includes(currentQuery);
+
+          if (matchesCategory && matchesSearch) {
+            card.style.display = "flex";
+            visibleCount++;
+          } else {
+            card.style.display = "none";
+          }
+        });
+
+        if (visibleCountElem) {
+          visibleCountElem.textContent = visibleCount.toString();
+        }
+
+        if (noResultsBox) {
+          noResultsBox.style.display = visibleCount === 0 ? "block" : "none";
+        }
+      }
+
+      filterButtons.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          filterButtons.forEach((b) => b.classList.remove("active"));
+          btn.classList.add("active");
+          currentCategory = btn.getAttribute("data-filter") || "all";
+          filterItems();
+        });
+      });
+
+      if (searchInput) {
+        searchInput.addEventListener("input", (e) => {
+          currentQuery = e.target.value.trim().toLowerCase();
+          if (clearSearchBtn) {
+            clearSearchBtn.style.display = currentQuery ? "block" : "none";
+          }
+          filterItems();
+        });
+      }
+
+      if (clearSearchBtn) {
+        clearSearchBtn.addEventListener("click", () => {
+          if (searchInput) {
+            searchInput.value = "";
+            currentQuery = "";
+            clearSearchBtn.style.display = "none";
+            searchInput.focus();
+            filterItems();
+          }
+        });
+      }
+
+      if (resetBtn) {
+        resetBtn.addEventListener("click", () => {
+          currentCategory = "all";
+          currentQuery = "";
+          if (searchInput) {
+            searchInput.value = "";
+            if (clearSearchBtn) clearSearchBtn.style.display = "none";
+          }
+          filterButtons.forEach((b, idx) => {
+            if (idx === 0) b.classList.add("active");
+            else b.classList.remove("active");
+          });
+          filterItems();
+        });
+      }
+    });
+  </script>
+</MainLayout>
+
+<style>
+  .affiliate-hero {
+    padding: 5rem 0 2rem;
+    text-align: center;
+  }
+
+  .hero-lead {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: var(--text-dim);
+    max-width: 800px;
+    margin: 0 auto 2rem;
+  }
+
+  .affiliate-perks {
+    display: flex;
+    justify-content: center;
+    gap: 1.25rem;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+  }
+
+  .perk-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border);
+    padding: 8px 18px;
+    border-radius: 30px;
+    font-size: 0.9rem;
+    color: var(--text-main);
+  }
+
+  .perk-icon {
+    font-size: 1.1rem;
+  }
+
+  /* Aktivt Land-indikator Bar */
+  .country-status-bar {
+    background: linear-gradient(90deg, rgba(30, 41, 59, 0.9) 0%, rgba(15, 23, 42, 0.95) 100%);
+    border: 1px solid rgba(56, 189, 248, 0.35);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+    border-radius: 14px;
+    padding: 12px 20px;
+    margin: 2rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    flex-wrap: wrap;
+  }
+
+  .country-status-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.95rem;
+    color: #cbd5e1;
+    flex-wrap: wrap;
+  }
+
+  .status-pin {
+    font-size: 1.2rem;
+  }
+
+  .active-country-tag {
+    background: rgba(56, 189, 248, 0.12);
+    border: 1px solid var(--accent);
+    color: var(--text-main);
+    padding: 6px 14px;
+    border-radius: 10px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.95rem;
+  }
+
+  .flag-wrapper {
+    display: inline-flex;
+    align-items: center;
+    line-height: 0;
+  }
+
+  :global(.flag-vector) {
+    display: inline-block;
+    border-radius: 3px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    vertical-align: middle;
+  }
+
+  .country-subinfo {
+    color: var(--text-dim);
+    font-size: 0.85rem;
+    font-weight: 500;
+  }
+
+  .change-country-btn {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border);
+    color: var(--accent);
+    font-weight: 700;
+    padding: 8px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.88rem;
+    transition: all 0.2s ease;
+  }
+
+  .change-country-btn:hover {
+    background: rgba(56, 189, 248, 0.15);
+    border-color: var(--accent);
+    transform: translateY(-1px);
+  }
+
+  /* Transparens & Affiliate Disclosure Box */
+  .affiliate-disclosure-box {
+    background: linear-gradient(135deg, rgba(56, 189, 248, 0.06) 0%, rgba(30, 41, 59, 0.6) 100%);
+    border: 1px solid rgba(56, 189, 248, 0.25);
+    border-radius: 16px;
+    padding: 1.25rem 1.75rem;
+    margin: 0 0 2.5rem;
+    font-size: 0.92rem;
+    line-height: 1.6;
+    color: #cbd5e1;
+  }
+
+  .disclosure-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 0.5rem;
+    color: var(--accent);
+    font-size: 0.98rem;
+  }
+
+  .disclosure-icon {
+    font-size: 1.2rem;
+  }
+
+  /* Filter- & Sökstyrning */
+  .filter-controls-wrapper {
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.25rem;
+  }
+
+  .search-box {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+  }
+
+  .search-box input {
+    width: 100%;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    color: var(--text-main);
+    padding: 14px 44px 14px 44px;
+    border-radius: 14px;
+    font-size: 1rem;
+    outline: none;
+    transition: all 0.2s ease;
+  }
+
+  .search-box input:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 15px rgba(56, 189, 248, 0.2);
+  }
+
+  .search-icon {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0.6;
+    pointer-events: none;
+  }
+
+  .clear-search {
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: var(--text-dim);
+    font-size: 1.1rem;
+    cursor: pointer;
+    padding: 4px 8px;
+    border-radius: 50%;
+  }
+
+  .clear-search:hover {
+    color: var(--text-main);
+  }
+
+  .category-filter-bar {
+    display: flex;
+    justify-content: center;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+  }
+
+  .filter-tab {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border);
+    color: var(--text-main);
+    padding: 8px 18px;
+    border-radius: 12px;
+    font-size: 0.92rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .filter-tab:hover {
+    border-color: var(--accent);
+    background: rgba(56, 189, 248, 0.08);
+  }
+
+  .filter-tab.active {
+    background: var(--accent);
+    color: var(--bg);
+    border-color: var(--accent);
+  }
+
+  .results-count-bar {
+    font-size: 0.88rem;
+    color: var(--text-dim);
+  }
+
+  /* Grid & Kort */
+  .affiliate-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 2rem;
+    margin-bottom: 4rem;
+  }
+
+  .affiliate-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+  }
+
+  .affiliate-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--accent);
+    box-shadow: 0 12px 30px rgba(56, 189, 248, 0.15);
+  }
+
+  .card-image-wrapper {
+    position: relative;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    background: #090d16;
+  }
+
+  .card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.35s ease;
+  }
+
+  .affiliate-card:hover .card-img {
+    transform: scale(1.04);
+  }
+
+  .category-badge {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background: rgba(15, 23, 42, 0.85);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(56, 189, 248, 0.4);
+    color: var(--accent);
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 20px;
+    letter-spacing: 0.3px;
+    z-index: 2;
+  }
+
+  .rec-badge {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: rgba(34, 197, 94, 0.2);
+    border: 1px solid rgba(34, 197, 94, 0.5);
+    color: #4ade80;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 20px;
+    backdrop-filter: blur(8px);
+    z-index: 2;
+  }
+
+  .card-body {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    gap: 1rem;
+  }
+
+  .card-title {
+    font-size: 1.22rem;
+    font-weight: 700;
+    line-height: 1.35;
+    margin: 0;
+    color: var(--text-main);
+  }
+
+  .card-description {
+    font-size: 0.92rem;
+    color: var(--text-dim);
+    line-height: 1.6;
+    margin: 0;
+    flex-grow: 1;
+  }
+
+  /* mkFix Tips Box i kortet */
+  .card-tip {
+    background: rgba(56, 189, 248, 0.05);
+    border-left: 3px solid var(--accent);
+    border-radius: 6px;
+    padding: 10px 12px;
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    font-size: 0.85rem;
+    line-height: 1.5;
+  }
+
+  .tip-icon {
+    font-size: 1.1rem;
+    flex-shrink: 0;
+  }
+
+  .tip-text strong {
+    color: var(--accent);
+  }
+
+  /* Knappar för AliExpress & Amazon */
+  .card-links {
+    display: flex;
+    gap: 10px;
+    margin-top: auto;
+    padding-top: 0.5rem;
+  }
+
+  .affiliate-btn {
+    flex: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 11px 14px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.88rem;
+    transition: all 0.2s ease;
+    text-align: center;
+    white-space: nowrap;
+  }
+
+  /* AliExpress Style */
+  .btn-aliexpress {
+    background: #ff4747;
+    color: #ffffff;
+    border: 1px solid #ff4747;
+  }
+
+  .btn-aliexpress:hover {
+    background: #e63939;
+    border-color: #e63939;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(255, 71, 71, 0.35);
+  }
+
+  /* Amazon Style */
+  .btn-amazon {
+    background: #f59e0b;
+    color: #0f172a;
+    border: 1px solid #f59e0b;
+  }
+
+  .btn-amazon:hover {
+    background: #d97706;
+    border-color: #d97706;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(245, 158, 11, 0.35);
+  }
+
+  .btn-arrow {
+    font-size: 1rem;
+    transition: transform 0.2s ease;
+  }
+
+  .affiliate-btn:hover .btn-arrow {
+    transform: translate(2px, -2px);
+  }
+
+  /* Prompt innan land valts */
+  .select-country-prompt-btn {
+    width: 100%;
+    background: rgba(56, 189, 248, 0.1);
+    border: 1px dashed var(--accent);
+    color: var(--accent);
+    padding: 11px 14px;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 0.88rem;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+  }
+
+  .select-country-prompt-btn:hover {
+    background: rgba(56, 189, 248, 0.2);
+    transform: translateY(-1px);
+  }
+
+  /* Tomt sökresultat */
+  .no-results {
+    text-align: center;
+    padding: 4rem 1rem;
+    background: var(--card-bg);
+    border: 1px dashed var(--border);
+    border-radius: 18px;
+    margin-bottom: 4rem;
+  }
+
+  .no-results-icon {
+    font-size: 3rem;
+    display: block;
+    margin-bottom: 1rem;
+    opacity: 0.5;
+  }
+
+  .no-results h3 {
+    margin-bottom: 0.5rem;
+  }
+
+  .no-results p {
+    color: var(--text-dim);
+    margin-bottom: 1.5rem;
+  }
+
+  .reset-btn {
+    background: var(--accent);
+    color: var(--bg);
+    border: none;
+    font-weight: 700;
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: opacity 0.2s;
+  }
+
+  .reset-btn:hover {
+    opacity: 0.9;
+  }
+
+  /* CTA Sektion längst ner */
+  .affiliate-cta-box {
+    background: linear-gradient(135deg, rgba(30, 41, 59, 0.9) 0%, rgba(15, 23, 42, 0.95) 100%);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 2.5rem;
+    text-align: center;
+    margin: 4rem 0 5rem;
+  }
+
+  .affiliate-cta-box h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .affiliate-cta-box p {
+    max-width: 650px;
+    margin: 0 auto 1.75rem;
+    color: var(--text-dim);
+    line-height: 1.6;
+  }
+
+  .cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .cta-dc-btn {
+    background: #5865f2;
+    color: white;
+    text-decoration: none;
+    font-weight: 700;
+    padding: 12px 22px;
+    border-radius: 10px;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .cta-dc-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(88, 101, 242, 0.4);
+  }
+
+  .cta-contact-btn {
+    background: transparent;
+    color: var(--text-main);
+    border: 1px solid var(--border);
+    text-decoration: none;
+    font-weight: 700;
+    padding: 12px 22px;
+    border-radius: 10px;
+    transition: border-color 0.2s, background 0.2s;
+  }
+
+  .cta-contact-btn:hover {
+    border-color: var(--accent);
+    background: rgba(56, 189, 248, 0.08);
+  }
+
+  /* ================================================================= */
+  /* MODAL STILAR (LANDSVAL MED TYDLIGA FLAGGOR)                       */
+  /* ================================================================= */
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(10, 15, 28, 0.88);
+    backdrop-filter: blur(14px);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    overflow-y: auto;
+    animation: fadeIn 0.25s ease-out;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  .modal-dialog {
+    background: #1e293b;
+    border: 1px solid rgba(56, 189, 248, 0.4);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6), 0 0 30px rgba(56, 189, 248, 0.2);
+    border-radius: 24px;
+    max-width: 660px;
+    width: 100%;
+    padding: 2.25rem;
+    position: relative;
+    color: var(--text-main);
+    animation: slideUp 0.3s ease-out;
+  }
+
+  @keyframes slideUp {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+
+  .modal-header {
+    text-align: center;
+    margin-bottom: 1.75rem;
+  }
+
+  .modal-icon-badge {
+    font-size: 2.8rem;
+    margin-bottom: 0.5rem;
+    display: inline-block;
+  }
+
+  .modal-header h2 {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--text-main);
+    margin-bottom: 0.5rem;
+  }
+
+  .modal-subtitle {
+    font-size: 0.95rem;
+    color: var(--text-dim);
+    line-height: 1.5;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  /* 2-kolumners balanserad grid med perfekt bredd och höjd */
+  .countries-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-bottom: 1.75rem;
+  }
+
+  @media (min-width: 580px) {
+    .country-card-btn:last-child {
+      grid-column: 1 / -1;
+      width: calc(50% - 6px);
+      margin: 0 auto;
+    }
+  }
+
+  @media (max-width: 579px) {
+    .countries-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .country-card-btn {
+    background: rgba(15, 23, 42, 0.75);
+    border: 2px solid var(--border);
+    border-radius: 14px;
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    cursor: pointer;
+    text-align: left;
+    color: var(--text-main);
+    transition: all 0.2s ease;
+    min-height: 68px;
+    box-sizing: border-box;
+    position: relative;
+  }
+
+  .country-card-btn:hover {
+    border-color: var(--accent);
+    background: rgba(56, 189, 248, 0.08);
+    transform: translateY(-2px);
+  }
+
+  .country-card-btn.selected {
+    border-color: var(--accent);
+    background: rgba(56, 189, 248, 0.18);
+    box-shadow: 0 0 15px rgba(56, 189, 248, 0.3);
+  }
+
+  /* Ram runt flaggan med fast storlek */
+  .flag-frame {
+    width: 42px;
+    height: 28px;
+    border-radius: 5px;
+    overflow: hidden;
+    flex-shrink: 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #090d16;
+  }
+
+  .flag-frame :global(svg) {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  /* Vertikal och horisontell text-justering */
+  .country-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-grow: 1;
+    min-width: 0;
+  }
+
+  .country-name {
+    font-size: 1.05rem;
+    font-weight: 700;
+    line-height: 1.25;
+    color: #ffffff;
+    white-space: nowrap;
+  }
+
+  .country-domain {
+    font-size: 0.8rem;
+    color: var(--text-dim);
+    line-height: 1.2;
+    margin-top: 4px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .country-check {
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: var(--accent);
+    margin-left: auto;
+    flex-shrink: 0;
+    opacity: 0;
+    transform: scale(0.8);
+    transition: all 0.2s ease;
+  }
+
+  .country-card-btn.selected .country-check {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  /* Integritets- och förklaringsbox inuti modalen */
+  .modal-privacy-info {
+    background: rgba(15, 23, 42, 0.6);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    font-size: 0.86rem;
+    line-height: 1.5;
+    color: #94a3b8;
+  }
+
+  .privacy-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .privacy-icon {
+    font-size: 1.25rem;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  .privacy-item strong {
+    color: #e2e8f0;
+    display: block;
+    margin-bottom: 2px;
+    font-size: 0.9rem;
+  }
+
+  .privacy-item code {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 1px 5px;
+    border-radius: 4px;
+    color: var(--accent);
+    font-size: 0.82rem;
+  }
+
+  .modal-footer {
+    margin-top: 1.5rem;
+    text-align: center;
+  }
+
+  .modal-confirm-btn {
+    background: var(--accent);
+    color: var(--bg);
+    border: none;
+    font-weight: 800;
+    font-size: 0.95rem;
+    padding: 12px 28px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 15px rgba(56, 189, 248, 0.3);
+  }
+
+  .modal-confirm-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(56, 189, 248, 0.45);
+  }
+
+  @media (max-width: 640px) {
+    .affiliate-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .card-links {
+      flex-direction: column;
+    }
+
+    .affiliate-hero {
+      padding-top: 3.5rem;
+    }
+
+    .country-status-bar {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .change-country-btn {
+      width: 100%;
+      text-align: center;
+    }
+
+    .modal-dialog {
+      padding: 1.5rem;
+    }
+  }
+</style>
