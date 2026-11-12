@@ -114,6 +114,48 @@ const rawProducts: (Omit<Product, 'images'> & { images: (string | ImageMetadata)
     ]
   },
 
+  // --- 102: PS5 DualSense Cosmic Red #102 ---
+  {
+    slug: 'ps5-dualsense-cosmic-red-tmr-102',
+    title: 'Sony PS5 DualSense – Cosmic Red – TMR-Joysticks (#102)',
+    price: 649,
+    originalPrice: 849,
+    category: 'kontroller',
+    status: 'in_stock',
+    badge: '🧲 TMR Elektromagnetisk',
+    condition: 'Professionellt renoverad & TMR-uppgraderad',
+    warranty: '6 månaders full funktionsgaranti från mkFix',
+    shortDescription: 'Original PlayStation 5 DualSense i slående Cosmic Red (#102) uppgraderad i mkFix-verkstaden med elektromagnetiska TMR-joysticks. Glöm stick drift för gott!',
+    description: [
+      'Original Sony PlayStation 5 DualSense i slående Cosmic Red (tvåtonad röd och svart design, inventarienummer #102).',
+      'Båda de analoga styrspakarna har uppgraderats i vår verkstad i Malmö till moderna K-Silver TMR-joysticks (Tunneling Magnetoresistive). TMR mäter spakrörelser kontaktlöst via magnetfält istället för mekaniska kolbanor som slits ut, vilket eliminerar stick drift för alltid och ger överlägsen precision.',
+      'Hårdvarukalibrerad och kvalitetstestad i testrigg med perfekt centrering och jämn cirkuläritet. Full funktion i alla avancerade DualSense-funktioner: adaptiva triggers, haptisk feedback, inbyggd mikrofon och rörelsesensor.'
+    ],
+    features: [
+      'K-Silver TMR elektromagnetiska sensorer installerade',
+      'Permanent skydd mot stick drift och mekaniskt slitage',
+      'Hårdvarukalibrerad för minimal felmarginal och maximal precision',
+      'Full haptik, gyro, mikrofon och adaptiva triggers',
+      'Kompatibel med PlayStation 5, PC, Mac, iOS och Android',
+      '6 månaders full funktionsgaranti från mkFix'
+    ],
+    specs: [
+      { label: 'Plattform', value: 'PlayStation 5, PC, Mac, iOS, Android' },
+      { label: 'Sensor-teknik', value: 'K-Silver TMR (Tunneling Magnetoresistive)' },
+      { label: 'Modell', value: 'Sony DualSense CFI-ZCT1W (#102)' },
+      { label: 'Färg', value: 'Cosmic Red / Svart (#102)' },
+      { label: 'Anslutning', value: 'USB-C & Bluetooth' },
+      { label: 'Skick', value: 'Toppskick / TMR-uppgraderad' },
+      { label: 'Garanti', value: '6 månader från mkFix' }
+    ],
+    images: [
+      '/img/products/102/PXL_20261112_170817749.jpg',
+      '/img/products/102/PXL_20261112_170824967.jpg',
+      '/img/products/102/PXL_20261112_170832247.jpg',
+      '/img/products/102/PXL_20261112_170835450.jpg'
+    ]
+  },
+
   // --- 174: PS5 DualSense White #174 ---
   {
     slug: 'ps5-dualsense-white-tmr-clicky-mod-174',
