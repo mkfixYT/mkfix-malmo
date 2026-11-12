@@ -382,6 +382,56 @@ const rawProducts: (Omit<Product, 'images'> & { images: (string | ImageMetadata)
       '/img/products/208/Screenshot 2026-10-16 194012.png'
     ]
   },
+
+  // --- 125: PS4 DualShock 4 Jet Black – TMR + USB-C + 2500mAh #125 ---
+  {
+    slug: 'ps4-dualshock-4-jet-black-tmr-usbc-125',
+    title: 'Sony PlayStation 4 DualShock 4 – Jet Black – TMR, USB-C & 2500mAh (#125)',
+    price: 899,
+    category: 'kontroller',
+    status: 'in_stock',
+    badge: '🧲 TMR & USB-C Mod',
+    condition: 'Professionellt ombyggd & TMR-uppgraderad',
+    warranty: '6 månaders full funktionsgaranti från mkFix',
+    shortDescription: 'Specialbyggd Sony PlayStation 4 DualShock 4 i klassisk Jet Black (#125). Uppgraderad med elektromagnetiska TMR-joysticks (12.1% / 10.4% felmarginal), modern USB-C laddningsport samt ett nytt 2500mAh högkapacitetsbatteri!',
+    description: [
+      'En helrenoverad och maximalt uppgraderad Sony PlayStation 4 DualShock 4 i klassiskt Jet Black-utförande (inventarienummer #125), skräddarsydd och förädlad i vår verkstad i Malmö.',
+      'Kontrollen har fått den gamla slitkänsliga Micro-USB-porten utbytt mot en modern USB-C-laddningsport. Nu slipper du krångla med förlegade sladdar och kan ladda kontrollen med samma moderna USB-C-kabel som du använder till mobilen, datorn eller PS5.',
+      'För att maximera speltiden har originalbatteriet ersatts av ett splitternytt högkapacitetsbatteri på hela 2500mAh (LIP1522). Det är mer än dubbelt så stor kapacitet jämfört med Sonys originalbatteri (som oftast ligger på 800–1000mAh), vilket ger dig oerhört många timmars trådlös gaming på en enda laddning.',
+      'Båda analogspakarna har bytts ut mot banbrytande K-Silver TMR-joysticks (Tunneling Magnetoresistive). TMR är marknadens mest avancerade sensorteknik och läser av spakrörelser kontaktlöst via magnetfält istället för fysiska kolbanor. Den är hårdvarukalibrerad i testbänk till 12.1% (vänster) och 10.4% (höger) felmarginal med perfekt centrering – 100% säkrad mot framtida stick drift!'
+    ],
+    features: [
+      'Splitternya elektromagnetiska TMR-joysticks installerade via mikrolödning',
+      'Helt immun mot framtida stick drift och mekaniskt slitage',
+      'Hårdvarukalibrerad till 12.1% / 10.4% felmarginal (se kalibreringsbild)',
+      'Anpassad USB-C laddningsport (ersätter gamla Micro-USB)',
+      'Nytt 2500mAh Li-ion högkapacitetsbatteri (över 2.5x originalkapacitet)',
+      'Full funktionalitet: Touchpad, gyro, 3.5mm ljuduttag, ljusramp och vibration',
+      'Kompatibel med PlayStation 4, PC, Mac, iOS och Android',
+      '6 månaders full funktionsgaranti från mkFix'
+    ],
+    specs: [
+      { label: 'Plattform', value: 'PlayStation 4, PC (Steam/Windows), Mac, iOS, Android' },
+      { label: 'Sensor-teknik', value: 'K-Silver TMR (Tunneling Magnetoresistive)' },
+      { label: 'Modell', value: 'Sony DualShock 4 CUH-ZCT1E (#125)' },
+      { label: 'Färg', value: 'Jet Black (Klassisk Svart)' },
+      { label: 'Laddningsport', value: 'USB-C (custom modifikation)' },
+      { label: 'Batterikapacitet', value: '2500mAh Li-ion (nytt högkapacitetsbatteri)' },
+      { label: 'Kalibrering', value: '12.1% vänster / 10.4% höger felmarginal' },
+      { label: 'Anslutning', value: 'Bluetooth & USB-C' },
+      { label: 'Headsetuttag', value: '3.5 mm stereojack' },
+      { label: 'Skick', value: 'Toppskick / Custom-modifierad' }
+    ],
+    images: [
+      '/img/products/125/PXL_20261112_185747517.MP.jpg',
+      '/img/products/125/PXL_20261112_185802365.jpg',
+      '/img/products/125/PXL_20261112_183954287.jpg',
+      '/img/products/125/PXL_20261112_183454206.jpg',
+      '/img/products/125/Screenshot 2026-11-12 195722.png',
+      '/img/products/125/PXL_20261112_185753348.MP.jpg',
+      '/img/products/125/PXL_20261112_185809154.MP.jpg'
+    ]
+  },
   {
     slug: 'xbox-360-wireless-green-HE-229',
     title: 'Xbox 360 Trådlös Handkontroll – Genomskinlig Grön – Hall Effect (#229)',
