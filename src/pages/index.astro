@@ -634,6 +634,25 @@ const faqSchema = {
     <h2>Boka din reparation</h2>
     <p>Beskriv felet så återkommer jag med pris och tidsförslag. Lämna in i Malmö eller skicka via PostNord från hela Sverige!</p>
     
+    <!-- Tider för inlämning & verkstadsarbete -->
+    <div class="workshop-hours-pill">
+        <div class="hours-item">
+            <span class="hours-icon">📦</span>
+            <div>
+                <strong>Inlämning &amp; Avlämning:</strong>
+                <span>Kl. 08:00 – 22:00 <small>(efter överenskommelse)</small></span>
+            </div>
+        </div>
+        <div class="hours-divider"></div>
+        <div class="hours-item">
+            <span class="hours-icon">🛠️</span>
+            <div>
+                <strong>Verkstadsarbete:</strong>
+                <span>Utförs normalt mellan kl. 14:00 – 22:00</span>
+            </div>
+        </div>
+    </div>
+
     <!-- 1. FIXED: Added enctype="multipart/form-data" for your file upload -->
     <form id="contact-form" class="contact-form" method="POST" enctype="multipart/form-data">
         <div class="form-group">
@@ -792,8 +811,11 @@ const faqSchema = {
     </script>
     
     <div style="margin-top: 2rem; border-top: 1px solid var(--border); padding-top: 2rem;">
-        <p>Föredrar du direktkontakt?</p>
-        <a href="tel:0790320605" style="color: var(--accent); text-decoration: none; font-weight: bold;">079-032 06 05</a>
+        <p>Föredrar du direktkontakt? Ring eller SMS:a:</p>
+        <a href="tel:0790320605" style="color: var(--accent); text-decoration: none; font-weight: bold; font-size: 1.25rem;">079-032 06 05</a>
+        <p style="margin-top: 0.75rem; font-size: 0.9rem; color: var(--text-dim);">
+            Avlämning kan ske kl. 08:00 – 22:00 (alla dagar efter överenskommelse). Verkstadsarbete utförs normalt kl. 14:00 – 22:00.
+        </p>
     </div>
 </section>
 

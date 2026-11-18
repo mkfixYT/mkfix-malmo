@@ -1352,3 +1352,99 @@ body.menu-open {
     transform: translateY(-2px);
     color: var(--accent) !important;
 }
+
+/* Footer Opening & Workshop Hours */
+.footer-hours {
+    margin-top: 1.25rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    font-size: 0.88rem;
+    color: #cbd5e1;
+}
+
+.footer-hours-title {
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 0.2rem;
+    display: block;
+    font-size: 0.9rem;
+    letter-spacing: 0.02em;
+}
+
+.footer-hour-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    line-height: 1.4;
+}
+
+.footer-hour-row small {
+    color: #94a3b8;
+    display: block;
+    font-size: 0.78rem;
+}
+
+/* Workshop Hours Box in Booking Section */
+.workshop-hours-pill {
+    display: inline-flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    background: rgba(56, 189, 248, 0.08);
+    border: 1px solid rgba(56, 189, 248, 0.3);
+    padding: 1rem 1.8rem;
+    border-radius: 16px;
+    margin: 1.5rem auto 1rem;
+    max-width: 650px;
+    text-align: left;
+}
+
+.hours-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.hours-icon {
+    font-size: 1.5rem;
+    line-height: 1;
+}
+
+.hours-item strong {
+    display: block;
+    color: #ffffff;
+    font-size: 0.95rem;
+}
+
+.hours-item span {
+    color: #cbd5e1;
+    font-size: 0.88rem;
+}
+
+.hours-item small {
+    color: #94a3b8;
+    font-size: 0.8rem;
+}
+
+.hours-divider {
+    width: 1px;
+    height: 38px;
+    background: rgba(255, 255, 255, 0.15);
+}
+
+@media (max-width: 640px) {
+    .workshop-hours-pill {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+        padding: 1.2rem;
+        margin: 1.5rem 0.5rem 1rem;
+    }
+    .hours-divider {
+        display: none;
+    }
+}
