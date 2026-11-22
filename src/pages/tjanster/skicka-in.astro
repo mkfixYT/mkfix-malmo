@@ -834,6 +834,17 @@ const faqSchema = {
           </select>
         </div>
         <div class="form-group">
+          <select
+            name="fi-text-oppnad"
+            aria-label="Har du öppnat upp enheten själv eller en annan reparatör?"
+            required
+          >
+            <option value="" disabled selected>Har du öppnat upp enheten själv eller en annan reparatör?*</option>
+            <option value="Ja">Ja</option>
+            <option value="Nej">Nej</option>
+          </select>
+        </div>
+        <div class="form-group">
           <textarea
             name="fi-text-message"
             placeholder="Beskriv problemet och varifrån du skickar (t.ex. 'PS5 DualSense med stick drift, skickar från Stockholm')"

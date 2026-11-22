@@ -666,7 +666,7 @@ const faqSchema = {
         </div>
         <div class="form-group">
             <select name="fi-text-enhet" aria-label="Välj enhet" required>
-                <option value="" disabled selected>Välj enhet</option>
+                <option value="" disabled selected>Välj enhet*</option>
                 <option value="konsolservice">Service, Rengöring &amp; Kylpasta / Liquid Metal (Konsol)</option>
                 <option value="hdmi-byte">HDMI-port Byte (PS5, PS4, Xbox, Konsol)</option>
                 <option value="ps5">Playstation 5</option>
@@ -681,6 +681,13 @@ const faqSchema = {
                 <option value="ps1">Playstation 1</option>
                 <option value="annat">Annat / Konsol</option>
                 <option value="ovrig-elektronik">Övrig elektronik (Kretskort, lödning, etc)</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <select name="fi-text-oppnad" aria-label="Har du öppnat upp enheten själv eller en annan reparatör?" required>
+                <option value="" disabled selected>Har du öppnat upp enheten själv eller en annan reparatör?*</option>
+                <option value="Ja">Ja</option>
+                <option value="Nej">Nej</option>
             </select>
         </div>
         <div class="form-group">
